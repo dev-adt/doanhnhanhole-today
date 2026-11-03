@@ -1,15 +1,13 @@
 /**
- * Service Worker cho DoanhNghiepVN.today PWA
+ * Service Worker cho Laocai.today PWA
  * Cung cấp khả năng tải nhanh và hoạt động offline cơ bản
  */
 
-const CACHE_NAME = 'daklak-cache-v2';
+const CACHE_NAME = 'laocai-cache-v2';
 const PRECACHE_ASSETS = [
   '/manifest.json',
-  '/favicon.png',
-  '/logo_icon.png',
-  '/pwa-192x192.png',
-  '/pwa-512x512.png'
+  '/favicon.svg',
+  '/logo_icon.svg'
 ];
 
 self.addEventListener('install', (event) => {

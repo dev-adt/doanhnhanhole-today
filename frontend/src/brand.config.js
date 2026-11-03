@@ -1,96 +1,97 @@
 /**
  * BRAND CONFIGURATION (CẤU HÌNH THƯƠNG HIỆU TẬP TRUNG)
  * -------------------------------------------------------------
- * File này quản lý toàn bộ thông tin nhận diện thương hiệu của nền tảng DakLak.today.
- * Định vị: Cổng thông tin, dữ liệu và kết nối đầu tư Đắk Lắk
- * Triết lý: "Từ đất bazan đến cơ hội toàn cầu" (Media + Data + Platform + AI)
+ * File này quản lý toàn bộ thông tin nhận diện thương hiệu của nền tảng Laocai.today.
+ * Định vị: Nền tảng kết nối hợp tác, xúc tiến đầu tư và quảng bá Lào Cai tích hợp Trợ lý AI đa ngôn ngữ.
+ * Triết lý: "Kết nối con người – Kết nối doanh nghiệp – Kết nối Lào Cai với thế giới" (Media + Data + Platform + AI)
  */
 
 export const brandConfig = {
   // Thông tin định danh thương hiệu
-  brandName: 'DakLak.today',         // Tên thương hiệu hiển thị chính
-  brandShortName: 'DakLak',          // Tên viết tắt ngắn gọn (tránh trùng .today)
-  platformName: 'DakLak.today Digital Platform',
-  companyLegalName: 'Cổng thông tin, Dữ liệu & Xúc tiến Đầu tư Đắk Lắk',
+  brandName: 'Laocai.today',         // Tên thương hiệu hiển thị chính
+  brandShortName: 'Lào Cai',         // Tên viết tắt ngắn gọn (tránh trùng .today)
+  platformName: 'Laocai.today Digital Platform',
+  companyLegalName: 'Nền tảng Kết nối Hợp tác, Xúc tiến Đầu tư & Quảng bá Lào Cai',
   partnerLegalName: 'Công ty Cổ phần ADT Quốc tế',
   
-  // Slogan & Định vị theo tài liệu thiết kế mới
-  slogan: 'Khám phá • Kết nối • Phát triển',
-  tagline: 'Đắk Lắk – Từ đại ngàn đến biển xanh',
-  description: 'Nền tảng thông tin, khám phá địa phương và kết nối cơ hội kinh doanh Đắk Lắk.',
+  // Slogan & Định vị theo tài liệu Giới thiệu dự án Laocai.today
+  slogan: 'Kết nối con người • Kết nối doanh nghiệp • Kết nối Lào Cai với thế giới',
+  tagline: 'Lào Cai – Đỉnh thiêng hội tụ, Cửa ngõ giao thương ASEAN – Trung Quốc',
+  description: 'Laocai.today là nền tảng kết nối hợp tác, xúc tiến đầu tư và quảng bá Lào Cai tích hợp Trợ lý AI đa ngôn ngữ.',
   
   // Tên miền & Đường dẫn
-  domain: 'daklak.today',
-  demoDomain: 'dev.daklak.today',
-  baseUrl: 'https://daklak.today',
-  demoUrl: 'https://dev.daklak.today',
+  domain: 'laocai.today',
+  demoDomain: 'dev.laocai.today',
+  baseUrl: 'https://laocai.today',
+  demoUrl: 'https://dev.laocai.today',
   apiBaseUrl: '/api',
 
   // Nhận diện hình ảnh & Logo
   logo: {
-    primary: '/logo_daklak.png',
-    dark: '/logo_daklak_dark.png',
+    primary: '/logo_icon.svg',
+    dark: '/logo_icon.svg',
     icon: '/logo_icon.svg',
-    alt: 'DakLak.today Logo',
+    alt: 'Laocai.today Logo',
     favicon: '/favicon.svg',
-    defaultThumbnail: '/images/daklak/daklak_doi_ca_phe.jpg',
-    fallbackCompanyLogo: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=400&q=80'
+    defaultThumbnail: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=85',
+    fallbackCompanyLogo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80'
   },
 
-  // Hệ màu chuẩn theo tài liệu Thiết kế giao diện Daklak.docx
+  // Hệ màu chuẩn cảm hứng Tây Bắc - Đỉnh Fansipan, Rừng đại ngàn, Vàng mùa lúa chín & Đỏ thổ cẩm
   colors: {
-    forestGreen: '#16734A',   // Xanh đại ngàn (Màu chủ đạo, nút hành động)
-    coffeeOrange: '#E99035',  // Cam cà phê (Điểm nhấn, nội dung nổi bật)
-    oceanBlue: '#168BC3',     // Xanh biển (Du lịch, kinh tế biển)
-    creamBg: '#FAF8F2',       // Trắng kem (Nền trang, tạo cảm giác thoáng)
-    charcoalDark: '#25312D',  // Than đậm (Tiêu đề và nội dung)
-    primary: '#16734A',
-    primaryHover: '#125C3A',
-    primaryDark: '#0E462C',
-    primaryLight: '#FAF8F2',
-    secondary: '#168BC3',
-    accent: '#E99035',
-    accentGlow: 'rgba(233, 144, 53, 0.4)',
-    gold: '#E99035',
-    bazanBrown: '#7A3E1D',
-    coffee: '#3B2417',
-    cream: '#FAF8F2',
-    darkBg: '#1C2421',
-    darkCard: '#25312D'
+    forestGreen: '#145A3E',   // Xanh đại ngàn Hoàng Liên (Màu chủ đạo, nút hành động)
+    coffeeOrange: '#D99B26',  // Vàng mùa lúa chín ruộng bậc thang (Điểm nhấn, nội dung nổi bật)
+    oceanBlue: '#1B6E8C',     // Xanh sương mây & Cửa khẩu quốc tế
+    creamBg: '#F6F8F5',       // Trắng sương mây vùng cao (Nền trang thoáng đãng)
+    charcoalDark: '#12261E',  // Xanh chàm thổ cẩm đậm (Tiêu đề và nội dung)
+    brocadeRed: '#B83B2A',    // Đỏ thổ cẩm & Hoa đỗ quyên rừng
+    primary: '#145A3E',
+    primaryHover: '#0F4630',
+    primaryDark: '#0A2E1F',
+    primaryLight: '#F6F8F5',
+    secondary: '#1B6E8C',
+    accent: '#D99B26',
+    accentGlow: 'rgba(217, 155, 38, 0.4)',
+    gold: '#D99B26',
+    bazanBrown: '#8C3A2B',
+    coffee: '#132A21',
+    cream: '#F6F8F5',
+    darkBg: '#0D211A',
+    darkCard: '#153026'
   },
 
   // Trợ lý Trí tuệ Nhân tạo (AI Assistant)
   aiAssistant: {
-    name: 'AI Đắk Lắk Assistant',
-    shortName: 'Đắk Lắk AI',
-    title: 'Trợ lý AI Cố vấn Đầu tư & Điểm đến Đắk Lắk',
+    name: 'AI Lào Cai Assistant',
+    shortName: 'Lào Cai AI',
+    title: 'Trợ lý AI Xúc tiến Đầu tư, Giao thương & Du lịch Lào Cai Đa ngôn ngữ',
     avatar: '/ai_robot_avatar-removebg.png',
-    welcomeMessage: 'Xin chào! Tôi là Trợ lý AI của DakLak.today. Tôi có thể hỗ trợ quý vị tra cứu cơ hội đầu tư, chuỗi giá trị cà phê, doanh nghiệp địa phương, nông nghiệp công nghệ cao và hành trình khám phá Đắk Lắk 24/7.',
-    systemRole: 'Bạn là trợ lý AI chuyên nghiệp của nền tảng DakLak.today — Cổng thông tin, dữ liệu và kết nối đầu tư Đắk Lắk. Hãy tư vấn sâu sắc, chuẩn xác, giàu thông tin và truyền cảm hứng về cơ hội đầu tư, quy hoạch vùng, chuỗi giá trị cà phê Buôn Ma Thuột, nông sản Tây Nguyên, văn hóa cồng chiêng và du lịch sinh thái.',
+    welcomeMessage: 'Xin chào! Tôi là Trợ lý AI đa ngôn ngữ của Laocai.today. Tôi có thể hỗ trợ quý vị tra cứu cơ hội đầu tư Khu kinh tế cửa khẩu Lào Cai, các KCN Tằng Loỏng - Đông Phố Mới, chuỗi nông sản dược liệu vùng cao, doanh nghiệp địa phương và thiết kế hành trình khám phá Sa Pa – Fansipan – Bắc Hà – Y Tý 24/7.',
+    systemRole: 'Bạn là trợ lý AI chuyên nghiệp đa ngôn ngữ của nền tảng Laocai.today — Nền tảng kết nối hợp tác, xúc tiến đầu tư và quảng bá Lào Cai. Hãy tư vấn sâu sắc, chuẩn xác, giàu thông tin và truyền cảm hứng về cơ hội đầu tư, Khu kinh tế cửa khẩu Quốc tế Lào Cai - Kim Thành, logistics biên giới ASEAN - Trung Quốc, công nghiệp chế biến sâu, nông sản dược liệu quý (Atiso, tam thất, chè Shan Tuyết, cá hồi Sa Pa), bản sắc văn hóa các dân tộc Tây Bắc và hành trình du lịch thông minh bốn mùa ("Ở lại lâu hơn, trải nghiệm sâu hơn").',
     quickSuggestions: [
-      'Tìm doanh nghiệp chế biến sâu cà phê tại Đắk Lắk',
-      'Các dự án nông nghiệp công nghệ cao đang kêu gọi đầu tư',
-      'Gợi ý hành trình du lịch sinh thái & văn hóa 2 ngày 1 đêm',
-      'Chính sách ưu đãi và thủ tục đầu tư vào cụm công nghiệp Đắk Lắk'
+      'Chính sách ưu đãi đầu tư tại Khu Kinh tế Cửa khẩu Lào Cai & Kim Thành',
+      'Gợi ý hành trình khám phá Sa Pa – Fansipan – Bắc Hà – Y Tý 3 ngày 2 đêm',
+      'Tìm doanh nghiệp dược liệu vùng cao, chè Shan Tuyết & nông sản OCOP Lào Cai',
+      'Tiềm năng logistics liên vận quốc tế và Cảng hàng không Sa Pa'
     ]
   },
 
   // Thông tin liên hệ & Văn phòng
   contact: {
-    hotline: '0262 3888 999',
+    hotline: '0214 3888 999',
     techHotline: '0986 354 152',
-    email: 'contact@daklak.today',
-    supportEmail: 'support@daklak.today',
-    address: 'Số 01 Lê Duẩn, Phường Tự An, TP. Buôn Ma Thuột, Tỉnh Đắk Lắk',
+    email: 'contact@laocai.today',
+    supportEmail: 'support@laocai.today',
+    address: 'Đại lộ Trần Hưng Đạo, Phường Nam Cường, TP. Lào Cai, Tỉnh Lào Cai',
     techAddress: '26 TT23 Khu đô thị Văn Phú, P. Kiến Hưng, Hà Nội',
     workingHours: '08:00 - 17:30 (Thứ 2 - Thứ 6)',
-    copyright: '© 2026 DakLak.today — Nền tảng phát triển & vận hành bởi ADT Quốc tế.'
+    copyright: '© 2026 Laocai.today — Nền tảng phát triển & vận hành bởi ADT Quốc tế.'
   },
 
   // Thông tin thanh toán / Chuyển khoản sự kiện (VietQR)
   bankAccount: {
     bankName: 'Techcombank',
-    bankBranch: 'PGD Buôn Ma Thuột / PGD Văn Quán',
+    bankBranch: 'CN Lào Cai / PGD Văn Quán',
     accountNumber: '19036730021017',
     accountHolder: 'CONG TY CO PHAN ADT QUOC TE',
     binCode: '970407'
@@ -98,16 +99,16 @@ export const brandConfig = {
 
   // Mạng xã hội
   socials: {
-    facebook: 'https://facebook.com/daklak.today',
-    youtube: 'https://youtube.com/@daklak.today',
-    zalo: 'https://zalo.me/daklaktoday',
-    linkedin: 'https://linkedin.com/company/daklak-today'
+    facebook: 'https://facebook.com/laocai.today',
+    youtube: 'https://youtube.com/@laocai.today',
+    zalo: 'https://zalo.me/laocaitoday',
+    linkedin: 'https://linkedin.com/company/laocai-today'
   },
 
   // Thông tin Đăng ký Hội viên & Gói dịch vụ
   membership: {
-    benefitsTitle: 'Quyền lợi Hội viên DakLak.today',
-    badgeText: 'Mạng lưới kết nối doanh nghiệp & nhà đầu tư Đắk Lắk',
+    benefitsTitle: 'Quyền lợi Hội viên Laocai.today',
+    badgeText: 'Mạng lưới kết nối doanh nghiệp, thương mại biên giới & nhà đầu tư Lào Cai',
     tiers: [
       { id: 'Standard', name: 'Khám phá (Cơ bản)', badge: 'Thành viên Khám phá' },
       { id: 'Silver', name: 'Doanh nghiệp Kết nối', badge: 'Đối tác Bạc' },

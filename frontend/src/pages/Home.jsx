@@ -40,7 +40,6 @@ const formatEventPrice = (evt) => {
 };
 
 // Sub-component đếm ngược sự kiện trang chủ độc lập
-// Tách biệt state để KHÔNG kích hoạt re-render toàn bộ 15 section của trang chủ mỗi giây
 const HomeEventCountdown = React.memo(({ eventDate }) => {
   const calculateTimeLeft = (date) => {
     if (!date) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -102,201 +101,292 @@ const HomeEventCountdown = React.memo(({ eventDate }) => {
   );
 });
 
-// 7 Doanh nghiệp tiêu biểu (1 Group + 6 công ty thành viên) theo tài liệu "Doanh nghiệp tiêu biểu daklaktoday.docx"
-const FEATURED_ENTERPRISES = [
+// 8 Lối vào nhanh Hệ sinh thái số Lào Cai (Chương 12 & 18 - Tài liệu Giới thiệu dự án)
+const QUICK_ACCESS_ITEMS = [
   {
-    id: 'minh-dang-group',
-    name: 'TẬP ĐOÀN MINH ĐĂNG',
-    shortName: 'Minh Đăng Group',
-    roleTag: 'Tập đoàn Chủ quản Hệ sinh thái',
-    roleTagEn: 'Ecosystem Holding Group',
-    year: '2015',
-    experience: '10 năm phát triển',
-    headquarters: '159 Võ Văn Tần, phường Xuân Hòa, TP. Hồ Chí Minh',
-    headquartersEn: '159 Vo Van Tan, Xuan Hoa Ward, Ho Chi Minh City',
-    sectors: 'Xuất nhập khẩu nông sản • Chuỗi giá trị cà phê • Dịch vụ y tế • Cảng thủy nội địa & logistics',
-    sectorsEn: 'Agri Export • Coffee Value Chain • Healthcare • Inland Port & Logistics',
-    philosophy: 'Chất lượng – Đổi mới – Bền vững',
-    philosophyEn: 'Quality – Innovation – Sustainability',
-    highlight: 'Sau 10 năm phát triển, Minh Đăng Group từng bước trở thành tập đoàn kinh tế đa ngành tại Việt Nam. Tập đoàn chú trọng nâng cao giá trị cà phê Việt Nam, phát triển chuỗi giá trị toàn diện và lan tỏa bản sắc vùng đất Buôn Ma Thuột đến người tiêu dùng trong nước và quốc tế.',
-    highlightEn: 'After 10 years of growth, Minh Dang Group has evolved into a prominent multi-industry conglomerate, elevating Vietnamese coffee value and bringing Buon Ma Thuot heritage to global consumers.',
-    keyFocus: 'Phát triển hệ sinh thái đa ngành bền vững; hoàn thiện chuỗi giá trị cà phê khép kín từ vùng nguyên liệu, chế biến sâu đến mạng lưới phân phối đa kênh và ứng dụng công nghệ.',
-    keyFocusEn: 'Developing a sustainable multi-industry ecosystem; perfecting closed coffee value chains from raw material zones, deep processing to multi-channel distribution and technology.',
-    tags: ['Chuỗi giá trị khép kín', 'Phân phối đa kênh', 'Bản sắc Buôn Ma Thuột'],
-    tagsEn: ['Closed Value Chain', 'Omni-channel Distribution', 'Buon Ma Thuot Heritage'],
-    stats: [
-      { label: 'Thành lập', labelEn: 'Founded', value: '2015' },
-      { label: 'Quy mô', labelEn: 'Scale', value: 'Đa ngành' },
-      { label: 'Thành viên', labelEn: 'Subsidiaries', value: '06 Đơn vị' }
-    ],
-    logo: '/images/companies/minh-dang-group.jpg',
-    color: '#7A3E1D'
+    id: 'qa-1',
+    icon: 'ti-mountain',
+    title: 'Khám phá Lào Cai',
+    titleEn: 'Discover Lao Cai',
+    desc: 'Fansipan, Sa Pa, Bắc Hà, Y Tý & bản sắc Tây Bắc',
+    descEn: 'Fansipan, Sa Pa, Bac Ha, Y Ty & Northwest heritage',
+    link: `/posts?category=${encodeURIComponent('Khám phá Lào Cai')}`
   },
   {
-    id: 'eakar-vina',
-    name: 'CÔNG TY CP XUẤT NHẬP KHẨU EAKAR VINA',
-    shortName: 'Eakar Vina',
-    roleTag: 'Nông sản Xuất khẩu • Khởi nguồn Ea Kar',
-    roleTagEn: 'Agri Export • Ea Kar Heritage',
-    year: '2018',
-    origin: 'Khởi nguồn từ Ea Kar, Đắk Lắk',
-    originEn: 'Originated from Ea Kar, Dak Lak',
-    headquarters: 'Tầng 17, Vincom Center, 72 Lê Thánh Tôn, TPHCM | VP: 159 Võ Văn Tần, TPHCM',
-    headquartersEn: '17th Fl, Vincom Center, 72 Le Thanh Ton & 159 Vo Van Tan, HCMC',
-    sectors: 'Thương mại Cà phê Robusta • Hồ tiêu chất lượng cao • Chuỗi cung ứng nông sản',
-    sectorsEn: 'Robusta Coffee • High-grade Pepper • Agricultural Supply Chain',
-    philosophy: 'Uy tín – Chất lượng – Đồng hành cùng Nông dân',
-    philosophyEn: 'Prestige – Quality – Farmer Partnership',
-    highlight: 'Khởi nguồn từ vùng đất Ea Kar (Đắk Lắk), Eakar Vina hướng đến Top 10 doanh nghiệp nông sản hàng đầu Việt Nam. Công ty liên kết chặt chẽ cùng nông hộ địa phương, tạo đầu ra bền vững và đưa nông sản đặc trưng Tây Nguyên vươn tầm quốc tế.',
-    highlightEn: 'Rooted in Ea Kar (Dak Lak), aiming for Top 10 agri-enterprises in Vietnam. Partnering closely with local farmers to secure stable output and export Central Highlands produce.',
-    keyFocus: 'Tập trung hai ngành hàng chủ lực cà phê và hồ tiêu; đồng hành chặt chẽ cùng nông hộ địa phương, tạo đầu ra ổn định và đưa nông sản đặc trưng Tây Nguyên vươn tầm thế giới.',
-    keyFocusEn: 'Focusing on core Robusta coffee & high-grade pepper; closely partnering with local farmers to ensure stable output and elevate Central Highlands produce globally.',
-    tags: ['Khởi nguồn Ea Kar - Đắk Lắk', 'Cà phê & Hồ tiêu chủ lực', 'Top 10 Nông sản VN'],
-    tagsEn: ['Ea Kar Origin - Dak Lak', 'Key Coffee & Pepper', 'Top 10 Vietnam Agri'],
-    stats: [
-      { label: 'Xuất phát điểm', labelEn: 'Origin', value: 'Ea Kar, ĐL' },
-      { label: 'Chủ lực', labelEn: 'Focus', value: 'Cà phê & Tiêu' },
-      { label: 'Mục tiêu', labelEn: 'Target', value: 'Top 10 Nông sản' }
-    ],
-    logo: '/images/companies/eakar-vina.jpg',
-    color: '#1F5A3A'
+    id: 'qa-2',
+    icon: 'ti-truck-delivery',
+    title: 'Kinh tế Cửa khẩu',
+    titleEn: 'Border Gate & Logistics',
+    desc: 'KKT Cửa khẩu Kim Thành, XNK ASEAN – Trung Quốc',
+    descEn: 'Kim Thanh Border Gate, ASEAN – China Logistics',
+    link: `/posts?category=${encodeURIComponent('Cửa khẩu & Logistics')}`
   },
   {
-    id: 'ctp-group',
-    name: 'CÔNG TY CP TẬP ĐOÀN CTP GROUP',
-    shortName: 'CTP Group (HNX: CTP)',
-    roleTag: 'Doanh nghiệp Niêm yết HNX (Mã: CTP)',
-    roleTagEn: 'HNX-Listed Enterprise (Stock: CTP)',
-    stockCode: 'HNX: CTP',
-    year: '2010',
-    headquarters: 'Tòa nhà Simco Sông Đà, Vạn Phúc, Hà Đông, Hà Nội | VP: 159 Võ Văn Tần, TPHCM',
-    headquartersEn: 'Simco Song Da Bldg, Van Phuc, Ha Dong, Hanoi | Office: 159 Vo Van Tan, HCMC',
-    sectors: 'Chế biến & Kinh doanh Cà phê • Bất động sản • Xây dựng & Hạ tầng',
-    sectorsEn: 'Coffee Processing & Trade • Real Estate • Construction & Infrastructure',
-    philosophy: 'Quy mô vượt trội – Đầu tư chế biến sâu',
-    philosophyEn: 'Superior Scale – Deep Processing Investment',
-    highlight: 'Doanh nghiệp niêm yết trên sàn chứng khoán HNX, sở hữu hệ thống nhà máy và kho bãi hơn 13.142 m², đầu tư vùng nguyên liệu quy mô lớn và chuỗi giá trị cà phê khép kín gia tăng giá trị.',
-    highlightEn: 'Listed on HNX, possessing modern processing facilities and warehouses exceeding 13,142 m², investing in extensive raw material zones and an integrated coffee value chain.',
-    keyFocus: 'Doanh nghiệp niêm yết sàn HNX với tiềm lực hạ tầng nhà máy, kho bãi hơn 13.142 m²; đẩy mạnh chế biến sâu, đầu tư vùng nguyên liệu quy mô lớn và phát triển chuỗi giá trị đa ngành.',
-    keyFocusEn: 'HNX-listed enterprise boasting modern factory and warehouse facilities exceeding 13,142 m²; accelerating deep agro-processing, extensive plantation zones, and multi-sector investment.',
-    tags: ['Niêm yết HNX (Mã: CTP)', 'Kho bãi >13.142 m²', 'Chế biến sâu & Đa ngành'],
-    tagsEn: ['HNX-Listed (Stock: CTP)', 'Facilities >13,142 m²', 'Deep Processing & Diversified'],
-    stats: [
-      { label: 'Mã chứng khoán', labelEn: 'Stock', value: 'HNX: CTP' },
-      { label: 'Kho bãi & Nhà máy', labelEn: 'Facilities', value: '13.142 m²' },
-      { label: 'Thành lập', labelEn: 'Founded', value: '2010' }
-    ],
-    logo: '/images/companies/ctp-group.png',
-    color: '#A84524'
+    id: 'qa-3',
+    icon: 'ti-chart-Histogram',
+    title: 'Dự án & Đầu tư',
+    titleEn: 'Investment & Projects',
+    desc: 'KCN Tằng Loỏng, Võ Lao, Đông Phố Mới & ưu đãi',
+    descEn: 'Industrial parks, master plan & incentives',
+    link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}`
   },
   {
-    id: 'bazan-coffee',
-    name: 'NHÀ MÁY BAZAN HERITAGE COFFEE',
-    shortName: 'Bazan Heritage Coffee',
-    roleTag: 'Nhà máy Chế biến sâu • KCN Hòa Phú',
-    roleTagEn: 'Deep-Processing Plant • Hoa Phu IP',
-    location: 'Khu công nghiệp Hòa Phú, xã Hòa Phú, TP. Buôn Ma Thuột, Đắk Lắk',
-    headquarters: 'KCN Hòa Phú, Buôn Ma Thuột, Đắk Lắk | Trụ sở: 159 Võ Văn Tần, TPHCM',
-    headquartersEn: 'Hoa Phu Industrial Park, Buon Ma Thuot, Dak Lak | HQ: 159 Vo Van Tan, HCMC',
-    sectors: 'Chế biến sâu Cà phê Robusta Đặc sản • Tinh hoa Hạt Cà phê Đất Đỏ Bazan',
-    sectorsEn: 'Specialty Robusta Deep Processing • Red Bazan Soil Heritage',
-    philosophy: 'Tôn vinh Giá trị Nguyên bản Hạt Cà phê Việt',
-    philosophyEn: 'Honoring Original Value of Vietnamese Coffee',
-    highlight: 'Nhà máy tọa lạc tại thủ phủ Đắk Lắk, kế thừa trọn vẹn tinh hoa đất trời bazan với quy trình chế biến hiện đại, gìn giữ hương vị nồng nàn đặc trưng và nâng cao vị thế Robusta Việt Nam trong chuỗi cung ứng toàn cầu.',
-    highlightEn: 'Located right in Dak Lak coffee capital, harnessing the rich red basalt soil with advanced processing lines to preserve authentic aroma and elevate Vietnamese Robusta globally.',
-    keyFocus: 'Nhà máy hiện đại tọa lạc tại KCN Hòa Phú, Buôn Ma Thuột; chuyên sâu chế biến dòng Robusta đặc sản Tây Nguyên, bảo tồn trọn vẹn hương vị nồng nàn và tinh hoa từ dải đất đỏ bazan màu mỡ.',
-    keyFocusEn: 'Modern processing facility in Hoa Phu IP, Buon Ma Thuot; dedicated to premium Central Highlands specialty Robusta, preserving authentic aroma and basalt soil heritage.',
-    tags: ['Nhà máy KCN Hòa Phú, BMT', 'Robusta Đặc sản Đắk Lắk', 'Tinh hoa Đất đỏ Bazan'],
-    tagsEn: ['Hoa Phu IP Facility, BMT', 'Specialty Dak Lak Robusta', 'Basalt Soil Heritage'],
-    stats: [
-      { label: 'Vị trí', labelEn: 'Location', value: 'KCN Hòa Phú' },
-      { label: 'Dòng sản phẩm', labelEn: 'Products', value: 'Robusta Đặc sản' },
-      { label: 'Bản sắc', labelEn: 'Identity', value: 'Đất đỏ Bazan' }
-    ],
-    logo: '/images/companies/bazan-coffee.jpg',
-    color: '#D5A33F'
+    id: 'qa-4',
+    icon: 'ti-compass',
+    title: 'Lịch trình Du lịch AI',
+    titleEn: 'AI Smart Itineraries',
+    desc: 'Tour mẫu 1N, 2N1Đ, 3N2Đ & tùy chỉnh bằng AI',
+    descEn: '1D, 2D1N, 3D2N tours & AI customization',
+    link: '#hanh-trinh-thong-minh',
+    isAnchor: true
   },
   {
-    id: 'vnt',
-    name: 'CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI XNK VNT',
-    shortName: 'VNT Import Export',
-    roleTag: 'Thương mại Quốc tế & Xúc tiến Toàn cầu',
-    roleTagEn: 'International Trade & Global Export',
-    headquarters: 'Số 11A Hồng Hà, phường Tân Sơn Hòa, TP. Hồ Chí Minh',
-    headquartersEn: '11A Hong Ha, Tan Son Hoa Ward, Ho Chi Minh City',
-    sectors: 'Thương mại Nông sản • Xuất nhập khẩu Quốc tế • Cung ứng Thị trường',
-    sectorsEn: 'Agricultural Trade • Global Import-Export • Market Supply',
-    philosophy: 'Chuyên nghiệp – Uy tín – Kết nối Không biên giới',
-    philosophyEn: 'Professionalism – Prestige – Borderless Connection',
-    highlight: 'Cầu nối xúc tiến thương mại quốc tế uy tín trong hệ sinh thái Minh Đăng Group, chuyên nghiệp hóa chuỗi xuất nhập khẩu và kết nối nông sản Tây Nguyên đến các thị trường tiêu thụ quốc tế.',
-    highlightEn: 'A trusted international trade bridge within Minh Dang Group, professionalizing the import-export supply chain and connecting Central Highlands produce globally.',
-    keyFocus: 'Cầu nối thương mại quốc tế uy tín trong hệ sinh thái, chuyên nghiệp hóa chuỗi cung ứng xuất nhập khẩu nông sản và mở rộng kênh phân phối đến các thị trường tiêu chuẩn cao toàn cầu.',
-    keyFocusEn: 'Trusted international trade gateway within the ecosystem, professionalizing agri import-export supply chains and expanding distribution to high-standard global markets.',
-    tags: ['Thương mại Nông sản Quốc tế', 'Chuỗi cung ứng XNK', 'Kết nối Không biên giới'],
-    tagsEn: ['International Agri-Trade', 'Import-Export Supply Chain', 'Borderless Connection'],
-    stats: [
-      { label: 'Lĩnh vực', labelEn: 'Sector', value: 'XNK Nông sản' },
-      { label: 'Mạng lưới', labelEn: 'Network', value: 'Quốc tế' },
-      { label: 'Tiêu chuẩn', labelEn: 'Standard', value: 'Chuyên nghiệp' }
-    ],
-    logo: '/images/companies/vnt.png',
-    color: '#185FA5'
+    id: 'qa-5',
+    icon: 'ti-leaf',
+    title: 'Dược liệu & OCOP',
+    titleEn: 'Herbs & OCOP Specialties',
+    desc: 'Atiso, tam thất, chè Shan Tuyết, cá hồi Sa Pa',
+    descEn: 'Artichoke, Shan Tuyet tea, cold-water salmon',
+    link: `/posts?category=${encodeURIComponent('Nông sản & Dược liệu')}`
   },
   {
-    id: 'phuc-vinh',
-    name: 'CÔNG TY CP ĐẦU TƯ XUẤT NHẬP KHẨU PHÚC VINH',
-    shortName: 'Phúc Vinh Port & Logistics',
-    roleTag: 'Hạ tầng Cảng thủy Nội địa & Logistics',
-    roleTagEn: 'Inland Port & Logistics Infrastructure',
-    headquarters: 'Số 322, ấp Phước Trung, xã Phước Vinh, Tỉnh Tây Ninh',
-    headquartersEn: '322, Phuoc Trung Hamlet, Phuoc Vinh Commune, Tay Ninh Province',
-    sectors: 'Khai thác Cảng thủy Nội địa • Vận tải Hàng hóa • Logistics Nông sản Chuỗi',
-    sectorsEn: 'Inland Port Operations • Freight Waterway Transport • Agri-Logistics',
-    philosophy: 'Lưu thông Hiệu quả – Kết nối Chuỗi Cung ứng',
-    philosophyEn: 'Efficient Circulation – Supply Chain Connectivity',
-    highlight: 'Phát triển hạ tầng cảng thủy nội địa hiện đại, tối ưu hóa quy trình lưu thông và giảm thiểu chi phí logistics cho hàng hóa nông sản trong chuỗi giá trị xuất nhập khẩu.',
-    highlightEn: 'Developing modern inland port infrastructure, optimizing circulation processes, and reducing logistics costs for agricultural produce in the export supply chain.',
-    keyFocus: 'Khai thác cảng thủy nội địa và mạng lưới logistics tổng hợp tại Tây Ninh; kết nối vận tải thủy - bộ thông suốt, giảm thiểu chi phí lưu thông và nâng cao năng lực cạnh tranh cho nông sản xuất khẩu.',
-    keyFocusEn: 'Operating modern inland port and logistics hub in Tay Ninh; seamlessly connecting inland waterway & road freight to cut transit costs and boost export competitiveness.',
-    tags: ['Cảng thủy nội địa hiện đại', 'Logistics Nông sản tổng hợp', 'Tối ưu Chi phí Chuỗi'],
-    tagsEn: ['Modern Inland Port', 'Integrated Agri-Logistics', 'Transit Cost Optimization'],
-    stats: [
-      { label: 'Hạ tầng', labelEn: 'Infra', value: 'Cảng thủy nội địa' },
-      { label: 'Vị trí', labelEn: 'Location', value: 'Tây Ninh' },
-      { label: 'Tối ưu', labelEn: 'Role', value: 'Giảm phí Logistics' }
-    ],
-    logo: '/images/companies/phuc-vinh.png',
-    color: '#0F766E'
+    id: 'qa-6',
+    icon: 'ti-building-community',
+    title: 'Showroom Doanh nghiệp',
+    titleEn: 'Enterprise Directory',
+    desc: 'Danh bạ doanh nghiệp xác thực & kết nối B2B',
+    descEn: 'Verified company profiles & B2B networking',
+    link: '/members'
   },
   {
-    id: 'md-homes',
-    name: 'CÔNG TY CỔ PHẦN THƯƠNG MẠI MD HOMES',
-    shortName: 'MD Homes',
-    roleTag: 'Nông sản Hồ tiêu & Đầu tư Bất động sản',
-    roleTagEn: 'Pepper Trading & Real Estate',
-    headquarters: '159 Võ Văn Tần, phường Xuân Hòa, TP. Hồ Chí Minh',
-    headquartersEn: '159 Vo Van Tan, Xuan Hoa Ward, Ho Chi Minh City',
-    sectors: 'Kinh doanh & Cung ứng Hồ tiêu xuất khẩu • Đầu tư & Kinh doanh Bất động sản',
-    sectorsEn: 'High-grade Pepper Export • Real Estate Investment',
-    philosophy: 'Đa dạng hóa Danh mục – Giá trị Bền vững',
-    philosophyEn: 'Portfolio Diversification – Sustainable Value',
-    highlight: 'Cung ứng nguồn hồ tiêu Tây Nguyên tiêu chuẩn cao cho thị trường trong nước và quốc tế, song song khai thác các cơ hội bất động sản tạo nền tảng tăng trưởng vững chắc dài hạn.',
-    highlightEn: 'Supplying high-standard Central Highlands pepper to domestic and foreign markets, alongside real estate investment opportunities for long-term growth.',
-    keyFocus: 'Kết hợp song hành hai trụ cột: cung ứng hồ tiêu Tây Nguyên tiêu chuẩn cao cho thị trường trong nước & xuất khẩu, đồng thời khai thác cơ hội đầu tư bất động sản tạo đòn bẩy phát triển dài hạn.',
-    keyFocusEn: 'Dual-pillar strategy: supplying high-grade Central Highlands pepper for domestic & export markets, alongside real estate investments to drive sustainable long-term value.',
-    tags: ['Cung ứng Hồ tiêu Xuất khẩu', 'Đầu tư & Bất động sản', 'Tăng trưởng Đa dạng hóa'],
-    tagsEn: ['Export Pepper Supply', 'Real Estate Investment', 'Diversified Growth'],
-    stats: [
-      { label: 'Sản phẩm chính', labelEn: 'Main Product', value: 'Hồ tiêu chất lượng' },
-      { label: 'Mảng bổ trợ', labelEn: 'Addition', value: 'Bất động sản' },
-      { label: 'Thị trường', labelEn: 'Market', value: 'Nội địa & XNK' }
-    ],
-    logo: '/images/companies/md-homes.png',
-    color: '#C2410C'
+    id: 'qa-7',
+    icon: 'ti-calendar-event',
+    title: 'Sự kiện & Hội chợ',
+    titleEn: 'Events & Trade Fairs',
+    desc: 'Hội chợ Việt – Trung, diễn đàn đầu tư & vé QR',
+    descEn: 'Viet – China trade fairs, forums & QR tickets',
+    link: '/events'
+  },
+  {
+    id: 'qa-8',
+    icon: 'ti-sparkles',
+    title: 'Trợ lý AI Đa ngôn ngữ',
+    titleEn: 'Multilingual AI Assistant',
+    desc: 'Tư vấn đầu tư, thương mại & du lịch 24/7',
+    descEn: '24/7 AI advisor in VI, EN, ZH, JA, KO',
+    link: '/ai-chat'
   }
 ];
 
-// Danh sách logo đối tác (hiển thị 4 logo trên thanh lướt 1s vô hạn ở dưới cùng)
+// 4 Hành trình Trải nghiệm Thông minh ("Mỗi du khách ở lại lâu hơn, trải nghiệm sâu hơn" - Chương 17 & 19)
+const SMART_ITINERARIES = [
+  {
+    id: '1d',
+    tabLabel: 'Hành trình 1 Ngày',
+    tabLabelEn: '1-Day Express',
+    icon: 'ti-sun-high',
+    badge: 'TRẢI NGHIỆM TRONG NGÀY • CỬA KHẨU & ĐỈNH THIÊNG',
+    badgeEn: '1-DAY HIGHLIGHT • BORDER GATE & SACRED PEAK',
+    title: 'Lào Cai – Sa Pa – Đỉnh Thiêng Fansipan Trong 1 Ngày Trọn Vẹn',
+    titleEn: 'Lao Cai City – Sa Pa – Fansipan Summit in 1 Complete Day',
+    summary: 'Hành trình tối ưu cho du khách và đoàn công tác kết hợp tham quan Cửa khẩu Quốc tế Lào Cai, Đền Thượng linh thiêng và chinh phục Nóc nhà Đông Dương 3.143m.',
+    summaryEn: 'Optimal itinerary for visitors and business delegations combining Lao Cai International Border Gate, Thuong Temple, and conquering the 3,143m Roof of Indochina.',
+    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=85',
+    duration: '1 Ngày (07:30 – 21:00)',
+    budget: '1.450.000 – 2.200.000 VNĐ',
+    suitability: 'Khách công vụ, Gia đình, Cặp đôi',
+    aiPrompt: 'Hãy thiết kế chi tiết lịch trình khám phá TP. Lào Cai - Sa Pa - Đỉnh Fansipan trong 1 ngày kèm gợi ý nhà hàng cá hồi ngon',
+    steps: [
+      { time: '07:30 - 09:30', title: 'TP. Lào Cai – Cột mốc Biên giới & Đền Thượng', desc: 'Dâng hương tại Đền Thượng cổ kính nơi ngã ba sông Hồng – Nậm Thi, tham quan Cửa khẩu Quốc tế Lào Cai & Khu thương mại Kim Thành.' },
+      { time: '10:00 - 14:30', title: 'Cáp treo Fansipan & Quần thể Tâm linh trên Mây', desc: 'Di chuyển lên Sa Pa (35 phút), đi tàu hỏa leo núi Mường Hoa và cáp treo 3 dây chinh phục đỉnh Fansipan 3.143m, thưởng thức buffet vùng cao.' },
+      { time: '15:00 - 18:00', title: 'Bản Cát Cát & Thác Tiên Sa', desc: 'Dạo bước giữa thung lũng ruộng bậc thang, khám phá nghề dệt thổ cẩm, chạm bạc truyền thống của đồng bào H’Mông.' },
+      { time: '18:30 - 21:00', title: 'Ẩm thực Cá hồi Nước lạnh & Phố Đêm Sa Pa', desc: 'Thưởng thức lẩu cá hồi – cá tầm nước lạnh Sa Pa, dạo quanh Nhà thờ Đá và không gian văn hóa Chợ đêm Tây Bắc.' }
+    ]
+  },
+  {
+    id: '2d1n',
+    tabLabel: '2 Ngày 1 Đêm (Phổ biến)',
+    tabLabelEn: '2 Days 1 Night (Popular)',
+    icon: 'ti-cloud',
+    badge: 'LỊCH TRÌNH ĐƯỢC YÊU THÍCH NHẤT • SĂN MÂY & NGHỈ DƯỠNG',
+    badgeEn: 'MOST POPULAR • CLOUD HUNTING & HIGHLAND RESORT',
+    title: 'Sa Pa – Fansipan – Thung Lũng Mường Hoa – Đèo Ô Quy Hồ (2N1Đ)',
+    titleEn: 'Sa Pa – Fansipan – Muong Hoa Valley – O Quy Ho Pass (2D1N)',
+    summary: 'Trải nghiệm trọn vẹn 4 mùa trong một ngày tại Sa Pa: săn biển mây trên đỉnh Hoàng Liên, tắm lá thuốc người Dao Đỏ Tả Phìn và tận hưởng hoàng hôn trên Tứ đại đỉnh đèo Ô Quy Hồ.',
+    summaryEn: 'Experience four seasons in a single day: cloud hunting on Hoang Lien peaks, Red Dao herbal bath in Ta Phin, and sunset over O Quy Ho Pass.',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85',
+    duration: '2 Ngày 1 Đêm',
+    budget: '2.800.000 – 4.500.000 VNĐ',
+    suitability: 'Gia đình, Nhóm bạn, Nghỉ dưỡng',
+    aiPrompt: 'Lập lịch trình du lịch Sa Pa - Fansipan - Mường Hoa - Ô Quy Hồ 2 ngày 1 đêm nghỉ dưỡng kết hợp tắm lá thuốc Dao đỏ',
+    steps: [
+      { time: 'Ngày 1 - Sáng', title: 'Chinh phục Đỉnh Thiêng Fansipan & Vườn Hoa Đỗ Quyên', desc: 'Check-in Cổng Trời Thanh Vân Đắc Lộ, Đại tượng Phật A Di Đà và cột cờ Nóc nhà Đông Dương giữa biển mây bồng bềnh.' },
+      { time: 'Ngày 1 - Chiều & Tối', title: 'Thung lũng Mường Hoa – Tắm lá thuốc Dao Đỏ & Kinh tế đêm', desc: 'Khám phá bãi đá cổ Sa Pa tại bản Lao Chải – Tả Van, ngâm bồn gỗ Pơ-mu lá thuốc cổ truyền và thưởng thức đồ nướng, thắng cố đêm sương.' },
+      { time: 'Ngày 2 - Sáng', title: 'Đèo Ô Quy Hồ – Thác Bạc – Cầu Kính Rồng Mây', desc: 'Chinh phục một trong Tứ đại đỉnh đèo hùng vĩ nhất Việt Nam ở độ cao 2.000m, ngắm dãy Hoàng Liên Sơn trùng điệp.' },
+      { time: 'Ngày 2 - Chiều', title: 'Bản Tả Phìn & Mua sắm Đặc sản OCOP Lào Cai', desc: 'Trải nghiệm hái dâu, thưởng thức cao mềm Atiso Sa Pa, trà Shan Tuyết cổ thụ, thịt trâu gác bếp và tương ớt Mường Khương chuẩn OCOP.' }
+    ]
+  },
+  {
+    id: '3d2n',
+    tabLabel: '3 Ngày 2 Đêm (Chuyên sâu)',
+    tabLabelEn: '3 Days 2 Nights (Deep)',
+    icon: 'ti-map-route',
+    badge: 'VÒNG CUNG DI SẢN TÂY BẮC • SA PA – Y TÝ – BẮC HÀ',
+    badgeEn: 'NORTHWEST HERITAGE LOOP • SA PA – Y TY – BAC HA',
+    title: 'Hành Trình Di Sản: Sa Pa – Đại Ngàn Y Tý – Cao Nguyên Trắng Bắc Hà (3N2Đ)',
+    titleEn: 'Heritage Loop: Sa Pa – Y Ty Cloud Paradise – Bac Ha White Plateau (3D2N)',
+    summary: 'Hành trình thực hiện hóa chiến lược "Ở lại lâu hơn, trải nghiệm sâu hơn": Kết nối Sa Pa sầm uất với biển mây nguyên sơ Y Tý (Bát Xát) và sắc màu phiên chợ vùng cao Bắc Hà.',
+    summaryEn: 'Realizing the "Stay longer, experience deeper" strategy: Connecting vibrant Sa Pa with pristine Y Ty cloud seas and colorful Bac Ha highland markets.',
+    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85',
+    duration: '3 Ngày 2 Đêm',
+    budget: '4.200.000 – 6.800.000 VNĐ',
+    suitability: 'Khách quốc tế, Nhiếp ảnh, Khám phá văn hóa',
+    aiPrompt: 'Tư vấn lịch trình 3 ngày 2 đêm khám phá Sa Pa - Săn mây Y Tý - Chợ phiên Bắc Hà và Dinh Hoàng A Tưởng',
+    steps: [
+      { time: 'Ngày 1', title: 'Sa Pa – Đỉnh Fansipan – Đèo Ô Quy Hồ – Mường Hum', desc: 'Tham quan đỉnh Fansipan buổi sáng, chiều vượt cung đường đèo Ô Quy Hồ – Mường Hum ngắm ruộng bậc thang A Lù, nghỉ đêm homestay trình tường tại Y Tý.' },
+      { time: 'Ngày 2', title: 'Săn mây Ngải Thầu Thượng – Công viên Choản Thèn (Y Tý)', desc: 'Đón bình minh trên biển mây Y Tý ở độ cao 2.300m, tìm hiểu kiến trúc nhà trình tường độc đáo của người Hà Nhì Đen và cột mốc biên giới Lũng Pô nơi con sông Hồng chảy vào đất Việt.' },
+      { time: 'Ngày 3', title: 'Cao nguyên trắng Bắc Hà – Dinh Hoàng A Tưởng – Chè Shan Tuyết', desc: 'Hòa mình vào phiên chợ vùng cao Bắc Hà rực rỡ thổ cẩm, tham quan Dinh thự Vua Mèo Hoàng A Tưởng, thưởng thức phở hồng, rượu ngô Bản Phố và vùng chè cổ thụ Bản Liền.' },
+      { time: 'Kết thúc', title: 'Đền Bảo Hà (Ông Hoàng Bảy) & Cao tốc Nội Bài – Lào Cai', desc: 'Chiêm bái di tích quốc gia Đền Bảo Hà bên dòng sông Hồng trước khi trở về theo tuyến cao tốc hiện đại.' }
+    ]
+  },
+  {
+    id: 'biz',
+    tabLabel: 'Khảo sát Đầu tư & Giao thương',
+    tabLabelEn: 'Investment & Trade Mission',
+    icon: 'ti-briefcase',
+    badge: 'DÀNH CHO NHÀ ĐẦU TƯ & ĐOÀN DOANH NGHIỆP B2B',
+    badgeEn: 'FOR INVESTORS & B2B ENTERPRISE DELEGATIONS',
+    title: 'Hành Trình Xúc Tiến Đầu Tư: KKT Cửa Khẩu Kim Thành – KCN Tằng Loỏng – Vùng Dược Liệu',
+    titleEn: 'Investment Mission: Kim Thanh Border Zone – Tang Loong IP – Herbal Zones',
+    summary: 'Chương trình khảo sát thực địa dành cho các tập đoàn, quỹ đầu tư và đối tác xuất nhập khẩu muốn kết nối trực tiếp với Ban Quản lý Khu kinh tế và doanh nghiệp chủ lực Lào Cai.',
+    summaryEn: 'Field survey program for corporations, investment funds, and trade partners connecting directly with Lao Cai Economic Zone Authority and flagship enterprises.',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=85',
+    duration: '2 Ngày 1 Đêm (B2B)',
+    budget: 'Theo đoàn công tác / Hỗ trợ kết nối',
+    suitability: 'Nhà đầu tư, Doanh nghiệp XNK, Hiệp hội',
+    aiPrompt: 'Tôi muốn tìm hiểu quy trình khảo sát đầu tư tại Khu kinh tế cửa khẩu Lào Cai, KCN Tằng Loỏng và chính sách ưu đãi thuế',
+    steps: [
+      { time: 'Phiên 1', title: 'Khảo sát Cửa khẩu Quốc tế Kim Thành & Ga Đường sắt Liên vận', desc: 'Tham quan thực tế luồng thông quan điện tử, kho ngoại quan, trung tâm kiểm dịch nông sản xuất nhập khẩu Việt – Trung và quy hoạch Cảng cạn ICD.' },
+      { time: 'Phiên 2', title: 'Làm việc tại KCN Đông Phố Mới, KCN Tằng Loỏng & KCN Võ Lao', desc: 'Khảo sát quỹ đất sạch công nghiệp chế biến sâu, hạ tầng điện – nước – logistics và tọa đàm với Ban Quản lý Khu kinh tế tỉnh Lào Cai.' },
+      { time: 'Phiên 3', title: 'Khảo sát Vùng Dược liệu GACP-WHO & Tổ hợp Du lịch Sa Pa', desc: 'Tham quan mô hình chuỗi giá trị dược liệu công nghệ cao, nhà máy chiết xuất Atiso – tam thất và các dự án bất động sản nghỉ dưỡng sinh thái.' },
+      { time: 'Phiên 4', title: 'Phiên Kết nối B2B (Business Matching) & Ký kết MOU', desc: 'Gặp gỡ trực tiếp các doanh nghiệp hội viên Diamond/Gold trong mạng lưới Laocai.today và nhận bộ hồ sơ Data Room dự án.' }
+    ]
+  }
+];
+
+// Doanh nghiệp & Tổ hợp tiêu biểu trong hệ sinh thái Laocai.today
+const FEATURED_ENTERPRISES = [
+  {
+    id: 'fansipan-legend',
+    name: 'TỔ HỢP DU LỊCH & CÁP TREO FANSIPAN SA PA',
+    shortName: 'Sun World Fansipan Legend',
+    roleTag: 'Biểu tượng Du lịch Quốc gia Sa Pa – Lào Cai',
+    roleTagEn: 'National Tourism Icon • Sa Pa – Lao Cai',
+    year: '2016',
+    headquarters: 'Khu Du lịch Quốc gia Sa Pa, Thị xã Sa Pa, Tỉnh Lào Cai',
+    headquartersEn: 'Sa Pa National Tourist Area, Sa Pa Town, Lao Cai Province',
+    sectors: 'Cáp treo kỷ lục thế giới • Quần thể văn hóa tâm linh • Nghỉ dưỡng 5 sao & Lễ hội bốn mùa',
+    sectorsEn: 'World-Record Cable Car • Spiritual Cultural Complex • 5-Star Resort & Festivals',
+    philosophy: 'Đánh thức Đỉnh thiêng – Nâng tầm Du lịch Việt Nam',
+    philosophyEn: 'Awakening the Sacred Peak – Elevating Vietnam Tourism',
+    highlight: 'Quần thể du lịch văn hóa trên đỉnh Fansipan (3.143m) đã đưa Lào Cai trở thành điểm đến quốc tế bốn mùa, kết hợp hài hòa giữa kỳ quan thiên nhiên Hoàng Liên Sơn và bản sắc văn hóa các dân tộc vùng cao Tây Bắc.',
+    highlightEn: 'The cultural and tourism complex atop Fansipan (3,143m) has transformed Lao Cai into a four-season global destination, harmonizing Hoang Lien Son nature with Northwest indigenous heritage.',
+    keyFocus: 'Phát triển hệ sinh thái du lịch nghỉ dưỡng đẳng cấp quốc tế, chuỗi lễ hội bốn mùa (Lễ hội Hoa Đỗ Quyên, Lễ hội Mùa Vàng, Lễ hội Tuyết) giúp du khách ở lại lâu hơn và trải nghiệm sâu hơn.',
+    keyFocusEn: 'Developing world-class resort ecosystems and four-season festivals (Azalea Festival, Golden Harvest, Winter Festival) so visitors stay longer and experience deeper.',
+    tags: ['Đỉnh thiêng Fansipan 3.143m', 'Khu DL Quốc gia Sa Pa', 'Du lịch Bốn mùa'],
+    tagsEn: ['Fansipan Summit 3,143m', 'Sa Pa National Resort', 'Four-Season Tourism'],
+    stats: [
+      { label: 'Độ cao đỉnh', labelEn: 'Elevation', value: '3.143 m' },
+      { label: 'Kỷ lục Guinness', labelEn: 'Guinness Records', value: '02 Kỷ lục' },
+      { label: 'Vị thế', labelEn: 'Status', value: 'Biểu tượng Tây Bắc' }
+    ],
+    logo: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=400&q=80',
+    color: '#145A3E'
+  },
+  {
+    id: 'kim-thanh-logistics',
+    name: 'TRUNG TÂM LOGISTICS & THƯƠNG MẠI QUỐC TẾ KIM THÀNH',
+    shortName: 'Kim Thành Border Logistics',
+    roleTag: 'Cửa ngõ Giao thương ASEAN – Trung Quốc',
+    roleTagEn: 'ASEAN – China Cross-Border Trade Hub',
+    year: '2012',
+    headquarters: 'Khu Thương mại – Công nghiệp Kim Thành, P. Duyên Hải, TP. Lào Cai',
+    headquartersEn: 'Kim Thanh Commercial – Industrial Zone, Lao Cai City',
+    sectors: 'Thông quan Quốc tế • Kho ngoại quan & Kho lạnh • Vận tải Liên vận Đường sắt – Đường bộ',
+    sectorsEn: 'Customs Clearance • Bonded & Cold Storage • Rail-Road Intermodal Logistics',
+    philosophy: 'Kết nối Hành lang Kinh tế – Thông suốt Chuỗi Cung ứng',
+    philosophyEn: 'Connecting Economic Corridors – Seamless Supply Chains',
+    highlight: 'Nằm tại tâm điểm hành lang kinh tế Côn Minh – Lào Cai – Hà Nội – Hải Phòng, Khu thương mại Kim Thành là cầu nối trực tiếp hàng hóa nông sản, điện tử, máy móc và nguyên liệu giữa Việt Nam, ASEAN và thị trường Tây Nam Trung Quốc.',
+    highlightEn: 'Situated at the heart of the Kunming – Lao Cai – Hanoi – Hai Phong economic corridor, directly linking agricultural produce, electronics, and raw materials between ASEAN and Southwest China.',
+    keyFocus: 'Hiện đại hóa hạ tầng cửa khẩu thông minh, mở rộng hệ thống kho lạnh bảo quản nông sản xuất khẩu, kết nối ga đường sắt liên vận quốc tế và cảng cạn ICD Lào Cai.',
+    keyFocusEn: 'Modernizing smart border gate infrastructure, expanding cold-chain storage for agro-exports, and connecting international rail terminals with Lao Cai ICD dry port.',
+    tags: ['Cửa khẩu Quốc tế Kim Thành', 'Liên vận Đường sắt & Cao tốc', 'Cầu nối ASEAN - Vân Nam'],
+    tagsEn: ['Kim Thanh Intl Border Gate', 'Rail & Highway Intermodal', 'ASEAN - Yunnan Bridge'],
+    stats: [
+      { label: 'Quy mô KKT', labelEn: 'Zone Scale', value: '15.929 ha' },
+      { label: 'Tuyến biên giới', labelEn: 'Border Line', value: '182 km' },
+      { label: 'Thông quan', labelEn: 'Clearance', value: 'Cửa khẩu số' }
+    ],
+    logo: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80',
+    color: '#1B6E8C'
+  },
+  {
+    id: 'traphaco-sapa',
+    name: 'CÔNG TY DƯỢC LIỆU QUÝ & NÔNG SẢN VÙNG CAO LÀO CAI',
+    shortName: 'Dược liệu & OCOP Lào Cai',
+    roleTag: 'Chuỗi Dược liệu GACP-WHO & OCOP 5 Sao',
+    roleTagEn: 'GACP-WHO Herbal Chain & 5-Star OCOP',
+    year: '2014',
+    headquarters: 'Thị xã Sa Pa & Khu Công nghiệp Đông Phố Mới, TP. Lào Cai',
+    headquartersEn: 'Sa Pa Town & Dong Pho Moi Industrial Park, Lao Cai City',
+    sectors: 'Chế biến sâu Atiso, Tam thất, Đương quy • Chè Shan Tuyết Cổ Thụ • Nông sản Hữu cơ',
+    sectorsEn: 'Artichoke, Panax & Angelica Extraction • Ancient Shan Tuyet Tea • Organic Agri',
+    philosophy: 'Tinh hoa Dược liệu Đại ngàn – Chuẩn mực Quốc tế',
+    philosophyEn: 'Highland Herbal Quintessence – Global Standards',
+    highlight: 'Tiên phong liên kết hàng ngàn hộ đồng bào vùng cao Sa Pa, Bắc Hà, Bát Xát, Mường Khương phát triển vùng trồng dược liệu sạch đạt chuẩn GACP-WHO và nâng tầm đặc sản OCOP Lào Cai vươn ra thế giới.',
+    highlightEn: 'Pioneering partnerships with thousands of highland households across Sa Pa, Bac Ha, Bat Xat, and Muong Khuong to cultivate GACP-WHO medicinal herbs and 5-star OCOP specialties.',
+    keyFocus: 'Đầu tư công nghệ chiết xuất dược liệu hiện đại, truy xuất nguồn gốc số hóa từng vùng trồng và phát triển dòng sản phẩm chăm sóc sức khỏe, trà thảo mộc cao cấp xuất khẩu.',
+    keyFocusEn: 'Investing in advanced herbal extraction technology, digital plantation traceability, and premium healthcare & organic tea exports.',
+    tags: ['Chuẩn dược liệu GACP-WHO', 'Atiso Sa Pa & Chè Shan Tuyết', 'Sản phẩm OCOP 5 Sao'],
+    tagsEn: ['GACP-WHO Certified Herbs', 'Sa Pa Artichoke & Shan Tea', '5-Star OCOP Products'],
+    stats: [
+      { label: 'Vùng dược liệu', labelEn: 'Herbal Area', value: '4.000+ ha' },
+      { label: 'Tiêu chuẩn', labelEn: 'Standard', value: 'GACP-WHO' },
+      { label: 'Sản phẩm OCOP', labelEn: 'OCOP Items', value: '200+ Sản phẩm' }
+    ],
+    logo: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=400&q=80',
+    color: '#D99B26'
+  },
+  {
+    id: 'adt-international',
+    name: 'CÔNG TY CỔ PHẦN ADT QUỐC TẾ (ĐỐI TÁC CÔNG NGHỆ)',
+    shortName: 'ADT Quốc tế',
+    roleTag: 'Đơn vị Kiến trúc Nền tảng Số & AI Đa ngôn ngữ',
+    roleTagEn: 'Digital Platform & Multilingual AI Architect',
+    year: '2015',
+    headquarters: 'Hà Nội & Văn phòng Đại diện Kết nối Số Lào Cai',
+    headquartersEn: 'Hanoi & Lao Cai Digital Connection Representative Office',
+    sectors: 'Nền tảng Laocai.today • Trợ lý AI Đa ngôn ngữ • Hệ điều hành Doanh nghiệp Orion & Edunow',
+    sectorsEn: 'Laocai.today Platform • Multilingual AI Agent • Orion ERP & Edunow',
+    philosophy: 'Chuyển đổi số Thực chất – Kết nối Lào Cai với Thế giới',
+    philosophyEn: 'Practical Digital Transformation – Connecting Lao Cai to the World',
+    highlight: 'Đơn vị phát triển và vận hành hạ tầng công nghệ Laocai.today, tích hợp mô hình Media + Data + Platform + AI giúp số hóa hồ sơ doanh nghiệp, xúc tiến đầu tư và hỗ trợ du khách bằng 5 ngôn ngữ tự động.',
+    highlightEn: 'Architect and operator of the Laocai.today technological infrastructure, integrating Media + Data + Platform + AI to digitize enterprises, promote investment, and assist visitors in 5 languages.',
+    keyFocus: 'Triển khai hệ sinh thái Trợ lý AI phường xã, nền tảng quản trị thông minh Orion và chương trình đào tạo kỹ năng số Edunow.today cho cộng đồng doanh nghiệp và nhân lực địa phương.',
+    keyFocusEn: 'Deploying Ward AI assistants, Orion intelligent enterprise management, and Edunow.today digital training for local businesses and workforce.',
+    tags: ['Kiến trúc 3 Lớp Số hóa', 'Trợ lý AI 5 Ngôn ngữ', 'Hệ sinh thái Orion & Edunow'],
+    tagsEn: ['3-Layer Digital Architecture', '5-Language AI Assistant', 'Orion & Edunow Ecosystem'],
+    stats: [
+      { label: 'Ngôn ngữ AI', labelEn: 'AI Languages', value: '05 Ngôn ngữ' },
+      { label: 'Vận hành', labelEn: 'Operation', value: '24/7 Realtime' },
+      { label: 'Trụ cột số', labelEn: 'Digital Pillars', value: 'Media•Data•AI' }
+    ],
+    logo: '/images/adt_logo.svg',
+    color: '#B83B2A'
+  }
+];
+
+// Danh sách đối tác hiển thị trên thanh carousel
 const PARTNER_COMPANIES = [
   { id: 1, name: 'Minh Đăng Group', logo: '/images/companies/minh-dang-group.jpg' },
   { id: 2, name: 'Eakar Vina', logo: '/images/companies/eakar-vina.jpg' },
@@ -307,301 +397,300 @@ const PARTNER_COMPANIES = [
   { id: 7, name: 'MD Homes', logo: '/images/companies/md-homes.png' }
 ];
 
-// Danh sách Trụ cột Đầu tư & Điểm đến Tiêu biểu (Globe Trekker layout)
+// 8 Điểm đến & Động lực Kinh tế Tiêu biểu Lào Cai (Chương 13 & 21)
 const TOP_DESTINATIONS = [
   {
     id: 1,
-    title: 'Thủ Phủ Cà Phê & Chế Biến Sâu',
-    titleEn: 'Global Coffee Capital & Deep Processing',
-    location: 'TP. Buôn Ma Thuột & Cư M’gar',
-    locationEn: 'Buon Ma Thuot & Cu Mgar',
-    image: '/images/daklak/daklak_doi_ca_phe.jpg',
-    category: 'coffee',
-    link: `/posts?category=${encodeURIComponent('Nông sản & Cà phê')}`
+    title: 'Đỉnh Thiêng Fansipan & Thung Lũng Mường Hoa',
+    titleEn: 'Fansipan Summit & Muong Hoa Valley',
+    location: 'Khu Du lịch Quốc gia Sa Pa (3.143m)',
+    locationEn: 'Sa Pa National Tourist Area (3,143m)',
+    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=85',
+    category: 'tourism',
+    link: `/posts?category=${encodeURIComponent('Khám phá Lào Cai')}`
   },
   {
     id: 2,
-    title: 'Cụm Công Nghiệp & Trung Tâm Logistics ICD',
-    titleEn: 'Inland Port & Logistics Infrastructure',
-    location: 'Vành đai Kinh tế Buôn Ma Thuột',
-    locationEn: 'Buon Ma Thuot Economic Ring',
-    image: '/images/daklak/daklak_dau_tu_logistics.jpg',
+    title: 'Khu Kinh Tế Cửa Khẩu Quốc Tế Lào Cai – Kim Thành',
+    titleEn: 'Lao Cai – Kim Thanh International Border Economic Zone',
+    location: 'TP. Lào Cai & Hành lang Kinh tế ASEAN – TQ',
+    locationEn: 'Lao Cai City & ASEAN – China Corridor',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=85',
     category: 'investment',
-    link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}`
+    link: `/posts?category=${encodeURIComponent('Cửa khẩu & Logistics')}`
   },
   {
     id: 3,
-    title: 'Vùng Nông Nghiệp Công Nghệ Cao Ea Kar',
-    titleEn: 'High-Tech Agri Zone & Global Export',
-    location: 'Ea Kar & Krông Pắc, Đắk Lắk',
-    locationEn: 'Ea Kar & Krong Pac, Dak Lak',
-    image: '/images/daklak/daklak_ca_phe.jpg',
-    category: 'agritech',
-    link: `/posts?category=${encodeURIComponent('Nông sản & Cà phê')}`
+    title: 'Cao Nguyên Trắng Bắc Hà & Dinh Hoàng A Tưởng',
+    titleEn: 'Bac Ha White Plateau & Hoang A Tuong Palace',
+    location: 'Huyện Bắc Hà — Di sản Chợ phiên & Đua ngựa',
+    locationEn: 'Bac Ha District — Market & Horse Racing Heritage',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=85',
+    category: 'tourism',
+    link: `/posts?category=${encodeURIComponent('Du lịch & Trải nghiệm')}`
   },
   {
     id: 4,
-    title: 'Hành Lang Cao Tốc Buôn Ma Thuột - Khánh Hòa',
-    titleEn: 'Expressway Corridor To Deep Seaports',
-    location: 'Trục Huyết Mạch Kết Nối Cảng Biển',
-    locationEn: 'Arterial Link to International Ports',
-    image: '/images/daklak/daklak_bien_ganh_da_dia.jpg',
-    category: 'investment',
-    link: `/posts?category=${encodeURIComponent('Kinh tế Biển')}`
+    title: 'Dược Liệu Quý Vùng Cao & Chè Cổ Thụ Shan Tuyết',
+    titleEn: 'Precious Highland Herbs & Ancient Shan Tuyet Tea',
+    location: 'Sa Pa, Bắc Hà, Mường Khương & Bát Xát',
+    locationEn: 'Sa Pa, Bac Ha, Muong Khuong & Bat Xat',
+    image: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=900&q=85',
+    category: 'coffee',
+    link: `/posts?category=${encodeURIComponent('Nông sản & Dược liệu')}`
   },
   {
     id: 5,
-    title: 'Thác Dray Nur Hùng Vĩ & Du Lịch Sinh Thái',
-    titleEn: 'Majestic Dray Nur & Eco-Tourism Belt',
-    location: 'Krông Ana, Đắk Lắk',
-    locationEn: 'Krong Ana, Dak Lak',
-    image: '/images/daklak/daklak_thac_dray_nur.jpg',
+    title: 'Đại Ngàn Y Tý & Thiên Đường Săn Mây Biên Giới',
+    titleEn: 'Y Ty Primeval Forest & Cloud Hunting Paradise',
+    location: 'Huyện Bát Xát — Bản sắc Hà Nhì & Cột mốc Lũng Pô',
+    locationEn: 'Bat Xat District — Ha Nhi Culture & Lung Po',
+    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85',
     category: 'tourism',
-    link: `/posts?category=${encodeURIComponent('Khám phá Đắk Lắk')}`
+    link: `/posts?category=${encodeURIComponent('Khám phá Lào Cai')}`
   },
   {
     id: 6,
-    title: 'Bảo Tàng Thế Giới Cà Phê & Đô Thị Bản Sắc',
-    titleEn: 'World Coffee Museum & Eco-Urban Hub',
-    location: 'TP. Buôn Ma Thuột, Đắk Lắk',
-    locationEn: 'Buon Ma Thuot, Dak Lak',
-    image: '/images/daklak/daklak_doi_ca_phe.jpg',
-    category: 'coffee',
-    link: `/posts?category=${encodeURIComponent('Nông sản & Cà phê')}`
-  },
-  {
-    id: 7,
-    title: 'Tổ Hợp Năng Lượng Tái Tạo & Điện Gió',
-    titleEn: 'Renewable Wind Energy & Green Power',
-    location: 'Ea H\'leo & Krông Búk, Đắk Lắk',
-    locationEn: 'Ea Hleo & Krong Buk, Dak Lak',
-    image: '/images/daklak/daklak_dau_tu_logistics.jpg',
+    title: 'KCN Tằng Loỏng, Đông Phố Mới & Võ Lao',
+    titleEn: 'Tang Loong, Dong Pho Moi & Vo Lao Industrial Parks',
+    location: 'Bảo Thắng, TP. Lào Cai & Văn Bàn',
+    locationEn: 'Bao Thang, Lao Cai City & Van Ban',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=85',
     category: 'investment',
     link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}`
   },
   {
+    id: 7,
+    title: 'Nông Nghiệp Công Nghệ Cao & Cá Hồi Nước Lạnh',
+    titleEn: 'High-Tech Agriculture & Cold-Water Salmon',
+    location: 'Thác Bạc Sa Pa, Ngũ Chỉ Sơn & Bảo Yên',
+    locationEn: 'Sa Pa Silver Waterfall, Ngu Chi Son & Bao Yen',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=85',
+    category: 'agritech',
+    link: `/posts?category=${encodeURIComponent('Nông sản & Dược liệu')}`
+  },
+  {
     id: 8,
-    title: 'Không Gian Văn Hóa Cồng Chiêng UNESCO',
-    titleEn: 'UNESCO Gong Heritage & Lake Lak Ede Village',
-    location: 'Huyện Lắk & Buôn Đôn, Đắk Lắk',
-    locationEn: 'Lak District & Buon Don, Dak Lak',
-    image: '/images/daklak/daklak_cong_chieng.jpg',
+    title: 'Đèo Ô Quy Hồ & Không Gian Kinh Tế Đêm Tây Bắc',
+    titleEn: 'O Quy Ho Pass & Northwest Night Economy',
+    location: 'Hoàng Liên Sơn, Thị xã Sa Pa & TP. Lào Cai',
+    locationEn: 'Hoang Lien Son, Sa Pa Town & Lao Cai City',
+    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=85',
     category: 'tourism',
     link: `/posts?category=${encodeURIComponent('Du lịch & Trải nghiệm')}`
   }
 ];
 
-// Fallback images đa dạng cho bài viết không có ảnh đại diện (tránh 2 bài liên tiếp cùng ảnh)
+// Bảng xếp hạng Top 10 Thương hiệu Nông sản, Dược liệu & OCOP Lào Cai vs Top 10 Giao thương Cửa khẩu & Đầu tư Chiến lược
+const TOP_EXPORTERS_TAY_NGUYEN = {
+  title: 'Top 10 Thương Hiệu Dược Liệu, Nông Sản & OCOP Lào Cai',
+  titleEn: 'Top 10 Lao Cai Medicinal Herbs, Agro & OCOP Brands',
+  sub: 'Những chuỗi sản phẩm đặc hữu vùng cao tạo nên danh tiếng và giá trị gia tăng bền vững của tỉnh Lào Cai',
+  subEn: 'Flagship highland specialty chains driving sustainable value and brand prestige for Lao Cai Province',
+  top3: [
+    {
+      name: 'Dược Liệu Quý Sa Pa – Bắc Hà (Chuẩn GACP-WHO)',
+      sub: 'Thị xã Sa Pa & Huyện Bắc Hà, Lào Cai',
+      logo: '/images/exporters/simexco.svg',
+      highlight: 'Vùng trồng và nhà máy chiết xuất cao mềm Atiso, tam thất, đương quy, chùa dù lớn nhất vùng Tây Bắc đạt chuẩn quốc tế.',
+      highlightEn: 'Largest GACP-WHO certified artichoke, panax, and medicinal herb cultivation & extraction chain in Northwest Vietnam.',
+      pill: 'Chuỗi Dược liệu Công nghệ cao'
+    },
+    {
+      name: 'Chè Cổ Thụ Shan Tuyết Hữu Cơ Bản Liền – Mường Khương',
+      sub: 'Huyện Bắc Hà & Mường Khương, Lào Cai',
+      logo: '/images/exporters/intime.svg',
+      highlight: 'Danh trà cổ thụ hàng trăm năm tuổi trên đỉnh núi mờ sương đạt chứng nhận Organic Châu Âu và OCOP 5 sao cấp Quốc gia.',
+      highlightEn: 'Centuries-old mountain Shan Tuyet tea certified EU Organic and National 5-Star OCOP.',
+      pill: 'OCOP 5 Sao & Xuất khẩu EU'
+    },
+    {
+      name: 'Cá Hồi, Cá Tầm Nước Lạnh & Quế Hữu Cơ Lào Cai',
+      sub: 'Sa Pa, Bát Xát, Bảo Yên & Văn Bàn',
+      logo: '/images/exporters/an-thai.svg',
+      highlight: 'Thủ phủ nuôi cá nước lạnh lớn nhất miền Bắc kết hợp vùng nguyên liệu hơn 50.000 ha quế hữu cơ chưng cất tinh dầu xuất khẩu.',
+      highlightEn: 'Northern Vietnam’s largest cold-water salmon & sturgeon hub paired with 50,000+ ha of organic cinnamon oil exports.',
+      pill: 'Nông nghiệp Đặc sản Chủ lực'
+    }
+  ],
+  rest: [
+    'Gạo Séng Cù Mường Vi – Bát Xát',
+    'Mận Tam Hoa & Lê Tai Nung Bắc Hà',
+    'Tương Ớt Mường Khương & Thịt Gác Bếp',
+    'Rượu Ngô Bản Phố & Cốm Bắc Hà',
+    'Mật Ong Hoa Rừng Hoàng Liên Sơn',
+    'Rau & Hoa Ôn Đới Công Nghệ Cao Sa Pa',
+    'Thổ Cẩm Truyền Thống Lan Rừng – Tả Phìn'
+  ]
+};
+
+const TOP_EXPORTERS_WORLD = {
+  title: 'Top 10 Động Lực Giao Thương Cửa Khẩu & Logistics Quốc Tế',
+  titleEn: 'Top 10 Cross-Border Trade & International Logistics Drivers',
+  sub: 'Các trung tâm hạ tầng, logistics liên vận và tập đoàn chiến lược trên hành lang Côn Minh – Lào Cai – Hà Nội – Hải Phòng',
+  subEn: 'Key infrastructure hubs, intermodal logistics, and strategic operators along the Kunming – Lao Cai – Hai Phong corridor',
+  top3: [
+    {
+      name: 'Khu Thương Mại – Công Nghiệp Kim Thành (Cửa Khẩu Quốc Tế)',
+      sub: 'Cửa khẩu Quốc tế đường bộ số II Kim Thành, TP. Lào Cai',
+      logo: '/images/exporters/neumann.svg',
+      highlight: 'Tâm điểm thông quan hàng hóa xuất nhập khẩu nông sản, trái cây tươi, thiết bị điện tử và nguyên liệu giữa Việt Nam – Trung Quốc.',
+      highlightEn: 'Primary customs clearance hub for fresh produce, electronics, and industrial materials between Vietnam and China.',
+      pill: 'Cửa khẩu Quốc tế Thông minh'
+    },
+    {
+      name: 'Tổ Hợp Đường Sắt Liên Vận Quốc Tế & Cảng Cạn ICD Lào Cai',
+      sub: 'Ga Quốc tế Lào Cai – Kết nối Hà Khẩu (Vân Nam) & Châu Âu',
+      logo: '/images/exporters/ldc.svg',
+      highlight: 'Tuyến đường sắt liên vận trực tiếp nối cảng biển Hải Phòng qua Lào Cai sang Vân Nam (Trung Quốc) và tuyến đường sắt Á – Âu.',
+      highlightEn: 'Direct international rail link connecting Hai Phong seaports through Lao Cai to Yunnan (China) and Eurasian rail corridors.',
+      pill: 'Liên vận Đường sắt Á – Âu'
+    },
+    {
+      name: 'Cảng Hàng Không Sa Pa & Trục Cao Tốc Nội Bài – Lào Cai',
+      sub: 'Xã Cam Cọn, Huyện Bảo Yên & Trục Động lực Dọc sông Hồng',
+      logo: '/images/exporters/ecom.svg',
+      highlight: 'Dự án sân bay cấp 4C công suất 1,5 – 3 triệu khách/năm cùng cao tốc mở rộng hoàn thiện mạng lưới giao thông Đa phương thức.',
+      highlightEn: '4C-class airport project (1.5–3M passengers/year) and expanded expressway completing multimodal transport connectivity.',
+      pill: 'Hạ tầng Chiến lược Quốc gia'
+    }
+  ],
+  rest: [
+    'Cửa khẩu Phụ Bản Vược (Bát Xát)',
+    'Cửa khẩu Quốc tế Mường Khương',
+    'Hệ thống Kho Ngoại quan & Kho Lạnh Kim Thành',
+    'Trung tâm Kiểm nghiệm – Kiểm dịch Nông sản XNK',
+    'Hành lang Thương mại Điện tử Xuyên biên giới',
+    'Tổ hợp Đô thị & Dịch vụ Biên mậu Lào Cai',
+    'Mạng lưới Logistics Chuỗi Lạnh ASEAN – Vân Nam'
+  ]
+};
+
+// Bảng xếp hạng Top 10 Khu Kinh tế, Khu & Cụm Công nghiệp Tiêu biểu Lào Cai
+const TOP_INDUSTRIAL_PARKS = {
+  title: 'Top 10 Khu Kinh Tế, Khu & Cụm Công Nghiệp Trọng Điểm Lào Cai',
+  titleEn: 'Top 10 Economic Zones, Industrial Parks & Clusters in Lao Cai',
+  sub: 'Tâm điểm thu hút dòng vốn FDI, logistics biên giới, công nghiệp chế biến sâu và sản xuất công nghệ cao vùng Tây Bắc',
+  subEn: 'Premier destinations for FDI, border logistics, deep processing, and high-tech manufacturing in Northwest Vietnam',
+  top3: [
+    {
+      id: 'kkt-cua-khau-lao-cai',
+      rank: 1,
+      name: 'Khu Kinh Tế Cửa Khẩu Lào Cai & Kim Thành',
+      nameEn: 'Lao Cai Border Gate Economic Zone & Kim Thanh',
+      location: 'TP. Lào Cai, Bát Xát, Mường Khương (Dọc biên giới Việt – Trung)',
+      locationEn: 'Lao Cai City, Bat Xat & Muong Khuong',
+      scale: '15.929 ha',
+      scaleEn: '15,929 Hectares',
+      logo: '/images/exporters/kcn-hoa-phu.svg',
+      highlight: 'Một trong 8 Khu kinh tế cửa khẩu trọng điểm quốc gia; hưởng cơ chế ưu đãi thuế, đất đai và thông quan cao nhất dành cho thương mại quốc tế, kho vận và chế biến xuất khẩu.',
+      highlightEn: 'One of Vietnam’s 8 key national border gate economic zones, offering maximum tax, land, and customs incentives for international trade and export processing.',
+      pill: 'KKT Cửa khẩu Trọng điểm Quốc gia',
+      pillEn: 'Key National Border Economic Zone',
+      link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}&subCategory=${encodeURIComponent('Khu & Cụm công nghiệp')}`
+    },
+    {
+      id: 'kcn-tang-loong',
+      rank: 2,
+      name: 'Khu Công Nghiệp Tằng Loỏng',
+      nameEn: 'Tang Loong Industrial Park',
+      location: 'Thị trấn Tằng Loỏng, Huyện Bảo Thắng, Tỉnh Lào Cai',
+      locationEn: 'Tang Loong Town, Bao Thang District, Lao Cai',
+      scale: '1.100 ha',
+      scaleEn: '1,100 Hectares',
+      logo: '/images/exporters/kcn-phu-xuan.svg',
+      highlight: 'Khu công nghiệp chế biến sâu khoáng sản, hóa chất, phân bón và luyện kim quy mô lớn hàng đầu miền núi phía Bắc, kết nối trực tiếp đường sắt và cao tốc Nội Bài – Lào Cai.',
+      highlightEn: 'Leading large-scale deep mineral processing, chemical, and metallurgical industrial park in Northern Vietnam, directly linked to rail and expressway.',
+      pill: 'Trung tâm Công nghiệp Chế biến sâu',
+      pillEn: 'Deep Processing Industrial Hub',
+      link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}&subCategory=${encodeURIComponent('Khu & Cụm công nghiệp')}`
+    },
+    {
+      id: 'kcn-dong-pho-moi-vo-lao',
+      rank: 3,
+      name: 'KCN Đông Phố Mới, Bắc Duyên Hải & Võ Lao',
+      nameEn: 'Dong Pho Moi, Bac Duyen Hai & Vo Lao IPs',
+      location: 'TP. Lào Cai & Huyện Văn Bàn (Kết nối Sân bay Sa Pa)',
+      locationEn: 'Lao Cai City & Van Ban District',
+      scale: '650+ ha',
+      scaleEn: '650+ Hectares',
+      logo: '/images/exporters/kcn-mdrak.svg',
+      highlight: 'Tổ hợp công nghiệp sạch, chế biến nông lâm sản, dược liệu công nghệ cao, lắp ráp điện tử và dịch vụ kho bãi hậu cần gắn liền với cửa khẩu quốc tế và sân bay Sa Pa.',
+      highlightEn: 'Clean industry, high-tech agro & herbal processing, electronics assembly, and logistics complex adjacent to the international border gate and Sa Pa Airport.',
+      pill: 'Công nghiệp Sạch & Chế biến CNC',
+      pillEn: 'Clean Industry & High-Tech Processing',
+      link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}&subCategory=${encodeURIComponent('Khu & Cụm công nghiệp')}`
+    }
+  ],
+  rest: [
+    { name: 'Khu Công nghiệp Võ Lao (Giai đoạn mới)', nameEn: 'Vo Lao Industrial Park', location: 'Huyện Văn Bàn (200 ha)' },
+    { name: 'Khu Công nghiệp Bản Qua – Bát Xát', nameEn: 'Ban Qua Industrial Park', location: 'Huyện Bát Xát' },
+    { name: 'Cụm Công nghiệp Cốc My – Trịnh Tường', nameEn: 'Coc My – Trinh Tuong Cluster', location: 'Huyện Bát Xát' },
+    { name: 'Cụm Công nghiệp Sơn Mãn – Vạn Hòa', nameEn: 'Son Man – Van Hoa Cluster', location: 'TP. Lào Cai' },
+    { name: 'Cụm Công nghiệp Phố Ràng', nameEn: 'Pho Rang Industrial Cluster', location: 'Huyện Bảo Yên' },
+    { name: 'Cụm Công nghiệp Bắc Hà (Chế biến Dược liệu)', nameEn: 'Bac Ha Herbal Cluster', location: 'Huyện Bắc Hà' },
+    { name: 'Khu Logistics & Cảng cạn ICD Lào Cai', nameEn: 'Lao Cai ICD Dry Port & Logistics', location: 'TP. Lào Cai' }
+  ]
+};
+
+// Bộ ảnh dự phòng chất lượng cao mang đậm cảnh sắc Lào Cai (Fansipan, ruộng bậc thang, cửa khẩu, dược liệu)
 const FALLBACK_POST_IMAGES = [
-  '/images/daklak/daklak_doi_ca_phe.jpg',
-  '/images/daklak/daklak_thac_dray_nur.jpg',
-  '/images/daklak/daklak_dau_tu_logistics.jpg',
-  '/images/daklak/daklak_ca_phe.jpg',
-  '/images/daklak/daklak_cong_chieng.jpg',
-  '/images/daklak/daklak_le_hoi_nha_rong.jpg',
-  '/images/daklak/daklak_bien_ganh_da_dia.jpg',
-  '/images/daklak/daklak_nha_rong_ede.jpg'
+  'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=85',
+  'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=85',
+  'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=1000&q=85',
+  'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85',
+  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85',
+  'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85',
+  'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=85',
+  'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=85'
 ];
 
-const isGenericOrPlaceholder = (url) => {
-  if (!url || typeof url !== 'string' || url.trim() === '') return true;
-  const lower = url.toLowerCase();
-  return (
-    lower.includes('cong_chieng') ||
-    lower.includes('doi_ca_phe') ||
-    lower.includes('default') ||
-    lower.includes('placeholder') ||
-    lower.includes('photo-1514432324607-a09d9b4aefdd') ||
-    lower.includes('photo-1500382017468') ||
-    lower.includes('photo-1506744038136')
-  );
-};
-
-const getPostThumb = (post, idx = 0) => {
-  const url = post?.image_url || post?.cover_image || post?.thumbnail;
-  if (url && typeof url === 'string' && url.trim() !== '' && !isGenericOrPlaceholder(url)) {
-    return url;
+// Hàm lấy ảnh bài viết an toàn
+const getPostThumb = (post, index = 0) => {
+  if (!post) return FALLBACK_POST_IMAGES[index % FALLBACK_POST_IMAGES.length];
+  const candidate = post.image_url || post.thumbnail || post.cover_image;
+  if (candidate && typeof candidate === 'string' && candidate.trim() !== '' && candidate !== 'null' && candidate !== 'undefined') {
+    return candidate.trim();
   }
-  return FALLBACK_POST_IMAGES[idx % FALLBACK_POST_IMAGES.length];
-};
-
-// Dữ liệu Top 10 Doanh nghiệp xuất khẩu cà phê Tây Nguyên
-const TOP_EXPORTERS_TAY_NGUYEN = {
-  title: 'Top 10 Doanh Nghiệp Xuất Khẩu Cà Phê Tây Nguyên',
-  titleEn: 'Top 10 Coffee Exporters in Central Highlands',
-  sub: 'Những cánh chim đầu đàn đưa Robusta Buôn Ma Thuột và Tây Nguyên chinh phục thị trường toàn cầu',
-  subEn: 'Flagship enterprises elevating Buon Ma Thuot & Central Highlands Robusta globally',
-  top3: [
-    {
-      name: 'Simexco Đắk Lắk',
-      sub: 'Công ty TNHH MTV XNK 2-9 Đắk Lắk',
-      logo: '/images/exporters/simexco.png',
-      highlight: 'Doanh nghiệp nhà nước đầu tàu của Đắk Lắk, kim ngạch hàng trăm triệu USD/năm, liên kết chuỗi bền vững với hơn 40.000 nông hộ Tây Nguyên.',
-      highlightEn: 'Leading state enterprise of Dak Lak with hundreds of millions USD export turnover, partnering with 40,000+ local farming families.',
-      pill: 'Top 1 Đắk Lắk • Xuất khẩu >100.000 tấn/năm'
-    },
-    {
-      name: 'Trung Nguyên Legend',
-      sub: 'Tập đoàn Cà phê Trung Nguyên',
-      logo: '/images/exporters/trungnguyen.svg',
-      highlight: 'Thương hiệu cà phê quốc gia khởi nguồn từ Buôn Ma Thuột, tiên phong chuỗi Cà phê Năng lượng và văn hóa cà phê Việt Nam tới 80+ quốc gia.',
-      highlightEn: 'National coffee champion founded in Buon Ma Thuot, pioneering Energy Coffee and Vietnamese coffee culture across 80+ countries.',
-      pill: 'Thương hiệu Quốc gia • Xuất khẩu 80+ nước'
-    },
-    {
-      name: "Vĩnh Hiệp (L'amant)",
-      sub: 'Công ty TNHH Vĩnh Hiệp',
-      logo: '/images/exporters/vinhhiep.svg',
-      highlight: 'Tiên phong xuất khẩu cà phê hữu cơ (Organic USDA/EU) quy mô lớn của Tây Nguyên sang các thị trường khó tính Mỹ, EU, Nhật Bản.',
-      highlightEn: 'Pioneer in large-scale Organic USDA/EU coffee exports from Central Highlands to demanding US, EU, and Japanese markets.',
-      pill: 'Tiên phong Organic • Vùng trồng chuẩn quốc tế'
-    }
-  ],
-  rest: [
-    'Intimex Buôn Ma Thuột',
-    'An Thái Group',
-    'Phúc Sinh Đắk Lắk',
-    'Tín Nghĩa Tây Nguyên',
-    'CTP Group',
-    'Đắkman Việt Nam',
-    'Bazan Heritage Coffee'
-  ]
-};
-
-// Dữ liệu Top 10 Doanh nghiệp thương mại & xuất khẩu cà phê Thế Giới
-const TOP_EXPORTERS_WORLD = {
-  title: 'Top 10 Doanh Nghiệp Xuất Khẩu Cà Phê Thế Giới',
-  titleEn: 'Top 10 Global Coffee Trading & Export Giants',
-  sub: 'Các tập đoàn thương mại đa quốc gia chi phối chuỗi cung ứng và logistics cà phê toàn cầu',
-  subEn: 'Multinational trading giants shaping global coffee value chains, logistics, and roastery supplies',
-  top3: [
-    {
-      name: 'Neumann Kaffee Gruppe (NKG)',
-      sub: 'Đức (Hamburg)',
-      logo: '/images/exporters/nkg.svg',
-      highlight: 'Tập đoàn thương mại cà phê xanh số 1 hành tinh với hơn 50 chi nhánh tại 26 quốc gia, chi phối khoảng 10% sản lượng cà phê toàn cầu.',
-      highlightEn: 'The world #1 green coffee service group with 50+ companies in 26 countries, handling ~10% of total global coffee output.',
-      pill: 'Số 1 Thế Giới • ~15 triệu bao/năm'
-    },
-    {
-      name: 'Volcafe (ED&F Man)',
-      sub: 'Thụy Sĩ (Winterthur)',
-      logo: '/images/exporters/volcafe.svg',
-      highlight: 'Một trong 3 nhà buôn cà phê lớn nhất lịch sử thế giới, đối tác cung ứng chiến lược của hàng triệu trang trại và các hãng rang xay toàn cầu.',
-      highlightEn: 'One of the top 3 coffee merchants globally, serving as strategic sourcing partner from millions of farms to top roasting brands.',
-      pill: 'Top 3 Toàn Cầu • Chuỗi cung ứng 20+ nước'
-    },
-    {
-      name: 'Sucafina',
-      sub: 'Thụy Sĩ (Geneva)',
-      logo: '/images/exporters/sucafina.svg',
-      highlight: 'Tập đoàn đa quốc gia dẫn dắt số hóa chuỗi cung ứng "Farm to Cup", hiện diện vững chắc tại các vùng nguyên liệu Robusta và Arabica trọng điểm.',
-      highlightEn: 'Leading multinational driving digitized "Farm to Cup" sustainable supply chains across 33 key coffee origins.',
-      pill: 'Mạng lưới 33 quốc gia • Tiên phong Số hóa'
-    }
-  ],
-  rest: [
-    'Louis Dreyfus Company (LDC)',
-    'ofi (Olam Food Ingredients)',
-    'Ecom Agroindustrial',
-    'Starbucks Coffee Trading Co.',
-    'Lavazza Group',
-    'Tchibo Group',
-    'Strauss Coffee'
-  ]
-};
-
-// Dữ liệu Top 10 Khu & Cụm Công Nghiệp Tiêu Biểu Đắk Lắk
-const TOP_INDUSTRIAL_PARKS = {
-  title: 'Top 10 Khu & Cụm Công Nghiệp Tiêu Biểu',
-  titleEn: 'Top 10 Flagship Industrial Parks & Clusters',
-  sub: 'Các trung tâm công nghiệp chế biến sâu, logistics và hạ tầng trọng điểm thu hút đầu tư của tỉnh Đắk Lắk',
-  subEn: 'Core hubs for deep agro-processing, logistics corridors, and high-tech manufacturing driving Dak Lak investment',
-  top3: [
-    {
-      id: 'kcn-hoa-phu',
-      rank: 1,
-      name: 'Khu Công Nghiệp Hòa Phú',
-      nameEn: 'Hoa Phu Industrial Park',
-      location: 'Xã Hòa Phú, TP. Buôn Ma Thuột',
-      locationEn: 'Hoa Phu, Buon Ma Thuot City',
-      scale: 'Quy mô 180 ha • Lấp đầy >95%',
-      scaleEn: 'Scale: 180 ha • Occupancy >95%',
-      logo: '/images/industrial/kcn_hoa_phu.svg',
-      highlight: 'KCN tập trung hiện hữu quy mô lớn nhất Đắk Lắk, trung tâm chế biến sâu cà phê, nông lâm sản xuất khẩu và chuỗi dịch vụ phụ trợ năng động.',
-      highlightEn: 'The largest active industrial park in Dak Lak, premier hub for deep coffee processing, agro-exports, and dynamic ancillary services.',
-      pill: 'Chế biến cà phê & Nông sản xuất khẩu',
-      pillEn: 'Coffee Processing & Agro-Exports',
-      link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}&sub_category=${encodeURIComponent('Khu & Cụm công nghiệp')}`
-    },
-    {
-      id: 'kcn-phu-xuan',
-      rank: 2,
-      name: 'Khu Công Nghiệp Phú Xuân',
-      nameEn: 'Phu Xuan Industrial Park',
-      location: 'Xã Ea Drơng, Huyện Cư M\'gar',
-      locationEn: 'Ea Drong, Cu M\'gar District',
-      scale: 'Quy mô 338 ha • Trọng điểm mới',
-      scaleEn: 'Scale: 338 ha • Flagship Eco-Hub',
-      logo: '/images/industrial/kcn_phu_xuan.svg',
-      highlight: 'Đại dự án KCN sinh thái kiểu mẫu đa ngành, vị trí đắc địa gần trung tâm Buôn Ma Thuột, hạ tầng đồng bộ thu hút chế biến công nghệ cao.',
-      highlightEn: 'Flagship modern eco-industrial zone, prime proximity to Buon Ma Thuot, built for high-tech processing and sustainable manufacturing.',
-      pill: 'Công nghiệp sinh thái & Chế biến công nghệ cao',
-      pillEn: 'Eco-Industrial & High-Tech Manufacturing',
-      link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}&sub_category=${encodeURIComponent('Khu & Cụm công nghiệp')}`
-    },
-    {
-      id: 'kcn-mdrak',
-      rank: 3,
-      name: 'Khu Công Nghiệp M\'Đrắk',
-      nameEn: 'M\'Drak Industrial Park',
-      location: 'Huyện M\'Đrắk (Cửa ngõ Đông Đắk Lắk)',
-      locationEn: 'M\'Drak District (Eastern Gateway)',
-      scale: 'Quy mô 212 ha • Trục cao tốc Khánh Hòa - Buôn Ma Thuột',
-      scaleEn: 'Scale: 212 ha • Khanh Hoa - BMT Expressway',
-      logo: '/images/industrial/kcn_mdrak.svg',
-      highlight: 'KCN cửa ngõ tiếp giáp trục Cao tốc Buôn Ma Thuột — Khánh Hòa, kết nối trực tiếp hải lộ và Cảng biển nước sâu Nam Vân Phong.',
-      highlightEn: 'Strategic gateway park along Buon Ma Thuot - Khanh Hoa Expressway, seamlessly linked to Nam Van Phong deepwater seaport.',
-      pill: 'Công nghiệp phụ trợ & Hậu cần Cảng biển',
-      pillEn: 'Ancillary Industry & Seaport Logistics',
-      link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}&sub_category=${encodeURIComponent('Khu & Cụm công nghiệp')}`
-    }
-  ],
-  // 7 KCN / CCN còn lại chia 2 hàng 4 / 3
-  rest: [
-    { name: 'Cụm Công Nghiệp Tân An 1 & 2', nameEn: 'Tan An 1 & 2 Industrial Cluster', location: 'TP. Buôn Ma Thuột' },
-    { name: 'Cụm Công Nghiệp Ea Dar', nameEn: 'Ea Dar Industrial Cluster', location: 'Huyện Ea Kar' },
-    { name: 'Cụm Công Nghiệp Cư Kuin', nameEn: 'Cu Kuin Industrial Cluster', location: 'Huyện Cư Kuin' },
-    { name: 'Cụm Công Nghiệp Buôn Hồ', nameEn: 'Buon Ho Industrial Cluster', location: 'TX. Buôn Hồ' },
-    { name: 'Cụm Công Nghiệp Krông Búk', nameEn: 'Krong Buk Industrial Cluster', location: 'Huyện Krông Búk' },
-    { name: 'Cụm Công Nghiệp Cư M\'gar', nameEn: 'Cu M\'gar Industrial Cluster', location: 'Huyện Cư M\'gar' },
-    { name: 'Cụm Công Nghiệp Ea H\'leo', nameEn: 'Ea H\'leo Industrial Cluster', location: 'Huyện Ea H\'leo' }
-  ]
+  return FALLBACK_POST_IMAGES[index % FALLBACK_POST_IMAGES.length];
 };
 
 export const Home = () => {
   const { role, user, token } = useAuth();
-  let storedMemberUser = null;
-  try {
-    const raw = localStorage.getItem('doson_member_user');
-    if (raw) storedMemberUser = JSON.parse(raw);
-  } catch (e) {}
-  const memberToken = localStorage.getItem('doson_member_token') || (role === 'member' ? token : null);
-  const effectiveUser = (role === 'member' ? user : null) || storedMemberUser || user;
-  const isActuallyLoggedIn = Boolean(effectiveUser && (role === 'member' || !!memberToken || (user && role !== 'guest')));
-  const isLoggedIn = isActuallyLoggedIn;
-
   const { currentLang, t } = useTranslation();
   const navigate = useNavigate();
 
-  // Search State & Scope
+  // Kiểm tra trạng thái đăng nhập thực tế
+  const memberToken = typeof window !== 'undefined' ? localStorage.getItem('member_token') : null;
+  const isActuallyLoggedIn = Boolean((role && role !== 'guest' && user) || memberToken);
+  const isLoggedIn = isActuallyLoggedIn;
+
+  // Lấy thông tin user từ context hoặc localStorage
+  const effectiveUser = useMemo(() => {
+    if (user) return user;
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('member_user');
+        if (saved) return JSON.parse(saved);
+      } catch {}
+    }
+    return null;
+  }, [user]);
+
+  // Search State
   const [searchQuery, setSearchQuery] = useState('');
   const [searchScope, setSearchScope] = useState('all');
 
   // Hero Site-wide Search Bar State
   const [heroSearchQuery, setHeroSearchQuery] = useState('');
 
-  // Hero Intro Video State, Refs & Language-synced Poster / Direct MP4 Sources
+  // Smart Itinerary Active Tab State (Chương 17 & 19)
+  const [activeItineraryId, setActiveItineraryId] = useState('2d1n');
+  const currentItinerary = useMemo(() => {
+    return SMART_ITINERARIES.find(item => item.id === activeItineraryId) || SMART_ITINERARIES[0];
+  }, [activeItineraryId]);
+
+  // Hero Intro Video State, Refs & Poster
   const [isHeroVideoPlaying, setIsHeroVideoPlaying] = useState(false);
   const [isHeroVideoEnded, setIsHeroVideoEnded] = useState(false);
   const [isHeroInView, setIsHeroInView] = useState(true);
@@ -610,9 +699,7 @@ export const Home = () => {
   const heroMainVideoRef = useRef(null);
 
   const isViLang = !currentLang || currentLang === 'vi';
-  const heroVideoPoster = isViLang
-    ? '/images/daklak/poster_video_vi.webp'
-    : '/images/daklak/poster_video_en.webp';
+  const heroVideoPoster = 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1280&q=85';
   const heroMainVideoSrc = isViLang
     ? '/videos/intro_daklak_vi.mp4'
     : '/videos/intro_daklak_en.mp4';
@@ -620,7 +707,6 @@ export const Home = () => {
     ? '/videos/hero_bg_vi.mp4'
     : '/videos/hero_bg_en.mp4';
 
-  // Reset trạng thái video chính khi người dùng đổi ngôn ngữ
   useEffect(() => {
     setIsHeroVideoPlaying(false);
     setIsHeroVideoEnded(false);
@@ -630,7 +716,6 @@ export const Home = () => {
     }
   }, [isViLang]);
 
-  // Tự động tạm dừng video nền khi cuộn khỏi vùng Hero để tiết kiệm tài nguyên CPU/GPU
   useEffect(() => {
     const sectionEl = heroSectionRef.current;
     if (!sectionEl || typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
@@ -645,7 +730,6 @@ export const Home = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Điều khiển phát / tạm dừng video nền tự động dựa vào vị trí cuộn & trạng thái video chính
   useEffect(() => {
     const bgVideo = heroBgVideoRef.current;
     if (!bgVideo) return;
@@ -694,10 +778,10 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, [isAiSlideHovered]);
 
-  // Top Destinations Tab Filter (Globe Trekker layout)
+  // Top Destinations Tab Filter
   const [activeDestTab, setActiveDestTab] = useState('all');
   const filteredDestinations = activeDestTab === 'all'
-    ? TOP_DESTINATIONS.slice(0, 4)
+    ? TOP_DESTINATIONS.slice(0, 8)
     : TOP_DESTINATIONS.filter(d => d.category === activeDestTab).concat(TOP_DESTINATIONS.filter(d => d.category !== activeDestTab)).slice(0, 4);
 
   // FAQ Accordion State
@@ -706,7 +790,7 @@ export const Home = () => {
   // Investment Projects Filter State
   const [selectedSector, setSelectedSector] = useState('all');
 
-  // State Slider Doanh nghiệp tiêu biểu (7 công ty từ file docx, tự động cuộn mỗi 5s, dừng khi hover)
+  // State Slider Doanh nghiệp tiêu biểu
   const [enterpriseIndex, setEnterpriseIndex] = useState(0);
   const [isEnterpriseHovered, setIsEnterpriseHovered] = useState(false);
   const handlePrevEnterprise = () => {
@@ -724,7 +808,7 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, [isEnterpriseHovered]);
 
-  // State Slider Đối tác của chúng tôi (4 logo, tự động chuyển mỗi 1s, dừng khi hover)
+  // State Slider Đối tác của chúng tôi
   const [partnerIndex, setPartnerIndex] = useState(PARTNER_COMPANIES.length);
   const [isPartnerHovered, setIsPartnerHovered] = useState(false);
   const [withPartnerTransition, setWithPartnerTransition] = useState(true);
@@ -741,7 +825,6 @@ export const Home = () => {
     return () => window.removeEventListener('resize', updateVisibleCount);
   }, []);
 
-  // Tự động lướt sang mỗi 1s, tạm dừng khi di chuột
   useEffect(() => {
     if (isPartnerHovered) return;
     const interval = setInterval(() => {
@@ -750,7 +833,6 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, [isPartnerHovered]);
 
-  // Vòng lặp vô hạn mượt mà
   const totalPartners = PARTNER_COMPANIES.length;
   useEffect(() => {
     if (partnerIndex >= totalPartners * 2) {
@@ -790,8 +872,8 @@ export const Home = () => {
     fullName: '',
     phone: '',
     email: '',
-    city: 'Đắk Lắk',
-    serviceNeed: 'Đầu tư nông nghiệp công nghệ cao & chế biến sâu',
+    city: 'Lào Cai',
+    serviceNeed: 'Đầu tư Khu kinh tế cửa khẩu & Logistics Lào Cai',
     companyName: '',
     notes: '',
     agreeTerms: true
@@ -818,17 +900,17 @@ export const Home = () => {
   const [checkingAccount, setCheckingAccount] = useState(false);
   const [submittingReg, setSubmittingReg] = useState(false);
   const [regSuccessData, setRegSuccessData] = useState(null);
-  const [paidFlowStep, setPaidFlowStep] = useState('transfer'); // 'transfer' | 'pending_approval'
+  const [paidFlowStep, setPaidFlowStep] = useState('transfer');
   const [proofFile, setProofFile] = useState(null);
   const [proofPreview, setProofPreview] = useState('');
   const [uploadingProof, setUploadingProof] = useState(false);
   const [copiedNote, setCopiedNote] = useState(false);
   const [copiedBank, setCopiedBank] = useState(false);
 
-  // Dynamic Live Posts (khởi tạo từ cache)
+  // Dynamic Live Posts
   const [latestPosts, setLatestPosts] = useState(() => {
     try {
-      const cached = localStorage.getItem('dnvn_cached_home_posts');
+      const cached = localStorage.getItem('laocai_cached_home_posts');
       if (cached) {
         const parsed = JSON.parse(cached);
         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -838,23 +920,22 @@ export const Home = () => {
   });
   const [loadingPosts, setLoadingPosts] = useState(false);
 
-  // Dynamic Live Events (theo thực tế từ DB, không hiển thị mock demo)
+  // Dynamic Live Events
   const [eventsList, setEventsList] = useState(() => {
     try {
-      localStorage.removeItem('dnvn_cached_home_events');
-      const cached = localStorage.getItem('daklak_cached_home_events');
+      const cached = localStorage.getItem('laocai_cached_home_events');
       if (cached) {
         const parsed = JSON.parse(cached);
-        if (Array.isArray(parsed)) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
       }
     } catch (e) {}
-    return [];
+    return FALLBACK_EVENTS;
   });
 
-  // Dynamic Live Members (khởi tạo từ cache)
+  // Dynamic Live Members
   const [featuredMembers, setFeaturedMembers] = useState(() => {
     try {
-      const cached = localStorage.getItem('dnvn_cached_home_members');
+      const cached = localStorage.getItem('laocai_cached_home_members');
       if (cached) {
         const parsed = JSON.parse(cached);
         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -866,7 +947,7 @@ export const Home = () => {
   // Dữ liệu và ảnh bìa trực tiếp của 3 bài viết chuyên đề AI
   const [aiTopicPosts, setAiTopicPosts] = useState(() => {
     try {
-      const cached = localStorage.getItem('dnvn_cached_ai_topic_posts');
+      const cached = localStorage.getItem('laocai_cached_ai_topic_posts');
       if (cached) {
         const parsed = JSON.parse(cached);
         if (parsed && typeof parsed === 'object') return parsed;
@@ -883,32 +964,31 @@ export const Home = () => {
         const [postsRes, eventsRes, membersRes] = await Promise.allSettled([
           fetchJsonWithTimeout('/api/posts?limit=12', {}, 8000),
           fetchJsonWithTimeout('/api/events?limit=4', {}, 8000),
-          fetchJsonWithTimeout('/api/members?limit=3', {}, 8000)
+          fetchJsonWithTimeout('/api/members?limit=4', {}, 8000)
         ]);
 
         if (isMounted) {
           if (postsRes.status === 'fulfilled' && postsRes.value?.success && Array.isArray(postsRes.value.data) && postsRes.value.data.length > 0) {
             setLatestPosts(postsRes.value.data);
             try {
-              localStorage.setItem('dnvn_cached_home_posts', JSON.stringify(postsRes.value.data));
+              localStorage.setItem('laocai_cached_home_posts', JSON.stringify(postsRes.value.data));
             } catch (e) {}
           }
-          if (eventsRes.status === 'fulfilled' && eventsRes.value?.success && Array.isArray(eventsRes.value.data)) {
+          if (eventsRes.status === 'fulfilled' && eventsRes.value?.success && Array.isArray(eventsRes.value.data) && eventsRes.value.data.length > 0) {
             setEventsList(eventsRes.value.data);
             try {
-              localStorage.setItem('daklak_cached_home_events', JSON.stringify(eventsRes.value.data));
-              localStorage.removeItem('dnvn_cached_home_events');
+              localStorage.setItem('laocai_cached_home_events', JSON.stringify(eventsRes.value.data));
             } catch (e) {}
           }
           if (membersRes.status === 'fulfilled' && membersRes.value?.success && Array.isArray(membersRes.value.data) && membersRes.value.data.length > 0) {
             setFeaturedMembers(membersRes.value.data);
             try {
-              localStorage.setItem('dnvn_cached_home_members', JSON.stringify(membersRes.value.data));
+              localStorage.setItem('laocai_cached_home_members', JSON.stringify(membersRes.value.data));
             } catch (e) {}
           }
         }
 
-        // Tải đồng thời 3 bài viết chuyên đề AI để lấy ảnh bìa và dữ liệu chính thức
+        // Tải đồng thời 3 bài viết chuyên đề AI
         const aiTargets = [
           { key: 'wardAi', slug: 'tro-ly-ai-phuong-xa' },
           { key: 'orion', slug: 'orion-chat-loc-tinh-hoa-cua-erp-multimodel-ai-va-nen-tang-xay-dung-ai-agent-de-tao-thanh-mot-he-dieu-hanh-quan-tri-thong-minh-danh-cho-doanh-nghiep' },
@@ -929,7 +1009,7 @@ export const Home = () => {
             setAiTopicPosts(prev => {
               const merged = { ...prev, ...aiMap };
               try {
-                localStorage.setItem('dnvn_cached_ai_topic_posts', JSON.stringify(merged));
+                localStorage.setItem('laocai_cached_ai_topic_posts', JSON.stringify(merged));
               } catch (e) {}
               return merged;
             });
@@ -943,7 +1023,7 @@ export const Home = () => {
     return () => { isMounted = false; };
   }, []);
 
-  // Hiệu ứng cuộn lướt (Scroll Reveal) mờ dần khi đến và lướt đi — 0% CPU lag nhờ IntersectionObserver gốc
+  // Hiệu ứng cuộn lướt (Scroll Reveal)
   useEffect(() => {
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
 
@@ -953,7 +1033,6 @@ export const Home = () => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-revealed');
           } else {
-            // Khi cuộn ra khỏi tầm nhìn, bỏ class để khi lướt lại có hiệu ứng mờ dần và hiện lại
             entry.target.classList.remove('is-revealed');
           }
         });
@@ -978,7 +1057,7 @@ export const Home = () => {
       clearTimeout(t2);
       observer.disconnect();
     };
-  }, [latestPosts, filteredDestinations, featuredMembers, eventsList]);
+  }, [latestPosts, filteredDestinations, featuredMembers, eventsList, activeItineraryId]);
 
   // Xử lý Tìm kiếm
   const handleSearchSubmit = (e) => {
@@ -1041,7 +1120,7 @@ export const Home = () => {
     }
   };
 
-  // Xử lý mở Modal đăng ký vé (tự động điền nếu đã đăng nhập)
+  // Xử lý mở Modal đăng ký vé
   const handleOpenRegisterModal = (evt) => {
     if (!evt) return;
     setRegisterModalEvent(evt);
@@ -1078,7 +1157,6 @@ export const Home = () => {
     }
   };
 
-  // Đóng modal và reset trạng thái tạm
   const handleCloseModal = () => {
     setRegisterModalEvent(null);
     setRegSuccessData(null);
@@ -1089,7 +1167,6 @@ export const Home = () => {
     setAccountWarning('');
   };
 
-  // Kiểm tra tài khoản đã tồn tại hay chưa khi chưa đăng nhập
   const verifyAccountNotExists = async (phoneToCheck, emailToCheck, loginToCheck) => {
     if (isActuallyLoggedIn) {
       setAccountWarning('');
@@ -1126,7 +1203,6 @@ export const Home = () => {
     }
   };
 
-  // Sao chép số tài khoản / nội dung chuyển khoản
   const copyToClipboard = (text, type) => {
     if (!text) return;
     navigator.clipboard.writeText(text);
@@ -1139,7 +1215,6 @@ export const Home = () => {
     }
   };
 
-  // Xử lý chọn ảnh chứng từ chuyển khoản
   const handleProofChange = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -1151,7 +1226,6 @@ export const Home = () => {
     setProofPreview(URL.createObjectURL(file));
   };
 
-  // Gửi ảnh chụp giao dịch chuyển khoản cho vé có phí
   const handleSubmitPaymentProof = async () => {
     if (!proofFile || !regSuccessData?.id) {
       alert('Vui lòng tải lên ảnh chụp màn hình giao dịch chuyển khoản thành công.');
@@ -1191,7 +1265,6 @@ export const Home = () => {
     }
   };
 
-  // Đăng ký vé sự kiện (hỗ trợ cả đã đăng nhập và tạo tài khoản mới)
   const handleQuickRegisterSubmit = async (e) => {
     e.preventDefault();
     if (!registerModalEvent) return;
@@ -1201,11 +1274,10 @@ export const Home = () => {
       return;
     }
 
-    // Nếu chưa đăng nhập: Kiểm tra xem SĐT hoặc Email đã có tài khoản chưa
     if (!isActuallyLoggedIn) {
       const isAvailable = await verifyAccountNotExists(regForm.phone, regForm.email, regForm.createAccount ? regForm.accountLogin : '');
       if (!isAvailable) {
-        alert(accountWarning || 'Email hoặc Số điện thoại này đã được đăng ký tài khoản trong hệ thống. Vui lòng kiểm tra lại thông tin, đăng nhập tài khoản trước khi mua vé, hoặc sử dụng Email/Số điện thoại khác hợp lệ.');
+        alert(accountWarning || 'Email hoặc Số điện thoại này đã được đăng ký tài khoản trong hệ thống. Vui lòng kiểm tra lại thông tin.');
         return;
       }
     }
@@ -1273,89 +1345,41 @@ export const Home = () => {
     }
   };
 
-  // Danh mục dự án đầu tư mẫu chọn lọc
-  const investmentProjects = [
-    {
-      id: 'inv-1',
-      title: 'Tổ hợp Nhà máy Chế biến sâu Cà phê & Nông sản xuất khẩu Buôn Ma Thuột',
-      sector: 'Chế biến Nông sản',
-      sectorKey: 'agro',
-      location: 'Khu công nghiệp Hòa Phú, TP. Buôn Ma Thuột',
-      scale: '250 tỷ VNĐ (Công suất 15.000 tấn/năm)',
-      status: 'Đang kêu gọi hợp tác & đầu tư',
-      desc: 'Dự án đầu tư dây chuyền sấy lạnh, chiết xuất cà phê hòa tan cao cấp và hệ thống kiểm định đạt chuẩn châu Âu.'
-    },
-    {
-      id: 'inv-2',
-      title: 'Khu Nông nghiệp Ứng dụng Công nghệ cao Cư M’gar',
-      sector: 'Nông nghiệp CNC',
-      sectorKey: 'hitech',
-      location: 'Huyện Cư M’gar, Tỉnh Đắk Lắk',
-      scale: '180 tỷ VNĐ (Quy mô 120 ha)',
-      status: 'Quỹ đất sạch sẵn sàng',
-      desc: 'Canh tác sầu riêng, mắc ca và hồ tiêu hữu cơ kết hợp hệ thống IoT giám sát thổ nhưỡng và truy xuất nguồn gốc số.'
-    },
-    {
-      id: 'inv-3',
-      title: 'Trung tâm Dịch vụ Logistics & Kho lạnh Vận tải hàng hóa Tây Nguyên',
-      sector: 'Logistics',
-      sectorKey: 'logistics',
-      location: 'Điểm nối cao tốc Buôn Ma Thuột — Khánh Hòa',
-      scale: '320 tỷ VNĐ (Diện tích 25 ha)',
-      status: 'Quy hoạch phân khu đã phê duyệt',
-      desc: 'Đầu tư cụm kho ngoại quan, kho lạnh bảo quản nông sản tươi và trung tâm logistics kết nối Tây Nguyên với cảng biển Nam Trung Bộ.'
-    },
-    {
-      id: 'inv-4',
-      title: 'Khu Nghỉ dưỡng Sinh thái & Bảo tồn Văn hóa Cồng chiêng Hồ Lắk',
-      sector: 'Du lịch Sinh thái',
-      sectorKey: 'tourism',
-      location: 'Huyện Lắk, Tỉnh Đắk Lắk',
-      scale: '150 tỷ VNĐ (Resort 4 sao, 80 phòng bungalow)',
-      status: 'Kêu gọi nhà đầu tư chiến lược',
-      desc: 'Tổ hợp nghỉ dưỡng sinh thái ven hồ kết hợp trải nghiệm làng nghề truyền thống và biểu diễn văn hóa phi vật thể của người M’Nông.'
-    }
-  ];
-
-  const filteredProjects = selectedSector === 'all' 
-    ? investmentProjects 
-    : investmentProjects.filter(p => p.sectorKey === selectedSector);
-
-  // 5 Câu hỏi thường gặp
+  // 5 Câu hỏi thường gặp (Bản sắc Laocai.today)
   const faqs = [
     {
-      q: currentLang === 'en' ? 'What is DakLak.today and who does it serve?' : 'DakLak.today là gì và phục vụ những đối tượng nào?',
+      q: currentLang === 'en' ? 'What is Laocai.today and who does it serve?' : 'Laocai.today là gì và phục vụ những nhóm đối tượng nào?',
       a: currentLang === 'en' 
-        ? 'DakLak.today is the digital gateway, open data hub, and investment promotion platform of Dak Lak Province. We connect travelers, local enterprises, global investors, and diaspora communities across 4 key pillars: Media, Data, Platform, and Artificial Intelligence.'
-        : 'DakLak.today là cổng thông tin số, dữ liệu mở và nền tảng xúc tiến đầu tư toàn diện của tỉnh Đắk Lắk. Nền tảng phục vụ du khách khám phá, doanh nghiệp địa phương quảng bá sản phẩm, nhà đầu tư trong và ngoài nước tiếp cận dự án, cùng cộng đồng người Đắk Lắk xa quê theo dõi chuyển động quê hương.'
+        ? 'Laocai.today is the cooperation, investment promotion, and regional branding platform of Lao Cai Province integrated with a Multilingual AI Assistant. It serves tourists, local enterprises, cross-border traders, domestic & foreign investors, and the global Lao Cai community.'
+        : 'Laocai.today là nền tảng kết nối hợp tác, xúc tiến đầu tư và quảng bá Lào Cai tích hợp Trợ lý AI đa ngôn ngữ. Nền tảng phục vụ 5 nhóm chính: Du khách trong nước & quốc tế, Doanh nghiệp & HTX địa phương, Thương nhân xuất nhập khẩu cửa khẩu, Nhà đầu tư chiến lược và Cộng đồng người Lào Cai xa quê.'
     },
     {
-      q: currentLang === 'en' ? 'How does AI Assistant & AI Matching work on DakLak.today?' : 'Trợ lý AI và tính năng AI Matching hỗ trợ nhà đầu tư như thế nào?',
+      q: currentLang === 'en' ? 'How does the Multilingual AI Assistant help tourists and investors?' : 'Trợ lý AI đa ngôn ngữ trên Laocai.today hỗ trợ du khách và nhà đầu tư như thế nào?',
       a: currentLang === 'en'
-        ? 'Our Gemini Flash-powered AI assistant analyzes investment profiles, agricultural raw material maps, and policy data to automatically match prospective investors with suitable projects, industrial zones, and verified local partners.'
-        : 'Trợ lý AI tích hợp công nghệ Gemini Flash kết nối trực tiếp với cơ sở dữ liệu doanh nghiệp, quy hoạch tỉnh và chuỗi giá trị nông sản. Nhà đầu tư chỉ cần nhập nhu cầu (ví dụ: cần tìm quỹ đất 50 ha làm nông nghiệp CNC), AI sẽ tự động sàng lọc dự án phù hợp và đề xuất đối tác xác thực.'
+        ? 'Powered by Gemini Flash and connected to Lao Cai’s verified database, our AI Assistant communicates fluently in Vietnamese, English, Chinese, Japanese, and Korean. It designs custom 1D/2D1N/3D2N itineraries and matches investors with projects in Kim Thanh Border Zone, Tang Loong IP, and high-tech herbal zones.'
+        : 'Trợ lý AI hỗ trợ 5 ngôn ngữ (Việt – Anh – Trung – Nhật – Hàn), kết nối trực tiếp với cơ sở dữ liệu quy hoạch Khu kinh tế cửa khẩu Lào Cai, các khu công nghiệp, danh bạ doanh nghiệp và điểm đến Sa Pa – Bắc Hà – Y Tý để tư vấn lịch trình, thủ tục đầu tư và ghép nối đối tác B2B 24/7.'
     },
     {
-      q: currentLang === 'en' ? 'What benefits do member businesses receive?' : 'Doanh nghiệp tham gia nền tảng DakLak.today được hưởng những quyền lợi gì?',
+      q: currentLang === 'en' ? 'What benefits do Lao Cai businesses receive when joining?' : 'Doanh nghiệp và HTX tại Lào Cai tham gia nền tảng được hưởng quyền lợi gì?',
       a: currentLang === 'en'
-        ? 'Member enterprises receive a verified Digital Showroom, publish articles & trade opportunities, receive investor inquiries, and enjoy automatic approval for the Silver package upon registration.'
-        : 'Doanh nghiệp được cấp trang Hồ sơ năng lực (Showroom số) có dấu xác thực, đăng tải sản phẩm OCOP, tìm kiếm đối tác và kêu gọi vốn. Khi đăng ký gói Silver, hệ thống tự động phê duyệt ngay lập tức để doanh nghiệp bắt đầu sử dụng.'
+        ? 'Enterprises receive a verified Digital Showroom, promote OCOP & medicinal herb products, connect with ASEAN–China buyers, and enjoy instant automatic approval when registering for the Silver tier.'
+        : 'Doanh nghiệp được cấp Hồ sơ năng lực số (Showroom số) có dấu xác thực, quảng bá sản phẩm OCOP vùng cao, dược liệu, dịch vụ du lịch – khách sạn – logistics, đăng tin cơ hội giao thương và được duyệt tự động ngay lập tức khi đăng ký gói Silver.'
     },
     {
-      q: currentLang === 'en' ? 'How can I register for events and get QR tickets?' : 'Tôi có thể đăng ký tham gia sự kiện và nhận vé QR như thế nào?',
+      q: currentLang === 'en' ? 'How can I register for trade fairs & investment forums with QR tickets?' : 'Làm thế nào để đăng ký tham dự Hội chợ thương mại và Diễn đàn đầu tư bằng vé QR?',
       a: currentLang === 'en'
-        ? 'Simply click "Register Ticket" on any featured event. Fill in your name and phone number to receive a unique QR check-in code directly on screen or by email, with zero waiting time.'
-        : 'Người dùng chỉ cần nhấn "Đăng ký vé" tại khối sự kiện nổi bật, điền thông tin người tham dự. Hệ thống sẽ tự động cấp mã QR soát vé độc nhất để check-in thời gian thực tại hội trường.'
+        ? 'Click "Details & Register" on any upcoming event on the homepage. Enter your contact info to immediately receive an electronic QR ticket on screen for fast check-in at the venue.'
+        : 'Quý vị chỉ cần nhấn "Xem chi tiết & Đăng ký" tại mục Sự kiện sắp diễn ra, điền Họ tên và Số điện thoại. Hệ thống sẽ cấp ngay Mã vé điện tử kèm QR Code độc nhất trên màn hình để check-in tự động tại sự kiện.'
     },
     {
-      q: currentLang === 'en' ? 'Does DakLak.today support mobile app installation (PWA)?' : 'DakLak.today có hỗ trợ cài đặt dạng ứng dụng trên điện thoại (PWA) không?',
+      q: currentLang === 'en' ? 'Can I install Laocai.today as an app on my smartphone (PWA)?' : 'Tôi có thể cài đặt Laocai.today như ứng dụng trên điện thoại (PWA) không?',
       a: currentLang === 'en'
-        ? 'Yes! DakLak.today is fully equipped with Progressive Web App (PWA) technology. You can click "Install App" on the navigation bar to add it directly to your phone or computer home screen without App Store downloads.'
-        : 'Có. DakLak.today được tối ưu chuẩn PWA hiện đại. Bạn chỉ cần nhấn nút "Cài App" trên thanh điều hướng hoặc popup trên điện thoại để đưa biểu tượng DakLak.today ra màn hình chính, sử dụng mượt mà không cần qua App Store.'
+        ? 'Yes! Laocai.today supports Progressive Web App (PWA) technology. Tap "Install PWA App" in the menu or footer to add Laocai.today directly to your home screen.'
+        : 'Hoàn toàn được! Laocai.today tích hợp công nghệ PWA hiện đại. Quý vị chỉ cần nhấn nút "Cài đặt ứng dụng PWA" trên menu hoặc chân trang để thêm biểu tượng Laocai.today ra màn hình chính điện thoại, truy cập cực nhanh ngay cả khi sóng yếu vùng cao.'
     }
   ];
 
-  // Dữ liệu sự kiện theo thực tế DB (1 Sự kiện Tiêu điểm Hero + tối đa 3 Sự kiện phụ, không chèn fake demo)
+  // Dữ liệu sự kiện Hero + tối đa 3 Sự kiện phụ
   const heroEvent = (eventsList && eventsList.length > 0) ? eventsList[0] : null;
   const subEvents = useMemo(() => {
     return (eventsList && eventsList.length > 1) ? eventsList.slice(1, 4) : [];
@@ -1371,10 +1395,10 @@ export const Home = () => {
 
       <main id="main-content">
         {/* ========================================================
-            SECTION 1: HERO GLOBE TREKKER - THIẾT KẾ TINH TẾ, THOÁNG ĐÃNG
+            SECTION 1: HERO LAOCAI.TODAY — ĐỈNH THIÊNG HỘI TỤ & CỬA NGÕ GIAO THƯƠNG
             ======================================================== */}
         <section className="gt-hero-section" id="home" ref={heroSectionRef}>
-          {/* Ambient Background Video (Muted, Infinite Loop while in Hero viewport, Pauses on scroll) */}
+          {/* Ambient Background Video */}
           <div className="gt-hero-bg-video-wrap" aria-hidden="true">
             <video
               ref={heroBgVideoRef}
@@ -1390,29 +1414,49 @@ export const Home = () => {
             <div className="gt-hero-bg-video-overlay" />
           </div>
 
-          {/* Lightweight Ambient Glow Orbs with Prominent Breathing Pulse */}
+          {/* Ambient Glow Orbs */}
           <div className="gt-hero-ambient-glow orb-1" aria-hidden="true" />
           <div className="gt-hero-ambient-glow orb-2" aria-hidden="true" />
           <div className="gt-hero-ambient-glow orb-3" aria-hidden="true" />
           <div className="gt-hero-bg-map" aria-hidden="true" />
 
           <div className="gt-hero-container">
-            {/* Left Column: Heading, Subtitle & Action (Enters from Left) */}
+            {/* Left Column: Heading, Subtitle & Action */}
             <div className="gt-hero-left scroll-reveal scroll-reveal-left">
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                backgroundColor: 'rgba(20, 90, 62, 0.12)',
+                border: '1px solid rgba(20, 90, 62, 0.28)',
+                color: '#145A3E',
+                padding: '6px 14px',
+                borderRadius: '999px',
+                fontSize: '0.78rem',
+                fontWeight: 800,
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+                marginBottom: '14px',
+                width: 'fit-content'
+              }}>
+                <i className="ti ti-sparkles" style={{ color: '#D99B26' }} />
+                <span>{currentLang === 'en' ? 'LAOCAI.TODAY • AI-POWERED REGIONAL ECOSYSTEM' : 'LAOCAI.TODAY • NỀN TẢNG KẾT NỐI ĐẦU TƯ, GIAO THƯƠNG & DU LỊCH SỐ'}</span>
+              </div>
+
               <h1 className="gt-hero-title">
-                {currentLang === 'en' ? 'Discover Dak Lak' : 'Khám phá Đắk Lắk'}<br />
+                {currentLang === 'en' ? 'Discover Lao Cai' : 'Khám phá Lào Cai'}<br />
                 <span className="gt-hero-highlight">
-                  {currentLang === 'en' ? 'Heritage of' : 'Bản sắc'}
+                  {currentLang === 'en' ? 'Sacred Peak' : 'Đỉnh Thiêng'}
                   <svg className="gt-highlight-curve" viewBox="0 0 180 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 14C45 4 135 4 176 14" stroke="#E99035" strokeWidth="4" strokeLinecap="round" />
+                    <path d="M4 14C45 4 135 4 176 14" stroke="#D99B26" strokeWidth="4" strokeLinecap="round" />
                   </svg>
-                </span> {currentLang === 'en' ? 'Central Highlands' : 'Tây Nguyên'}
+                </span> {currentLang === 'en' ? '& Trade Gateway' : '& Cửa Ngõ Quốc Tế'}
               </h1>
 
               <p className="gt-hero-desc">
                 {currentLang === 'en'
-                  ? 'Find unique moments and majestic natural wonders across the Buon Ma Thuot coffee capital, mythical waterfalls, and timeless indigenous gong heritage.'
-                  : 'Trải nghiệm những khoảnh khắc nguyên sơ và hùng vĩ giữa thủ phủ cà phê Buôn Ma Thuột, thác nước Dray Nur kỳ ảo, văn hóa cồng chiêng ngàn đời và những hành trình bất tận.'}
+                  ? 'Connecting people, enterprises, and global investors to Lao Cai — where the 3,143m Roof of Indochina meets the strategic ASEAN – China economic corridor, precious highland herbs, and vibrant Northwest heritage.'
+                  : 'Nền tảng kết nối hợp tác, xúc tiến đầu tư và quảng bá Lào Cai tích hợp Trợ lý AI đa ngôn ngữ — Nơi hội tụ đỉnh thiêng Fansipan 3.143m, cửa ngõ giao thương ASEAN – Trung Quốc, dược liệu quý vùng cao và bản sắc Tây Bắc.'}
               </p>
 
               <div className="gt-hero-action-row">
@@ -1426,25 +1470,30 @@ export const Home = () => {
                   }}
                 >
                   <i className="ti ti-chart-arrows-vertical" />
-                  <span>{currentLang === 'en' ? 'Investment Opportunities' : 'Cơ Hội Đầu Tư & Tin Tức'}</span>
+                  <span>{currentLang === 'en' ? 'Investment & News' : 'Cơ Hội Đầu Tư & Tin Tức'}</span>
                 </a>
-                <Link 
-                  to="/members" 
+                <a 
+                  href="#hanh-trinh-thong-minh" 
                   className="gt-btn-secondary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById('hanh-trinh-thong-minh');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
-                  <i className="ti ti-building" />
-                  <span>{currentLang === 'en' ? 'Enterprise Ecosystem' : 'Hệ Sinh Thái Doanh Nghiệp'}</span>
-                </Link>
+                  <i className="ti ti-compass" />
+                  <span>{currentLang === 'en' ? 'Smart Itineraries' : 'Hành Trình Du Lịch AI'}</span>
+                </a>
                 <div className="gt-flight-trail">
                   <svg className="gt-flight-svg" viewBox="0 0 140 40" fill="none">
-                    <path d="M5 25 C40 45, 80 5, 125 22" stroke="#E99035" strokeWidth="2.5" strokeDasharray="6 6" fill="none" />
-                    <polygon points="125,22 135,16 131,28" fill="#E99035" />
+                    <path d="M5 25 C40 45, 80 5, 125 22" stroke="#D99B26" strokeWidth="2.5" strokeDasharray="6 6" fill="none" />
+                    <polygon points="125,22 135,16 131,28" fill="#D99B26" />
                   </svg>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Hero Intro Video (16:9) & End-Screen Centered CTAs (Enters from Right) */}
+            {/* Right Column: Hero Intro Video / Visual Showcase */}
             <div className="gt-hero-visuals scroll-reveal scroll-reveal-right">
               <div className="gt-hero-video-block">
                 <div className="gt-hero-video-frame">
@@ -1456,7 +1505,7 @@ export const Home = () => {
                     controls={isHeroVideoPlaying && !isHeroVideoEnded}
                     playsInline
                     preload="metadata"
-                    title="Xem video giới thiệu Đắk Lắk"
+                    title="Khám phá Lào Cai — Đỉnh thiêng hội tụ, Cửa ngõ giao thương"
                     onPlay={() => setIsHeroVideoEnded(false)}
                     onEnded={() => setIsHeroVideoEnded(true)}
                   />
@@ -1465,23 +1514,71 @@ export const Home = () => {
                     <button
                       type="button"
                       className="gt-hero-video-poster-btn"
-                      aria-label="Xem video giới thiệu Đắk Lắk"
+                      aria-label="Khám phá Lào Cai"
                       onClick={handleStartHeroVideo}
                     >
                       <img
                         src={heroVideoPoster}
-                        alt="Xem video giới thiệu Đắk Lắk"
+                        alt="Đỉnh Fansipan & Ruộng bậc thang Lào Cai"
                         className="gt-hero-video-poster-img"
                         loading="eager"
                         decoding="async"
                       />
+                      <div style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'linear-gradient(180deg, rgba(9, 27, 20, 0.15) 0%, rgba(9, 27, 20, 0.72) 100%)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        padding: '18px 22px',
+                        textAlign: 'left'
+                      }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                          <span style={{
+                            background: 'rgba(13, 38, 28, 0.85)',
+                            border: '1px solid rgba(217, 155, 38, 0.6)',
+                            color: '#FFE082',
+                            padding: '5px 12px',
+                            borderRadius: '999px',
+                            fontSize: '0.74rem',
+                            fontWeight: 800,
+                            letterSpacing: '0.4px'
+                          }}>
+                            🏔️ FANSIPAN 3.143M • SA PA • BẮC HÀ • Y TÝ
+                          </span>
+                          <span style={{
+                            width: '44px',
+                            height: '44px',
+                            borderRadius: '50%',
+                            background: 'linear-gradient(135deg, #D99B26 0%, #B87D14 100%)',
+                            color: '#091B14',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            boxShadow: '0 4px 16px rgba(217, 155, 38, 0.5)',
+                            fontSize: '1.2rem'
+                          }}>
+                            <i className="ti ti-player-play-filled" />
+                          </span>
+                        </div>
+
+                        <div>
+                          <div style={{ color: '#FFE082', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.6px' }}>
+                            {currentLang === 'en' ? 'GATEWAY TO NORTHWEST VIETNAM & ASEAN - CHINA' : 'TÂM ĐIỂM TÂY BẮC & HÀNH LANG CÔN MINH – LÀO CAI – HẢI PHÒNG'}
+                          </div>
+                          <div style={{ color: '#FFFFFF', fontSize: '1.15rem', fontWeight: 800, marginTop: '4px', lineHeight: 1.3 }}>
+                            {currentLang === 'en' ? 'Stay Longer • Experience Deeper • Invest Smarter in Lao Cai' : 'Kết nối con người – Kết nối doanh nghiệp – Kết nối Lào Cai với thế giới'}
+                          </div>
+                        </div>
+                      </div>
                     </button>
                   )}
 
                   {isHeroVideoPlaying && isHeroVideoEnded && (
                     <div className="gt-hero-video-ended-overlay">
                       <p className="gt-hero-video-ended-title">
-                        {isViLang ? 'Khám phá & Kết nối cùng Đắk Lắk' : 'Explore & Connect with Dak Lak'}
+                        {isViLang ? 'Khám phá & Kết nối Đầu tư cùng Laocai.today' : 'Explore & Connect with Laocai.today'}
                       </p>
                       <div className="gt-hero-video-cta-row">
                         <Link to="/members" className="gt-hero-video-cta gt-hero-video-cta-primary">
@@ -1508,7 +1605,7 @@ export const Home = () => {
             </div>
           </div>
 
-          {/* Hero Site-wide Search Bar (Thay thế Cuộn xuống khám phá) */}
+          {/* Hero Site-wide Search Bar */}
           <div className="gt-hero-search-wrapper scroll-reveal scroll-reveal-up">
             <form 
               className="gt-hero-search-form"
@@ -1524,7 +1621,7 @@ export const Home = () => {
                 <input
                   type="text"
                   className="gt-hero-search-input"
-                  placeholder={currentLang === 'en' ? 'Search all news, coffee exporters, investment projects, culture...' : 'Tìm kiếm toàn bộ trang web: tin tức, doanh nghiệp cafe, dự án đầu tư...'}
+                  placeholder={currentLang === 'en' ? 'Search Lao Cai: Fansipan, Sa Pa, Kim Thanh Border Gate, industrial parks, OCOP herbs...' : 'Bạn muốn tìm gì tại Lào Cai? (Fansipan, Sa Pa, Cửa khẩu Kim Thành, KCN Tằng Loỏng, dược liệu OCOP...)'}
                   value={heroSearchQuery}
                   onChange={(e) => setHeroSearchQuery(e.target.value)}
                 />
@@ -1544,8 +1641,8 @@ export const Home = () => {
                 </button>
               </div>
               <div className="gt-hero-search-tags">
-                <span className="gt-search-tag-label">{currentLang === 'en' ? 'Popular:' : 'Chủ đề hot:'}</span>
-                {['Cà phê Robusta', 'Xuất khẩu cà phê', 'Đầu tư Đắk Lắk', 'Thác Dray Nur', 'Chuyển đổi số'].map((tag, idx) => (
+                <span className="gt-search-tag-label">{currentLang === 'en' ? 'Trending in Lao Cai:' : 'Từ khóa nổi bật:'}</span>
+                {['Khu kinh tế cửa khẩu', 'Fansipan Sa Pa', 'Bắc Hà Y Tý', 'Dược liệu vùng cao', 'Chè Shan Tuyết', 'Đầu tư Lào Cai'].map((tag, idx) => (
                   <button
                     key={idx}
                     type="button"
@@ -1564,50 +1661,101 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            SECTION 2: TOP DESTINATIONS (TOP ĐIỂM ĐẾN)
+            SECTION 1.5: 8 LỐI VÀO NHANH HỆ SINH THÁI SỐ LAOCAI.TODAY
+            (Theo Chương 12 & 18 Tài liệu Giới thiệu dự án)
+            ======================================================== */}
+        <section className="laocai-quick-access-section" aria-label="Lối vào nhanh hệ sinh thái Lào Cai">
+          <div className="daklak-container">
+            <div className="laocai-quick-access-grid">
+              {QUICK_ACCESS_ITEMS.map((item, idx) => (
+                item.isAnchor ? (
+                  <a
+                    key={item.id}
+                    href={item.link}
+                    className={`laocai-qa-card scroll-reveal scroll-reveal-up stagger-${(idx % 4) + 1}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const targetEl = document.querySelector(item.link);
+                      if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    <div className="laocai-qa-icon">
+                      <i className={`ti ${item.icon}`} />
+                    </div>
+                    <div className="laocai-qa-body">
+                      <h3 className="laocai-qa-title">{currentLang === 'en' ? item.titleEn : item.title}</h3>
+                      <p className="laocai-qa-desc">{currentLang === 'en' ? item.descEn : item.desc}</p>
+                    </div>
+                  </a>
+                ) : (
+                  <Link
+                    key={item.id}
+                    to={item.link}
+                    className={`laocai-qa-card scroll-reveal scroll-reveal-up stagger-${(idx % 4) + 1}`}
+                  >
+                    <div className="laocai-qa-icon">
+                      <i className={`ti ${item.icon}`} />
+                    </div>
+                    <div className="laocai-qa-body">
+                      <h3 className="laocai-qa-title">{currentLang === 'en' ? item.titleEn : item.title}</h3>
+                      <p className="laocai-qa-desc">{currentLang === 'en' ? item.descEn : item.desc}</p>
+                    </div>
+                  </Link>
+                )
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================
+            SECTION 2: TRỤ CỘT ĐẦU TƯ, CỬA KHẨU & ĐIỂM ĐẾN TIÊU BIỂU LÀO CAI
             ======================================================== */}
         <section className="gt-dest-section" id="top-destinations">
           <div className="gt-dest-container">
             <div className="gt-dest-header scroll-reveal scroll-reveal-down">
               <div className="gt-dest-header-left">
+                <span className="daklak-section-badge" style={{ width: 'fit-content' }}>
+                  <i className="ti ti-compass" style={{ marginRight: '6px' }} />
+                  {currentLang === 'en' ? '5 Experience & Economic Clusters' : '5 Cụm Trải Nghiệm & Động Lực Tăng Trưởng'}
+                </span>
                 <h2 className="gt-section-title">
-                  {currentLang === 'en' ? 'Key Investment Hubs & Regional Highlights' : 'Trụ Cột Đầu Tư & Điểm Đến Tiêu Biểu'}
+                  {currentLang === 'en' ? 'Lao Cai Strategic Hubs & Iconic Destinations' : 'Tâm Điểm Giao Thương, Đầu Tư & Danh Thắng Lào Cai'}
                 </h2>
                 <div className="gt-dest-tabs">
                   <button 
                     className={`gt-filter-pill ${activeDestTab === 'all' ? 'active' : ''}`}
                     onClick={() => setActiveDestTab('all')}
                   >
-                    {currentLang === 'en' ? 'All Hubs' : 'Tất cả lĩnh vực'}
-                  </button>
-                  <button 
-                    className={`gt-filter-pill ${activeDestTab === 'investment' ? 'active' : ''}`}
-                    onClick={() => setActiveDestTab('investment')}
-                  >
-                    {currentLang === 'en' ? 'Investment & Logistics' : 'Đầu tư & Logistics'}
-                  </button>
-                  <button 
-                    className={`gt-filter-pill ${activeDestTab === 'coffee' ? 'active' : ''}`}
-                    onClick={() => setActiveDestTab('coffee')}
-                  >
-                    {currentLang === 'en' ? 'Coffee Capital' : 'Thủ phủ Cà phê'}
-                  </button>
-                  <button 
-                    className={`gt-filter-pill ${activeDestTab === 'agritech' ? 'active' : ''}`}
-                    onClick={() => setActiveDestTab('agritech')}
-                  >
-                    {currentLang === 'en' ? 'High-Tech Agri' : 'Nông nghiệp CNC'}
+                    {currentLang === 'en' ? 'All 8 Highlights' : 'Tất cả 8 tâm điểm'}
                   </button>
                   <button 
                     className={`gt-filter-pill ${activeDestTab === 'tourism' ? 'active' : ''}`}
                     onClick={() => setActiveDestTab('tourism')}
                   >
-                    {currentLang === 'en' ? 'Heritage & Eco-Tourism' : 'Bản sắc & Sinh thái'}
+                    {currentLang === 'en' ? 'Fansipan, Sa Pa, Bac Ha & Y Ty' : 'Fansipan • Sa Pa • Bắc Hà • Y Tý'}
+                  </button>
+                  <button 
+                    className={`gt-filter-pill ${activeDestTab === 'investment' ? 'active' : ''}`}
+                    onClick={() => setActiveDestTab('investment')}
+                  >
+                    {currentLang === 'en' ? 'Border Gate & Industrial Parks' : 'Kinh tế Cửa khẩu & KCN'}
+                  </button>
+                  <button 
+                    className={`gt-filter-pill ${activeDestTab === 'coffee' ? 'active' : ''}`}
+                    onClick={() => setActiveDestTab('coffee')}
+                  >
+                    {currentLang === 'en' ? 'Medicinal Herbs & Shan Tea' : 'Dược liệu & Chè Shan Tuyết'}
+                  </button>
+                  <button 
+                    className={`gt-filter-pill ${activeDestTab === 'agritech' ? 'active' : ''}`}
+                    onClick={() => setActiveDestTab('agritech')}
+                  >
+                    {currentLang === 'en' ? 'High-Tech Agri & Cold-Water Fish' : 'Nông nghiệp CNC & Cá nước lạnh'}
                   </button>
                 </div>
               </div>
-              <Link to={`/posts?category=${encodeURIComponent('Dự án & Đầu tư')}`} className="gt-dest-view-all">
-                <span>{currentLang === 'en' ? 'Explore all opportunities' : 'Khám phá tất cả cơ hội'}</span>
+              <Link to={`/posts?category=${encodeURIComponent('Khám phá Lào Cai')}`} className="gt-dest-view-all">
+                <span>{currentLang === 'en' ? 'Explore all Lao Cai hubs' : 'Khám phá toàn cảnh Lào Cai'}</span>
                 <i className="ti ti-arrow-right" />
               </Link>
             </div>
@@ -1623,13 +1771,14 @@ export const Home = () => {
                     onClick={() => navigate(dest.link)}
                   >
                     <div className="gt-dest-img-wrap">
-                      <img src={dest.image} alt={dest.title} />
+                      <img src={dest.image} alt={dest.title} loading="lazy" />
                     </div>
                     <div className="gt-dest-info">
                       <h3 className="gt-dest-name">
                         {currentLang === 'en' ? dest.titleEn : dest.title}
                       </h3>
                       <p className="gt-dest-location">
+                        <i className="ti ti-map-pin" style={{ color: '#D99B26', marginRight: '4px' }} />
                         {currentLang === 'en' ? dest.locationEn : dest.location}
                       </p>
                     </div>
@@ -1641,8 +1790,7 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            SECTION 3: TIÊU ĐIỂM & TIN TỨC MỚI NHẤT (THE GLOBAL WIRE STYLE)
-            ĐƯA LÊN NỬA TRÊN TRANG CHỦ - GIẢI QUYẾT TRIỆT ĐỂ BÀI MỚI ĐĂNG
+            SECTION 3: TIÊU ĐIỂM & TIN TỨC MỚI NHẤT LÀO CAI
             ======================================================== */}
         <section className="news-spotlight-section" id="tin-tuc-tieu-diem">
           <div className="daklak-container">
@@ -1650,21 +1798,20 @@ export const Home = () => {
               <div>
                 <span className="daklak-section-badge">
                   <i className="ti ti-news" style={{ marginRight: '6px' }} />
-                  {currentLang === 'en' ? 'Newsroom & Economic Pulse' : 'Bảng Tin & Tiêu Điểm Thời Sự'}
+                  {currentLang === 'en' ? 'Lao Cai Newsroom & Economic Pulse' : 'Bảng Tin & Tiêu Điểm Thời Sự Lào Cai'}
                 </span>
                 <h2 className="spotlight-title">
-                  {currentLang === 'en' ? 'Latest News & Dak Lak Updates' : 'Tin Tức Mới Nhất & Nhịp Đập Đắk Lắk Hôm Nay'}
+                  {currentLang === 'en' ? 'Latest News, Border Trade & Investment Updates' : 'Tin Tức Mới Nhất & Nhịp Đập Lào Cai Hôm Nay'}
                 </h2>
               </div>
               <Link to="/posts" className="spotlight-view-all">
-                <span>{currentLang === 'en' ? 'View all newsroom' : 'Xem tất cả bài viết'}</span>
+                <span>{currentLang === 'en' ? 'View all articles' : 'Xem tất cả bài viết'}</span>
                 <i className="ti ti-arrow-right" />
               </Link>
             </div>
 
-            {/* Layout dạng tạp chí hiện đại: 1 bài Lead Story lớn bên trái + Feed tin mới bên phải */}
             <div className="spotlight-main-grid">
-              {/* Lead Story (Enters from Left) */}
+              {/* Lead Story */}
               {latestPosts.length > 0 && (
                 <div className="spotlight-lead-card scroll-reveal scroll-reveal-left" onClick={() => navigate(`/posts/${latestPosts[0].slug || latestPosts[0].id}`)}>
                   <div className="spotlight-lead-img-wrap">
@@ -1673,7 +1820,7 @@ export const Home = () => {
                       alt={latestPosts[0].title}
                       onError={(e) => { e.target.src = FALLBACK_POST_IMAGES[0]; }}
                     />
-                    <span className="spotlight-lead-badge">{latestPosts[0].category || 'Tiêu Điểm Đặc Biệt'}</span>
+                    <span className="spotlight-lead-badge">{latestPosts[0].category || 'Tiêu Điểm Lào Cai'}</span>
                   </div>
                   <div className="spotlight-lead-content">
                     <div className="spotlight-meta">
@@ -1693,7 +1840,7 @@ export const Home = () => {
                     </div>
                     <h3 className="spotlight-lead-title">{latestPosts[0].title}</h3>
                     <p className="spotlight-lead-summary">
-                      {latestPosts[0].summary || latestPosts[0].short_desc || 'Bấm để đọc toàn bộ bài viết, phân tích sâu và nhận định chi tiết...'}
+                      {latestPosts[0].summary || latestPosts[0].short_desc || 'Bấm để đọc toàn bộ bài viết, phân tích chuyên sâu về kinh tế cửa khẩu, đầu tư và du lịch Lào Cai...'}
                     </p>
                     <div className="spotlight-lead-cta">
                       <span>Đọc toàn bộ bài viết →</span>
@@ -1702,10 +1849,10 @@ export const Home = () => {
                 </div>
               )}
 
-              {/* Feed tin mới bên phải (Enters from Right) */}
+              {/* Feed tin mới bên phải */}
               <div className="spotlight-feed-list scroll-reveal scroll-reveal-right">
                 <div className="spotlight-feed-header">
-                  <h4><i className="ti ti-bolt" /> Cập nhật mới nhất</h4>
+                  <h4><i className="ti ti-bolt" /> Dòng sự kiện & Cơ hội mới</h4>
                   <span className="feed-counter">{latestPosts.length} bài viết</span>
                 </div>
 
@@ -1724,7 +1871,7 @@ export const Home = () => {
                         />
                       </div>
                       <div className="feed-item-info">
-                        <div className="feed-item-cat">{post.category || 'Tin tức'}</div>
+                        <div className="feed-item-cat">{post.category || 'Tin tức Lào Cai'}</div>
                         <h5 className="feed-item-title">{post.title}</h5>
                         <span className="feed-item-time">
                           <i className="ti ti-clock" />
@@ -1775,32 +1922,147 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            BLOCK: DOANH NGHIỆP TIÊU BIỂU (7 DOANH NGHIỆP HỆ SINH THÁI)
+            SECTION 4: HÀNH TRÌNH TRẢI NGHIỆM THÔNG MINH LÀO CAI
+            (Chương 17 & 19: "Mỗi du khách ở lại lâu hơn, trải nghiệm sâu hơn và chi tiêu nhiều hơn")
+            ======================================================== */}
+        <section className="laocai-itinerary-section" id="hanh-trinh-thong-minh">
+          <div className="daklak-container">
+            <div className="daklak-section-header scroll-reveal scroll-reveal-down" style={{ marginBottom: '28px' }}>
+              <span className="daklak-section-badge" style={{ background: 'rgba(217, 155, 38, 0.2)', color: '#FFE082', border: '1px solid rgba(217, 155, 38, 0.45)' }}>
+                <i className="ti ti-route" style={{ marginRight: '6px' }} />
+                {currentLang === 'en' ? 'SMART TOURISM & INVESTMENT ITINERARIES' : 'CHIẾN LƯỢC DU LỊCH & KHẢO SÁT THÔNG MINH'}
+              </span>
+              <h2 className="daklak-section-title" style={{ color: '#FFFFFF', marginTop: '10px' }}>
+                {currentLang === 'en' ? 'Stay Longer • Experience Deeper in Lao Cai' : 'Hành Trình Gợi Ý: Ở Lại Lâu Hơn – Trải Nghiệm Sâu Hơn'}
+              </h2>
+              <p className="daklak-section-desc" style={{ color: '#C8DAD0' }}>
+                {currentLang === 'en'
+                  ? 'Select a curated itinerary below or ask our Multilingual AI Assistant to personalize your journey across Sa Pa, Fansipan, Bac Ha, Y Ty, and Kim Thanh Border Gate.'
+                  : 'Khám phá các lịch trình mẫu kết nối trọn vẹn Sa Pa – Fansipan – Bắc Hà – Y Tý – Cửa khẩu Quốc tế Lào Cai, hoặc cá nhân hóa tức thì cùng Trợ lý AI đa ngôn ngữ.'}
+              </p>
+            </div>
+
+            {/* 4 Nút chọn Lịch trình */}
+            <div className="laocai-itin-tabs scroll-reveal scroll-reveal-up">
+              {SMART_ITINERARIES.map((itin) => (
+                <button
+                  key={itin.id}
+                  type="button"
+                  className={`laocai-itin-tab-btn ${activeItineraryId === itin.id ? 'active' : ''}`}
+                  onClick={() => setActiveItineraryId(itin.id)}
+                >
+                  <i className={`ti ${itin.icon}`} />
+                  <span>{currentLang === 'en' ? itin.tabLabelEn : itin.tabLabel}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Khung chi tiết Lịch trình đang chọn */}
+            <div className="laocai-itin-showcase scroll-reveal scroll-reveal-up">
+              <div>
+                <span style={{
+                  display: 'inline-block',
+                  fontSize: '0.74rem',
+                  fontWeight: 800,
+                  color: '#FFE082',
+                  letterSpacing: '0.6px',
+                  textTransform: 'uppercase',
+                  marginBottom: '8px'
+                }}>
+                  {currentLang === 'en' ? currentItinerary.badgeEn : currentItinerary.badge}
+                </span>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#FFFFFF', lineHeight: 1.3, margin: '0 0 10px' }}>
+                  {currentLang === 'en' ? currentItinerary.titleEn : currentItinerary.title}
+                </h3>
+                <p style={{ fontSize: '0.94rem', color: '#DCE7E1', lineHeight: 1.6, margin: 0 }}>
+                  {currentLang === 'en' ? currentItinerary.summaryEn : currentItinerary.summary}
+                </p>
+
+                <div className="laocai-itin-timeline">
+                  {currentItinerary.steps.map((step, sIdx) => (
+                    <div key={sIdx} className="laocai-itin-step">
+                      <span className="laocai-itin-step-time">{step.time}</span>
+                      <div className="laocai-itin-step-info">
+                        <h4>{step.title}</h4>
+                        <p>{step.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="laocai-itin-visual-card">
+                <img
+                  src={currentItinerary.image}
+                  alt={currentItinerary.title}
+                  className="laocai-itin-visual-img"
+                />
+                <div className="laocai-itin-visual-body">
+                  <div className="laocai-itin-metrics">
+                    <div className="laocai-itin-metric-box">
+                      <div className="laocai-itin-metric-label">{currentLang === 'en' ? 'Duration' : 'Thời lượng'}</div>
+                      <div className="laocai-itin-metric-val">{currentItinerary.duration}</div>
+                    </div>
+                    <div className="laocai-itin-metric-box">
+                      <div className="laocai-itin-metric-label">{currentLang === 'en' ? 'Estimated Cost' : 'Chi phí dự kiến'}</div>
+                      <div className="laocai-itin-metric-val">{currentItinerary.budget}</div>
+                    </div>
+                    <div className="laocai-itin-metric-box" style={{ gridColumn: 'span 2' }}>
+                      <div className="laocai-itin-metric-label">{currentLang === 'en' ? 'Recommended For' : 'Phù hợp với'}</div>
+                      <div className="laocai-itin-metric-val">{currentItinerary.suitability}</div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '4px' }}>
+                    <Link
+                      to={`/ai-chat?prompt=${encodeURIComponent(currentItinerary.aiPrompt)}`}
+                      className="btn-daklak-gold"
+                      style={{ justifyContent: 'center', width: '100%', padding: '12px 18px', fontWeight: 800 }}
+                    >
+                      <i className="ti ti-sparkles" />
+                      <span>{currentLang === 'en' ? 'Customize This Itinerary with AI' : 'Tùy chỉnh lịch trình này bằng Trợ lý AI'}</span>
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => scrollToConsult(`Đặt lịch trình / Khảo sát: ${currentItinerary.title}`)}
+                      className="btn-daklak-outline"
+                      style={{ justifyContent: 'center', width: '100%', padding: '10px 18px', color: '#FFE082', borderColor: 'rgba(217, 155, 38, 0.5)' }}
+                    >
+                      <i className="ti ti-headset" />
+                      <span>{currentLang === 'en' ? 'Request Tour / Delegation Support' : 'Đăng ký Hỗ trợ Đoàn & Kết nối Dịch vụ'}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================
+            SECTION 5: TỔ HỢP & DOANH NGHIỆP TIÊU BIỂU LÀO CAI
             ======================================================== */}
         <section className="daklak-featured-enterprise-section" id="doanh-nghiep-tieu-bieu">
           <div className="daklak-container">
             <div className="daklak-section-header" style={{ marginBottom: '35px' }}>
               <span className="daklak-section-badge">
                 <i className="ti ti-building" style={{ marginRight: '4px' }} />
-                {currentLang === 'en' ? 'Dak Lak Business Ecosystem' : 'Hệ Sinh Thái Doanh Nghiệp Tiêu Biểu'}
+                {currentLang === 'en' ? 'Lao Cai Business & Investment Ecosystem' : 'Hệ Sinh Thái Tổ Hợp & Doanh Nghiệp Tiêu Biểu'}
               </span>
               <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Featured Enterprises' : 'Doanh Nghiệp Tiêu Biểu'}
+                {currentLang === 'en' ? 'Flagship Complexes & Enterprises' : 'Tổ Hợp & Doanh Nghiệp Đầu Tàu Lào Cai'}
               </h2>
               <p className="daklak-section-desc">
                 {currentLang === 'en'
-                  ? 'Discover the prominent multi-industry business ecosystem dedicated to sustainable growth, agricultural processing, and elevating Dak Lak coffee value chains.'
-                  : 'Khám phá hệ sinh thái doanh nghiệp đa ngành tiêu biểu đồng hành cùng sự phát triển bền vững, nâng tầm chuỗi giá trị cà phê và nông sản chất lượng cao tỉnh Đắk Lắk.'}
+                  ? 'Explore key tourism complexes, border logistics centers, medicinal herb processors, and digital technology partners driving Lao Cai’s sustainable growth.'
+                  : 'Khám phá các tổ hợp du lịch, trung tâm logistics cửa khẩu quốc tế, doanh nghiệp chế biến sâu dược liệu vùng cao và đối tác công nghệ đồng hành cùng sự phát triển của Lào Cai.'}
               </p>
             </div>
 
-            {/* Slider Container */}
             <div
               className="daklak-enterprise-slider-wrapper"
               onMouseEnter={() => setIsEnterpriseHovered(true)}
               onMouseLeave={() => setIsEnterpriseHovered(false)}
             >
-              {/* Nút lướt Trái */}
               <button
                 type="button"
                 className="daklak-enterprise-nav-btn prev"
@@ -1811,7 +2073,6 @@ export const Home = () => {
                 <i className="ti ti-chevron-left" />
               </button>
 
-              {/* Nút lướt Phải */}
               <button
                 type="button"
                 className="daklak-enterprise-nav-btn next"
@@ -1822,12 +2083,10 @@ export const Home = () => {
                 <i className="ti ti-chevron-right" />
               </button>
 
-              {/* Thẻ hiển thị doanh nghiệp hiện tại */}
               {(() => {
                 const enterprise = FEATURED_ENTERPRISES[enterpriseIndex];
                 return (
                   <div className="daklak-enterprise-card">
-                    {/* Cột Trái: Thông tin chi tiết */}
                     <div className="daklak-enterprise-left">
                       <div className="daklak-enterprise-header-row">
                         <div className="daklak-enterprise-logo-frame">
@@ -1852,11 +2111,11 @@ export const Home = () => {
                       <div className="daklak-enterprise-meta-list">
                         <div className="daklak-enterprise-meta-item">
                           <i className="ti ti-map-pin" />
-                          <span><strong>{currentLang === 'en' ? 'HQ / Location:' : 'Trụ sở / Địa chỉ:'}</strong> {currentLang === 'en' ? enterprise.headquartersEn : enterprise.headquarters}</span>
+                          <span><strong>{currentLang === 'en' ? 'HQ / Location:' : 'Trụ sở / Địa bàn:'}</strong> {currentLang === 'en' ? enterprise.headquartersEn : enterprise.headquarters}</span>
                         </div>
                         <div className="daklak-enterprise-meta-item">
                           <i className="ti ti-briefcase" />
-                          <span><strong>{currentLang === 'en' ? 'Sectors:' : 'Lĩnh vực cốt lõi:'}</strong> {currentLang === 'en' ? enterprise.sectorsEn : enterprise.sectors}</span>
+                          <span><strong>{currentLang === 'en' ? 'Core Sectors:' : 'Lĩnh vực cốt lõi:'}</strong> {currentLang === 'en' ? enterprise.sectorsEn : enterprise.sectors}</span>
                         </div>
                       </div>
 
@@ -1865,20 +2124,18 @@ export const Home = () => {
                       </p>
 
                       <div className="daklak-enterprise-philosophy">
-                        <i className="ti ti-sparkles" style={{ color: '#D5A33F' }} />
+                        <i className="ti ti-sparkles" style={{ color: '#D99B26' }} />
                         <span>{currentLang === 'en' ? 'Core Philosophy:' : 'Tôn chỉ phát triển:'}</span>
-                        <span style={{ color: '#A84524' }}>{currentLang === 'en' ? enterprise.philosophyEn : enterprise.philosophy}</span>
+                        <span style={{ color: '#145A3E' }}>{currentLang === 'en' ? enterprise.philosophyEn : enterprise.philosophy}</span>
                       </div>
                     </div>
 
-                    {/* Cột Phải: Thống kê, Trọng tâm chiến lược & Nút kết nối */}
                     <div className="daklak-enterprise-right">
                       <div className="daklak-enterprise-right-header">
                         <i className="ti ti-chart-arrows-vertical" />
                         <span>{currentLang === 'en' ? 'KEY HIGHLIGHTS & STRATEGY' : 'CHỈ SỐ & TRỌNG TÂM CHIẾN LƯỢC'}</span>
                       </div>
 
-                      {/* 3 Khối chỉ số chính */}
                       <div className="daklak-enterprise-stats-grid">
                         {enterprise.stats.map((st, sIdx) => (
                           <div key={sIdx} className="daklak-enterprise-stat-box">
@@ -1888,7 +2145,6 @@ export const Home = () => {
                         ))}
                       </div>
 
-                      {/* Khối Trọng tâm Chiến lược & Thế mạnh từ tài liệu */}
                       <div className="daklak-enterprise-focus-card">
                         <div className="daklak-enterprise-focus-header">
                           <i className="ti ti-target-arrow" />
@@ -1907,7 +2163,6 @@ export const Home = () => {
                         </div>
                       </div>
 
-                      {/* Nút Kết nối Doanh nghiệp */}
                       <div className="daklak-enterprise-action-wrap">
                         <button
                           type="button"
@@ -1915,7 +2170,7 @@ export const Home = () => {
                           onClick={() => scrollToConsult(enterprise.shortName)}
                         >
                           <i className="ti ti-mail-forward" />
-                          <span>{currentLang === 'en' ? 'Connect with Enterprise' : 'Kết nối & Hợp tác Doanh nghiệp'}</span>
+                          <span>{currentLang === 'en' ? 'Connect & Partner' : 'Kết nối & Hợp tác Đầu tư'}</span>
                           <i className="ti ti-arrow-right" />
                         </button>
                       </div>
@@ -1924,7 +2179,6 @@ export const Home = () => {
                 );
               })()}
 
-              {/* Chấm phân trang nhẹ nhàng bên dưới thay cho hàng tên doanh nghiệp */}
               <div className="daklak-enterprise-dots">
                 {FEATURED_ENTERPRISES.map((ent, dIdx) => (
                   <button
@@ -1942,31 +2196,31 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            BLOCK: BẢNG XẾP HẠNG TOP XUẤT KHẨU CÀ PHÊ (TÂY NGUYÊN & THẾ GIỚI)
+            SECTION 6: TOP 10 THƯƠNG HIỆU DƯỢC LIỆU – OCOP & GIAO THƯƠNG CỬA KHẨU LÀO CAI
             ======================================================== */}
         <section className="daklak-coffee-exporters-section" id="top-xuat-khau-ca-phe">
           <div className="daklak-container">
             <div className="coffee-exporters-header scroll-reveal scroll-reveal-down">
               <span className="daklak-section-badge">
                 <i className="ti ti-trophy" style={{ marginRight: '6px' }} />
-                {currentLang === 'en' ? 'Global & Regional Coffee Leadership' : 'Định Vị Thủ Phủ Cà Phê & Chuỗi Giá Trị Toàn Cầu'}
+                {currentLang === 'en' ? 'Highland Specialties & Cross-Border Trade Leadership' : 'Định Vị Chuỗi Giá Trị Vùng Cao & Cửa Ngõ Giao Thương Quốc Tế'}
               </span>
               <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Top 10 Coffee Exporters: Central Highlands & World' : 'Top 10 Doanh Nghiệp Xuất Khẩu Cà Phê'}
+                {currentLang === 'en' ? 'Top 10 Highland Specialties & Border Trade Hubs' : 'Top 10 Thương Hiệu Đặc Sản Vùng Cao & Giao Thương Cửa Khẩu'}
               </h2>
               <p className="daklak-section-desc">
                 {currentLang === 'en'
-                  ? 'Strategic overview of flagship Vietnamese exporters and multinational trading houses driving global supply chains.'
-                  : 'Bức tranh toàn cảnh về những doanh nghiệp đầu tàu xuất khẩu cà phê của Tây Nguyên và các tập đoàn thương mại nông sản hàng đầu thế giới.'}
+                  ? 'Strategic overview of Lao Cai’s flagship medicinal herbs, organic tea, cold-water aquaculture, and international border gate logistics corridors.'
+                  : 'Bức tranh toàn cảnh về những chuỗi sản phẩm dược liệu – nông sản OCOP đặc hữu của Lào Cai và hệ thống hạ tầng cửa khẩu – logistics liên vận quốc tế.'}
               </p>
             </div>
 
             <div className="coffee-exporters-grid">
-              {/* BLOCK 1: TOP TÂY NGUYÊN */}
+              {/* BLOCK 1: ĐẶC SẢN & DƯỢC LIỆU LÀO CAI */}
               <div className="coffee-exporter-column scroll-reveal scroll-reveal-left">
                 <div className="exporter-column-header">
                   <div className="exporter-col-icon tay-nguyen">
-                    <i className="ti ti-flame" />
+                    <i className="ti ti-leaf" />
                   </div>
                   <div className="exporter-col-titles">
                     <h3>{currentLang === 'en' ? TOP_EXPORTERS_TAY_NGUYEN.titleEn : TOP_EXPORTERS_TAY_NGUYEN.title}</h3>
@@ -1974,7 +2228,6 @@ export const Home = () => {
                   </div>
                 </div>
 
-                {/* Top 3 Doanh nghiệp đứng đầu (Nổi bật - Logo thay thế cho rank #) */}
                 <div className="exporter-top3-list">
                   {TOP_EXPORTERS_TAY_NGUYEN.top3.map((exp, idx) => (
                     <div key={idx} className="exporter-top3-card">
@@ -1997,11 +2250,10 @@ export const Home = () => {
                   ))}
                 </div>
 
-                {/* Doanh nghiệp tiêu biểu tiếp theo (Không số 7, không #1-10, xếp 2-3-2) */}
                 <div className="exporter-rest-block">
                   <h5 className="exporter-rest-title">
-                    <i className="ti ti-building" />
-                    <span>{currentLang === 'en' ? 'Other Prominent Exporters' : 'Các doanh nghiệp tiêu biểu tiếp theo'}</span>
+                    <i className="ti ti-sparkles" />
+                    <span>{currentLang === 'en' ? 'Other Prominent Highland OCOP Brands' : 'Các thương hiệu OCOP & đặc sản tiêu biểu tiếp theo'}</span>
                   </h5>
                   <div className="exporter-next-grid-232">
                     {TOP_EXPORTERS_TAY_NGUYEN.rest.map((name, idx) => (
@@ -2013,7 +2265,7 @@ export const Home = () => {
                 </div>
               </div>
 
-              {/* BLOCK 2: TOP THẾ GIỚI */}
+              {/* BLOCK 2: CỬA KHẨU & LOGISTICS QUỐC TẾ */}
               <div className="coffee-exporter-column scroll-reveal scroll-reveal-right">
                 <div className="exporter-column-header">
                   <div className="exporter-col-icon the-gioi">
@@ -2025,7 +2277,6 @@ export const Home = () => {
                   </div>
                 </div>
 
-                {/* Top 3 Doanh nghiệp đứng đầu (Nổi bật - Logo thay thế cho rank #) */}
                 <div className="exporter-top3-list">
                   {TOP_EXPORTERS_WORLD.top3.map((exp, idx) => (
                     <div key={idx} className="exporter-top3-card">
@@ -2048,11 +2299,10 @@ export const Home = () => {
                   ))}
                 </div>
 
-                {/* Tập đoàn tiêu biểu tiếp theo (Không số 7, không #1-10, xếp 2-3-2) */}
                 <div className="exporter-rest-block">
                   <h5 className="exporter-rest-title">
-                    <i className="ti ti-world-latitude" />
-                    <span>{currentLang === 'en' ? 'Other Prominent Global Trading Houses' : 'Các tập đoàn tiêu biểu tiếp theo'}</span>
+                    <i className="ti ti-truck-delivery" />
+                    <span>{currentLang === 'en' ? 'Other Key Border Gates & Logistics Hubs' : 'Các cửa khẩu & trung tâm hạ tầng tiếp theo'}</span>
                   </h5>
                   <div className="exporter-next-grid-232">
                     {TOP_EXPORTERS_WORLD.rest.map((name, idx) => (
@@ -2068,16 +2318,14 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            BLOCK: TOP 10 KHU & CỤM CÔNG NGHIỆP TIÊU BIỂU ĐẮK LẮK
-            (PODIUM 2-1-3: TOP 1 Ở CHÍNH GIỮA NHỈNH LÊN, TOP 2 TRÁI, TOP 3 PHẢI;
-             PHÍA DƯỚI LÀ 2 HÀNG 4/3 CHỈ HIỂN THỊ TÊN 7 KCN CÒN LẠI)
+            SECTION 7: TOP 10 KHU KINH TẾ, KHU & CỤM CÔNG NGHIỆP LÀO CAI
             ======================================================== */}
         <section className="daklak-industrial-parks-section" id="top-khu-cong-nghiep">
           <div className="daklak-container">
             <div className="industrial-header scroll-reveal scroll-reveal-down">
               <span className="daklak-section-badge">
                 <i className="ti ti-building-factory-2" style={{ marginRight: '6px' }} />
-                {currentLang === 'en' ? 'Key Industrial Infrastructure' : 'Hạ Tầng Công Nghiệp & Động Lực Phát Triển'}
+                {currentLang === 'en' ? 'Key Industrial & Border Economic Infrastructure' : 'Hạ Tầng Khu Kinh Tế Cửa Khẩu & Khu Công Nghiệp Trọng Điểm'}
               </span>
               <h2 className="daklak-section-title">
                 {currentLang === 'en' ? TOP_INDUSTRIAL_PARKS.titleEn : TOP_INDUSTRIAL_PARKS.title}
@@ -2087,9 +2335,9 @@ export const Home = () => {
               </p>
             </div>
 
-            {/* TOP 3 PODIUM: 1 HÀNG 3 CỘT (BÊN TRÁI - CHÍNH GIỮA NHỈNH LÊN - BÊN PHẢI) */}
+            {/* TOP 3 PODIUM (2 - 1 - 3) */}
             <div className="industrial-podium-grid">
-              {/* Cột bên trái (KCN Phú Xuân) */}
+              {/* Cột bên trái (Rank 2: KCN Tằng Loỏng) */}
               {(() => {
                 const kcn2 = TOP_INDUSTRIAL_PARKS.top3[1];
                 return (
@@ -2118,14 +2366,14 @@ export const Home = () => {
                     </p>
                     <div className="industrial-footer-row">
                       <span className="industrial-focus-pill">
-                        <i className="ti ti-leaf" /> {currentLang === 'en' ? kcn2.pillEn : kcn2.pill}
+                        <i className="ti ti-building-factory" /> {currentLang === 'en' ? kcn2.pillEn : kcn2.pill}
                       </span>
                     </div>
                   </div>
                 );
               })()}
 
-              {/* Cột chính giữa (KCN Hòa Phú - Nhỉnh lên 1 chút) */}
+              {/* Cột chính giữa (Rank 1: KKT Cửa khẩu Lào Cai & Kim Thành) */}
               {(() => {
                 const kcn1 = TOP_INDUSTRIAL_PARKS.top3[0];
                 return (
@@ -2154,14 +2402,14 @@ export const Home = () => {
                     </p>
                     <div className="industrial-footer-row">
                       <span className="industrial-focus-pill gold-highlight">
-                        <i className="ti ti-coffee" /> {currentLang === 'en' ? kcn1.pillEn : kcn1.pill}
+                        <i className="ti ti-world" /> {currentLang === 'en' ? kcn1.pillEn : kcn1.pill}
                       </span>
                     </div>
                   </div>
                 );
               })()}
 
-              {/* Cột bên phải (KCN M'Đrắk) */}
+              {/* Cột bên phải (Rank 3: KCN Đông Phố Mới, Bắc Duyên Hải & Võ Lao) */}
               {(() => {
                 const kcn3 = TOP_INDUSTRIAL_PARKS.top3[2];
                 return (
@@ -2198,11 +2446,11 @@ export const Home = () => {
               })()}
             </div>
 
-            {/* 7 CỤM / KHU CÔNG NGHIỆP CÒN LẠI (BỐ CỤC 2 - 3 - 2 HIỂN THỊ TÊN ĐẦY ĐỦ) */}
+            {/* 7 CỤM / KHU CÔNG NGHIỆP CÒN LẠI (BỐ CỤC 2 - 3 - 2) */}
             <div className="industrial-rest-wrapper scroll-reveal scroll-reveal-up">
               <h5 className="exporter-rest-title">
                 <i className="ti ti-building-community" />
-                <span>{currentLang === 'en' ? 'Other Prominent Industrial Parks & Clusters' : 'Các khu & cụm công nghiệp tiêu biểu tiếp theo'}</span>
+                <span>{currentLang === 'en' ? 'Other Prominent Industrial Parks & Clusters in Lao Cai' : 'Các khu & cụm công nghiệp tiêu biểu tiếp theo tại Lào Cai'}</span>
               </h5>
               <div className="industrial-next-grid-232">
                 {TOP_INDUSTRIAL_PARKS.rest.map((park, idx) => (
@@ -2223,25 +2471,23 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            BLOCK: HOẠT ĐỘNG TRỌNG ĐIỂM - SỰ KIỆN SẮP DIỄN RA
-            (Bố cục tham khảo DoanhNghiepVN.Today, màu sắc bản sắc Đắk Lắk)
+            SECTION 8: HOẠT ĐỘNG TRỌNG ĐIỂM - SỰ KIỆN SẮP DIỄN RA TẠI LÀO CAI
             ======================================================== */}
         <section className="daklak-home-events-section" id="su-kien">
           <div className="daklak-container">
-            {/* Header: Hoạt động trọng điểm / Sự kiện sắp diễn ra */}
             <div className="daklak-events-header">
               <div className="daklak-events-header-left">
                 <span className="daklak-events-badge">
                   <i className="ti ti-flame" style={{ marginRight: '5px' }} />
-                  {currentLang === 'en' ? 'Key Activities' : 'HOẠT ĐỘNG TRỌNG ĐIỂM'}
+                  {currentLang === 'en' ? 'Key Activities & Forums' : 'HOẠT ĐỘNG TRỌNG ĐIỂM LÀO CAI'}
                 </span>
                 <h2 className="daklak-events-title">
-                  {currentLang === 'en' ? 'Upcoming Events' : 'SỰ KIỆN SẮP DIỄN RA'}
+                  {currentLang === 'en' ? 'Upcoming Events & Trade Fairs' : 'SỰ KIỆN, HỘI CHỢ & DIỄN ĐÀN SẮP DIỄN RA'}
                 </h2>
                 <p className="daklak-events-desc">
                   {currentLang === 'en'
-                    ? 'Explore key forums, business trade summits, and networking events connecting you with investors and market leaders.'
-                    : 'Cập nhật các hội thảo, tọa đàm và chương trình kết nối giúp doanh nghiệp tiếp cận thông tin, chuyên gia và cơ hội hợp tác kinh doanh.'}
+                    ? 'Join international border trade fairs, investment promotion forums, and four-season cultural festivals in Lao Cai.'
+                    : 'Cập nhật các hội chợ thương mại quốc tế Việt – Trung, diễn đàn xúc tiến đầu tư và lễ hội bốn mùa giúp doanh nghiệp và du khách kết nối trực tiếp.'}
                 </p>
               </div>
               <div className="daklak-events-header-right">
@@ -2252,12 +2498,10 @@ export const Home = () => {
               </div>
             </div>
 
-            {/* Nếu có sự kiện thực tế trong hệ thống thì hiển thị Hero & Sub-events */}
             {heroEvent ? (
               <>
                 <div className="daklak-event-hero-card">
                   <div className="daklak-event-hero-content">
-                    {/* Tags row */}
                     <div className="daklak-event-hero-tags">
                       <span className="daklak-hero-tag highlight">
                         <i className="ti ti-sparkles" />
@@ -2272,19 +2516,16 @@ export const Home = () => {
                       </span>
                     </div>
 
-                    {/* Title */}
                     <h3 className="daklak-event-hero-title">
                       <Link to={`/events/${heroEvent.slug || heroEvent.id}`}>
                         {heroEvent.title}
                       </Link>
                     </h3>
 
-                    {/* Short description */}
                     <p className="daklak-event-hero-desc">
                       {heroEvent.short_desc || heroEvent.description}
                     </p>
 
-                    {/* Countdown Timer */}
                     <div className="daklak-event-hero-countdown-block">
                       <div className="daklak-countdown-title">
                         <i className="ti ti-hourglass-empty" />
@@ -2293,11 +2534,10 @@ export const Home = () => {
                       <HomeEventCountdown eventDate={heroEvent.event_date} />
                     </div>
 
-                    {/* Footer Row: Location & CTA */}
                     <div className="daklak-event-hero-footer">
-                      <div className="daklak-event-hero-location" title={heroEvent.location || 'TP. Buôn Ma Thuột, Đắk Lắk'}>
+                      <div className="daklak-event-hero-location" title={heroEvent.location || 'TP. Lào Cai, Tỉnh Lào Cai'}>
                         <i className="ti ti-map-pin" />
-                        <span>{heroEvent.location || 'TP. Buôn Ma Thuột, Đắk Lắk'}</span>
+                        <span>{heroEvent.location || 'TP. Lào Cai, Tỉnh Lào Cai'}</span>
                       </div>
 
                       <div className="daklak-event-hero-actions">
@@ -2313,32 +2553,30 @@ export const Home = () => {
                     </div>
                   </div>
 
-                  {/* Poster Image */}
                   <div className="daklak-event-hero-image-wrap">
                     <img
-                      src={heroEvent.image_url || heroEvent.poster_url || '/images/daklak/daklak_doi_ca_phe.jpg'}
+                      src={heroEvent.image_url || heroEvent.poster_url || FALLBACK_POST_IMAGES[0]}
                       alt={heroEvent.title}
                       className="daklak-event-hero-img"
                       onError={(e) => {
-                        e.target.src = '/images/daklak/daklak_doi_ca_phe.jpg';
+                        e.target.src = FALLBACK_POST_IMAGES[0];
                       }}
                     />
                     <div className="daklak-event-hero-img-overlay" />
                   </div>
                 </div>
 
-                {/* Sub-Events 3-Card Grid */}
                 {subEvents.length > 0 && (
                   <div className="daklak-event-sub-grid">
                     {subEvents.map((evt, idx) => (
                       <div key={evt.id || idx} className="daklak-event-sub-card">
                         <div className="daklak-event-sub-thumb-wrap">
                           <img
-                            src={evt.image_url || evt.poster_url || '/images/daklak/daklak_dau_tu_logistics.jpg'}
+                            src={evt.image_url || evt.poster_url || FALLBACK_POST_IMAGES[(idx + 1) % FALLBACK_POST_IMAGES.length]}
                             alt={evt.title}
                             className="daklak-event-sub-img"
                             onError={(e) => {
-                              e.target.src = '/images/daklak/daklak_dau_tu_logistics.jpg';
+                              e.target.src = FALLBACK_POST_IMAGES[(idx + 1) % FALLBACK_POST_IMAGES.length];
                             }}
                           />
                           <span className="daklak-event-sub-price-badge">
@@ -2361,9 +2599,9 @@ export const Home = () => {
                           </p>
 
                           <div className="daklak-event-sub-footer">
-                            <div className="daklak-event-sub-loc" title={evt.location || 'TP. Buôn Ma Thuột'}>
+                            <div className="daklak-event-sub-loc" title={evt.location || 'TP. Lào Cai'}>
                               <i className="ti ti-map-pin" />
-                              <span>{evt.location || 'TP. Buôn Ma Thuột, Đắk Lắk'}</span>
+                              <span>{evt.location || 'TP. Lào Cai, Tỉnh Lào Cai'}</span>
                             </div>
                             <Link to={`/events/${evt.slug || evt.id}`} className="daklak-event-sub-link">
                               <span>{currentLang === 'en' ? 'Details' : 'Chi tiết'}</span>
@@ -2377,7 +2615,6 @@ export const Home = () => {
                 )}
               </>
             ) : (
-              /* Nếu không có sự kiện nào trong hệ thống: hiển thị theo thực tế */
               <div className="daklak-events-empty-box" style={{
                 padding: '3.5rem 2rem',
                 textAlign: 'center',
@@ -2407,7 +2644,7 @@ export const Home = () => {
                 <p style={{ fontSize: '14px', color: '#64748B', maxWidth: '520px', margin: '0 auto 1.5rem', lineHeight: '1.6' }}>
                   {currentLang === 'en'
                     ? 'All upcoming trade summits, economic forums, and cultural events will be updated here as soon as announced.'
-                    : 'Các hội thảo xúc tiến thương mại, diễn đàn kinh tế và sự kiện văn hóa mới sẽ được cập nhật sớm nhất. Quý vị vui lòng quay lại sau.'}
+                    : 'Các hội thảo xúc tiến thương mại, diễn đàn kinh tế và sự kiện văn hóa mới tại Lào Cai sẽ được cập nhật sớm nhất.'}
                 </p>
                 <Link
                   to="/events"
@@ -2417,7 +2654,7 @@ export const Home = () => {
                     gap: '8px',
                     padding: '10px 22px',
                     borderRadius: '10px',
-                    backgroundColor: '#3B2417',
+                    backgroundColor: '#145A3E',
                     color: '#ffffff',
                     textDecoration: 'none',
                     fontWeight: '600',
@@ -2433,56 +2670,56 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            SECTION 3: SỨ MỆNH & KHÔNG GIAN SỐ CHUNG ĐẮK LẮK
+            SECTION 9: KIẾN TRÚC 3 LỚP & SỨ MỆNH SỐ HÓA LAOCAI.TODAY
+            (Theo Chương 6 & 7 Tài liệu Giới thiệu dự án)
             ======================================================== */}
         <section className="daklak-section" id="kham-pha">
           <div className="daklak-container">
             <div className="daklak-section-header">
-              <span className="daklak-section-badge">{currentLang === 'en' ? 'Strategic Mission' : 'Sứ Mệnh Số Hóa'}</span>
+              <span className="daklak-section-badge">{currentLang === 'en' ? '3-Layer Digital Architecture' : 'Kiến Trúc 3 Lớp Hệ Sinh Thái Số'}</span>
               <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'A Unified Digital Space for Dak Lak' : 'Một Không Gian Số Chung Dành Cho Đắk Lắk'}
+                {currentLang === 'en' ? 'Connecting People • Connecting Enterprises • Connecting Lao Cai to the World' : 'Kết Nối Con Người – Kết Nối Doanh Nghiệp – Kết Nối Lào Cai Với Thế Giới'}
               </h2>
               <p className="daklak-section-desc">
                 {currentLang === 'en'
-                  ? 'DakLak.today is not merely a news portal, but a collaborative digital ecosystem designed to aggregate, standardize, and amplify the enduring values of Dak Lak.'
-                  : 'DakLak.today không chỉ là một website tin tức, mà là một không gian số mở tập hợp, chuẩn hóa và lan tỏa những giá trị bền vững của Đắk Lắk đến bạn bè trong nước và quốc tế.'}
+                  ? 'Laocai.today is engineered on a modern 3-layer digital architecture uniting Community, Open Data & Digital Showrooms, and Multilingual Artificial Intelligence.'
+                  : 'Laocai.today vận hành trên kiến trúc 3 lớp liên hoàn: Lớp Cộng đồng & Bản sắc, Lớp Dữ liệu & Showroom số Doanh nghiệp, và Lớp Trí tuệ Nhân tạo Đa ngôn ngữ.'}
               </p>
             </div>
 
             <div className="values-grid">
               <div className="value-card">
-                <div className="value-card-icon"><i className="ti ti-network" /></div>
-                <h3>{currentLang === 'en' ? 'Digital Connectivity' : 'Kết Nối Số'}</h3>
-                <p>{currentLang === 'en' ? 'Bridging individuals, enterprises, investors, and local authorities within one unified interactive ecosystem.' : 'Thu hẹp khoảng cách giữa người dân, doanh nghiệp, nhà đầu tư và cơ quan ban ngành trên một giao diện thống nhất.'}</p>
+                <div className="value-card-icon"><i className="ti ti-users-group" /></div>
+                <h3>{currentLang === 'en' ? 'Layer 1: Community & Heritage' : 'Lớp 1: Cộng Đồng & Bản Sắc'}</h3>
+                <p>{currentLang === 'en' ? 'Connecting citizens, tourists, experts, and the global Lao Cai diaspora while preserving Northwest cultural heritage.' : 'Lan tỏa di sản văn hóa các dân tộc Tây Bắc, kết nối du khách, chuyên gia và mạng lưới người Lào Cai xa quê trên toàn cầu.'}</p>
               </div>
 
               <div className="value-card">
                 <div className="value-card-icon"><i className="ti ti-database" /></div>
-                <h3>{currentLang === 'en' ? 'Reliable Data' : 'Dữ Liệu Tin Cậy'}</h3>
-                <p>{currentLang === 'en' ? 'Standardized, verified information on planning, businesses, agricultural raw material areas, and economic data.' : 'Chuẩn hóa thông tin doanh nghiệp, chỉ số kinh tế, vùng trồng nông sản và quy hoạch dự án từ các nguồn chính thống.'}</p>
+                <h3>{currentLang === 'en' ? 'Layer 2: Data & Digital Showrooms' : 'Lớp 2: Dữ Liệu & Showroom Số'}</h3>
+                <p>{currentLang === 'en' ? 'Verified profiles of enterprises, OCOP specialties, border trade logistics, industrial parks, and investment projects.' : 'Chuẩn hóa hồ sơ năng lực doanh nghiệp, sản phẩm OCOP vùng cao, dữ liệu xuất nhập khẩu cửa khẩu và danh mục dự án kêu gọi đầu tư.'}</p>
               </div>
 
               <div className="value-card">
                 <div className="value-card-icon"><i className="ti ti-cpu" /></div>
-                <h3>{currentLang === 'en' ? 'Artificial Intelligence' : 'Trí Tuệ Nhân Tạo'}</h3>
-                <p>{currentLang === 'en' ? 'Harnessing generative AI to personalize search, recommend itineraries, and intelligently match investment needs.' : 'Ứng dụng AI thông minh hỗ trợ tìm kiếm ngữ nghĩa, gợi ý hành trình trải nghiệm và ghép nối nhu cầu đối tác chuẩn xác.'}</p>
+                <h3>{currentLang === 'en' ? 'Layer 3: Multilingual AI Engine' : 'Lớp 3: Trợ Lý AI Đa Ngôn Ngữ'}</h3>
+                <p>{currentLang === 'en' ? '24/7 intelligent AI advisor in 5 languages (VI, EN, ZH, JA, KO) personalizing itineraries and matching B2B partners.' : 'Trợ lý AI đa ngôn ngữ (Việt – Anh – Trung – Nhật – Hàn) tự động hóa tư vấn đầu tư, thương mại biên giới và cá nhân hóa hành trình du lịch 24/7.'}</p>
               </div>
 
               <div className="value-card">
-                <div className="value-card-icon"><i className="ti ti-leaf" /></div>
-                <h3>{currentLang === 'en' ? 'Cultural Heritage' : 'Bản Sắc Văn Hóa'}</h3>
-                <p>{currentLang === 'en' ? 'Preserving and elevating the UNESCO Gong Culture, coffee pride, and the untamed spirit of the Central Highlands.' : 'Tôn vinh không gian văn hóa cồng chiêng Tây Nguyên, tự hào hạt cà phê Buôn Ma Thuột và vẻ đẹp đại ngàn hùng vĩ.'}</p>
+                <div className="value-card-icon"><i className="ti ti-world-longitude" /></div>
+                <h3>{currentLang === 'en' ? 'ASEAN – China Gateway' : 'Cửa Ngõ Giao Thương Quốc Tế'}</h3>
+                <p>{currentLang === 'en' ? 'Accelerating cross-border trade, intermodal logistics, and sustainable investment across the Kunming – Lao Cai – Hai Phong corridor.' : 'Thúc đẩy giao thương xuyên biên giới, logistics liên vận quốc tế và thu hút đầu tư chiến lược trên hành lang kinh tế Côn Minh – Lào Cai – Hải Phòng.'}</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            SECTION 3.5: LÀM CHỦ AI - BỨT PHÁ TƯƠNG LAI (SPECIAL AI TOPIC)
+            SECTION 10: LÀM CHỦ AI - BỨT PHÁ TƯƠNG LAI (SPECIAL AI TOPIC)
             ======================================================== */}
         <section className="daklak-section daklak-ai-showcase-section" id="lam-chu-ai">
           <div className="daklak-container">
-            {/* Header Chuyên đề */}
             <div className="daklak-ai-section-header">
               <div className="daklak-ai-badge-wrapper">
                 <span className="daklak-ai-special-badge">
@@ -2502,7 +2739,6 @@ export const Home = () => {
               </p>
             </div>
 
-            {/* AI Showcase Single Slide Carousel (1 ô lướt mỗi 5s vô tận) */}
             {(() => {
               const wardAiPost = aiTopicPosts?.wardAi || latestPosts.find(p => p.slug === 'tro-ly-ai-phuong-xa');
               const orionPost = aiTopicPosts?.orion || latestPosts.find(p => p.slug && p.slug.includes('orion-chat-loc'));
@@ -2620,7 +2856,6 @@ export const Home = () => {
                     </div>
                   </div>
 
-                  {/* Navigation Arrows & Indicators */}
                   <div className="daklak-ai-slider-nav">
                     <button
                       type="button"
@@ -2654,7 +2889,6 @@ export const Home = () => {
               );
             })()}
 
-            {/* Bottom Actions */}
             <div className="daklak-ai-actions">
               <Link
                 to="/posts?category=Doanh%20nghi%E1%BB%87p%20%26%20S%E1%BA%A3n%20ph%E1%BA%A9m&sub_category=Showroom%20s%E1%BB%91"
@@ -2665,26 +2899,26 @@ export const Home = () => {
               </Link>
               <Link to="/ai-chat" className="btn-daklak-ai-chat">
                 <i className="ti ti-messages" />
-                <span>{currentLang === 'en' ? 'Chat with AI Assistant' : 'Trò chuyện cùng Trợ lý AI'}</span>
+                <span>{currentLang === 'en' ? 'Chat with Lao Cai AI Assistant' : 'Trò chuyện cùng Trợ lý AI Lào Cai'}</span>
               </Link>
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            SECTION 4: HỘI VIÊN TIÊU BIỂU (CỘNG ĐỒNG DOANH NGHIỆP ĐẮK LẮK)
+            SECTION 11: HỘI VIÊN TIÊU BIỂU (CỘNG ĐỒNG DOANH NGHIỆP LÀO CAI)
             ======================================================== */}
         <section className="daklak-section">
           <div className="daklak-container">
             <div className="daklak-section-header scroll-reveal scroll-reveal-down">
               <span className="daklak-section-badge">{currentLang === 'en' ? 'Verified Directory' : 'Hội Viên Tiêu Biểu'}</span>
               <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Leading Enterprises & Ecosystem Partners' : 'Cộng Đồng Doanh Nghiệp Đắk Lắk'}
+                {currentLang === 'en' ? 'Leading Enterprises & Ecosystem Partners' : 'Showroom Số Doanh Nghiệp Lào Cai'}
               </h2>
               <p className="daklak-section-desc">
                 {currentLang === 'en'
-                  ? 'Verified profiles of top local companies and strategic investment partners in Dak Lak.'
-                  : 'Hồ sơ năng lực của các doanh nghiệp đầu ngành đã xác thực, tiên phong nâng tầm chuỗi giá trị và hội nhập quốc tế.'}
+                  ? 'Verified profiles of top local companies, cross-border logistics operators, and strategic investment partners in Lao Cai.'
+                  : 'Hồ sơ năng lực số của các doanh nghiệp tiêu biểu đã xác thực trong mạng lưới Laocai.today, sẵn sàng kết nối giao thương B2B và hợp tác đầu tư.'}
               </p>
             </div>
 
@@ -2693,11 +2927,11 @@ export const Home = () => {
                 <div key={m.id} className={`member-card scroll-reveal scroll-reveal-up stagger-${(mIdx % 3) + 1}`}>
                   <div className="member-card-header">
                     <img 
-                      src={m.logo_url || 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=400&q=80'} 
+                      src={m.logo_url || 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=400&q=80'} 
                       alt={m.company_name || m.name} 
                       className="member-logo"
                       onError={(e) => {
-                        e.target.src = 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=400&q=80';
+                        e.target.src = 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=400&q=80';
                       }}
                     />
                     <div className="member-info">
@@ -2707,11 +2941,11 @@ export const Home = () => {
                   </div>
 
                   <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '14px', lineHeight: '1.5', flexGrow: 1 }}>
-                    {m.bio || m.description || `Lĩnh vực hoạt động: ${m.industry || 'Sản xuất & kinh doanh nông sản'}.`}
+                    {m.bio || m.description || `Lĩnh vực hoạt động: ${m.industry || 'Thương mại, Du lịch & Nông sản Dược liệu'}.`}
                   </p>
 
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '12px', borderTop: '1px solid rgba(122, 62, 29, 0.08)' }}>
-                    <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>📍 {m.address || 'TP. Buôn Ma Thuột'}</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '12px', borderTop: '1px solid rgba(20, 90, 62, 0.1)' }}>
+                    <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>📍 {m.address || 'TP. Lào Cai, Tỉnh Lào Cai'}</span>
                     <Link to="/members" className="quick-access-link" style={{ fontSize: '0.85rem' }}>
                       Xem Showroom →
                     </Link>
@@ -2730,19 +2964,19 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            SECTION 6: CÀ PHÊ — TRỤ CỘT THƯƠNG HIỆU CỦA DAKLAK.TODAY
+            SECTION 12: TRỤ CỘT BẢN SẮC LÀO CAI (CỬA KHẨU – DU LỊCH BỐN MÙA – DƯỢC LIỆU VÙNG CAO)
             ======================================================== */}
         <section className="daklak-section dark" id="coffee">
           <div className="daklak-container">
             <div className="daklak-section-header scroll-reveal scroll-reveal-down">
-              <span className="daklak-section-badge">{currentLang === 'en' ? 'Brand Pillar' : 'Trụ Cột Bản Sắc'}</span>
+              <span className="daklak-section-badge">{currentLang === 'en' ? 'Core Brand Pillars' : 'Ba Trụ Cột Chiến Lược'}</span>
               <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Coffee — The Core Brand Pillar of DakLak.today' : 'Cà Phê — Trụ Cột Thương Hiệu Của DakLak.today'}
+                {currentLang === 'en' ? 'Border Gate Economy • Four-Season Tourism • Highland Medicinal Herbs' : 'Kinh Tế Cửa Khẩu – Du Lịch Bốn Mùa – Nông Sản Dược Liệu Quý'}
               </h2>
               <p className="daklak-section-desc">
                 {currentLang === 'en'
-                  ? 'Kể câu chuyện hoàn chỉnh từ đất bazan, vùng trồng hữu cơ, bàn tay người nông dân đến công nghệ chế biến sâu và thị trường toàn cầu.'
-                  : 'DakLak.today kể câu chuyện hoàn chỉnh của cà phê: từ đất bazan, giọt mồ hôi người nông dân đến công nghệ chế biến sâu và hành trình vươn ra thế giới.'}
+                  ? 'Laocai.today connects the complete regional value chain: from 1,500m+ cloud-kissed herbal plateaus and international border gates to global markets.'
+                  : 'Laocai.today kết nối chuỗi giá trị đặc thù của vùng đất biên cương Tây Bắc: từ vùng nguyên liệu trên mây 1.500m+, công nghệ chế biến sâu đến cửa khẩu quốc tế và thị trường toàn cầu.'}
               </p>
             </div>
 
@@ -2752,57 +2986,57 @@ export const Home = () => {
                 <div className="coffee-step">
                   <div className="coffee-step-number">01</div>
                   <div className="coffee-step-content">
-                    <h4>{currentLang === 'en' ? 'Raw Material Zone' : 'Vùng Nguyên Liệu Đất Đỏ Bazan'}</h4>
-                    <p>{currentLang === 'en' ? 'Over 800m altitude, nutrient-dense volcanic soil nurturing top-tier Robusta & Arabica beans.' : 'Độ cao lý tưởng trên 800m, tầng đất bazan màu mỡ giúp hạt cà phê Robusta Buôn Ma Thuột đạt hương vị đậm đà độc bản.'}</p>
+                    <h4>{currentLang === 'en' ? 'Highland Climate & Natural Endowments' : 'Tiểu Khí Hậu Á Nhiệt Đới & Tài Nguyên Độc Bản'}</h4>
+                    <p>{currentLang === 'en' ? 'Ideal 1,500m–3,143m altitude nurturing precious GACP-WHO herbs, ancient Shan Tuyet tea, and cold-water salmon.' : 'Độ cao 1.500m – 3.143m tạo nên hệ sinh thái ôn đới quý giá cho dược liệu Atiso, tam thất, chè cổ thụ Shan Tuyết, cá hồi nước lạnh và cảnh sắc 4 mùa.'}</p>
                   </div>
                 </div>
 
                 <div className="coffee-step">
                   <div className="coffee-step-number">02</div>
                   <div className="coffee-step-content">
-                    <h4>{currentLang === 'en' ? 'Coffee Farmers & Cooperatives' : 'Người Làm Cà Phê & HTX Kiểu Mới'}</h4>
-                    <p>{currentLang === 'en' ? 'Sustainable farming, 100% selective ripe cherry picking, ensuring high sugar content and transparent traceability.' : 'Mô hình liên kết nông hộ, hái chọn trái chín 100%, canh tác hữu cơ bền vững bảo vệ nguồn nước và đất đai đại ngàn.'}</p>
+                    <h4>{currentLang === 'en' ? 'Indigenous Craft & New-Model Cooperatives' : 'Tri Thức Bản Địa & Liên Kết Hợp Tác Xã Kiểu Mới'}</h4>
+                    <p>{currentLang === 'en' ? 'Empowering H’Mong, Dao, Tay, Giay, and Ha Nhi communities with organic farming, eco-tourism, and digital traceability.' : 'Đồng hành cùng cộng đồng các dân tộc H’Mông, Dao, Tày, Giáy, Hà Nhì phát triển nông nghiệp hữu cơ, du lịch cộng đồng và truy xuất nguồn gốc số.'}</p>
                   </div>
                 </div>
 
                 <div className="coffee-step">
                   <div className="coffee-step-number">03</div>
                   <div className="coffee-step-content">
-                    <h4>{currentLang === 'en' ? 'Deep Processing Technology' : 'Công Nghệ Chế Biến Sâu Hiện Đại'}</h4>
-                    <p>{currentLang === 'en' ? 'Transitioning from raw green bean trade to specialty roasted beans, instant freeze-dried extracts, and craft coffee.' : 'Chuyển dịch mạnh mẽ từ xuất thô sang chế biến sâu: rang xay tiêu chuẩn châu Âu, sấy lạnh, trích ly tinh chất giá trị cao.'}</p>
+                    <h4>{currentLang === 'en' ? 'Deep Processing & Smart Industrial Zones' : 'Công Nghệ Chế Biến Sâu & Khu Công Nghiệp Đồng Bộ'}</h4>
+                    <p>{currentLang === 'en' ? 'Extracting high-value pharmaceutical compounds, freeze-dried teas, and deep mineral processing across Tang Loong & Dong Pho Moi IPs.' : 'Đẩy mạnh chiết xuất dược liệu công nghệ cao, chế biến sâu nông lâm sản và công nghiệp phụ trợ tại KCN Tằng Loỏng, Đông Phố Mới và Võ Lao.'}</p>
                   </div>
                 </div>
 
                 <div className="coffee-step">
                   <div className="coffee-step-number">04</div>
                   <div className="coffee-step-content">
-                    <h4>{currentLang === 'en' ? 'Global Market Expansion' : 'Chinh Phục Thị Trường Toàn Cầu'}</h4>
-                    <p>{currentLang === 'en' ? 'Exporting branded specialty coffee to 80+ countries, raising bean value up to 4x compared to raw exports.' : 'Xây dựng thương hiệu cà phê Đắk Lắk tại Mỹ, EU, Nhật Bản, Trung Quốc; nâng giá trị gia tăng thặng dư gấp 3 - 4 lần.'}</p>
+                    <h4>{currentLang === 'en' ? 'ASEAN – China Cross-Border Gateway' : 'Cửa Khẩu Quốc Tế & Chuỗi Logistics Liên Vận'}</h4>
+                    <p>{currentLang === 'en' ? 'Direct customs clearance via Kim Thanh International Border Gate, international rail, and Sa Pa Airport to global buyers.' : 'Thông quan trực tiếp qua Cửa khẩu Quốc tế Kim Thành, đường sắt liên vận Á – Âu và cao tốc Nội Bài – Lào Cai vươn ra thị trường quốc tế.'}</p>
                   </div>
                 </div>
               </div>
 
               {/* Case Study & Chuỗi giá trị */}
               <div className="coffee-case-box scroll-reveal scroll-reveal-right">
-                <h3>☕ {currentLang === 'en' ? 'Value Chain Case Study' : 'Điển Hình Chuỗi Giá Trị Cà Phê'}</h3>
+                <h3>🌿 {currentLang === 'en' ? 'Lao Cai Value Chain Spotlight' : 'Điển Hình Chuỗi Giá Trị Đặc Thù Lào Cai'}</h3>
                 
                 <div className="coffee-case-highlight">
-                  <h4>Bazan Heritage Coffee — Từ Nông Trường Đến Tách Cà Phê</h4>
+                  <h4>Hành Lang Kinh Tế Cửa Khẩu & Du Lịch – Dược Liệu Sa Pa – Bắc Hà</h4>
                   <p>
-                    Là minh chứng sống động cho chiến lược đầu tư công nghệ chế biến sâu tại Đắk Lắk. Sở hữu vùng trồng hữu cơ tại Cư M’gar, nhà máy rang xay chuẩn quốc tế và cam kết phát triển cộng đồng bền vững.
+                    Sự kết hợp giữa hạ tầng Khu kinh tế cửa khẩu 15.929 ha, Khu du lịch quốc gia Sa Pa và vùng dược liệu GACP-WHO đã tạo nên mô hình kinh tế xanh – kinh tế số đặc trưng của Lào Cai giai đoạn 2026 – 2030.
                   </p>
                 </div>
 
-                <p style={{ fontSize: '0.88rem', color: '#BFAEA2', fontStyle: 'italic', marginBottom: '20px' }}>
-                  * DakLak.today cam kết tính minh bạch: Các bài viết thương mại và đối tác tài trợ luôn được gắn nhãn độc lập để bảo vệ tính khách quan lâu dài của nền tảng.
+                <p style={{ fontSize: '0.88rem', color: '#C8DAD0', fontStyle: 'italic', marginBottom: '20px' }}>
+                  * Laocai.today cam kết tính minh bạch: Mọi hồ sơ doanh nghiệp, sản phẩm OCOP và dự án kêu gọi đầu tư đều được chuẩn hóa và cập nhật thường xuyên cùng Trợ lý AI đa ngôn ngữ.
                 </p>
 
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  <Link to={`/posts?category=${encodeURIComponent('Nông sản & Cà phê')}`} className="btn-daklak-gold" style={{ padding: '10px 20px', fontSize: '0.88rem' }}>
-                    Xem Chuyên mục Nông sản & Cà phê
+                  <Link to={`/posts?category=${encodeURIComponent('Cửa khẩu & Logistics')}`} className="btn-daklak-gold" style={{ padding: '10px 20px', fontSize: '0.88rem' }}>
+                    Xem Chuyên mục Cửa khẩu & Logistics
                   </Link>
-                  <button onClick={() => scrollToConsult('Hợp tác Chuỗi giá trị Cà phê')} className="btn-daklak-outline" style={{ padding: '10px 20px', fontSize: '0.88rem' }}>
-                    Kết nối Doanh nghiệp Cà phê
+                  <button onClick={() => scrollToConsult('Hợp tác Đầu tư & Giao thương Lào Cai')} className="btn-daklak-outline" style={{ padding: '10px 20px', fontSize: '0.88rem' }}>
+                    Kết nối Xúc tiến Đầu tư
                   </button>
                 </div>
               </div>
@@ -2811,76 +3045,76 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            SECTION 7: ĐẮK LẮK DATA DASHBOARD (6 CHỈ SỐ KINH TẾ)
+            SECTION 13: LÀO CAI BẰNG NHỮNG CON SỐ BIẾT NÓI (DATA DASHBOARD)
             ======================================================== */}
-        <section className="daklak-section" style={{ backgroundColor: '#F3ECE1' }}>
+        <section className="daklak-section" style={{ backgroundColor: '#EBF2EE' }}>
           <div className="daklak-container">
             <div className="daklak-section-header scroll-reveal scroll-reveal-down" style={{ marginBottom: '30px' }}>
-              <span className="daklak-section-badge">{currentLang === 'en' ? 'Regional Indicators' : 'Dữ Liệu Kinh Tế'}</span>
+              <span className="daklak-section-badge">{currentLang === 'en' ? 'Regional Indicators' : 'Dữ Liệu Kinh Tế & Tiềm Năng'}</span>
               <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Dak Lak by Verified Data' : 'Đắk Lắk Bằng Những Con Số Biết Nói'}
+                {currentLang === 'en' ? 'Lao Cai by Key Indicators' : 'Lào Cai Bằng Những Con Số Biết Nói'}
               </h2>
               <p className="daklak-section-desc">
                 {currentLang === 'en'
-                  ? 'Key indicators illustrating the scale and growth potential of the Central Highlands economic hub.'
-                  : 'Các chỉ số tổng hợp minh họa quy mô và tiềm năng phát triển vượt bậc của trung tâm kinh tế Tây Nguyên.'}
+                  ? 'Key socio-economic, border trade, and tourism metrics illustrating the strategic position of Lao Cai Province.'
+                  : 'Các chỉ số tổng hợp khẳng định vị thế cực tăng trưởng vùng Trung du và Miền núi phía Bắc, cầu nối giao thương Việt Nam – ASEAN – Trung Quốc.'}
               </p>
             </div>
 
             <div className="data-stats-grid">
               <div className="data-stat-card scroll-reveal scroll-reveal-up stagger-1">
-                <div className="data-stat-num">213.000+</div>
-                <div className="data-stat-label">Hécta Cà phê</div>
-                <div className="data-stat-sub">Thủ phủ lớn nhất Việt Nam</div>
+                <div className="data-stat-num">3.143 m</div>
+                <div className="data-stat-label">Đỉnh Thiêng Fansipan</div>
+                <div className="data-stat-sub">Nóc nhà Đông Dương – Biểu tượng Sa Pa</div>
               </div>
 
               <div className="data-stat-card scroll-reveal scroll-reveal-up stagger-2">
-                <div className="data-stat-num">560.000+</div>
-                <div className="data-stat-label">Tấn Sản lượng/Năm</div>
-                <div className="data-stat-sub">Cung ứng hơn 30% sản lượng cả nước</div>
+                <div className="data-stat-num">15.929 ha</div>
+                <div className="data-stat-label">KKT Cửa khẩu Lào Cai</div>
+                <div className="data-stat-sub">1 trong 8 KKT cửa khẩu trọng điểm QG</div>
               </div>
 
               <div className="data-stat-card scroll-reveal scroll-reveal-up stagger-3">
-                <div className="data-stat-num">1,6+ Tỷ $</div>
-                <div className="data-stat-label">Kim ngạch Xuất khẩu</div>
-                <div className="data-stat-sub">Tăng trưởng bền vững 14%/năm</div>
+                <div className="data-stat-num">8,5+ Triệu</div>
+                <div className="data-stat-label">Lượt Du khách / Năm</div>
+                <div className="data-stat-sub">Trung tâm du lịch 4 mùa quốc tế</div>
               </div>
 
               <div className="data-stat-card scroll-reveal scroll-reveal-up stagger-4">
-                <div className="data-stat-num">12.500+</div>
-                <div className="data-stat-label">Doanh nghiệp</div>
-                <div className="data-stat-sub">Cộng đồng hội viên năng động</div>
+                <div className="data-stat-num">4.000+ ha</div>
+                <div className="data-stat-label">Dược liệu & Chè Cổ thụ</div>
+                <div className="data-stat-sub">Vùng nguyên liệu chuẩn GACP-WHO</div>
               </div>
 
               <div className="data-stat-card scroll-reveal scroll-reveal-up stagger-5">
-                <div className="data-stat-num">50+</div>
-                <div className="data-stat-label">Dự án Kêu gọi Đầu tư</div>
-                <div className="data-stat-sub">Quy hoạch quỹ đất sạch 2026-2030</div>
+                <div className="data-stat-num">200+</div>
+                <div className="data-stat-label">Sản phẩm OCOP Vùng cao</div>
+                <div className="data-stat-sub">Đạt chuẩn từ 3 sao đến 5 sao Quốc gia</div>
               </div>
 
               <div className="data-stat-card scroll-reveal scroll-reveal-up stagger-6">
-                <div className="data-stat-num">38,7%</div>
-                <div className="data-stat-label">Độ che phủ Rừng</div>
-                <div className="data-stat-sub">Lợi thế hấp thụ Carbon & Tín chỉ ESG</div>
+                <div className="data-stat-num">05 Ngôn ngữ</div>
+                <div className="data-stat-label">Trợ lý AI 24/7</div>
+                <div className="data-stat-sub">Việt • Anh • Trung • Nhật • Hàn</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* ========================================================
-            SECTION 15: GÓI THAM GIA MẠNG LƯỚI (MEMBERSHIP TIERS)
+            SECTION 14: GÓI THAM GIA MẠNG LƯỚI HỘI VIÊN LAOCAI.TODAY
             ======================================================== */}
         <section className="daklak-section" style={{ backgroundColor: 'var(--cream-alt)' }}>
           <div className="daklak-container">
             <div className="daklak-section-header scroll-reveal scroll-reveal-down">
               <span className="daklak-section-badge">{currentLang === 'en' ? 'Membership' : 'Gia Nhập Mạng Lưới'}</span>
               <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Flexible Membership Packages' : 'Lựa Chọn Gói Tham Gia Phù Hợp'}
+                {currentLang === 'en' ? 'Flexible Membership Packages' : 'Lựa Chọn Gói Hội Viên Laocai.today'}
               </h2>
               <p className="daklak-section-desc">
                 {currentLang === 'en'
-                  ? 'Join our verified business community to expand your network, elevate brand awareness, and capture growth.'
-                  : 'Gia nhập cộng đồng doanh nghiệp và đối tác đầu tư Đắk Lắk. Gói Khám phá & Gói Silver được duyệt tự động ngay lập tức.'}
+                  ? 'Join our verified business community in Lao Cai to expand your cross-border network, promote OCOP & tourism services, and connect with investors.'
+                  : 'Gia nhập cộng đồng doanh nghiệp, hợp tác xã và nhà đầu tư Lào Cai. Gói Khám phá & Gói Silver được hệ thống phê duyệt tự động ngay lập tức.'}
               </p>
             </div>
 
@@ -2892,10 +3126,10 @@ export const Home = () => {
                   <h3 className="tier-title">Khám Phá</h3>
                   <div className="tier-price">Miễn phí</div>
                   <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', textAlign: 'left', fontSize: '0.88rem', color: 'var(--text-muted)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <li>✓ Xem đầy đủ tin tức & sự kiện</li>
-                    <li>✓ Tra cứu danh bạ doanh nghiệp</li>
-                    <li>✓ Hỏi đáp Trợ lý AI miễn phí</li>
-                    <li>✓ Đăng ký vé QR tham gia sự kiện</li>
+                    <li>✓ Xem đầy đủ tin tức, quy hoạch & sự kiện</li>
+                    <li>✓ Tra cứu danh bạ doanh nghiệp Lào Cai</li>
+                    <li>✓ Hỏi đáp Trợ lý AI đa ngôn ngữ miễn phí</li>
+                    <li>✓ Đăng ký vé QR tham gia hội chợ, diễn đàn</li>
                   </ul>
                 </div>
                 <Link to="/register" className="btn-daklak-outline" style={{ color: 'var(--primary-coffee)', borderColor: 'var(--border-strong)', justifyContent: 'center' }}>
@@ -2911,10 +3145,10 @@ export const Home = () => {
                   <div className="tier-price" style={{ color: 'var(--bazan-red)' }}>Silver Partner</div>
                   <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', textAlign: 'left', fontSize: '0.88rem', color: 'var(--text-muted)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                     <li>✓ Tự động duyệt ngay lập tức</li>
-                    <li>✓ Cấp Showroom số xác thực</li>
-                    <li>✓ Đăng bài viết & cơ hội giao thương</li>
-                    <li>✓ Nhận lead liên hệ đối tác trực tiếp</li>
-                    <li>✓ Ưu tiên hiển thị trên trang chủ</li>
+                    <li>✓ Cấp Showroom số doanh nghiệp xác thực</li>
+                    <li>✓ Đăng bài viết, sản phẩm OCOP & giao thương</li>
+                    <li>✓ Nhận yêu cầu kết nối B2B trực tiếp</li>
+                    <li>✓ Ưu tiên hiển thị trong danh bạ Lào Cai</li>
                   </ul>
                 </div>
                 <Link to="/register" className="btn-daklak-primary" style={{ justifyContent: 'center' }}>
@@ -2925,15 +3159,15 @@ export const Home = () => {
               {/* Tier 3 */}
               <div className="tier-card scroll-reveal scroll-reveal-up stagger-2">
                 <div>
-                  <span className="tier-badge" style={{ background: 'rgba(213, 163, 63, 0.2)', color: '#B3832B' }}>CAO CẤP</span>
+                  <span className="tier-badge" style={{ background: 'rgba(217, 155, 38, 0.2)', color: '#B3832B' }}>CAO CẤP</span>
                   <h3 className="tier-title">Doanh Nghiệp Tiêu Biểu</h3>
                   <div className="tier-price" style={{ color: 'var(--primary-coffee)' }}>Gold Partner</div>
                   <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', textAlign: 'left', fontSize: '0.88rem', color: 'var(--text-muted)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                     <li>✓ Đầy đủ quyền lợi gói Silver</li>
                     <li>✓ Huy hiệu Đối tác Vàng chứng nhận</li>
-                    <li>✓ Bài PR chuyên đề phóng sự báo chí</li>
-                    <li>✓ Ghép đôi ưu tiên với Nhà đầu tư</li>
-                    <li>✓ Hỗ trợ chuẩn hóa hồ sơ gọi vốn</li>
+                    <li>✓ Bài PR chuyên đề quảng bá đa ngôn ngữ</li>
+                    <li>✓ Ghép đôi ưu tiên với Đối tác XNK & Đầu tư</li>
+                    <li>✓ Hỗ trợ chuẩn hóa hồ sơ năng lực số</li>
                   </ul>
                 </div>
                 <button onClick={() => scrollToConsult('Gói Hội viên Gold Partner')} className="btn-daklak-gold" style={{ justifyContent: 'center' }}>
@@ -2944,14 +3178,14 @@ export const Home = () => {
               {/* Tier 4 */}
               <div className="tier-card scroll-reveal scroll-reveal-right">
                 <div>
-                  <span className="tier-badge" style={{ background: 'rgba(31, 90, 58, 0.2)', color: 'var(--forest-green)' }}>CHIẾN LƯỢC</span>
+                  <span className="tier-badge" style={{ background: 'rgba(20, 90, 62, 0.2)', color: 'var(--forest-green)' }}>CHIẾN LƯỢC</span>
                   <h3 className="tier-title">Nhà Đầu Tư Chiến Lược</h3>
                   <div className="tier-price" style={{ color: 'var(--forest-green)' }}>Diamond VIP</div>
                   <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', textAlign: 'left', fontSize: '0.88rem', color: 'var(--text-muted)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <li>✓ Tiếp cận hồ sơ dự án bí mật Data Room</li>
-                    <li>✓ Kết nối trực tiếp Lãnh đạo ban ngành</li>
-                    <li>✓ Tham dự các phiên bàn tròn kín</li>
-                    <li>✓ Cố vấn xúc tiến đầu tư 1 kèm 1</li>
+                    <li>✓ Tiếp cận bộ hồ sơ dự án Data Room</li>
+                    <li>✓ Kết nối khảo sát KKT cửa khẩu & KCN</li>
+                    <li>✓ Tham dự các phiên tọa đàm xúc tiến đầu tư</li>
+                    <li>✓ Cố vấn xúc tiến & dịch thuật AI 1 kèm 1</li>
                   </ul>
                 </div>
                 <button onClick={() => scrollToConsult('Gói Đối tác Chiến lược Diamond')} className="btn-daklak-outline" style={{ color: 'var(--forest-green)', borderColor: 'var(--forest-green)', justifyContent: 'center' }}>
@@ -2963,19 +3197,19 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            SECTION 16: CÂU HỎI THƯỜNG GẶP (FAQ ACCORDION)
+            SECTION 15: CÂU HỎI THƯỜNG GẶP (FAQ ACCORDION)
             ======================================================== */}
         <section className="daklak-section">
           <div className="daklak-container">
             <div className="daklak-section-header scroll-reveal scroll-reveal-down">
               <span className="daklak-section-badge">{currentLang === 'en' ? 'FAQ' : 'Hỏi & Đáp'}</span>
               <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Frequently Asked Questions' : 'Câu Hỏi Thường Gặp'}
+                {currentLang === 'en' ? 'Frequently Asked Questions' : 'Câu Hỏi Thường Gặp Về Laocai.today'}
               </h2>
               <p className="daklak-section-desc">
                 {currentLang === 'en'
-                  ? 'Common inquiries regarding DakLak.today ecosystem features, memberships, and investor services.'
-                  : 'Giải đáp những thắc mắc phổ biến về cơ chế hoạt động, bảo mật dữ liệu và quyền lợi tham gia mạng lưới.'}
+                  ? 'Common inquiries regarding Laocai.today ecosystem features, memberships, and investor services.'
+                  : 'Giải đáp những thắc mắc phổ biến về cơ chế vận hành, Trợ lý AI đa ngôn ngữ và quyền lợi tham gia mạng lưới Laocai.today.'}
               </p>
             </div>
 
@@ -2994,7 +3228,7 @@ export const Home = () => {
                       onClick={() => setActiveFaq(isOpen ? null : index)}
                     >
                       <span>{faq.q}</span>
-                      <i className={`ti ti-chevron-${isOpen ? 'up' : 'down'}`} style={{ color: 'var(--bazan-red)' }} />
+                      <i className={`ti ti-chevron-${isOpen ? 'up' : 'down'}`} style={{ color: 'var(--forest-green)' }} />
                     </button>
                     {isOpen && (
                       <div 
@@ -3014,19 +3248,19 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            SECTION 17: FORM ĐĂNG KÝ TƯ VẤN & HỢP TÁC ĐẦU TƯ (id="tu-van")
+            SECTION 16: FORM ĐĂNG KÝ TƯ VẤN & HỢP TÁC ĐẦU TƯ (id="tu-van")
             ======================================================== */}
-        <section className="daklak-section" id="tu-van" style={{ backgroundColor: '#F0E6DC' }}>
+        <section className="daklak-section" id="tu-van" style={{ backgroundColor: '#E5EFEA' }}>
           <div className="daklak-container">
             <div className="daklak-section-header scroll-reveal scroll-reveal-down">
-              <span className="daklak-section-badge">{currentLang === 'en' ? 'Consultation & Partnership' : 'Đăng Ký Tư Vấn'}</span>
+              <span className="daklak-section-badge">{currentLang === 'en' ? 'Consultation & Partnership' : 'Đăng Ký Tư Vấn & Kết Nối'}</span>
               <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Partner with DakLak.today' : 'Đăng Ký Tư Vấn & Kết Nối HỢP Tác Đầu Tư'}
+                {currentLang === 'en' ? 'Partner with Laocai.today' : 'Đăng Ký Tư Vấn & Hợp Tác Đầu Tư Tại Lào Cai'}
               </h2>
               <p className="daklak-section-desc">
                 {currentLang === 'en'
-                  ? 'Submit your enterprise details or project inquiries. Our investment specialists will contact you within 24 hours.'
-                  : 'Quý doanh nghiệp và nhà đầu tư vui lòng gửi thông tin yêu cầu. Ban xúc tiến đầu tư sẽ liên hệ hỗ trợ trong vòng 24 giờ làm việc.'}
+                  ? 'Submit your enterprise details or project inquiries. Our investment & trade specialists will contact you within 24 hours.'
+                  : 'Quý doanh nghiệp, nhà đầu tư và đối tác vui lòng gửi thông tin yêu cầu. Ban kết nối đầu tư & thương mại Laocai.today sẽ liên hệ hỗ trợ trong vòng 24 giờ.'}
               </p>
             </div>
 
@@ -3038,7 +3272,7 @@ export const Home = () => {
                     {currentLang === 'en' ? 'Submission Successful!' : 'Đã Tiếp Nhận Thông Tin Thành Công!'}
                   </h3>
                   <p style={{ color: 'var(--text-muted)', maxWidth: '520px', margin: '0 auto 20px', lineHeight: '1.6' }}>
-                    Cảm ơn quý đơn vị đã quan tâm tới hệ sinh thái số Đắk Lắk. Chuyên viên cố vấn sẽ trực tiếp kết nối qua số điện thoại <strong>{formData.phone}</strong>.
+                    Cảm ơn quý đơn vị đã quan tâm tới hệ sinh thái số Laocai.today. Chuyên viên tư vấn sẽ trực tiếp kết nối qua số điện thoại <strong>{formData.phone}</strong>.
                   </p>
                   <button 
                     onClick={() => {
@@ -3047,8 +3281,8 @@ export const Home = () => {
                         fullName: '',
                         phone: '',
                         email: '',
-                        city: 'Đắk Lắk',
-                        serviceNeed: 'Đầu tư nông nghiệp công nghệ cao & chế biến sâu',
+                        city: 'Lào Cai',
+                        serviceNeed: 'Đầu tư Khu kinh tế cửa khẩu & Logistics Lào Cai',
                         companyName: '',
                         notes: '',
                         agreeTerms: true
@@ -3110,7 +3344,7 @@ export const Home = () => {
                         id="consult-companyName"
                         type="text"
                         className="daklak-form-input"
-                        placeholder="Ví dụ: Công ty Cổ phần Nông sản Tây Nguyên"
+                        placeholder="Ví dụ: Công ty CP Đầu tư & Thương mại Quốc tế"
                         value={formData.companyName}
                         onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                         required
@@ -3121,12 +3355,12 @@ export const Home = () => {
 
                   <div className="form-grid-2">
                     <div className="daklak-form-group">
-                      <label htmlFor="consult-city">Tỉnh / Thành phố hoạt động</label>
+                      <label htmlFor="consult-city">Tỉnh / Thành phố / Quốc gia</label>
                       <input 
                         id="consult-city"
                         type="text"
                         className="daklak-form-input"
-                        placeholder="Ví dụ: Đắk Lắk, TP.HCM, Hà Nội..."
+                        placeholder="Ví dụ: Lào Cai, Hà Nội, TP.HCM..."
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                       />
@@ -3140,13 +3374,13 @@ export const Home = () => {
                         value={formData.serviceNeed}
                         onChange={(e) => setFormData({ ...formData, serviceNeed: e.target.value })}
                       >
-                        <option value="Đầu tư nông nghiệp công nghệ cao & chế biến sâu">Đầu tư nông nghiệp CNC & chế biến sâu</option>
-                        <option value="Chuỗi giá trị cà phê & nông sản đặc hữu">Chuỗi giá trị cà phê & nông sản đặc hữu</option>
-                        <option value="Thuê đất KCN & Hạ tầng Logistics">Thuê đất KCN & Hạ tầng Logistics</option>
-                        <option value="Du lịch sinh thái & Dịch vụ lưu trú">Du lịch sinh thái & Dịch vụ lưu trú</option>
-                        <option value="Mở Showroom số & Quảng bá sản phẩm OCOP">Mở Showroom số & Quảng bá OCOP</option>
-                        <option value="Tư vấn tiếp cận vốn vay & Quỹ ESG">Tư vấn tiếp cận vốn vay & Quỹ ESG</option>
-                        <option value="Tham gia Mạng lưới Hội viên Doanh nghiệp">Tham gia Mạng lưới Hội viên Doanh nghiệp</option>
+                        <option value="Đầu tư Khu kinh tế cửa khẩu & Logistics Lào Cai">Đầu tư Khu kinh tế cửa khẩu & Logistics Lào Cai</option>
+                        <option value="Thuê đất KCN Tằng Loỏng, Đông Phố Mới, Võ Lao">Thuê đất KCN Tằng Loỏng, Đông Phố Mới, Võ Lao</option>
+                        <option value="Hợp tác Chuỗi Dược liệu vùng cao & Chè Shan Tuyết">Hợp tác Chuỗi Dược liệu vùng cao & Chè Shan Tuyết</option>
+                        <option value="Đầu tư Du lịch nghỉ dưỡng Sa Pa – Bắc Hà – Y Tý">Đầu tư Du lịch nghỉ dưỡng Sa Pa – Bắc Hà – Y Tý</option>
+                        <option value="Mở Showroom số & Quảng bá sản phẩm OCOP Lào Cai">Mở Showroom số & Quảng bá sản phẩm OCOP Lào Cai</option>
+                        <option value="Kết nối Xuất nhập khẩu ASEAN – Trung Quốc">Kết nối Xuất nhập khẩu ASEAN – Trung Quốc</option>
+                        <option value="Tham gia Mạng lưới Hội viên Doanh nghiệp Laocai.today">Tham gia Mạng lưới Hội viên Doanh nghiệp Laocai.today</option>
                       </select>
                     </div>
                   </div>
@@ -3157,7 +3391,7 @@ export const Home = () => {
                       id="consult-notes"
                       rows="3"
                       className="daklak-form-textarea"
-                      placeholder="Mô tả cụ thể về quy mô dự án, sản phẩm cần hợp tác hoặc câu hỏi dành cho ban xúc tiến..."
+                      placeholder="Mô tả cụ thể về quy mô dự án, sản phẩm cần kết nối giao thương hoặc lịch trình khảo sát tại Lào Cai..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     />
@@ -3172,7 +3406,7 @@ export const Home = () => {
                       required
                     />
                     <label htmlFor="agreeTerms" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', cursor: 'pointer' }}>
-                      Tôi đồng ý chia sẻ thông tin để Ban xúc tiến DakLak.today liên hệ tư vấn theo chính sách bảo mật.
+                      Tôi đồng ý chia sẻ thông tin để Ban xúc tiến Laocai.today liên hệ tư vấn theo chính sách bảo mật.
                     </label>
                   </div>
 
@@ -3191,12 +3425,12 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            BLOCK: ĐỐI TÁC CỦA CHÚNG TÔI (CAROUSEL TRÊN FOOTER)
+            SECTION 17: ĐỐI TÁC CỦA CHÚNG TÔI (CAROUSEL TRÊN FOOTER)
             ======================================================== */}
         <section className="daklak-partners-section" id="doi-tac">
           <div className="daklak-container">
             <h2 className="daklak-partners-title scroll-reveal scroll-reveal-down">
-              {currentLang === 'en' ? 'OUR PARTNERS' : 'ĐỐI TÁC CỦA CHÚNG TÔI'}
+              {currentLang === 'en' ? 'OUR ECOSYSTEM PARTNERS' : 'ĐỐI TÁC ĐỒNG HÀNH CÙNG HỆ SINH THÁI'}
             </h2>
             <div className="daklak-partners-underline scroll-reveal scroll-reveal-scale" />
 
@@ -3205,7 +3439,6 @@ export const Home = () => {
               onMouseEnter={() => setIsPartnerHovered(true)}
               onMouseLeave={() => setIsPartnerHovered(false)}
             >
-              {/* Nút lướt Trái */}
               <button
                 type="button"
                 className="daklak-partner-arrow-btn"
@@ -3216,7 +3449,6 @@ export const Home = () => {
                 <i className="ti ti-arrow-left" />
               </button>
 
-              {/* Khung nhìn trượt 4 logo */}
               <div className="daklak-partners-viewport">
                 <div
                   className="daklak-partners-track"
@@ -3247,7 +3479,6 @@ export const Home = () => {
                 </div>
               </div>
 
-              {/* Nút lướt Phải */}
               <button
                 type="button"
                 className="daklak-partner-arrow-btn"
@@ -3306,18 +3537,16 @@ export const Home = () => {
               ✕
             </button>
 
-            {/* TRƯỜNG HỢP: ĐÃ ĐĂNG KÝ THÀNH CÔNG (HIỂN THỊ VÉ / THANH TOÁN) */}
             {regSuccessData ? (
               Number(regSuccessData.total_amount) > 0 ? (
                 paidFlowStep === 'transfer' ? (
-                  // BƯỚC 1 CỦA SỰ KIỆN CÓ PHÍ: THÔNG TIN CHUYỂN KHOẢN & BẮT BUỘC TẢI ẢNH BILL
                   <>
-                    <div style={{ background: 'linear-gradient(135deg, #1C0F08 0%, #3B2011 100%)', color: '#ffffff', padding: '1.4rem 1.5rem', textAlign: 'center' }}>
+                    <div style={{ background: 'linear-gradient(135deg, #091B14 0%, #145A3E 100%)', color: '#ffffff', padding: '1.4rem 1.5rem', textAlign: 'center' }}>
                       <div style={{
                         width: '48px',
                         height: '48px',
                         borderRadius: '50%',
-                        backgroundColor: 'rgba(213, 163, 63, 0.25)',
+                        backgroundColor: 'rgba(217, 155, 38, 0.25)',
                         color: 'var(--gong-gold)',
                         display: 'flex',
                         alignItems: 'center',
@@ -3330,7 +3559,7 @@ export const Home = () => {
                       <h3 style={{ fontSize: '18px', fontWeight: '800', margin: '0 0 4px 0', color: '#FFFFFF' }}>
                         Thanh Toán & Kích Hoạt Vé
                       </h3>
-                      <p style={{ fontSize: '12px', opacity: 0.9, margin: 0, color: '#E0D4CA' }}>
+                      <p style={{ fontSize: '12px', opacity: 0.9, margin: 0, color: '#DCE7E1' }}>
                         {regSuccessData.event_title}
                       </p>
                     </div>
@@ -3338,10 +3567,9 @@ export const Home = () => {
                     <div style={{ padding: '1.25rem 1.5rem', maxHeight: '72vh', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                       <div style={{ fontSize: '12.5px', color: '#334155', backgroundColor: '#F8FAFC', padding: '10px 14px', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '3px', border: '1px solid #E2E8F0' }}>
                         <div><strong>Khách tham dự:</strong> {regSuccessData.full_name} ({regSuccessData.phone})</div>
-                        <div><strong>Số lượng vé:</strong> {regSuccessData.quantity} vé · <strong>Mã đăng ký:</strong> <code style={{ fontWeight: '700', color: '#A84524' }}>{regSuccessData.ticket_code}</code></div>
+                        <div><strong>Số lượng vé:</strong> {regSuccessData.quantity} vé · <strong>Mã đăng ký:</strong> <code style={{ fontWeight: '700', color: '#145A3E' }}>{regSuccessData.ticket_code}</code></div>
                       </div>
 
-                      {/* Khối thanh toán Chuyển khoản VietQR */}
                       <div style={{ border: '1px solid #FCD34D', backgroundColor: '#FFFBEB', borderRadius: '12px', padding: '1.25rem' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#B45309', fontWeight: '800', fontSize: '14px', marginBottom: '8px' }}>
                           <i className="ti ti-building-bank"></i>
@@ -3394,19 +3622,18 @@ export const Home = () => {
                         </div>
                       </div>
 
-                      {/* BẮT BUỘC TẢI ẢNH CHUYỂN KHOẢN */}
                       <div style={{
-                        border: '2px dashed #A84524',
-                        backgroundColor: '#FDF7F4',
+                        border: '2px dashed #145A3E',
+                        backgroundColor: '#F4F9F6',
                         borderRadius: '12px',
                         padding: '1.25rem',
                         textAlign: 'center'
                       }}>
-                        <div style={{ fontSize: '13px', fontWeight: '800', color: '#A84524', marginBottom: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                        <div style={{ fontSize: '13px', fontWeight: '800', color: '#145A3E', marginBottom: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
                           <i className="ti ti-upload"></i>
                           <span>Tải ảnh chuyển khoản thành công (Bắt buộc) *</span>
                         </div>
-                        <p style={{ fontSize: '11.5px', color: '#73311A', margin: '0 0 12px', lineHeight: 1.4 }}>
+                        <p style={{ fontSize: '11.5px', color: '#1E4635', margin: '0 0 12px', lineHeight: 1.4 }}>
                           Sau khi chuyển khoản qua ngân hàng, quý khách vui lòng tải ảnh biên lai giao dịch thành công để Ban tổ chức kiểm duyệt và kích hoạt vé.
                         </p>
 
@@ -3416,7 +3643,7 @@ export const Home = () => {
                               <img src={proofPreview} alt="Ảnh chuyển khoản" style={{ width: '100%', maxHeight: '180px', objectFit: 'contain' }} />
                             </div>
                             <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                              <span style={{ fontSize: '11px', color: '#A84524', fontWeight: '600' }}>✓ Đã chọn ảnh: {proofFile?.name}</span>
+                              <span style={{ fontSize: '11px', color: '#145A3E', fontWeight: '600' }}>✓ Đã chọn ảnh: {proofFile?.name}</span>
                               <label style={{ fontSize: '11px', color: '#2563EB', cursor: 'pointer', textDecoration: 'underline', fontWeight: '600' }}>
                                 Đổi ảnh khác
                                 <input type="file" accept="image/*" onChange={handleProofChange} style={{ display: 'none' }} />
@@ -3430,14 +3657,14 @@ export const Home = () => {
                             alignItems: 'center',
                             justifyContent: 'center',
                             padding: '1.5rem',
-                            border: '1px dashed #A84524',
+                            border: '1px dashed #145A3E',
                             borderRadius: '8px',
                             backgroundColor: '#ffffff',
                             cursor: 'pointer',
                             gap: '6px'
                           }}>
-                            <i className="ti ti-photo-plus" style={{ fontSize: '30px', color: '#A84524' }}></i>
-                            <span style={{ fontSize: '12.5px', fontWeight: '700', color: '#A84524' }}>Nhấn vào đây để tải ảnh bill chuyển khoản</span>
+                            <i className="ti ti-photo-plus" style={{ fontSize: '30px', color: '#145A3E' }}></i>
+                            <span style={{ fontSize: '12.5px', fontWeight: '700', color: '#145A3E' }}>Nhấn vào đây để tải ảnh bill chuyển khoản</span>
                             <span style={{ fontSize: '11px', color: '#64748B' }}>Hỗ trợ định dạng JPG, PNG, WEBP (Tối đa 20MB)</span>
                             <input type="file" accept="image/*" onChange={handleProofChange} style={{ display: 'none' }} />
                           </label>
@@ -3461,7 +3688,7 @@ export const Home = () => {
                           padding: '9px 22px',
                           borderRadius: '8px',
                           border: 'none',
-                          background: proofFile ? 'linear-gradient(135deg, #A84524 0%, #7E2D13 100%)' : '#94A3B8',
+                          background: proofFile ? 'linear-gradient(135deg, #145A3E 0%, #0D3826 100%)' : '#94A3B8',
                           color: '#ffffff',
                           fontSize: '13px',
                           fontWeight: '700',
@@ -3476,14 +3703,13 @@ export const Home = () => {
                     </div>
                   </>
                 ) : (
-                  // BƯỚC 2: CHỜ DUYỆT
                   <>
-                    <div style={{ background: 'linear-gradient(135deg, #1C0F08 0%, #3B2011 100%)', color: '#ffffff', padding: '1.5rem 1.25rem', textAlign: 'center' }}>
-                      <div style={{ width: '52px', height: '52px', borderRadius: '50%', backgroundColor: 'rgba(213, 163, 63, 0.25)', color: 'var(--gong-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 10px', fontSize: '26px' }}>
+                    <div style={{ background: 'linear-gradient(135deg, #091B14 0%, #145A3E 100%)', color: '#ffffff', padding: '1.5rem 1.25rem', textAlign: 'center' }}>
+                      <div style={{ width: '52px', height: '52px', borderRadius: '50%', backgroundColor: 'rgba(217, 155, 38, 0.25)', color: 'var(--gong-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 10px', fontSize: '26px' }}>
                         <i className="ti ti-clock"></i>
                       </div>
                       <h3 style={{ fontSize: '18px', fontWeight: '800', margin: '0 0 4px 0', color: '#FFFFFF' }}>Đã Gửi Thông Tin Thanh Toán!</h3>
-                      <p style={{ fontSize: '12.5px', opacity: 0.9, margin: 0, color: '#E0D4CA' }}>{regSuccessData.event_title}</p>
+                      <p style={{ fontSize: '12.5px', opacity: 0.9, margin: 0, color: '#DCE7E1' }}>{regSuccessData.event_title}</p>
                     </div>
                     <div style={{ padding: '1.5rem', maxHeight: '72vh', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                       <div style={{ backgroundColor: '#FEF3C7', border: '1px solid #FCD34D', borderRadius: '12px', padding: '1.25rem', textAlign: 'center' }}>
@@ -3510,15 +3736,15 @@ export const Home = () => {
                     </div>
                     <div style={{ padding: '1rem 1.5rem', borderTop: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', backgroundColor: '#F8FAFC' }}>
                       {isLoggedIn ? (
-                        <Link to="/member-dashboard" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', backgroundColor: '#A84524', color: '#ffffff', borderRadius: '8px', fontSize: '12.5px', fontWeight: '700', textDecoration: 'none' }}>
+                        <Link to="/member-dashboard" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', backgroundColor: '#145A3E', color: '#ffffff', borderRadius: '8px', fontSize: '12.5px', fontWeight: '700', textDecoration: 'none' }}>
                           <i className="ti ti-ticket"></i> Vào Dashboard theo dõi
                         </Link>
                       ) : (
-                        <Link to="/login" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', backgroundColor: '#A84524', color: '#ffffff', borderRadius: '8px', fontSize: '12.5px', fontWeight: '700', textDecoration: 'none' }}>
+                        <Link to="/login" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', backgroundColor: '#145A3E', color: '#ffffff', borderRadius: '8px', fontSize: '12.5px', fontWeight: '700', textDecoration: 'none' }}>
                           <i className="ti ti-login"></i> Đăng nhập Dashboard
                         </Link>
                       )}
-                      <button type="button" onClick={handleCloseModal} style={{ padding: '8px 24px', borderRadius: '8px', border: 'none', background: 'linear-gradient(135deg, #1C0F08 0%, #3B2011 100%)', color: '#ffffff', fontSize: '12.5px', fontWeight: '700', cursor: 'pointer' }}>
+                      <button type="button" onClick={handleCloseModal} style={{ padding: '8px 24px', borderRadius: '8px', border: 'none', background: 'linear-gradient(135deg, #091B14 0%, #145A3E 100%)', color: '#ffffff', fontSize: '12.5px', fontWeight: '700', cursor: 'pointer' }}>
                         Hoàn tất
                       </button>
                     </div>
@@ -3527,21 +3753,20 @@ export const Home = () => {
               ) : (
                 // SỰ KIỆN MIỄN PHÍ: HIỂN THỊ MÃ VÉ VÀ QR CODE
                 <>
-                  <div style={{ background: 'linear-gradient(135deg, #1C0F08 0%, #3B2011 100%)', color: '#ffffff', padding: '1.4rem 1.5rem', textAlign: 'center' }}>
-                    <div style={{ width: '46px', height: '46px', borderRadius: '50%', backgroundColor: 'rgba(213, 163, 63, 0.25)', color: 'var(--gong-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 8px', fontSize: '24px' }}>
+                  <div style={{ background: 'linear-gradient(135deg, #091B14 0%, #145A3E 100%)', color: '#ffffff', padding: '1.4rem 1.5rem', textAlign: 'center' }}>
+                    <div style={{ width: '46px', height: '46px', borderRadius: '50%', backgroundColor: 'rgba(217, 155, 38, 0.25)', color: 'var(--gong-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 8px', fontSize: '24px' }}>
                       <i className="ti ti-check"></i>
                     </div>
                     <h3 style={{ fontSize: '18px', fontWeight: '800', margin: '0 0 4px 0', color: '#FFFFFF' }}>Đăng Ký Tham Gia Thành Công!</h3>
-                    <p style={{ fontSize: '12px', opacity: 0.9, margin: 0, color: '#E0D4CA' }}>{regSuccessData.event_title}</p>
+                    <p style={{ fontSize: '12px', opacity: 0.9, margin: 0, color: '#DCE7E1' }}>{regSuccessData.event_title}</p>
                   </div>
 
                   <div style={{ padding: '1.5rem', maxHeight: '75vh', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                    {/* Thẻ Vé Điện Tử */}
-                    <div style={{ border: '2px dashed #A84524', borderRadius: '12px', padding: '1.25rem', backgroundColor: '#FDF7F4', textAlign: 'center' }}>
-                      <div style={{ fontSize: '11px', textTransform: 'uppercase', color: '#A84524', fontWeight: '700', letterSpacing: '0.6px' }}>
+                    <div style={{ border: '2px dashed #145A3E', borderRadius: '12px', padding: '1.25rem', backgroundColor: '#F4F9F6', textAlign: 'center' }}>
+                      <div style={{ fontSize: '11px', textTransform: 'uppercase', color: '#145A3E', fontWeight: '700', letterSpacing: '0.6px' }}>
                         MÃ VÉ THAM DỰ CHÍNH THỨC
                       </div>
-                      <div style={{ fontSize: '22px', fontWeight: '900', color: '#1C0F08', letterSpacing: '1px', margin: '4px 0 10px' }}>
+                      <div style={{ fontSize: '22px', fontWeight: '900', color: '#091B14', letterSpacing: '1px', margin: '4px 0 10px' }}>
                         {regSuccessData.ticket_code}
                       </div>
 
@@ -3559,7 +3784,6 @@ export const Home = () => {
                       </div>
                     </div>
 
-                    {/* Thông tin người tham dự */}
                     <div style={{ fontSize: '12.5px', color: '#334155', backgroundColor: '#F8FAFC', padding: '10px 14px', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '4px', border: '1px solid #E2E8F0' }}>
                       <div><strong>Người tham dự:</strong> {regSuccessData.full_name}</div>
                       <div><strong>Số điện thoại:</strong> {regSuccessData.phone}</div>
@@ -3571,7 +3795,7 @@ export const Home = () => {
                       <div style={{ backgroundColor: '#EFF6FF', border: '1px solid #BFDBFE', color: '#1E40AF', padding: '10px 14px', borderRadius: '8px', fontSize: '12px', lineHeight: 1.45, display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                         <i className="ti ti-check-circle" style={{ fontSize: '18px', color: '#1E63E9', flexShrink: 0, marginTop: '2px' }}></i>
                         <div>
-                          <strong>Tài khoản theo dõi vé:</strong> {accountNotice} Sau khi Ban quản trị duyệt hồ sơ, bạn có thể đăng nhập bằng tài khoản này để xem và quản lý vé trong Dashboard thành viên.
+                          <strong>Tài khoản theo dõi vé:</strong> {accountNotice}
                         </div>
                       </div>
                     )}
@@ -3587,15 +3811,15 @@ export const Home = () => {
                     </button>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                       {isLoggedIn ? (
-                        <Link to="/member-dashboard" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', backgroundColor: '#A84524', color: '#ffffff', borderRadius: '8px', fontSize: '12.5px', fontWeight: '700', textDecoration: 'none' }}>
+                        <Link to="/member-dashboard" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', backgroundColor: '#145A3E', color: '#ffffff', borderRadius: '8px', fontSize: '12.5px', fontWeight: '700', textDecoration: 'none' }}>
                           <i className="ti ti-ticket"></i> Vào Dashboard
                         </Link>
                       ) : (
-                        <Link to="/login" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', backgroundColor: '#A84524', color: '#ffffff', borderRadius: '8px', fontSize: '12.5px', fontWeight: '700', textDecoration: 'none' }}>
+                        <Link to="/login" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', backgroundColor: '#145A3E', color: '#ffffff', borderRadius: '8px', fontSize: '12.5px', fontWeight: '700', textDecoration: 'none' }}>
                           <i className="ti ti-login"></i> Đăng nhập
                         </Link>
                       )}
-                      <button type="button" onClick={handleCloseModal} style={{ padding: '8px 24px', borderRadius: '8px', border: 'none', background: 'linear-gradient(135deg, #1C0F08 0%, #3B2011 100%)', color: '#ffffff', fontSize: '12.5px', fontWeight: '700', cursor: 'pointer' }}>
+                      <button type="button" onClick={handleCloseModal} style={{ padding: '8px 24px', borderRadius: '8px', border: 'none', background: 'linear-gradient(135deg, #091B14 0%, #145A3E 100%)', color: '#ffffff', fontSize: '12.5px', fontWeight: '700', cursor: 'pointer' }}>
                         Hoàn tất
                       </button>
                     </div>
@@ -3603,16 +3827,16 @@ export const Home = () => {
                 </>
               )
             ) : (
-              // FORM ĐĂNG KÝ VÉ (CHƯA ĐĂNG KÝ)
+              // FORM ĐĂNG KÝ VÉ
               <>
-                <div style={{ background: 'linear-gradient(135deg, #1C0F08 0%, #3B2011 100%)', color: '#ffffff', padding: '1.4rem 1.5rem', textAlign: 'left' }}>
+                <div style={{ background: 'linear-gradient(135deg, #091B14 0%, #145A3E 100%)', color: '#ffffff', padding: '1.4rem 1.5rem', textAlign: 'left' }}>
                   <span style={{ fontSize: '11px', color: 'var(--gong-gold)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
                     ĐĂNG KÝ VÉ NHANH
                   </span>
                   <h3 style={{ fontSize: '18px', color: '#FFFFFF', margin: '4px 0 6px', fontWeight: '800', lineHeight: 1.3 }}>
                     {registerModalEvent.title}
                   </h3>
-                  <p style={{ fontSize: '12px', color: '#E0D4CA', margin: 0 }}>
+                  <p style={{ fontSize: '12px', color: '#DCE7E1', margin: 0 }}>
                     {Number(registerModalEvent.is_paid) === 1 && Number(registerModalEvent.price) > 0
                       ? `Giá vé: ${Number(registerModalEvent.price).toLocaleString('vi-VN')} VNĐ / vé • Chuyển khoản VietQR tiện lợi`
                       : 'Vé tham gia: Miễn phí (Free Pass) • Nhận mã QR tức thời.'}
@@ -3621,8 +3845,6 @@ export const Home = () => {
 
                 <div style={{ padding: '1.25rem 1.5rem', maxHeight: '72vh', overflowY: 'auto' }}>
                   <form onSubmit={handleQuickRegisterSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    
-                    {/* Họ và tên */}
                     <div>
                       <label style={{ display: 'block', fontSize: '12.5px', fontWeight: '700', color: '#334155', marginBottom: '4px' }}>
                         Họ và tên (*)
@@ -3645,7 +3867,6 @@ export const Home = () => {
                       />
                     </div>
 
-                    {/* Số điện thoại */}
                     <div>
                       <label style={{ display: 'block', fontSize: '12.5px', fontWeight: '700', color: '#334155', marginBottom: '4px' }}>
                         Số điện thoại (*)
@@ -3676,7 +3897,6 @@ export const Home = () => {
                       />
                     </div>
 
-                    {/* Email */}
                     <div>
                       <label style={{ display: 'block', fontSize: '12.5px', fontWeight: '700', color: '#334155', marginBottom: '4px' }}>
                         Email (để nhận vé điện tử)
@@ -3706,7 +3926,6 @@ export const Home = () => {
                       />
                     </div>
 
-                    {/* Tên đơn vị / Doanh nghiệp */}
                     <div>
                       <label style={{ display: 'block', fontSize: '12.5px', fontWeight: '700', color: '#334155', marginBottom: '4px' }}>
                         Tên đơn vị / Doanh nghiệp
@@ -3728,7 +3947,6 @@ export const Home = () => {
                       />
                     </div>
 
-                    {/* Số lượng vé */}
                     <div>
                       <label style={{ display: 'block', fontSize: '12.5px', fontWeight: '700', color: '#334155', marginBottom: '4px' }}>
                         Số lượng vé tham gia
@@ -3751,7 +3969,6 @@ export const Home = () => {
                       />
                     </div>
 
-                    {/* Checkbox tạo tài khoản HOẶC Thông báo đã đăng nhập */}
                     {isActuallyLoggedIn ? (
                       <div style={{
                         padding: '10px 14px',
@@ -3783,7 +4000,6 @@ export const Home = () => {
                       </div>
                     ) : (
                       <>
-                        {/* Checkbox: Tạo tài khoản để theo dõi vé */}
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
                           <input
                             type="checkbox"
@@ -3800,14 +4016,13 @@ export const Home = () => {
                                 verifyAccountNotExists(regForm.phone, regForm.email, regForm.email || regForm.phone);
                               }
                             }}
-                            style={{ cursor: 'pointer', width: '16px', height: '16px', accentColor: '#A84524' }}
+                            style={{ cursor: 'pointer', width: '16px', height: '16px', accentColor: '#145A3E' }}
                           />
                           <label htmlFor="chkHomeCreateAcc" style={{ fontSize: '12.5px', fontWeight: '600', color: '#334155', cursor: 'pointer' }}>
                             Tạo tài khoản để theo dõi vé
                           </label>
                         </div>
 
-                        {/* Hiển thị 3 ô khi tích chọn tạo tài khoản */}
                         {regForm.createAccount && (
                           <div style={{
                             display: 'flex',
@@ -3824,7 +4039,6 @@ export const Home = () => {
                               <span>Thiết lập tài khoản thành viên:</span>
                             </div>
 
-                            {/* Ô 1: Tài khoản (Email hoặc Số điện thoại) */}
                             <div>
                               <input
                                 type="text"
@@ -3852,7 +4066,6 @@ export const Home = () => {
                               />
                             </div>
 
-                            {/* Ô 2: Mật khẩu */}
                             <div style={{ position: 'relative' }}>
                               <input
                                 type={showPassword ? 'text' : 'password'}
@@ -3891,7 +4104,6 @@ export const Home = () => {
                               </button>
                             </div>
 
-                            {/* Ô 3: Xác nhận mật khẩu */}
                             <div>
                               <input
                                 type={showPassword ? 'text' : 'password'}
@@ -3910,16 +4122,11 @@ export const Home = () => {
                                 }}
                               />
                             </div>
-
-                            <div style={{ fontSize: '10.5px', color: '#1E40AF', lineHeight: 1.35 }}>
-                              * Hệ thống sẽ tự động tạo tài khoản như đăng ký thành viên (các trường bắt buộc khác sẽ để mặc định là "Cần bổ sung"). Sau khi admin duyệt, bạn có thể đăng nhập vào để cập nhật thông tin.
-                            </div>
                           </div>
                         )}
                       </>
                     )}
 
-                    {/* Cảnh báo nếu Email hoặc SĐT đã có tài khoản trên hệ thống */}
                     {accountWarning && (
                       <div style={{
                         backgroundColor: '#FEF2F2',
@@ -3944,14 +4151,13 @@ export const Home = () => {
                       </div>
                     )}
 
-                    {/* Nút Đăng ký ngay */}
                     <button
                       type="submit"
                       disabled={submittingReg || checkingAccount}
                       style={{
                         width: '100%',
                         padding: '12px',
-                        background: 'linear-gradient(135deg, #A84524 0%, #7E2D13 100%)',
+                        background: 'linear-gradient(135deg, #145A3E 0%, #0D3826 100%)',
                         color: '#ffffff',
                         border: 'none',
                         borderRadius: '8px',
@@ -3959,14 +4165,13 @@ export const Home = () => {
                         fontWeight: '700',
                         cursor: submittingReg || checkingAccount ? 'not-allowed' : 'pointer',
                         marginTop: '8px',
-                        boxShadow: '0 4px 12px rgba(168, 69, 36, 0.35)',
+                        boxShadow: '0 4px 12px rgba(20, 90, 62, 0.35)',
                         transition: 'transform 0.15s ease, opacity 0.15s'
                       }}
                     >
                       {submittingReg ? 'Đang cấp vé...' : checkingAccount ? 'Đang kiểm tra tài khoản...' : (Number(registerModalEvent?.is_paid) === 1 && Number(registerModalEvent?.price) > 0 ? 'Tiếp tục thanh toán & Đăng ký' : 'Xác nhận & Cấp vé ngay')}
                     </button>
 
-                    {/* Subtext chú thích */}
                     <div style={{ fontSize: '11px', color: '#64748B', textAlign: 'center', marginTop: '4px', lineHeight: 1.4 }}>
                       {Number(registerModalEvent?.is_paid) === 1 && Number(registerModalEvent?.price) > 0
                         ? 'Sự kiện có phí: Vui lòng chuyển khoản và tải ảnh xác nhận để kích hoạt vé.'
@@ -3974,13 +4179,12 @@ export const Home = () => {
                       {!isLoggedIn && (
                         <div style={{ marginTop: '2px' }}>
                           Đã có tài khoản?{' '}
-                          <Link to="/login" style={{ color: '#D97706', textDecoration: 'none', fontWeight: '600' }}>
+                          <Link to="/login" style={{ color: '#145A3E', textDecoration: 'none', fontWeight: '600' }}>
                             Tra cứu tại đây
                           </Link>
                         </div>
                       )}
                     </div>
-
                   </form>
                 </div>
               </>

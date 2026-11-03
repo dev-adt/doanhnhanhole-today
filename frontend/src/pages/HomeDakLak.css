@@ -5,16 +5,16 @@
 
 /* --- ROOT VARIABLES FOR HOMEPAGE --- */
 .daklak-home {
-  --coffee-dark: #26160E;
-  --coffee-deep: #1C0F08;
-  --primary-coffee: #3B2417;
-  --bazan-brown: #7A3E1D;
-  --bazan-red: #A84524;
-  --forest-green: #1F5A3A;
-  --gong-gold: #D5A33F;
+  --coffee-dark: #0D261C;
+  --coffee-deep: #081811;
+  --primary-coffee: #0F2E22;
+  --bazan-brown: #145A3E;
+  --bazan-red: #B83B2A;
+  --forest-green: #145A3E;
+  --gong-gold: #D99B26;
   --gong-gold-light: #F3C562;
-  --light-cream: #F7F1E8;
-  --cream-alt: #EFE6D8;
+  --light-cream: #F6F8F5;
+  --cream-alt: #EBF1ED;
   --text-dark: #2C221E;
   --text-muted: #6B5B52;
   --white: #FFFFFF;
@@ -3344,13 +3344,13 @@
    ============================================================================== */
 
 :root {
-  --gt-bg: #FAF8F4;
+  --gt-bg: #F6F8F5;
   --gt-card-bg: #FFFFFF;
-  --gt-dark: #1E2926;
+  --gt-dark: #10241B;
   --gt-muted: #5E6D67;
-  --gt-orange: #E99035;
+  --gt-orange: #D99B26;
   --gt-orange-hover: #D97E25;
-  --gt-green: #16734A;
+  --gt-green: #145A3E;
   --gt-border: #E8E3D8;
   --gt-radius-lg: 28px;
   --gt-radius-md: 22px;
@@ -4784,3 +4784,286 @@
 
 
 
+
+/* ==============================================================================
+   LAOCAI.TODAY — SIGNATURE NORTHWEST HIGHLAND SECTIONS
+   1. 8 Lối vào nhanh Hệ sinh thái số Lào Cai (Quick Access Strip)
+   2. Hành trình Trải nghiệm Thông minh (1N, 2N1Đ, 3N2Đ - Ở lại lâu hơn, Trải nghiệm sâu hơn)
+   3. 5 Cụm Nội dung Trải nghiệm & Kinh tế Cửa khẩu
+   ============================================================================== */
+
+.laocai-quick-access-section {
+  background: linear-gradient(180deg, #F6F8F5 0%, #EBF2EE 100%);
+  padding: 18px 0 36px;
+  border-bottom: 1px solid rgba(20, 90, 62, 0.1);
+}
+
+.laocai-quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.laocai-qa-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(20, 90, 62, 0.12);
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--gt-dark);
+  box-shadow: 0 6px 18px rgba(13, 38, 28, 0.04);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.laocai-qa-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #145A3E 0%, #D99B26 100%);
+  opacity: 0.75;
+  transition: width 0.25s ease, opacity 0.25s ease;
+}
+
+.laocai-qa-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(217, 155, 38, 0.55);
+  box-shadow: 0 14px 30px rgba(13, 38, 28, 0.1);
+}
+
+.laocai-qa-card:hover::before {
+  width: 6px;
+  opacity: 1;
+}
+
+.laocai-qa-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(20, 90, 62, 0.1) 0%, rgba(217, 155, 38, 0.15) 100%);
+  color: #145A3E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.laocai-qa-card:hover .laocai-qa-icon {
+  background: linear-gradient(135deg, #145A3E 0%, #0D3826 100%);
+  color: #FFE082;
+  transform: scale(1.06);
+}
+
+.laocai-qa-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.laocai-qa-title {
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #0D261C;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.laocai-qa-desc {
+  font-size: 0.78rem;
+  color: #50665B;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Smart Itinerary Section (Chương 17 & 19: "Ở lại lâu hơn, trải nghiệm sâu hơn") */
+.laocai-itinerary-section {
+  background: linear-gradient(135deg, #0B2219 0%, #123527 55%, #091B14 100%);
+  color: #FFFFFF;
+  padding: 72px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid rgba(217, 155, 38, 0.35);
+  border-bottom: 2px solid rgba(217, 155, 38, 0.35);
+}
+
+.laocai-itinerary-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(217, 155, 38, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(27, 110, 140, 0.16) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.laocai-itin-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+
+.laocai-itin-tab-btn {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(217, 155, 38, 0.3);
+  color: #DCE7E1;
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.22s ease;
+}
+
+.laocai-itin-tab-btn:hover {
+  background: rgba(217, 155, 38, 0.18);
+  color: #FFE082;
+}
+
+.laocai-itin-tab-btn.active {
+  background: linear-gradient(135deg, #D99B26 0%, #B87D14 100%);
+  border-color: #FFE082;
+  color: #091B14;
+  box-shadow: 0 8px 24px rgba(217, 155, 38, 0.35);
+}
+
+.laocai-itin-showcase {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(217, 155, 38, 0.32);
+  border-radius: 24px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 2;
+}
+
+.laocai-itin-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px 0 24px;
+}
+
+.laocai-itin-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(13, 38, 28, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #E5A93B;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.laocai-itin-step-time {
+  background: rgba(217, 155, 38, 0.2);
+  color: #FFE082;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.laocai-itin-step-info h4 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 4px;
+}
+
+.laocai-itin-step-info p {
+  font-size: 0.86rem;
+  color: #C8DAD0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.laocai-itin-visual-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(9, 27, 20, 0.78);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(217, 155, 38, 0.28);
+}
+
+.laocai-itin-visual-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.laocai-itin-visual-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.laocai-itin-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.laocai-itin-metric-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.laocai-itin-metric-label {
+  font-size: 0.72rem;
+  color: #9BB5A8;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.laocai-itin-metric-val {
+  font-size: 0.95rem;
+  color: #FFE082;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+@media (max-width: 1080px) {
+  .laocai-quick-access-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .laocai-itin-showcase {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .laocai-quick-access-grid {
+    grid-template-columns: 1fr;
+  }
+  .laocai-itin-step {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

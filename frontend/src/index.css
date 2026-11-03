@@ -49,18 +49,18 @@ html, body {
   --font-body: 'Plus Jakarta Sans', 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
 
   /* DakLak Bazan, Coffee & Gong Gold Tokens */
-  --primary-coffee: #3B2417;
-  --bazan-brown: #7A3E1D;
-  --bazan-red: #A84524;
+  --primary-coffee: #0D261C;
+  --bazan-brown: #145A3E;
+  --bazan-red: #B83B2A;
   --forest-green: #1F5A3A;
-  --gong-gold: #D5A33F;
-  --light-cream: #F7F1E8;
+  --gong-gold: #D99B26;
+  --light-cream: #F6F8F5;
   --text-dark: #2C221E;
 
   /* Color Tokens */
-  --primary: #7A3E1D;
+  --primary: #145A3E;
   --primary-glow: rgba(122, 62, 29, 0.35);
-  --primary-dark: #3B2417;
+  --primary-dark: #0D261C;
   --primary-light: #A84524;
   
   --neon-cyan: #D5A33F;
@@ -82,7 +82,7 @@ html, body {
   --rose-dark: #8A341A;
 
   /* Default Theme: Warm Cream & Crisp Canvas */
-  --bg-base: #F7F1E8;
+  --bg-base: #F6F8F5;
   --surface-2: #FFFFFF;
   --surface-0: #EFE6D8;
   --surface-1: #E4D7C3;
