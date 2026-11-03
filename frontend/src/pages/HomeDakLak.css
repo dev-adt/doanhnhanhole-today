@@ -5067,3 +5067,520 @@
     gap: 8px;
   }
 }
+
+
+/* ==============================================================================
+   LAOCAI.TODAY EXCLUSIVE MODULE 1: INTERACTIVE TRADE CORRIDOR & SMART BORDER HUB
+   ============================================================================== */
+.laocai-corridor-section {
+  padding: 85px 0 90px;
+  background: linear-gradient(180deg, #091B14 0%, #0D261C 60%, #071510 100%);
+  position: relative;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.laocai-corridor-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 20%;
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(217, 155, 38, 0.12) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.laocai-corridor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(217, 155, 38, 0.15);
+  border: 1px solid rgba(217, 155, 38, 0.45);
+  color: #FFE082;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.laocai-corridor-pipeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin: 40px 0 35px;
+  position: relative;
+}
+
+.laocai-corridor-node {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 22px 18px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.laocai-corridor-node:hover {
+  background: rgba(217, 155, 38, 0.12);
+  border-color: rgba(217, 155, 38, 0.5);
+  transform: translateY(-4px);
+}
+
+.laocai-corridor-node.active {
+  background: linear-gradient(180deg, rgba(20, 90, 62, 0.45) 0%, rgba(13, 38, 28, 0.7) 100%);
+  border-color: #D99B26;
+  box-shadow: 0 12px 32px rgba(217, 155, 38, 0.25), inset 0 1px 0 rgba(255, 224, 130, 0.4);
+}
+
+.laocai-corridor-step-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #FFE082;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.laocai-corridor-node-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(217, 155, 38, 0.15);
+  color: #FFE082;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  transition: all 0.3s ease;
+}
+
+.laocai-corridor-node.active .laocai-corridor-node-icon {
+  background: #D99B26;
+  color: #091B14;
+  box-shadow: 0 4px 14px rgba(217, 155, 38, 0.45);
+}
+
+.laocai-corridor-node-title {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.laocai-corridor-node-sub {
+  font-size: 0.78rem;
+  color: #A3BFB2;
+  line-height: 1.4;
+}
+
+.laocai-corridor-detail-card {
+  background: rgba(13, 38, 28, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(217, 155, 38, 0.35);
+  border-radius: 24px;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.laocai-corridor-info h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.laocai-corridor-info p {
+  font-size: 0.95rem;
+  color: #D1E0D9;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.laocai-corridor-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.laocai-corridor-tag {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFE082;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.laocai-corridor-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.laocai-corridor-stat-box {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 18px;
+  text-align: left;
+}
+
+.laocai-corridor-stat-val {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #FFE082;
+  margin-bottom: 4px;
+}
+
+.laocai-corridor-stat-lbl {
+  font-size: 0.78rem;
+  color: #B2CCC0;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+
+/* ==============================================================================
+   LAOCAI.TODAY EXCLUSIVE MODULE 2: INTERACTIVE 4-SEASON HIGHLAND EXPERIENCE
+   ============================================================================== */
+.laocai-seasons-section {
+  padding: 85px 0 95px;
+  background: #F4F6F2;
+  position: relative;
+}
+
+.laocai-seasons-nav {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 35px 0 45px;
+  flex-wrap: wrap;
+}
+
+.laocai-season-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  border: 1.5px solid #D1DDD6;
+  background: #FFFFFF;
+  color: #2D4037;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(13, 38, 28, 0.05);
+}
+
+.laocai-season-tab:hover {
+  border-color: #145A3E;
+  color: #145A3E;
+  transform: translateY(-2px);
+}
+
+.laocai-season-tab.active {
+  background: #145A3E;
+  border-color: #145A3E;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(20, 90, 62, 0.3);
+}
+
+.laocai-season-card {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  background: #FFFFFF;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(13, 38, 28, 0.09);
+  border: 1px solid #E2EAE5;
+}
+
+.laocai-season-img-wrap {
+  position: relative;
+  min-height: 440px;
+}
+
+.laocai-season-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.laocai-season-img-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(13, 38, 28, 0.85);
+  backdrop-filter: blur(8px);
+  color: #FFE082;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 155, 38, 0.5);
+}
+
+.laocai-season-content {
+  padding: 44px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.laocai-season-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.laocai-season-temp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(20, 90, 62, 0.1);
+  color: #145A3E;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.laocai-season-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0D261C;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.laocai-season-desc {
+  font-size: 0.98rem;
+  color: #55665E;
+  line-height: 1.68;
+  margin-bottom: 24px;
+}
+
+.laocai-season-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.laocai-season-hl-item {
+  background: #F8FAF7;
+  border: 1px solid #E5EBE7;
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.laocai-season-hl-label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  color: #145A3E;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.laocai-season-hl-val {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1A2E25;
+}
+
+/* ==============================================================================
+   LAOCAI.TODAY EXCLUSIVE MODULE 3: HIGHLAND HERBAL & TEMPERATE AGRI SHOWCASE
+   ============================================================================== */
+.laocai-herbal-section {
+  padding: 85px 0 95px;
+  background: #FFFFFF;
+}
+
+.laocai-herbal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.laocai-herbal-card {
+  background: #F8FAF7;
+  border: 1px solid #E5EBE7;
+  border-radius: 22px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.laocai-herbal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(20, 90, 62, 0.12);
+  border-color: rgba(20, 90, 62, 0.35);
+}
+
+.laocai-herbal-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+}
+
+.laocai-herbal-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.laocai-herbal-card:hover .laocai-herbal-card-img {
+  transform: scale(1.06);
+}
+
+.laocai-herbal-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(13, 38, 28, 0.88);
+  backdrop-filter: blur(6px);
+  color: #FFE082;
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 155, 38, 0.5);
+}
+
+.laocai-herbal-card-body {
+  padding: 22px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.laocai-herbal-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0D261C;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.laocai-herbal-card-origin {
+  font-size: 0.78rem;
+  color: #145A3E;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.laocai-herbal-card-desc {
+  font-size: 0.86rem;
+  color: #55665E;
+  line-height: 1.55;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.laocai-herbal-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid #E5EBE7;
+}
+
+.laocai-herbal-card-cert {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #D99B26;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.laocai-herbal-card-btn {
+  background: transparent;
+  border: none;
+  color: #145A3E;
+  font-size: 0.84rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.laocai-herbal-card-btn:hover {
+  color: #D99B26;
+}
+
+@media (max-width: 1024px) {
+  .laocai-corridor-pipeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .laocai-corridor-detail-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 28px 24px;
+  }
+  .laocai-season-card {
+    grid-template-columns: 1fr;
+  }
+  .laocai-season-img-wrap {
+    min-height: 280px;
+  }
+  .laocai-season-content {
+    padding: 30px 24px;
+  }
+  .laocai-herbal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .laocai-corridor-pipeline {
+    grid-template-columns: 1fr;
+  }
+  .laocai-corridor-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .laocai-season-highlights {
+    grid-template-columns: 1fr;
+  }
+  .laocai-herbal-grid {
+    grid-template-columns: 1fr;
+  }
+}

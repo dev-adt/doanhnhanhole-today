@@ -274,127 +274,118 @@ const SMART_ITINERARIES = [
   }
 ];
 
-// Doanh nghiệp & Tổ hợp tiêu biểu trong hệ sinh thái Laocai.today
-const FEATURED_ENTERPRISES = [
+// Dữ liệu Hành lang Kinh tế Côn Minh – Lào Cai – Hà Nội – Hải Phòng & Cửa khẩu số
+const TRADE_CORRIDOR_NODES = [
   {
-    id: 'fansipan-legend',
-    name: 'TỔ HỢP DU LỊCH & CÁP TREO FANSIPAN SA PA',
-    shortName: 'Sun World Fansipan Legend',
-    roleTag: 'Biểu tượng Du lịch Quốc gia Sa Pa – Lào Cai',
-    roleTagEn: 'National Tourism Icon • Sa Pa – Lao Cai',
-    year: '2016',
-    headquarters: 'Khu Du lịch Quốc gia Sa Pa, Thị xã Sa Pa, Tỉnh Lào Cai',
-    headquartersEn: 'Sa Pa National Tourist Area, Sa Pa Town, Lao Cai Province',
-    sectors: 'Cáp treo kỷ lục thế giới • Quần thể văn hóa tâm linh • Nghỉ dưỡng 5 sao & Lễ hội bốn mùa',
-    sectorsEn: 'World-Record Cable Car • Spiritual Cultural Complex • 5-Star Resort & Festivals',
-    philosophy: 'Đánh thức Đỉnh thiêng – Nâng tầm Du lịch Việt Nam',
-    philosophyEn: 'Awakening the Sacred Peak – Elevating Vietnam Tourism',
-    highlight: 'Quần thể du lịch văn hóa trên đỉnh Fansipan (3.143m) đã đưa Lào Cai trở thành điểm đến quốc tế bốn mùa, kết hợp hài hòa giữa kỳ quan thiên nhiên Hoàng Liên Sơn và bản sắc văn hóa các dân tộc vùng cao Tây Bắc.',
-    highlightEn: 'The cultural and tourism complex atop Fansipan (3,143m) has transformed Lao Cai into a four-season global destination, harmonizing Hoang Lien Son nature with Northwest indigenous heritage.',
-    keyFocus: 'Phát triển hệ sinh thái du lịch nghỉ dưỡng đẳng cấp quốc tế, chuỗi lễ hội bốn mùa (Lễ hội Hoa Đỗ Quyên, Lễ hội Mùa Vàng, Lễ hội Tuyết) giúp du khách ở lại lâu hơn và trải nghiệm sâu hơn.',
-    keyFocusEn: 'Developing world-class resort ecosystems and four-season festivals (Azalea Festival, Golden Harvest, Winter Festival) so visitors stay longer and experience deeper.',
-    tags: ['Đỉnh thiêng Fansipan 3.143m', 'Khu DL Quốc gia Sa Pa', 'Du lịch Bốn mùa'],
-    tagsEn: ['Fansipan Summit 3,143m', 'Sa Pa National Resort', 'Four-Season Tourism'],
+    id: 0,
+    step: 'CHẶNG 01',
+    name: 'Côn Minh (Vân Nam) & Tây Nam Trung Quốc',
+    nameEn: 'Kunming (Yunnan) & Southwest China Hub',
+    sub: 'Thị trường 400+ triệu dân & Nguồn hàng xuất nhập khẩu',
+    subEn: '400M+ Consumer Market & Import-Export Sourcing',
+    icon: 'ti-building-skyscraper',
+    metric: '400M+',
+    metricLbl: 'Dân số tiếp cận',
+    metricLblEn: 'Market Reach',
+    highlight: 'Điểm khởi nguồn hành lang kinh tế nối tỉnh Vân Nam và vùng Tây Nam Trung Quốc trực tiếp đến biên giới Lào Cai. Nhu cầu khổng lồ về nông sản, trái cây nhiệt đới, thủy hải sản và khoáng sản chế biến từ Việt Nam & ASEAN.',
+    highlightEn: 'Starting origin of the economic corridor connecting Yunnan and Southwest China to Lao Cai. Huge demand for tropical agricultural produce, seafood, and processed minerals from ASEAN.',
+    tags: ['Thị trường Tây Nam Trung Quốc', 'Vân Nam ⇄ Lào Cai', 'Thương mại song phương'],
+    tagsEn: ['Southwest China Market', 'Yunnan ⇄ Lao Cai', 'Bilateral Trade'],
     stats: [
-      { label: 'Độ cao đỉnh', labelEn: 'Elevation', value: '3.143 m' },
-      { label: 'Kỷ lục Guinness', labelEn: 'Guinness Records', value: '02 Kỷ lục' },
-      { label: 'Vị thế', labelEn: 'Status', value: 'Biểu tượng Tây Bắc' }
-    ],
-    logo: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=400&q=80',
-    color: '#145A3E'
+      { label: 'Quy mô thị trường', labelEn: 'Market Size', val: '400+ Triệu dân' },
+      { label: 'Kết nối cao tốc', labelEn: 'Expressway', val: 'Côn Minh – Hà Khẩu' },
+      { label: 'Tuyến đường sắt', labelEn: 'Rail Corridor', val: 'Khổ 1.435mm chuẩn' },
+      { label: 'Mặt hàng trọng điểm', labelEn: 'Key Produce', val: 'Nông sản • Phân bón' }
+    ]
   },
   {
-    id: 'kim-thanh-logistics',
-    name: 'TRUNG TÂM LOGISTICS & THƯƠNG MẠI QUỐC TẾ KIM THÀNH',
-    shortName: 'Kim Thành Border Logistics',
-    roleTag: 'Cửa ngõ Giao thương ASEAN – Trung Quốc',
-    roleTagEn: 'ASEAN – China Cross-Border Trade Hub',
-    year: '2012',
-    headquarters: 'Khu Thương mại – Công nghiệp Kim Thành, P. Duyên Hải, TP. Lào Cai',
-    headquartersEn: 'Kim Thanh Commercial – Industrial Zone, Lao Cai City',
-    sectors: 'Thông quan Quốc tế • Kho ngoại quan & Kho lạnh • Vận tải Liên vận Đường sắt – Đường bộ',
-    sectorsEn: 'Customs Clearance • Bonded & Cold Storage • Rail-Road Intermodal Logistics',
-    philosophy: 'Kết nối Hành lang Kinh tế – Thông suốt Chuỗi Cung ứng',
-    philosophyEn: 'Connecting Economic Corridors – Seamless Supply Chains',
-    highlight: 'Nằm tại tâm điểm hành lang kinh tế Côn Minh – Lào Cai – Hà Nội – Hải Phòng, Khu thương mại Kim Thành là cầu nối trực tiếp hàng hóa nông sản, điện tử, máy móc và nguyên liệu giữa Việt Nam, ASEAN và thị trường Tây Nam Trung Quốc.',
-    highlightEn: 'Situated at the heart of the Kunming – Lao Cai – Hanoi – Hai Phong economic corridor, directly linking agricultural produce, electronics, and raw materials between ASEAN and Southwest China.',
-    keyFocus: 'Hiện đại hóa hạ tầng cửa khẩu thông minh, mở rộng hệ thống kho lạnh bảo quản nông sản xuất khẩu, kết nối ga đường sắt liên vận quốc tế và cảng cạn ICD Lào Cai.',
-    keyFocusEn: 'Modernizing smart border gate infrastructure, expanding cold-chain storage for agro-exports, and connecting international rail terminals with Lao Cai ICD dry port.',
-    tags: ['Cửa khẩu Quốc tế Kim Thành', 'Liên vận Đường sắt & Cao tốc', 'Cầu nối ASEAN - Vân Nam'],
-    tagsEn: ['Kim Thanh Intl Border Gate', 'Rail & Highway Intermodal', 'ASEAN - Yunnan Bridge'],
+    id: 1,
+    step: 'CHẶNG 02',
+    name: 'Cửa Khẩu Quốc Tế Kim Thành & Ga Quốc Tế Lào Cai',
+    nameEn: 'Kim Thanh Intl Border Gate & Rail Port',
+    sub: 'Tâm điểm thông quan số & Kho lạnh liên vận quốc tế',
+    subEn: 'Digital Customs & Cold-Chain Rail Hub',
+    icon: 'ti-truck-delivery',
+    metric: '4,5+ Tỷ USD',
+    metricLbl: 'Mục tiêu kim ngạch',
+    metricLblEn: 'Target Turnover',
+    highlight: 'Hạ tầng cửa khẩu thông minh hiện đại nhất miền Bắc: phân luồng tự động, kho lạnh bảo quản nông sản tươi, trạm kiểm dịch một cửa và ga đường sắt liên vận trực tiếp sang ga Hà Khẩu Bắc đi sâu vào mạng lưới Á – Âu.',
+    highlightEn: 'State-of-the-art smart border gate: automatic vehicle dispatching, cold-chain storage for fresh fruits, single-window quarantine, and international rail link connecting to the Eurasian network.',
+    tags: ['Cửa khẩu số thông minh', 'Kho lạnh nông sản tươi', 'Đường sắt liên vận Á – Âu'],
+    tagsEn: ['Smart Digital Border', 'Agri Cold Storage', 'Eurasian Rail Link'],
     stats: [
-      { label: 'Quy mô KKT', labelEn: 'Zone Scale', value: '15.929 ha' },
-      { label: 'Tuyến biên giới', labelEn: 'Border Line', value: '182 km' },
-      { label: 'Thông quan', labelEn: 'Clearance', value: 'Cửa khẩu số' }
-    ],
-    logo: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80',
-    color: '#1B6E8C'
+      { label: 'Thời gian thông quan', labelEn: 'Clearance Time', val: 'Chỉ 3 - 5 Phút' },
+      { label: 'Năng lực thông xe', labelEn: 'Truck Capacity', val: '1.200+ Xe/Ngày' },
+      { label: 'Nền tảng cửa khẩu', labelEn: 'Platform', val: 'Cửa khẩu số 24/7' },
+      { label: 'Phương thức', labelEn: 'Modality', val: 'Đường bộ & Đường sắt' }
+    ]
   },
   {
-    id: 'traphaco-sapa',
-    name: 'CÔNG TY DƯỢC LIỆU QUÝ & NÔNG SẢN VÙNG CAO LÀO CAI',
-    shortName: 'Dược liệu & OCOP Lào Cai',
-    roleTag: 'Chuỗi Dược liệu GACP-WHO & OCOP 5 Sao',
-    roleTagEn: 'GACP-WHO Herbal Chain & 5-Star OCOP',
-    year: '2014',
-    headquarters: 'Thị xã Sa Pa & Khu Công nghiệp Đông Phố Mới, TP. Lào Cai',
-    headquartersEn: 'Sa Pa Town & Dong Pho Moi Industrial Park, Lao Cai City',
-    sectors: 'Chế biến sâu Atiso, Tam thất, Đương quy • Chè Shan Tuyết Cổ Thụ • Nông sản Hữu cơ',
-    sectorsEn: 'Artichoke, Panax & Angelica Extraction • Ancient Shan Tuyet Tea • Organic Agri',
-    philosophy: 'Tinh hoa Dược liệu Đại ngàn – Chuẩn mực Quốc tế',
-    philosophyEn: 'Highland Herbal Quintessence – Global Standards',
-    highlight: 'Tiên phong liên kết hàng ngàn hộ đồng bào vùng cao Sa Pa, Bắc Hà, Bát Xát, Mường Khương phát triển vùng trồng dược liệu sạch đạt chuẩn GACP-WHO và nâng tầm đặc sản OCOP Lào Cai vươn ra thế giới.',
-    highlightEn: 'Pioneering partnerships with thousands of highland households across Sa Pa, Bac Ha, Bat Xat, and Muong Khuong to cultivate GACP-WHO medicinal herbs and 5-star OCOP specialties.',
-    keyFocus: 'Đầu tư công nghệ chiết xuất dược liệu hiện đại, truy xuất nguồn gốc số hóa từng vùng trồng và phát triển dòng sản phẩm chăm sóc sức khỏe, trà thảo mộc cao cấp xuất khẩu.',
-    keyFocusEn: 'Investing in advanced herbal extraction technology, digital plantation traceability, and premium healthcare & organic tea exports.',
-    tags: ['Chuẩn dược liệu GACP-WHO', 'Atiso Sa Pa & Chè Shan Tuyết', 'Sản phẩm OCOP 5 Sao'],
-    tagsEn: ['GACP-WHO Certified Herbs', 'Sa Pa Artichoke & Shan Tea', '5-Star OCOP Products'],
+    id: 2,
+    step: 'CHẶNG 03',
+    name: 'Khu Kinh Tế Cửa Khẩu Lào Cai (15.929 ha) & KCN Tằng Loỏng',
+    nameEn: 'Lao Cai Border EZ (15,929 ha) & Tang Loong IP',
+    sub: 'Gia công xuất khẩu, kho ngoại quan & chế biến sâu',
+    subEn: 'Export Processing, Bonded Hub & Mineral Refining',
+    icon: 'ti-building-factory-2',
+    metric: '15.929 ha',
+    metricLbl: 'Quy mô KKT Cửa khẩu',
+    metricLblEn: 'EZ Total Area',
+    highlight: 'Một trong 8 Khu kinh tế cửa khẩu trọng điểm quốc gia, ưu đãi thuế TNDN 10% trong 15 năm. Trung tâm công nghiệp chế biến sâu khoáng sản Tằng Loỏng, logistics hậu cần Kim Thành – Bản Vược và công nghiệp sạch Đông Phố Mới.',
+    highlightEn: 'One of Vietnam’s 8 key national border economic zones with 10% corporate income tax incentives for 15 years. Mineral refining at Tang Loong IP and smart logistics at Kim Thanh – Ban Vua.',
+    tags: ['8 KKT Trọng điểm Quốc gia', 'Thuế ưu đãi 10%', 'Kho ngoại quan & Chế biến'],
+    tagsEn: ['Top 8 National EZs', '10% Tax Incentive', 'Bonded & Processing Hub'],
     stats: [
-      { label: 'Vùng dược liệu', labelEn: 'Herbal Area', value: '4.000+ ha' },
-      { label: 'Tiêu chuẩn', labelEn: 'Standard', value: 'GACP-WHO' },
-      { label: 'Sản phẩm OCOP', labelEn: 'OCOP Items', value: '200+ Sản phẩm' }
-    ],
-    logo: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=400&q=80',
-    color: '#D99B26'
+      { label: 'Diện tích quy hoạch', labelEn: 'Planned Area', val: '15.929 Hécta' },
+      { label: 'KCN Tằng Loỏng', labelEn: 'Tang Loong IP', val: '1.100 Hécta' },
+      { label: 'Chính sách ưu đãi', labelEn: 'Incentive Policy', val: 'Ưu đãi cao nhất' },
+      { label: 'Định hướng', labelEn: 'Orientation', val: 'Công nghiệp Xanh' }
+    ]
   },
   {
-    id: 'adt-international',
-    name: 'CÔNG TY CỔ PHẦN ADT QUỐC TẾ (ĐỐI TÁC CÔNG NGHỆ)',
-    shortName: 'ADT Quốc tế',
-    roleTag: 'Đơn vị Kiến trúc Nền tảng Số & AI Đa ngôn ngữ',
-    roleTagEn: 'Digital Platform & Multilingual AI Architect',
-    year: '2015',
-    headquarters: 'Hà Nội & Văn phòng Đại diện Kết nối Số Lào Cai',
-    headquartersEn: 'Hanoi & Lao Cai Digital Connection Representative Office',
-    sectors: 'Nền tảng Laocai.today • Trợ lý AI Đa ngôn ngữ • Hệ điều hành Doanh nghiệp Orion & Edunow',
-    sectorsEn: 'Laocai.today Platform • Multilingual AI Agent • Orion ERP & Edunow',
-    philosophy: 'Chuyển đổi số Thực chất – Kết nối Lào Cai với Thế giới',
-    philosophyEn: 'Practical Digital Transformation – Connecting Lao Cai to the World',
-    highlight: 'Đơn vị phát triển và vận hành hạ tầng công nghệ Laocai.today, tích hợp mô hình Media + Data + Platform + AI giúp số hóa hồ sơ doanh nghiệp, xúc tiến đầu tư và hỗ trợ du khách bằng 5 ngôn ngữ tự động.',
-    highlightEn: 'Architect and operator of the Laocai.today technological infrastructure, integrating Media + Data + Platform + AI to digitize enterprises, promote investment, and assist visitors in 5 languages.',
-    keyFocus: 'Triển khai hệ sinh thái Trợ lý AI phường xã, nền tảng quản trị thông minh Orion và chương trình đào tạo kỹ năng số Edunow.today cho cộng đồng doanh nghiệp và nhân lực địa phương.',
-    keyFocusEn: 'Deploying Ward AI assistants, Orion intelligent enterprise management, and Edunow.today digital training for local businesses and workforce.',
-    tags: ['Kiến trúc 3 Lớp Số hóa', 'Trợ lý AI 5 Ngôn ngữ', 'Hệ sinh thái Orion & Edunow'],
-    tagsEn: ['3-Layer Digital Architecture', '5-Language AI Assistant', 'Orion & Edunow Ecosystem'],
+    id: 3,
+    step: 'CHẶNG 04',
+    name: 'Cao Tốc Nội Bài – Lào Cai & Cảng Hàng Không Sa Pa',
+    nameEn: 'Noi Bai – Lao Cai Expressway & Sa Pa Airport',
+    sub: 'Trục động lực dọc sông Hồng & Cảng hàng không cấp 4C',
+    subEn: 'Red River Artery & 4C-Class Regional Airport',
+    icon: 'ti-plane-departure',
+    metric: '3,0 Triệu',
+    metricLbl: 'Khách sân bay/năm',
+    metricLblEn: 'Pax/Year Capacity',
+    highlight: 'Tuyến cao tốc 265 km rút ngắn thời gian di chuyển từ Hà Nội lên Lào Cai chỉ còn hơn 3 giờ. Cảng hàng không Sa Pa (Cam Cọn – Bảo Yên) cấp 4C với công suất 3 triệu khách/năm mở toang cánh cửa kết nối đối tác toàn cầu.',
+    highlightEn: 'The 265 km expressway cuts travel time from Hanoi to Lao Cai to 3.5 hours. Sa Pa 4C-class Airport (3M passengers/year) unlocks direct worldwide access for investors and high-end tourists.',
+    tags: ['Cao tốc 4-6 làn xe', 'Sân bay Sa Pa 4C', 'Trục dọc Sông Hồng'],
+    tagsEn: ['4-6 Lane Expressway', 'Sa Pa 4C Airport', 'Red River Corridor'],
     stats: [
-      { label: 'Ngôn ngữ AI', labelEn: 'AI Languages', value: '05 Ngôn ngữ' },
-      { label: 'Vận hành', labelEn: 'Operation', value: '24/7 Realtime' },
-      { label: 'Trụ cột số', labelEn: 'Digital Pillars', value: 'Media•Data•AI' }
-    ],
-    logo: '/images/adt_logo.svg',
-    color: '#B83B2A'
+      { label: 'Thời gian Hà Nội', labelEn: 'Hanoi Transit', val: '3,5 Giờ cao tốc' },
+      { label: 'Cấp sân bay', labelEn: 'Airport Standard', val: 'Chuẩn 4C ICAO' },
+      { label: 'Vận tải hàng hóa', labelEn: 'Air Cargo', val: 'Logistics Hàng không' },
+      { label: 'Tiến độ kết nối', labelEn: 'Connectivity', val: 'Hoàn thiện 2026' }
+    ]
+  },
+  {
+    id: 4,
+    step: 'CHẶNG 05',
+    name: 'Hà Nội – Cảng Biển Quốc Tế Hải Phòng & ASEAN',
+    nameEn: 'Hanoi – Hai Phong Deep Seaport & ASEAN',
+    sub: 'Cửa ngõ vươn ra đại dương & Chuỗi cung ứng toàn cầu',
+    subEn: 'Ocean Deep Seaport & Global Supply Chains',
+    icon: 'ti-anchor',
+    metric: '100M+ Tấn',
+    metricLbl: 'Năng lực cảng biển',
+    metricLblEn: 'Seaport Capacity',
+    highlight: 'Cảng nước sâu quốc tế Lạch Huyện – Hải Phòng tiếp nhận tàu trọng tải 150.000 DWT đi trực tiếp châu Mỹ, châu Âu. Đưa Lào Cai trở thành "hạt nhân cầu nối" vận tải đa phương thức xuyên biên giới Á – Âu và ASEAN.',
+    highlightEn: 'Hai Phong Lach Huyen deep seaport accommodates 150,000 DWT container vessels to US/EU routes, positioning Lao Cai as the vital multimodal bridge between ASEAN and Southwest China.',
+    tags: ['Cảng nước sâu Lạch Huyện', 'Kết nối ASEAN - TQ', 'Vận tải Biển toàn cầu'],
+    tagsEn: ['Deep Seaport Lach Huyen', 'ASEAN - China Link', 'Global Maritime Trade'],
+    stats: [
+      { label: 'Thời gian tới Cảng', labelEn: 'Port Transit', val: '5 - 6 Giờ xe chạy' },
+      { label: 'Tàu tiếp nhận', labelEn: 'Vessel Capacity', val: '150.000 DWT' },
+      { label: 'Tuyến hàng hải', labelEn: 'Shipping Routes', val: 'Đi thẳng Mỹ & EU' },
+      { label: 'Hệ thống vận hành', labelEn: 'System', val: 'Đa phương thức' }
+    ]
   }
-];
-
-// Danh sách đối tác hiển thị trên thanh carousel
-const PARTNER_COMPANIES = [
-  { id: 1, name: 'Minh Đăng Group', logo: '/images/companies/minh-dang-group.jpg' },
-  { id: 2, name: 'Eakar Vina', logo: '/images/companies/eakar-vina.jpg' },
-  { id: 3, name: 'CTP Group (HNX: CTP)', logo: '/images/companies/ctp-group.png' },
-  { id: 4, name: 'Bazan Heritage Coffee', logo: '/images/companies/bazan-coffee.jpg' },
-  { id: 5, name: 'VNT Import Export', logo: '/images/companies/vnt.png' },
-  { id: 6, name: 'Phúc Vinh Port & Logistics', logo: '/images/companies/phuc-vinh.png' },
-  { id: 7, name: 'MD Homes', logo: '/images/companies/md-homes.png' }
 ];
 
 // 8 Điểm đến & Động lực Kinh tế Tiêu biểu Lào Cai (Chương 13 & 21)
@@ -481,157 +472,157 @@ const TOP_DESTINATIONS = [
   }
 ];
 
-// Bảng xếp hạng Top 10 Thương hiệu Nông sản, Dược liệu & OCOP Lào Cai vs Top 10 Giao thương Cửa khẩu & Đầu tư Chiến lược
-const TOP_EXPORTERS_TAY_NGUYEN = {
-  title: 'Top 10 Thương Hiệu Dược Liệu, Nông Sản & OCOP Lào Cai',
-  titleEn: 'Top 10 Lao Cai Medicinal Herbs, Agro & OCOP Brands',
-  sub: 'Những chuỗi sản phẩm đặc hữu vùng cao tạo nên danh tiếng và giá trị gia tăng bền vững của tỉnh Lào Cai',
-  subEn: 'Flagship highland specialty chains driving sustainable value and brand prestige for Lao Cai Province',
-  top3: [
-    {
-      name: 'Dược Liệu Quý Sa Pa – Bắc Hà (Chuẩn GACP-WHO)',
-      sub: 'Thị xã Sa Pa & Huyện Bắc Hà, Lào Cai',
-      logo: '/images/exporters/simexco.svg',
-      highlight: 'Vùng trồng và nhà máy chiết xuất cao mềm Atiso, tam thất, đương quy, chùa dù lớn nhất vùng Tây Bắc đạt chuẩn quốc tế.',
-      highlightEn: 'Largest GACP-WHO certified artichoke, panax, and medicinal herb cultivation & extraction chain in Northwest Vietnam.',
-      pill: 'Chuỗi Dược liệu Công nghệ cao'
-    },
-    {
-      name: 'Chè Cổ Thụ Shan Tuyết Hữu Cơ Bản Liền – Mường Khương',
-      sub: 'Huyện Bắc Hà & Mường Khương, Lào Cai',
-      logo: '/images/exporters/intime.svg',
-      highlight: 'Danh trà cổ thụ hàng trăm năm tuổi trên đỉnh núi mờ sương đạt chứng nhận Organic Châu Âu và OCOP 5 sao cấp Quốc gia.',
-      highlightEn: 'Centuries-old mountain Shan Tuyet tea certified EU Organic and National 5-Star OCOP.',
-      pill: 'OCOP 5 Sao & Xuất khẩu EU'
-    },
-    {
-      name: 'Cá Hồi, Cá Tầm Nước Lạnh & Quế Hữu Cơ Lào Cai',
-      sub: 'Sa Pa, Bát Xát, Bảo Yên & Văn Bàn',
-      logo: '/images/exporters/an-thai.svg',
-      highlight: 'Thủ phủ nuôi cá nước lạnh lớn nhất miền Bắc kết hợp vùng nguyên liệu hơn 50.000 ha quế hữu cơ chưng cất tinh dầu xuất khẩu.',
-      highlightEn: 'Northern Vietnam’s largest cold-water salmon & sturgeon hub paired with 50,000+ ha of organic cinnamon oil exports.',
-      pill: 'Nông nghiệp Đặc sản Chủ lực'
-    }
-  ],
-  rest: [
-    'Gạo Séng Cù Mường Vi – Bát Xát',
-    'Mận Tam Hoa & Lê Tai Nung Bắc Hà',
-    'Tương Ớt Mường Khương & Thịt Gác Bếp',
-    'Rượu Ngô Bản Phố & Cốm Bắc Hà',
-    'Mật Ong Hoa Rừng Hoàng Liên Sơn',
-    'Rau & Hoa Ôn Đới Công Nghệ Cao Sa Pa',
-    'Thổ Cẩm Truyền Thống Lan Rừng – Tả Phìn'
-  ]
-};
+// Cẩm nang 4 Mùa Vùng Cao Lào Cai (Sa Pa – Y Tý – Bắc Hà – Bát Xát)
+const LAOCAI_SEASONS = [
+  {
+    id: 'spring',
+    title: 'Mùa Xuân • Sắc Hoa Vùng Cao & Lễ Hội Đại Ngàn',
+    titleEn: 'Spring • Highland Blossoms & Heritage Festivals',
+    period: 'Tháng 2 – Tháng 4',
+    periodEn: 'February – April',
+    temp: '12°C – 20°C',
+    weather: 'Tiết trời se lạnh, sương sớm trong lành, muôn hoa đua nở',
+    weatherEn: 'Crisp mountain breeze, misty dawns, blooming valleys',
+    badge: '🌸 MÙA LỄ HỘI & HOA RỪNG',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85',
+    desc: 'Lào Cai bước vào mùa xuân với sắc trắng tinh khôi của hoa lê, mận Tam Hoa Bắc Hà phủ trắng triền đồi, hoa đỗ quyên bung nở rực rỡ trên vách đá Fansipan 3.143m cùng hàng loạt lễ hội truyền thống như Lễ hội Đền Thượng, Roóng Poọc của người Giáy.',
+    descEn: 'Spring blankets Lao Cai in pristine white Tam Hoa plum and pear blossoms across Bac Ha hills, while ancient rhododendrons bloom atop Fansipan peak alongside sacred highland festivals.',
+    mustTry: 'Hoa đỗ quyên Hoàng Liên Sơn • Lễ hội Đền Thượng • Chợ phiên Bắc Hà • Rượu ngô Bản Phố',
+    mustTryEn: 'Hoang Lien Azaleas • Upper Temple Festival • Bac Ha Sunday Market • Ban Pho Corn Wine',
+    outfit: 'Áo khoác ấm nhẹ, khăn choàng thổ cẩm, giày leo núi trekking',
+    outfitEn: 'Light down jacket, brocade scarf, sturdy hiking boots'
+  },
+  {
+    id: 'water',
+    title: 'Mùa Nước Đổ • Bích Họa Ruộng Bậc Thang',
+    titleEn: 'Water Season • Cascading Terraced Mirrors',
+    period: 'Tháng 5 – Tháng 6',
+    periodEn: 'May – June',
+    temp: '18°C – 26°C',
+    weather: 'Mát mẻ, nắng nhẹ, những cơn mưa nguồn tưới mát ruộng đồng',
+    weatherEn: 'Pleasantly cool, mild sunshine, refreshing summer rains',
+    badge: '💧 KỲ QUAN BẬC THANG',
+    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=85',
+    desc: 'Những cơn mưa đầu mùa đổ nước từ đỉnh núi tràn qua từng thửa ruộng bậc thang Mường Hoa, Y Tý, Sàng Ma Sáo. Hàng vạn ô ruộng uốn lượn như những tấm gương khổng lồ phản chiếu mây trời Tây Bắc, tạo nên tuyệt tác thiên nhiên hiếm có trên thế giới.',
+    descEn: 'Summer showers funnel water into endless terraced cascades across Muong Hoa and Y Ty valleys. Countless carved terraces mirror the clouds, forming one of the world’s most magnificent agricultural wonders.',
+    mustTry: 'Chụp ảnh bình minh ruộng Mường Hoa • Cột cờ Lũng Pô nơi sông Hồng chảy vào đất Việt • Bản Tả Phìn',
+    mustTryEn: 'Sunrise photography at Muong Hoa • Lung Po Flagpole (Red River Origin) • Ta Phin Village',
+    outfit: 'Trang phục thoáng mát, máy ảnh góc rộng, áo khoác gió mỏng',
+    outfitEn: 'Breathable activewear, wide-angle lens, lightweight windbreaker'
+  },
+  {
+    id: 'harvest',
+    title: 'Mùa Vàng Lúa Chín • Mùa Vàng Kỳ Vĩ Vùng Cao',
+    titleEn: 'Golden Harvest • The Iconic Yellow Cascades',
+    period: 'Tháng 8 – Tháng 10',
+    periodEn: 'August – October',
+    temp: '16°C – 24°C',
+    weather: 'Nắng vàng mật ong, trời xanh ngắt, hương cốm thơm ngát',
+    weatherEn: 'Honey-golden sunlight, deep azure skies, aroma of ripe rice',
+    badge: '🌾 MÙA VÀNG TÂY BẮC',
+    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85',
+    desc: 'Thời khắc đẹp nhất trong năm khi toàn bộ thung lũng Mường Hoa, Tả Van, Nậm Cang và Y Tý chuyển sang sắc vàng rực rỡ. Không khí rộn rã mùa gặt lúa mới của đồng bào H’Mông, Dao đỏ hòa cùng giải chạy vượt núi quốc tế Vietnam Mountain Marathon (VMM).',
+    descEn: 'The most breathtaking season when entire valleys turn into golden sea of ripe terrace rice. The celebratory harvest spirit blends seamlessly with the world-renowned Vietnam Mountain Marathon (VMM).',
+    mustTry: 'Trekking thung lũng Nậm Cang • Trải nghiệm gặt lúa cùng người Dao • Giải chạy VMM Sa Pa • Cốm Bắc Hà',
+    mustTryEn: 'Nam Cang Valley Trekking • Traditional rice harvest • Vietnam Mountain Marathon • Fresh Bac Ha green rice',
+    outfit: 'Trang phục trekking năng động, giày chống trơn trượt, nón rộng vành',
+    outfitEn: 'Trail-running shoes, active sportswear, sunglasses & sun hat'
+  },
+  {
+    id: 'winter',
+    title: 'Mùa Băng Tuyết & Săn Mây • Đỉnh Thiêng Chạm Mây',
+    titleEn: 'Winter & Snow • Sacred Summit in the Clouds',
+    period: 'Tháng 11 – Tháng 1',
+    periodEn: 'November – January',
+    temp: '2°C – 12°C',
+    weather: 'Lạnh giá vùng cao, biển mây cuồn cuộn, cơ hội ngắm băng tuyết',
+    weatherEn: 'Cold mountain frost, sea of rolling clouds, occasional snowfall atop Fansipan',
+    badge: '❄️ BĂNG TUYẾT & SĂN MÂY',
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=85',
+    desc: 'Đỉnh thiêng Fansipan 3.143m chìm trong sương mây huyền ảo và có những đợt tuyết rơi trắng xóa như trời Âu. Du khách thả hồn vào biển mây Y Tý bồng bềnh, thưởng thức lẩu cá hồi nóng hổi và sưởi ấm cơ thể bằng bài thuốc tắm lá cổ truyền của người Dao đỏ.',
+    descEn: 'Fansipan 3,143m peak often sees surreal snowfall and frost, creating a European-like winter wonderland. Savor steaming salmon hotpot and rejuvenate with traditional Red Dao herbal baths.',
+    mustTry: 'Chạm tay vào chóp Fansipan 3.143m • Săn biển mây Ngải Thầu – Y Tý • Tắm lá thuốc Dao đỏ • Lẩu cá tầm nước lạnh',
+    mustTryEn: 'Touch the 3,143m Fansipan Marker • Cloud-hunting at Ngai Thau • Red Dao herbal bath • Fresh sturgeon hotpot',
+    outfit: 'Áo phao đại hàn lông vũ, găng tay, mũ len giữ ấm, giày đi tuyết',
+    outfitEn: 'Thermal down jacket, fleece gloves, wool beanie, insulated boots'
+  }
+];
 
-const TOP_EXPORTERS_WORLD = {
-  title: 'Top 10 Động Lực Giao Thương Cửa Khẩu & Logistics Quốc Tế',
-  titleEn: 'Top 10 Cross-Border Trade & International Logistics Drivers',
-  sub: 'Các trung tâm hạ tầng, logistics liên vận và tập đoàn chiến lược trên hành lang Côn Minh – Lào Cai – Hà Nội – Hải Phòng',
-  subEn: 'Key infrastructure hubs, intermodal logistics, and strategic operators along the Kunming – Lao Cai – Hai Phong corridor',
-  top3: [
-    {
-      name: 'Khu Thương Mại – Công Nghiệp Kim Thành (Cửa Khẩu Quốc Tế)',
-      sub: 'Cửa khẩu Quốc tế đường bộ số II Kim Thành, TP. Lào Cai',
-      logo: '/images/exporters/neumann.svg',
-      highlight: 'Tâm điểm thông quan hàng hóa xuất nhập khẩu nông sản, trái cây tươi, thiết bị điện tử và nguyên liệu giữa Việt Nam – Trung Quốc.',
-      highlightEn: 'Primary customs clearance hub for fresh produce, electronics, and industrial materials between Vietnam and China.',
-      pill: 'Cửa khẩu Quốc tế Thông minh'
-    },
-    {
-      name: 'Tổ Hợp Đường Sắt Liên Vận Quốc Tế & Cảng Cạn ICD Lào Cai',
-      sub: 'Ga Quốc tế Lào Cai – Kết nối Hà Khẩu (Vân Nam) & Châu Âu',
-      logo: '/images/exporters/ldc.svg',
-      highlight: 'Tuyến đường sắt liên vận trực tiếp nối cảng biển Hải Phòng qua Lào Cai sang Vân Nam (Trung Quốc) và tuyến đường sắt Á – Âu.',
-      highlightEn: 'Direct international rail link connecting Hai Phong seaports through Lao Cai to Yunnan (China) and Eurasian rail corridors.',
-      pill: 'Liên vận Đường sắt Á – Âu'
-    },
-    {
-      name: 'Cảng Hàng Không Sa Pa & Trục Cao Tốc Nội Bài – Lào Cai',
-      sub: 'Xã Cam Cọn, Huyện Bảo Yên & Trục Động lực Dọc sông Hồng',
-      logo: '/images/exporters/ecom.svg',
-      highlight: 'Dự án sân bay cấp 4C công suất 1,5 – 3 triệu khách/năm cùng cao tốc mở rộng hoàn thiện mạng lưới giao thông Đa phương thức.',
-      highlightEn: '4C-class airport project (1.5–3M passengers/year) and expanded expressway completing multimodal transport connectivity.',
-      pill: 'Hạ tầng Chiến lược Quốc gia'
-    }
-  ],
-  rest: [
-    'Cửa khẩu Phụ Bản Vược (Bát Xát)',
-    'Cửa khẩu Quốc tế Mường Khương',
-    'Hệ thống Kho Ngoại quan & Kho Lạnh Kim Thành',
-    'Trung tâm Kiểm nghiệm – Kiểm dịch Nông sản XNK',
-    'Hành lang Thương mại Điện tử Xuyên biên giới',
-    'Tổ hợp Đô thị & Dịch vụ Biên mậu Lào Cai',
-    'Mạng lưới Logistics Chuỗi Lạnh ASEAN – Vân Nam'
-  ]
-};
-
-// Bảng xếp hạng Top 10 Khu Kinh tế, Khu & Cụm Công nghiệp Tiêu biểu Lào Cai
-const TOP_INDUSTRIAL_PARKS = {
-  title: 'Top 10 Khu Kinh Tế, Khu & Cụm Công Nghiệp Trọng Điểm Lào Cai',
-  titleEn: 'Top 10 Economic Zones, Industrial Parks & Clusters in Lao Cai',
-  sub: 'Tâm điểm thu hút dòng vốn FDI, logistics biên giới, công nghiệp chế biến sâu và sản xuất công nghệ cao vùng Tây Bắc',
-  subEn: 'Premier destinations for FDI, border logistics, deep processing, and high-tech manufacturing in Northwest Vietnam',
-  top3: [
-    {
-      id: 'kkt-cua-khau-lao-cai',
-      rank: 1,
-      name: 'Khu Kinh Tế Cửa Khẩu Lào Cai & Kim Thành',
-      nameEn: 'Lao Cai Border Gate Economic Zone & Kim Thanh',
-      location: 'TP. Lào Cai, Bát Xát, Mường Khương (Dọc biên giới Việt – Trung)',
-      locationEn: 'Lao Cai City, Bat Xat & Muong Khuong',
-      scale: '15.929 ha',
-      scaleEn: '15,929 Hectares',
-      logo: '/images/exporters/kcn-hoa-phu.svg',
-      highlight: 'Một trong 8 Khu kinh tế cửa khẩu trọng điểm quốc gia; hưởng cơ chế ưu đãi thuế, đất đai và thông quan cao nhất dành cho thương mại quốc tế, kho vận và chế biến xuất khẩu.',
-      highlightEn: 'One of Vietnam’s 8 key national border gate economic zones, offering maximum tax, land, and customs incentives for international trade and export processing.',
-      pill: 'KKT Cửa khẩu Trọng điểm Quốc gia',
-      pillEn: 'Key National Border Economic Zone',
-      link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}&subCategory=${encodeURIComponent('Khu & Cụm công nghiệp')}`
-    },
-    {
-      id: 'kcn-tang-loong',
-      rank: 2,
-      name: 'Khu Công Nghiệp Tằng Loỏng',
-      nameEn: 'Tang Loong Industrial Park',
-      location: 'Thị trấn Tằng Loỏng, Huyện Bảo Thắng, Tỉnh Lào Cai',
-      locationEn: 'Tang Loong Town, Bao Thang District, Lao Cai',
-      scale: '1.100 ha',
-      scaleEn: '1,100 Hectares',
-      logo: '/images/exporters/kcn-phu-xuan.svg',
-      highlight: 'Khu công nghiệp chế biến sâu khoáng sản, hóa chất, phân bón và luyện kim quy mô lớn hàng đầu miền núi phía Bắc, kết nối trực tiếp đường sắt và cao tốc Nội Bài – Lào Cai.',
-      highlightEn: 'Leading large-scale deep mineral processing, chemical, and metallurgical industrial park in Northern Vietnam, directly linked to rail and expressway.',
-      pill: 'Trung tâm Công nghiệp Chế biến sâu',
-      pillEn: 'Deep Processing Industrial Hub',
-      link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}&subCategory=${encodeURIComponent('Khu & Cụm công nghiệp')}`
-    },
-    {
-      id: 'kcn-dong-pho-moi-vo-lao',
-      rank: 3,
-      name: 'KCN Đông Phố Mới, Bắc Duyên Hải & Võ Lao',
-      nameEn: 'Dong Pho Moi, Bac Duyen Hai & Vo Lao IPs',
-      location: 'TP. Lào Cai & Huyện Văn Bàn (Kết nối Sân bay Sa Pa)',
-      locationEn: 'Lao Cai City & Van Ban District',
-      scale: '650+ ha',
-      scaleEn: '650+ Hectares',
-      logo: '/images/exporters/kcn-mdrak.svg',
-      highlight: 'Tổ hợp công nghiệp sạch, chế biến nông lâm sản, dược liệu công nghệ cao, lắp ráp điện tử và dịch vụ kho bãi hậu cần gắn liền với cửa khẩu quốc tế và sân bay Sa Pa.',
-      highlightEn: 'Clean industry, high-tech agro & herbal processing, electronics assembly, and logistics complex adjacent to the international border gate and Sa Pa Airport.',
-      pill: 'Công nghiệp Sạch & Chế biến CNC',
-      pillEn: 'Clean Industry & High-Tech Processing',
-      link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}&subCategory=${encodeURIComponent('Khu & Cụm công nghiệp')}`
-    }
-  ],
-  rest: [
-    { name: 'Khu Công nghiệp Võ Lao (Giai đoạn mới)', nameEn: 'Vo Lao Industrial Park', location: 'Huyện Văn Bàn (200 ha)' },
-    { name: 'Khu Công nghiệp Bản Qua – Bát Xát', nameEn: 'Ban Qua Industrial Park', location: 'Huyện Bát Xát' },
-    { name: 'Cụm Công nghiệp Cốc My – Trịnh Tường', nameEn: 'Coc My – Trinh Tuong Cluster', location: 'Huyện Bát Xát' },
-    { name: 'Cụm Công nghiệp Sơn Mãn – Vạn Hòa', nameEn: 'Son Man – Van Hoa Cluster', location: 'TP. Lào Cai' },
-    { name: 'Cụm Công nghiệp Phố Ràng', nameEn: 'Pho Rang Industrial Cluster', location: 'Huyện Bảo Yên' },
-    { name: 'Cụm Công nghiệp Bắc Hà (Chế biến Dược liệu)', nameEn: 'Bac Ha Herbal Cluster', location: 'Huyện Bắc Hà' },
-    { name: 'Khu Logistics & Cảng cạn ICD Lào Cai', nameEn: 'Lao Cai ICD Dry Port & Logistics', location: 'TP. Lào Cai' }
-  ]
-};
+// Kho báu Dược liệu quý & Đặc sản Ôn đới Lào Cai
+const LAOCAI_HERBAL_TREASURES = [
+  {
+    id: 1,
+    name: 'Atiso Sa Pa (Chuẩn GACP-WHO Quốc Tế)',
+    nameEn: 'Sa Pa Artichoke (GACP-WHO Standard)',
+    origin: 'Vùng trồng 1.500m+ tại Thị xã Sa Pa',
+    originEn: 'Cultivated at 1,500m+ in Sa Pa Town',
+    cert: 'GACP-WHO • OCOP 5 Sao',
+    image: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=600&q=85',
+    desc: 'Cây Atiso Sa Pa đạt hàm lượng cynarin cao vượt trội nhờ khí hậu mát lạnh quanh năm. Được tinh chế thành cao mềm, trà túi lọc và dược phẩm bảo vệ gan, thanh nhiệt đạt chuẩn Tổ chức Y tế Thế giới.',
+    descEn: 'Sa Pa Artichoke contains exceptionally high cynarin levels due to alpine climate, processed into medicinal extracts and premium detox teas certified by WHO.',
+    category: 'herbs'
+  },
+  {
+    id: 2,
+    name: 'Chè Shan Tuyết Cổ Thụ Hữu Cơ Bản Liền',
+    nameEn: 'Ancient Organic Shan Tuyet Tea',
+    origin: 'Rừng chè cổ thụ 300+ năm tuổi Huyện Bắc Hà',
+    originEn: '300+ Year-Old Ancient Tea Forest, Bac Ha',
+    cert: 'Organic EU / USDA • OCOP 5 Sao',
+    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=85',
+    desc: 'Những búp chè ngậm sương muối trên đỉnh núi cao trên 1.200m được đồng bào Tày hái thủ công. Trà có vị chát dịu, hậu ngọt sâu và hương thơm thảo mộc tinh khiết, xuất khẩu sang châu Âu và Bắc Mỹ.',
+    descEn: 'Hand-picked mist-kissed tea buds from 300-year-old trees atop 1,200m peaks, certified Organic by EU and USDA, celebrated for velvety sweetness and pure herbal aroma.',
+    category: 'tea'
+  },
+  {
+    id: 3,
+    name: 'Đương Quy & Tam Thất Bắc Si Ma Cai – Mường Khương',
+    nameEn: 'Angelica & Panax Ginseng of Si Ma Cai',
+    origin: 'Vùng dược liệu thổ nhưỡng đá vôi vùng cao',
+    originEn: 'Highland Karst Limestone Herbal Plateaus',
+    cert: 'Dược liệu Quốc gia • VietGAP',
+    image: 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=600&q=85',
+    desc: 'Củ đương quy và tam thất bắc Lào Cai có hàm lượng hoạt chất bồi bổ khí huyết, tăng cường sinh lực cao hàng đầu Đông Nam Á, là thành phần chủ lực trong ngành y học cổ truyền và dược phẩm cao cấp.',
+    descEn: 'Lao Cai Angelica and Panax Notoginseng yield peak bio-active compounds for blood circulation and vitality, serving as core ingredients for high-end phytomedicine.',
+    category: 'herbs'
+  },
+  {
+    id: 4,
+    name: 'Cá Hồi & Cá Tầm Nước Lạnh Thác Bạc Sa Pa',
+    nameEn: 'Cold-Water Salmon & Sturgeon of Silver Falls',
+    origin: 'Độ cao 1.800m dưới chân đèo Ô Quy Hồ',
+    originEn: '1,800m Elevation at O Quy Ho Pass Base',
+    cert: 'VietGAP • Nông sản Chủ lực Miền Bắc',
+    image: 'https://images.unsplash.com/photo-1544943910-4c1dc44a0344?auto=format&fit=crop&w=600&q=85',
+    desc: 'Nguồn nước lạnh tinh khiết tan từ đỉnh Fansipan ở nhiệt độ dưới 15°C tạo môi trường lý tưởng nuôi cá hồi vân và cá tầm lấy trứng đen cao cấp, khẳng định vị thế thủ phủ thủy sản nước lạnh số 1 Việt Nam.',
+    descEn: 'Glacial-cold mountain water flowing from Fansipan under 15°C provides ideal habitat for rainbow trout and black caviar sturgeon, leading Vietnam’s cold-water aquaculture.',
+    category: 'cold-water'
+  },
+  {
+    id: 5,
+    name: 'Quế Hữu Cơ & Tinh Dầu Quế Đại Ngàn Bảo Yên',
+    nameEn: 'Organic Cinnamon & Essential Oils of Bao Yen',
+    origin: 'Vùng nguyên liệu 50.000+ ha Huyện Bảo Yên & Văn Bàn',
+    originEn: '50,000+ Ha Organic Cinnamon Forest, Bao Yen',
+    cert: 'Organic Quốc Tế • Chuỗi Giá Trị Xanh',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=85',
+    desc: 'Lào Cai là vùng sản xuất quế lớn nhất Việt Nam. Vỏ quế dày cay nồng và tinh dầu chưng cất tự nhiên là nguồn hương liệu, dược liệu quý xuất khẩu đến hơn 30 quốc gia trên thế giới.',
+    descEn: 'Lao Cai is Vietnam’s premier organic cinnamon hub. High-cinnamaldehyde bark and steam-distilled essential oils are exported to over 30 countries worldwide.',
+    category: 'specialty'
+  },
+  {
+    id: 6,
+    name: 'Gạo Séng Cù Mường Vi & Mận Tam Hoa Bắc Hà',
+    nameEn: 'Seng Cu Aromatic Rice & Tam Hoa Plum',
+    origin: 'Thung lũng Mường Vi (Bát Xát) & Cao nguyên Bắc Hà',
+    originEn: 'Muong Vi Valley (Bat Xat) & Bac Ha Plateau',
+    cert: 'Chỉ Dẫn Địa Lý • OCOP 4-5 Sao',
+    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=85',
+    desc: 'Hạt gạo Séng Cù dẻo thơm trứ danh được tưới bởi mạch ngầm núi đá vôi, kết hợp cùng trái mận Tam Hoa giòn ngọt mọng nước đã làm nên thương hiệu nông sản bản địa vang danh cả nước.',
+    descEn: 'Celebrated Seng Cu rice irrigated by karst spring water paired with succulent Tam Hoa plums define the distinctive agro-culinary identity of Northwest Vietnam.',
+    category: 'specialty'
+  }
+];
 
 // Bộ ảnh dự phòng chất lượng cao mang đậm cảnh sắc Lào Cai (Fansipan, ruộng bậc thang, cửa khẩu, dược liệu)
 const FALLBACK_POST_IMAGES = [
@@ -748,82 +739,14 @@ export const Home = () => {
   // Investment Projects Filter State
   const [selectedSector, setSelectedSector] = useState('all');
 
-  // State Slider Doanh nghiệp tiêu biểu
-  const [enterpriseIndex, setEnterpriseIndex] = useState(0);
-  const [isEnterpriseHovered, setIsEnterpriseHovered] = useState(false);
-  const handlePrevEnterprise = () => {
-    setEnterpriseIndex(prev => (prev - 1 + FEATURED_ENTERPRISES.length) % FEATURED_ENTERPRISES.length);
-  };
-  const handleNextEnterprise = () => {
-    setEnterpriseIndex(prev => (prev + 1) % FEATURED_ENTERPRISES.length);
-  };
+  // State Hành lang Kinh tế Côn Minh – Lào Cai – Hải Phòng
+  const [activeCorridorNode, setActiveCorridorNode] = useState(1); // Mặc định: Kim Thành & Ga quốc tế
 
-  useEffect(() => {
-    if (isEnterpriseHovered) return;
-    const interval = setInterval(() => {
-      setEnterpriseIndex(prev => (prev + 1) % FEATURED_ENTERPRISES.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [isEnterpriseHovered]);
+  // State Cẩm nang 4 Mùa Lào Cai
+  const [activeSeasonId, setActiveSeasonId] = useState('spring');
 
-  // State Slider Đối tác của chúng tôi
-  const [partnerIndex, setPartnerIndex] = useState(PARTNER_COMPANIES.length);
-  const [isPartnerHovered, setIsPartnerHovered] = useState(false);
-  const [withPartnerTransition, setWithPartnerTransition] = useState(true);
-  const [partnerVisibleCount, setPartnerVisibleCount] = useState(4);
-
-  useEffect(() => {
-    const updateVisibleCount = () => {
-      if (window.innerWidth <= 640) setPartnerVisibleCount(2);
-      else if (window.innerWidth <= 1024) setPartnerVisibleCount(3);
-      else setPartnerVisibleCount(4);
-    };
-    updateVisibleCount();
-    window.addEventListener('resize', updateVisibleCount);
-    return () => window.removeEventListener('resize', updateVisibleCount);
-  }, []);
-
-  useEffect(() => {
-    if (isPartnerHovered) return;
-    const interval = setInterval(() => {
-      setPartnerIndex(prev => prev + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [isPartnerHovered]);
-
-  const totalPartners = PARTNER_COMPANIES.length;
-  useEffect(() => {
-    if (partnerIndex >= totalPartners * 2) {
-      const resetTimer = setTimeout(() => {
-        setWithPartnerTransition(false);
-        setPartnerIndex(totalPartners);
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            setWithPartnerTransition(true);
-          });
-        });
-      }, 400);
-      return () => clearTimeout(resetTimer);
-    } else if (partnerIndex < totalPartners) {
-      const resetTimer = setTimeout(() => {
-        setWithPartnerTransition(false);
-        setPartnerIndex(partnerIndex + totalPartners);
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            setWithPartnerTransition(true);
-          });
-        });
-      }, 400);
-      return () => clearTimeout(resetTimer);
-    }
-  }, [partnerIndex, totalPartners]);
-
-  const handlePrevPartner = () => {
-    setPartnerIndex(prev => prev - 1);
-  };
-  const handleNextPartner = () => {
-    setPartnerIndex(prev => prev + 1);
-  };
+  // State Bộ lọc Kho báu Dược liệu & Đặc sản
+  const [activeHerbalCat, setActiveHerbalCat] = useState('all');
 
   // Form Tư vấn & Hợp tác đầu tư (POST /api/leads)
   const [formData, setFormData] = useState({
@@ -2056,433 +1979,238 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            SECTION 5: TỔ HỢP & DOANH NGHIỆP TIÊU BIỂU LÀO CAI
+            MODULE 1: SƠ ĐỒ TƯƠNG TÁC HÀNH LANG KINH TẾ QUỐC TẾ & CỬA KHẨU THÔNG MINH
+            (Côn Minh – Lào Cai – Hà Nội – Hải Phòng • Cửa ngõ ASEAN – Trung Quốc)
             ======================================================== */}
-        <section className="daklak-featured-enterprise-section" id="doanh-nghiep-tieu-bieu">
+        <section className="laocai-corridor-section" id="hanh-lang-kinh-te">
           <div className="daklak-container">
-            <div className="daklak-section-header" style={{ marginBottom: '35px' }}>
-              <span className="daklak-section-badge">
-                <i className="ti ti-building" style={{ marginRight: '4px' }} />
-                {currentLang === 'en' ? 'Lao Cai Business & Investment Ecosystem' : 'Hệ Sinh Thái Tổ Hợp & Doanh Nghiệp Tiêu Biểu'}
+            <div className="daklak-section-header scroll-reveal scroll-reveal-down" style={{ textAlign: 'center', marginBottom: '30px' }}>
+              <span className="laocai-corridor-badge">
+                <i className="ti ti-route" />
+                {currentLang === 'en' ? 'STRATEGIC INTERNATIONAL TRADE CORRIDOR' : 'HÀNH LANG KINH TẾ QUỐC TẾ & CỬA KHẨU THÔNG MINH'}
               </span>
-              <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Flagship Complexes & Enterprises' : 'Tổ Hợp & Doanh Nghiệp Đầu Tàu Lào Cai'}
+              <h2 className="daklak-section-title" style={{ color: '#FFFFFF' }}>
+                {currentLang === 'en' ? 'Kunming – Lao Cai – Hanoi – Hai Phong Economic Artery' : 'Hành Lang Côn Minh – Lào Cai – Hà Nội – Hải Phòng'}
               </h2>
-              <p className="daklak-section-desc">
+              <p className="daklak-section-desc" style={{ color: '#C8DAD0', maxWidth: '780px', margin: '0 auto' }}>
                 {currentLang === 'en'
-                  ? 'Explore key tourism complexes, border logistics centers, medicinal herb processors, and digital technology partners driving Lao Cai’s sustainable growth.'
-                  : 'Khám phá các tổ hợp du lịch, trung tâm logistics cửa khẩu quốc tế, doanh nghiệp chế biến sâu dược liệu vùng cao và đối tác công nghệ đồng hành cùng sự phát triển của Lào Cai.'}
+                  ? 'Interactive overview of the vital multimodal trade corridor bridging Southwest China (400M+ people) with Vietnam’s seaports and ASEAN economies.'
+                  : 'Sơ đồ tương tác chuỗi hạ tầng huyết mạch kết nối thị trường hơn 400 triệu dân Tây Nam Trung Quốc qua cửa ngõ Lào Cai đến hệ thống cảng biển quốc tế và khối ASEAN.'}
               </p>
             </div>
 
-            <div
-              className="daklak-enterprise-slider-wrapper"
-              onMouseEnter={() => setIsEnterpriseHovered(true)}
-              onMouseLeave={() => setIsEnterpriseHovered(false)}
-            >
-              <button
-                type="button"
-                className="daklak-enterprise-nav-btn prev"
-                onClick={handlePrevEnterprise}
-                aria-label="Doanh nghiệp trước"
-                title={currentLang === 'en' ? 'Previous enterprise' : 'Doanh nghiệp trước'}
-              >
-                <i className="ti ti-chevron-left" />
-              </button>
-
-              <button
-                type="button"
-                className="daklak-enterprise-nav-btn next"
-                onClick={handleNextEnterprise}
-                aria-label="Doanh nghiệp tiếp theo"
-                title={currentLang === 'en' ? 'Next enterprise' : 'Doanh nghiệp tiếp theo'}
-              >
-                <i className="ti ti-chevron-right" />
-              </button>
-
-              {(() => {
-                const enterprise = FEATURED_ENTERPRISES[enterpriseIndex];
+            {/* Sơ đồ 5 Chặng Hành Lang */}
+            <div className="laocai-corridor-pipeline">
+              {TRADE_CORRIDOR_NODES.map((node) => {
+                const isActive = activeCorridorNode === node.id;
                 return (
-                  <div className="daklak-enterprise-card">
-                    <div className="daklak-enterprise-left">
-                      <div className="daklak-enterprise-header-row">
-                        <div className="daklak-enterprise-logo-frame">
-                          <img
-                            src={enterprise.logo}
-                            alt={enterprise.name}
-                            className="daklak-enterprise-logo-img"
-                            onError={(e) => { e.target.style.display = 'none'; }}
-                          />
-                        </div>
-                        <div>
-                          <span className="daklak-enterprise-role-badge">
-                            <i className="ti ti-rosette-discount-check" />
-                            {currentLang === 'en' ? enterprise.roleTagEn : enterprise.roleTag}
-                          </span>
-                          <h3 className="daklak-enterprise-name" style={{ marginTop: '6px' }}>
-                            {enterprise.name}
-                          </h3>
-                        </div>
-                      </div>
+                  <div
+                    key={node.id}
+                    className={`laocai-corridor-node ${isActive ? 'active' : ''}`}
+                    onClick={() => setActiveCorridorNode(node.id)}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <div className="laocai-corridor-step-num">
+                      <i className="ti ti-circle-check-filled" />
+                      <span>{node.step}</span>
+                    </div>
+                    <div className="laocai-corridor-node-icon">
+                      <i className={`ti ${node.icon}`} />
+                    </div>
+                    <div className="laocai-corridor-node-title">
+                      {currentLang === 'en' ? node.nameEn : node.name}
+                    </div>
+                    <div className="laocai-corridor-node-sub">
+                      {currentLang === 'en' ? node.subEn : node.sub}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
-                      <div className="daklak-enterprise-meta-list">
-                        <div className="daklak-enterprise-meta-item">
-                          <i className="ti ti-map-pin" />
-                          <span><strong>{currentLang === 'en' ? 'HQ / Location:' : 'Trụ sở / Địa bàn:'}</strong> {currentLang === 'en' ? enterprise.headquartersEn : enterprise.headquarters}</span>
-                        </div>
-                        <div className="daklak-enterprise-meta-item">
-                          <i className="ti ti-briefcase" />
-                          <span><strong>{currentLang === 'en' ? 'Core Sectors:' : 'Lĩnh vực cốt lõi:'}</strong> {currentLang === 'en' ? enterprise.sectorsEn : enterprise.sectors}</span>
-                        </div>
-                      </div>
+            {/* Thẻ Chi Tiết Chặng Đang Chọn */}
+            {(() => {
+              const selectedNode = TRADE_CORRIDOR_NODES[activeCorridorNode] || TRADE_CORRIDOR_NODES[1];
+              return (
+                <div className="laocai-corridor-detail-card scroll-reveal scroll-reveal-up">
+                  <div className="laocai-corridor-info">
+                    <span style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      background: 'rgba(217, 155, 38, 0.2)',
+                      border: '1px solid rgba(217, 155, 38, 0.45)',
+                      color: '#FFE082',
+                      fontSize: '0.75rem',
+                      fontWeight: 800,
+                      padding: '4px 12px',
+                      borderRadius: '999px',
+                      marginBottom: '14px'
+                    }}>
+                      <i className="ti ti-pin" />
+                      {selectedNode.step} • {currentLang === 'en' ? 'STRATEGIC NODE ANALYSIS' : 'TÂM ĐIỂM CHIẾN LƯỢC'}
+                    </span>
+                    <h3>{currentLang === 'en' ? selectedNode.nameEn : selectedNode.name}</h3>
+                    <p>{currentLang === 'en' ? selectedNode.highlightEn : selectedNode.highlight}</p>
 
-                      <p className="daklak-enterprise-desc">
-                        "{currentLang === 'en' ? enterprise.highlightEn : enterprise.highlight}"
-                      </p>
-
-                      <div className="daklak-enterprise-philosophy">
-                        <i className="ti ti-sparkles" style={{ color: '#D99B26' }} />
-                        <span>{currentLang === 'en' ? 'Core Philosophy:' : 'Tôn chỉ phát triển:'}</span>
-                        <span style={{ color: '#145A3E' }}>{currentLang === 'en' ? enterprise.philosophyEn : enterprise.philosophy}</span>
-                      </div>
+                    <div className="laocai-corridor-tags">
+                      {(currentLang === 'en' ? selectedNode.tagsEn : selectedNode.tags).map((tg, tIdx) => (
+                        <span key={tIdx} className="laocai-corridor-tag">
+                          <i className="ti ti-check" />
+                          {tg}
+                        </span>
+                      ))}
                     </div>
 
-                    <div className="daklak-enterprise-right">
-                      <div className="daklak-enterprise-right-header">
-                        <i className="ti ti-chart-arrows-vertical" />
-                        <span>{currentLang === 'en' ? 'KEY HIGHLIGHTS & STRATEGY' : 'CHỈ SỐ & TRỌNG TÂM CHIẾN LƯỢC'}</span>
-                      </div>
+                    <div style={{ marginTop: '26px', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+                      <Link
+                        to={`/posts?category=${encodeURIComponent('Cửa khẩu & Logistics')}`}
+                        className="btn-daklak-gold"
+                        style={{ padding: '11px 24px', fontSize: '0.9rem' }}
+                      >
+                        <i className="ti ti-external-link" />
+                        <span>{currentLang === 'en' ? 'Customs & Logistics Data' : 'Dữ liệu Cửa khẩu & Logistics'}</span>
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => scrollToConsult(`Tư vấn đầu tư & Logistics: ${selectedNode.name}`)}
+                        className="btn-daklak-outline"
+                        style={{ padding: '11px 24px', fontSize: '0.9rem', borderColor: '#FFE082', color: '#FFE082' }}
+                      >
+                        <i className="ti ti-mail-forward" />
+                        <span>{currentLang === 'en' ? 'Connect Investment Desk' : 'Kết nối Ban Xúc tiến Đầu tư'}</span>
+                      </button>
+                    </div>
+                  </div>
 
-                      <div className="daklak-enterprise-stats-grid">
-                        {enterprise.stats.map((st, sIdx) => (
-                          <div key={sIdx} className="daklak-enterprise-stat-box">
-                            <div className="daklak-enterprise-stat-val notranslate" translate="no">{st.value}</div>
-                            <div className="daklak-enterprise-stat-lbl">{currentLang === 'en' ? st.labelEn : st.label}</div>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="daklak-enterprise-focus-card">
-                        <div className="daklak-enterprise-focus-header">
-                          <i className="ti ti-target-arrow" />
-                          <span>{currentLang === 'en' ? 'Strategic Direction & Value' : 'Định hướng trọng tâm & Giá trị'}</span>
+                  <div className="laocai-corridor-stats-grid">
+                    {selectedNode.stats.map((st, sIdx) => (
+                      <div key={sIdx} className="laocai-corridor-stat-box">
+                        <div className="laocai-corridor-stat-lbl">
+                          {currentLang === 'en' ? st.labelEn : st.label}
                         </div>
-                        <p className="daklak-enterprise-focus-text">
-                          {currentLang === 'en' ? enterprise.keyFocusEn : enterprise.keyFocus}
-                        </p>
-                        <div className="daklak-enterprise-tags-row">
-                          {(currentLang === 'en' ? enterprise.tagsEn : enterprise.tags)?.map((tag, tIdx) => (
-                            <span key={tIdx} className="daklak-enterprise-tag-pill">
-                              <i className="ti ti-check" />
-                              {tag}
-                            </span>
-                          ))}
+                        <div className="laocai-corridor-stat-val notranslate" translate="no">
+                          {st.val}
                         </div>
                       </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+        </section>
 
-                      <div className="daklak-enterprise-action-wrap">
+        {/* ========================================================
+            MODULE 2: KHO BÁU DƯỢC LIỆU QUÝ & ĐẶC SẢN ÔN ĐỚI LÀO CAI
+            (Atiso Sa Pa, Chè Shan Tuyết, Tam Thất, Cá Hồi, Quế Hữu Cơ)
+            ======================================================== */}
+        <section className="laocai-herbal-section" id="duoc-lieu-dac-san">
+          <div className="daklak-container">
+            <div className="daklak-section-header scroll-reveal scroll-reveal-down" style={{ textAlign: 'center' }}>
+              <span className="daklak-section-badge">
+                <i className="ti ti-plant-2" style={{ marginRight: '6px' }} />
+                {currentLang === 'en' ? 'VƯƠNG QUỐC DƯỢC LIỆU & NÔNG SẢN ÔN ĐỚI' : 'VƯƠNG QUỐC DƯỢC LIỆU & NÔNG SẢN ÔN ĐỚI'}
+              </span>
+              <h2 className="daklak-section-title">
+                {currentLang === 'en' ? 'Lao Cai Highland Treasures & GACP-WHO Herbal Heritage' : 'Kho Báu Dược Liệu Quý & Đặc Sản Ôn Đới Lào Cai'}
+              </h2>
+              <p className="daklak-section-desc" style={{ maxWidth: '780px', margin: '0 auto' }}>
+                {currentLang === 'en'
+                  ? 'Blessed with pristine alpine altitudes from 1,500m to 3,143m, Lao Cai is Vietnam’s national capital of organic medicinal herbs and temperate culinary treasures.'
+                  : 'Được thiên nhiên ưu đãi khí hậu á nhiệt đới và sương mây ở độ cao từ 1.500m đến 3.143m, Lào Cai là trung tâm dược liệu sạch chuẩn GACP-WHO và thủ phủ nông sản ôn đới hàng đầu cả nước.'}
+              </p>
+
+              {/* Tabs Lọc Phân Loại */}
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '24px', flexWrap: 'wrap' }}>
+                {[
+                  { id: 'all', label: 'Tất cả Kho báu', labelEn: 'All Treasures' },
+                  { id: 'herbs', label: 'Dược liệu GACP-WHO', labelEn: 'GACP-WHO Herbs' },
+                  { id: 'tea', label: 'Trà Cổ Thụ Shan Tuyết', labelEn: 'Ancient Shan Tea' },
+                  { id: 'cold-water', label: 'Thủy sản Nước lạnh', labelEn: 'Cold-Water Seafood' },
+                  { id: 'specialty', label: 'Đặc sản & Quế Hữu cơ', labelEn: 'Organic Specialties' }
+                ].map((tb) => (
+                  <button
+                    key={tb.id}
+                    type="button"
+                    onClick={() => setActiveHerbalCat(tb.id)}
+                    style={{
+                      padding: '8px 18px',
+                      borderRadius: '999px',
+                      border: activeHerbalCat === tb.id ? '1.5px solid #145A3E' : '1.5px solid #D5E0DA',
+                      background: activeHerbalCat === tb.id ? '#145A3E' : '#FFFFFF',
+                      color: activeHerbalCat === tb.id ? '#FFFFFF' : '#2D4037',
+                      fontSize: '0.85rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      transition: 'all 0.22s ease'
+                    }}
+                  >
+                    {currentLang === 'en' ? tb.labelEn : tb.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Lưới Thẻ Dược Liệu & Đặc Sản */}
+            <div className="laocai-herbal-grid">
+              {LAOCAI_HERBAL_TREASURES
+                .filter(item => activeHerbalCat === 'all' || item.category === activeHerbalCat)
+                .map((item) => (
+                  <div key={item.id} className="laocai-herbal-card scroll-reveal scroll-reveal-up">
+                    <div className="laocai-herbal-card-img-wrap">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="laocai-herbal-card-img"
+                        loading="lazy"
+                      />
+                      <span className="laocai-herbal-badge">
+                        {item.cert}
+                      </span>
+                    </div>
+
+                    <div className="laocai-herbal-card-body">
+                      <div className="laocai-herbal-card-origin">
+                        <i className="ti ti-map-pin" />
+                        <span>{currentLang === 'en' ? item.originEn : item.origin}</span>
+                      </div>
+                      <h3 className="laocai-herbal-card-title">
+                        {currentLang === 'en' ? item.nameEn : item.name}
+                      </h3>
+                      <p className="laocai-herbal-card-desc">
+                        {currentLang === 'en' ? item.descEn : item.desc}
+                      </p>
+
+                      <div className="laocai-herbal-card-footer">
+                        <span className="laocai-herbal-card-cert">
+                          <i className="ti ti-rosette-discount-check" />
+                          <span>Chuẩn Quốc tế</span>
+                        </span>
                         <button
                           type="button"
-                          className="daklak-enterprise-btn-connect"
-                          onClick={() => scrollToConsult(enterprise.shortName)}
+                          className="laocai-herbal-card-btn"
+                          onClick={() => scrollToConsult(`Liên kết tiêu thụ & Hợp tác: ${item.name}`)}
                         >
-                          <i className="ti ti-mail-forward" />
-                          <span>{currentLang === 'en' ? 'Connect & Partner' : 'Kết nối & Hợp tác Đầu tư'}</span>
+                          <span>{currentLang === 'en' ? 'B2B Sourcing' : 'Kết nối thu mua'}</span>
                           <i className="ti ti-arrow-right" />
                         </button>
                       </div>
                     </div>
                   </div>
-                );
-              })()}
-
-              <div className="daklak-enterprise-dots">
-                {FEATURED_ENTERPRISES.map((ent, dIdx) => (
-                  <button
-                    key={ent.id}
-                    type="button"
-                    className={`daklak-enterprise-dot ${dIdx === enterpriseIndex ? 'active' : ''}`}
-                    onClick={() => setEnterpriseIndex(dIdx)}
-                    aria-label={`Chuyển đến ${ent.shortName}`}
-                    title={ent.shortName}
-                  />
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            SECTION 6: TOP 10 THƯƠNG HIỆU DƯỢC LIỆU – OCOP & GIAO THƯƠNG CỬA KHẨU LÀO CAI
-            ======================================================== */}
-        <section className="daklak-coffee-exporters-section" id="top-xuat-khau-ca-phe">
-          <div className="daklak-container">
-            <div className="coffee-exporters-header scroll-reveal scroll-reveal-down">
-              <span className="daklak-section-badge">
-                <i className="ti ti-trophy" style={{ marginRight: '6px' }} />
-                {currentLang === 'en' ? 'Highland Specialties & Cross-Border Trade Leadership' : 'Định Vị Chuỗi Giá Trị Vùng Cao & Cửa Ngõ Giao Thương Quốc Tế'}
-              </span>
-              <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Top 10 Highland Specialties & Border Trade Hubs' : 'Top 10 Thương Hiệu Đặc Sản Vùng Cao & Giao Thương Cửa Khẩu'}
-              </h2>
-              <p className="daklak-section-desc">
-                {currentLang === 'en'
-                  ? 'Strategic overview of Lao Cai’s flagship medicinal herbs, organic tea, cold-water aquaculture, and international border gate logistics corridors.'
-                  : 'Bức tranh toàn cảnh về những chuỗi sản phẩm dược liệu – nông sản OCOP đặc hữu của Lào Cai và hệ thống hạ tầng cửa khẩu – logistics liên vận quốc tế.'}
-              </p>
             </div>
 
-            <div className="coffee-exporters-grid">
-              {/* BLOCK 1: ĐẶC SẢN & DƯỢC LIỆU LÀO CAI */}
-              <div className="coffee-exporter-column scroll-reveal scroll-reveal-left">
-                <div className="exporter-column-header">
-                  <div className="exporter-col-icon tay-nguyen">
-                    <i className="ti ti-leaf" />
-                  </div>
-                  <div className="exporter-col-titles">
-                    <h3>{currentLang === 'en' ? TOP_EXPORTERS_TAY_NGUYEN.titleEn : TOP_EXPORTERS_TAY_NGUYEN.title}</h3>
-                    <p>{currentLang === 'en' ? TOP_EXPORTERS_TAY_NGUYEN.subEn : TOP_EXPORTERS_TAY_NGUYEN.sub}</p>
-                  </div>
-                </div>
-
-                <div className="exporter-top3-list">
-                  {TOP_EXPORTERS_TAY_NGUYEN.top3.map((exp, idx) => (
-                    <div key={idx} className="exporter-top3-card">
-                      <div className="exporter-logo-wrap">
-                        <img src={exp.logo} alt={exp.name} className="exporter-brand-logo" />
-                      </div>
-                      <div className="exporter-top3-body">
-                        <div className="exporter-top3-header">
-                          <h4 className="exporter-top3-name">{exp.name}</h4>
-                          <span className="exporter-top3-sub">{exp.sub}</span>
-                        </div>
-                        <p className="exporter-top3-highlight">
-                          {currentLang === 'en' ? exp.highlightEn : exp.highlight}
-                        </p>
-                        <span className="exporter-top3-pill">
-                          <i className="ti ti-award" /> {exp.pill}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="exporter-rest-block">
-                  <h5 className="exporter-rest-title">
-                    <i className="ti ti-sparkles" />
-                    <span>{currentLang === 'en' ? 'Other Prominent Highland OCOP Brands' : 'Các thương hiệu OCOP & đặc sản tiêu biểu tiếp theo'}</span>
-                  </h5>
-                  <div className="exporter-next-grid-232">
-                    {TOP_EXPORTERS_TAY_NGUYEN.rest.map((name, idx) => (
-                      <div key={idx} className="exporter-tag-item">
-                        <span>{name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* BLOCK 2: CỬA KHẨU & LOGISTICS QUỐC TẾ */}
-              <div className="coffee-exporter-column scroll-reveal scroll-reveal-right">
-                <div className="exporter-column-header">
-                  <div className="exporter-col-icon the-gioi">
-                    <i className="ti ti-world" />
-                  </div>
-                  <div className="exporter-col-titles">
-                    <h3>{currentLang === 'en' ? TOP_EXPORTERS_WORLD.titleEn : TOP_EXPORTERS_WORLD.title}</h3>
-                    <p>{currentLang === 'en' ? TOP_EXPORTERS_WORLD.subEn : TOP_EXPORTERS_WORLD.sub}</p>
-                  </div>
-                </div>
-
-                <div className="exporter-top3-list">
-                  {TOP_EXPORTERS_WORLD.top3.map((exp, idx) => (
-                    <div key={idx} className="exporter-top3-card">
-                      <div className="exporter-logo-wrap">
-                        <img src={exp.logo} alt={exp.name} className="exporter-brand-logo" />
-                      </div>
-                      <div className="exporter-top3-body">
-                        <div className="exporter-top3-header">
-                          <h4 className="exporter-top3-name">{exp.name}</h4>
-                          <span className="exporter-top3-sub">{exp.sub}</span>
-                        </div>
-                        <p className="exporter-top3-highlight">
-                          {currentLang === 'en' ? exp.highlightEn : exp.highlight}
-                        </p>
-                        <span className="exporter-top3-pill">
-                          <i className="ti ti-globe" /> {exp.pill}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="exporter-rest-block">
-                  <h5 className="exporter-rest-title">
-                    <i className="ti ti-truck-delivery" />
-                    <span>{currentLang === 'en' ? 'Other Key Border Gates & Logistics Hubs' : 'Các cửa khẩu & trung tâm hạ tầng tiếp theo'}</span>
-                  </h5>
-                  <div className="exporter-next-grid-232">
-                    {TOP_EXPORTERS_WORLD.rest.map((name, idx) => (
-                      <div key={idx} className="exporter-tag-item">
-                        <span>{name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            SECTION 7: TOP 10 KHU KINH TẾ, KHU & CỤM CÔNG NGHIỆP LÀO CAI
-            ======================================================== */}
-        <section className="daklak-industrial-parks-section" id="top-khu-cong-nghiep">
-          <div className="daklak-container">
-            <div className="industrial-header scroll-reveal scroll-reveal-down">
-              <span className="daklak-section-badge">
-                <i className="ti ti-building-factory-2" style={{ marginRight: '6px' }} />
-                {currentLang === 'en' ? 'Key Industrial & Border Economic Infrastructure' : 'Hạ Tầng Khu Kinh Tế Cửa Khẩu & Khu Công Nghiệp Trọng Điểm'}
-              </span>
-              <h2 className="daklak-section-title">
-                {currentLang === 'en' ? TOP_INDUSTRIAL_PARKS.titleEn : TOP_INDUSTRIAL_PARKS.title}
-              </h2>
-              <p className="daklak-section-desc">
-                {currentLang === 'en' ? TOP_INDUSTRIAL_PARKS.subEn : TOP_INDUSTRIAL_PARKS.sub}
-              </p>
-            </div>
-
-            {/* TOP 3 PODIUM (2 - 1 - 3) */}
-            <div className="industrial-podium-grid">
-              {/* Cột bên trái (Rank 2: KCN Tằng Loỏng) */}
-              {(() => {
-                const kcn2 = TOP_INDUSTRIAL_PARKS.top3[1];
-                return (
-                  <div 
-                    key={kcn2.id} 
-                    className="industrial-podium-card rank-2 scroll-reveal scroll-reveal-left"
-                  >
-                    <div className="industrial-card-top">
-                      <div className="exporter-logo-wrap">
-                        <img src={kcn2.logo} alt={kcn2.name} className="exporter-brand-logo" />
-                      </div>
-                      <div className="industrial-title-wrap">
-                        <h4 className="industrial-card-title">{currentLang === 'en' ? kcn2.nameEn : kcn2.name}</h4>
-                        <span className="industrial-card-loc">
-                          <i className="ti ti-map-pin" /> {currentLang === 'en' ? kcn2.locationEn : kcn2.location}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="industrial-scale-row">
-                      <span className="industrial-scale-pill">
-                        <i className="ti ti-chart-area-line" /> {currentLang === 'en' ? kcn2.scaleEn : kcn2.scale}
-                      </span>
-                    </div>
-                    <p className="industrial-highlight">
-                      {currentLang === 'en' ? kcn2.highlightEn : kcn2.highlight}
-                    </p>
-                    <div className="industrial-footer-row">
-                      <span className="industrial-focus-pill">
-                        <i className="ti ti-building-factory" /> {currentLang === 'en' ? kcn2.pillEn : kcn2.pill}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })()}
-
-              {/* Cột chính giữa (Rank 1: KKT Cửa khẩu Lào Cai & Kim Thành) */}
-              {(() => {
-                const kcn1 = TOP_INDUSTRIAL_PARKS.top3[0];
-                return (
-                  <div 
-                    key={kcn1.id} 
-                    className="industrial-podium-card rank-1 scroll-reveal scroll-reveal-up"
-                  >
-                    <div className="industrial-card-top">
-                      <div className="exporter-logo-wrap gold-border">
-                        <img src={kcn1.logo} alt={kcn1.name} className="exporter-brand-logo" />
-                      </div>
-                      <div className="industrial-title-wrap">
-                        <h4 className="industrial-card-title gold-text">{currentLang === 'en' ? kcn1.nameEn : kcn1.name}</h4>
-                        <span className="industrial-card-loc">
-                          <i className="ti ti-map-pin" /> {currentLang === 'en' ? kcn1.locationEn : kcn1.location}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="industrial-scale-row">
-                      <span className="industrial-scale-pill gold-pill">
-                        <i className="ti ti-chart-area-line" /> {currentLang === 'en' ? kcn1.scaleEn : kcn1.scale}
-                      </span>
-                    </div>
-                    <p className="industrial-highlight">
-                      {currentLang === 'en' ? kcn1.highlightEn : kcn1.highlight}
-                    </p>
-                    <div className="industrial-footer-row">
-                      <span className="industrial-focus-pill gold-highlight">
-                        <i className="ti ti-world" /> {currentLang === 'en' ? kcn1.pillEn : kcn1.pill}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })()}
-
-              {/* Cột bên phải (Rank 3: KCN Đông Phố Mới, Bắc Duyên Hải & Võ Lao) */}
-              {(() => {
-                const kcn3 = TOP_INDUSTRIAL_PARKS.top3[2];
-                return (
-                  <div 
-                    key={kcn3.id} 
-                    className="industrial-podium-card rank-3 scroll-reveal scroll-reveal-right"
-                  >
-                    <div className="industrial-card-top">
-                      <div className="exporter-logo-wrap">
-                        <img src={kcn3.logo} alt={kcn3.name} className="exporter-brand-logo" />
-                      </div>
-                      <div className="industrial-title-wrap">
-                        <h4 className="industrial-card-title">{currentLang === 'en' ? kcn3.nameEn : kcn3.name}</h4>
-                        <span className="industrial-card-loc">
-                          <i className="ti ti-map-pin" /> {currentLang === 'en' ? kcn3.locationEn : kcn3.location}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="industrial-scale-row">
-                      <span className="industrial-scale-pill">
-                        <i className="ti ti-chart-area-line" /> {currentLang === 'en' ? kcn3.scaleEn : kcn3.scale}
-                      </span>
-                    </div>
-                    <p className="industrial-highlight">
-                      {currentLang === 'en' ? kcn3.highlightEn : kcn3.highlight}
-                    </p>
-                    <div className="industrial-footer-row">
-                      <span className="industrial-focus-pill">
-                        <i className="ti ti-truck-delivery" /> {currentLang === 'en' ? kcn3.pillEn : kcn3.pill}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })()}
-            </div>
-
-            {/* 7 CỤM / KHU CÔNG NGHIỆP CÒN LẠI (BỐ CỤC 2 - 3 - 2) */}
-            <div className="industrial-rest-wrapper scroll-reveal scroll-reveal-up">
-              <h5 className="exporter-rest-title">
-                <i className="ti ti-building-community" />
-                <span>{currentLang === 'en' ? 'Other Prominent Industrial Parks & Clusters in Lao Cai' : 'Các khu & cụm công nghiệp tiêu biểu tiếp theo tại Lào Cai'}</span>
-              </h5>
-              <div className="industrial-next-grid-232">
-                {TOP_INDUSTRIAL_PARKS.rest.map((park, idx) => (
-                  <div 
-                    key={idx} 
-                    className="industrial-tag-item"
-                  >
-                    <div className="industrial-tag-content">
-                      <i className="ti ti-building-factory" />
-                      <span className="industrial-tag-name">{currentLang === 'en' ? (park.nameEn || park.name) : park.name}</span>
-                    </div>
-                    <span className="industrial-tag-loc">{park.location}</span>
-                  </div>
-                ))}
-              </div>
+            <div style={{ textAlign: 'center', marginTop: '36px' }}>
+              <Link
+                to={`/posts?category=${encodeURIComponent('Nông sản & Dược liệu')}`}
+                className="btn-daklak-primary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              >
+                <i className="ti ti-archive" />
+                <span>{currentLang === 'en' ? 'Explore Full OCOP & Herbal Directory' : 'Xem toàn bộ 260+ Sản phẩm OCOP & Dược liệu Lào Cai'}</span>
+              </Link>
             </div>
           </div>
         </section>
@@ -2687,48 +2415,121 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            SECTION 9: KIẾN TRÚC 3 LỚP & SỨ MỆNH SỐ HÓA LAOCAI.TODAY
-            (Theo Chương 6 & 7 Tài liệu Giới thiệu dự án)
+            MODULE 3: CẨM NANG KHÁM PHÁ 4 MÙA SA PA – Y TÝ – BẮC HÀ – BÁT XÁT
+            (Xuân Sắc Hoa • Hè Nước Đổ • Thu Mùa Vàng • Đông Băng Tuyết & Săn Mây)
             ======================================================== */}
-        <section className="daklak-section" id="kham-pha">
+        <section className="laocai-seasons-section" id="kham-pha-4-mua">
           <div className="daklak-container">
-            <div className="daklak-section-header">
-              <span className="daklak-section-badge">{currentLang === 'en' ? '3-Layer Digital Architecture' : 'Kiến Trúc 3 Lớp Hệ Sinh Thái Số'}</span>
+            <div className="daklak-section-header scroll-reveal scroll-reveal-down" style={{ textAlign: 'center' }}>
+              <span className="daklak-section-badge">
+                <i className="ti ti-calendar-event" style={{ marginRight: '6px' }} />
+                {currentLang === 'en' ? 'FOUR-SEASON HIGHLAND WONDERLAND' : 'KỲ QUAN KHÁM PHÁ BỐN MÙA LÀO CAI'}
+              </span>
               <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Connecting People • Connecting Enterprises • Connecting Lao Cai to the World' : 'Kết Nối Con Người – Kết Nối Doanh Nghiệp – Kết Nối Lào Cai Với Thế Giới'}
+                {currentLang === 'en' ? 'Sa Pa – Y Ty – Bac Ha: A Living Canvas All Year Round' : 'Cẩm Nang Khám Phá 4 Mùa Sa Pa – Y Tý – Bắc Hà'}
               </h2>
-              <p className="daklak-section-desc">
+              <p className="daklak-section-desc" style={{ maxWidth: '780px', margin: '0 auto' }}>
                 {currentLang === 'en'
-                  ? 'Laocai.today is engineered on a modern 3-layer digital architecture uniting Community, Open Data & Digital Showrooms, and Multilingual Artificial Intelligence.'
-                  : 'Laocai.today vận hành trên kiến trúc 3 lớp liên hoàn: Lớp Cộng đồng & Bản sắc, Lớp Dữ liệu & Showroom số Doanh nghiệp, và Lớp Trí tuệ Nhân tạo Đa ngôn ngữ.'}
+                  ? 'Unlike any other region in Vietnam, Lao Cai offers four distinct seasons: spring plum blossoms, cascading summer mirrors, golden autumn valleys, and surreal winter snow atop Fansipan.'
+                  : 'Nơi duy nhất tại Việt Nam hội tụ trọn vẹn vẻ đẹp 4 mùa: mùa xuân hoa lê hoa mận nở trắng rừng, mùa hạ ruộng bậc thang lung linh bích họa nước đổ, mùa thu vàng dệt thảm lúa chín và mùa đông băng tuyết sừng sững đỉnh thiêng Fansipan.'}
               </p>
-            </div>
 
-            <div className="values-grid">
-              <div className="value-card">
-                <div className="value-card-icon"><i className="ti ti-users-group" /></div>
-                <h3>{currentLang === 'en' ? 'Layer 1: Community & Heritage' : 'Lớp 1: Cộng Đồng & Bản Sắc'}</h3>
-                <p>{currentLang === 'en' ? 'Connecting citizens, tourists, experts, and the global Lao Cai diaspora while preserving Northwest cultural heritage.' : 'Lan tỏa di sản văn hóa các dân tộc Tây Bắc, kết nối du khách, chuyên gia và mạng lưới người Lào Cai xa quê trên toàn cầu.'}</p>
-              </div>
-
-              <div className="value-card">
-                <div className="value-card-icon"><i className="ti ti-database" /></div>
-                <h3>{currentLang === 'en' ? 'Layer 2: Data & Digital Showrooms' : 'Lớp 2: Dữ Liệu & Showroom Số'}</h3>
-                <p>{currentLang === 'en' ? 'Verified profiles of enterprises, OCOP specialties, border trade logistics, industrial parks, and investment projects.' : 'Chuẩn hóa hồ sơ năng lực doanh nghiệp, sản phẩm OCOP vùng cao, dữ liệu xuất nhập khẩu cửa khẩu và danh mục dự án kêu gọi đầu tư.'}</p>
-              </div>
-
-              <div className="value-card">
-                <div className="value-card-icon"><i className="ti ti-cpu" /></div>
-                <h3>{currentLang === 'en' ? 'Layer 3: Multilingual AI Engine' : 'Lớp 3: Trợ Lý AI Đa Ngôn Ngữ'}</h3>
-                <p>{currentLang === 'en' ? '24/7 intelligent AI advisor in 5 languages (VI, EN, ZH, JA, KO) personalizing itineraries and matching B2B partners.' : 'Trợ lý AI đa ngôn ngữ (Việt – Anh – Trung – Nhật – Hàn) tự động hóa tư vấn đầu tư, thương mại biên giới và cá nhân hóa hành trình du lịch 24/7.'}</p>
-              </div>
-
-              <div className="value-card">
-                <div className="value-card-icon"><i className="ti ti-world-longitude" /></div>
-                <h3>{currentLang === 'en' ? 'ASEAN – China Gateway' : 'Cửa Ngõ Giao Thương Quốc Tế'}</h3>
-                <p>{currentLang === 'en' ? 'Accelerating cross-border trade, intermodal logistics, and sustainable investment across the Kunming – Lao Cai – Hai Phong corridor.' : 'Thúc đẩy giao thương xuyên biên giới, logistics liên vận quốc tế và thu hút đầu tư chiến lược trên hành lang kinh tế Côn Minh – Lào Cai – Hải Phòng.'}</p>
+              {/* 4 Tabs Mùa */}
+              <div className="laocai-seasons-nav">
+                {LAOCAI_SEASONS.map((ss) => (
+                  <button
+                    key={ss.id}
+                    type="button"
+                    className={`laocai-season-tab ${activeSeasonId === ss.id ? 'active' : ''}`}
+                    onClick={() => setActiveSeasonId(ss.id)}
+                  >
+                    <span>{ss.badge.split(' ')[0]}</span>
+                    <span>{currentLang === 'en' ? ss.titleEn.split('•')[0].trim() : ss.title.split('•')[0].trim()}</span>
+                    <span style={{ fontSize: '0.78rem', opacity: 0.85 }}>({currentLang === 'en' ? ss.periodEn : ss.period})</span>
+                  </button>
+                ))}
               </div>
             </div>
+
+            {/* Thẻ Trải Nghiệm Mùa Được Chọn */}
+            {(() => {
+              const currentSeason = LAOCAI_SEASONS.find(s => s.id === activeSeasonId) || LAOCAI_SEASONS[0];
+              return (
+                <div className="laocai-season-card scroll-reveal scroll-reveal-up">
+                  <div className="laocai-season-img-wrap">
+                    <img
+                      src={currentSeason.image}
+                      alt={currentSeason.title}
+                      className="laocai-season-img"
+                    />
+                    <div className="laocai-season-img-badge">
+                      {currentSeason.badge}
+                    </div>
+                  </div>
+
+                  <div className="laocai-season-content">
+                    <div className="laocai-season-header-row">
+                      <span className="laocai-season-temp">
+                        <i className="ti ti-temperature" />
+                        <span>{currentSeason.temp}</span>
+                      </span>
+                      <span style={{ fontSize: '0.82rem', color: '#145A3E', fontWeight: 700 }}>
+                        📍 Sa Pa • Y Tý • Bắc Hà • Bát Xát
+                      </span>
+                    </div>
+
+                    <h3 className="laocai-season-title">
+                      {currentLang === 'en' ? currentSeason.titleEn : currentSeason.title}
+                    </h3>
+
+                    <p className="laocai-season-desc">
+                      {currentLang === 'en' ? currentSeason.descEn : currentSeason.desc}
+                    </p>
+
+                    <div className="laocai-season-highlights">
+                      <div className="laocai-season-hl-item">
+                        <div className="laocai-season-hl-label">
+                          <i className="ti ti-compass" />
+                          <span>{currentLang === 'en' ? 'Must-Experience' : 'Trải nghiệm không thể bỏ lỡ'}</span>
+                        </div>
+                        <div className="laocai-season-hl-val">
+                          {currentLang === 'en' ? currentSeason.mustTryEn : currentSeason.mustTry}
+                        </div>
+                      </div>
+
+                      <div className="laocai-season-hl-item">
+                        <div className="laocai-season-hl-label">
+                          <i className="ti ti-shirt" />
+                          <span>{currentLang === 'en' ? 'Suggested Outfit' : 'Gợi ý trang phục & tư trang'}</span>
+                        </div>
+                        <div className="laocai-season-hl-val">
+                          {currentLang === 'en' ? currentSeason.outfitEn : currentSeason.outfit}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+                      <Link
+                        to={`/posts?category=${encodeURIComponent('Du lịch & Trải nghiệm')}`}
+                        className="btn-daklak-primary"
+                        style={{ padding: '11px 24px', fontSize: '0.9rem' }}
+                      >
+                        <i className="ti ti-map" />
+                        <span>{currentLang === 'en' ? 'Explore Tour Itineraries' : 'Khám phá Lịch trình Du lịch Lào Cai'}</span>
+                      </Link>
+                      <Link
+                        to="/ai-chat"
+                        className="btn-daklak-outline"
+                        style={{ padding: '11px 24px', fontSize: '0.9rem' }}
+                      >
+                        <i className="ti ti-sparkles" />
+                        <span>{currentLang === 'en' ? 'Ask AI for Seasonal Tips' : 'Hỏi AI lên kế hoạch mùa này'}</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         </section>
 
@@ -2980,86 +2781,7 @@ export const Home = () => {
           </div>
         </section>
 
-        {/* ========================================================
-            SECTION 12: TRỤ CỘT BẢN SẮC LÀO CAI (CỬA KHẨU – DU LỊCH BỐN MÙA – DƯỢC LIỆU VÙNG CAO)
-            ======================================================== */}
-        <section className="daklak-section dark" id="coffee">
-          <div className="daklak-container">
-            <div className="daklak-section-header scroll-reveal scroll-reveal-down">
-              <span className="daklak-section-badge">{currentLang === 'en' ? 'Core Brand Pillars' : 'Ba Trụ Cột Chiến Lược'}</span>
-              <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Border Gate Economy • Four-Season Tourism • Highland Medicinal Herbs' : 'Kinh Tế Cửa Khẩu – Du Lịch Bốn Mùa – Nông Sản Dược Liệu Quý'}
-              </h2>
-              <p className="daklak-section-desc">
-                {currentLang === 'en'
-                  ? 'Laocai.today connects the complete regional value chain: from 1,500m+ cloud-kissed herbal plateaus and international border gates to global markets.'
-                  : 'Laocai.today kết nối chuỗi giá trị đặc thù của vùng đất biên cương Tây Bắc: từ vùng nguyên liệu trên mây 1.500m+, công nghệ chế biến sâu đến cửa khẩu quốc tế và thị trường toàn cầu.'}
-              </p>
-            </div>
 
-            <div className="coffee-grid">
-              {/* Timeline 4 Chặng */}
-              <div className="coffee-timeline scroll-reveal scroll-reveal-left">
-                <div className="coffee-step">
-                  <div className="coffee-step-number">01</div>
-                  <div className="coffee-step-content">
-                    <h4>{currentLang === 'en' ? 'Highland Climate & Natural Endowments' : 'Tiểu Khí Hậu Á Nhiệt Đới & Tài Nguyên Độc Bản'}</h4>
-                    <p>{currentLang === 'en' ? 'Ideal 1,500m–3,143m altitude nurturing precious GACP-WHO herbs, ancient Shan Tuyet tea, and cold-water salmon.' : 'Độ cao 1.500m – 3.143m tạo nên hệ sinh thái ôn đới quý giá cho dược liệu Atiso, tam thất, chè cổ thụ Shan Tuyết, cá hồi nước lạnh và cảnh sắc 4 mùa.'}</p>
-                  </div>
-                </div>
-
-                <div className="coffee-step">
-                  <div className="coffee-step-number">02</div>
-                  <div className="coffee-step-content">
-                    <h4>{currentLang === 'en' ? 'Indigenous Craft & New-Model Cooperatives' : 'Tri Thức Bản Địa & Liên Kết Hợp Tác Xã Kiểu Mới'}</h4>
-                    <p>{currentLang === 'en' ? 'Empowering H’Mong, Dao, Tay, Giay, and Ha Nhi communities with organic farming, eco-tourism, and digital traceability.' : 'Đồng hành cùng cộng đồng các dân tộc H’Mông, Dao, Tày, Giáy, Hà Nhì phát triển nông nghiệp hữu cơ, du lịch cộng đồng và truy xuất nguồn gốc số.'}</p>
-                  </div>
-                </div>
-
-                <div className="coffee-step">
-                  <div className="coffee-step-number">03</div>
-                  <div className="coffee-step-content">
-                    <h4>{currentLang === 'en' ? 'Deep Processing & Smart Industrial Zones' : 'Công Nghệ Chế Biến Sâu & Khu Công Nghiệp Đồng Bộ'}</h4>
-                    <p>{currentLang === 'en' ? 'Extracting high-value pharmaceutical compounds, freeze-dried teas, and deep mineral processing across Tang Loong & Dong Pho Moi IPs.' : 'Đẩy mạnh chiết xuất dược liệu công nghệ cao, chế biến sâu nông lâm sản và công nghiệp phụ trợ tại KCN Tằng Loỏng, Đông Phố Mới và Võ Lao.'}</p>
-                  </div>
-                </div>
-
-                <div className="coffee-step">
-                  <div className="coffee-step-number">04</div>
-                  <div className="coffee-step-content">
-                    <h4>{currentLang === 'en' ? 'ASEAN – China Cross-Border Gateway' : 'Cửa Khẩu Quốc Tế & Chuỗi Logistics Liên Vận'}</h4>
-                    <p>{currentLang === 'en' ? 'Direct customs clearance via Kim Thanh International Border Gate, international rail, and Sa Pa Airport to global buyers.' : 'Thông quan trực tiếp qua Cửa khẩu Quốc tế Kim Thành, đường sắt liên vận Á – Âu và cao tốc Nội Bài – Lào Cai vươn ra thị trường quốc tế.'}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Case Study & Chuỗi giá trị */}
-              <div className="coffee-case-box scroll-reveal scroll-reveal-right">
-                <h3>🌿 {currentLang === 'en' ? 'Lao Cai Value Chain Spotlight' : 'Điển Hình Chuỗi Giá Trị Đặc Thù Lào Cai'}</h3>
-                
-                <div className="coffee-case-highlight">
-                  <h4>Hành Lang Kinh Tế Cửa Khẩu & Du Lịch – Dược Liệu Sa Pa – Bắc Hà</h4>
-                  <p>
-                    Sự kết hợp giữa hạ tầng Khu kinh tế cửa khẩu 15.929 ha, Khu du lịch quốc gia Sa Pa và vùng dược liệu GACP-WHO đã tạo nên mô hình kinh tế xanh – kinh tế số đặc trưng của Lào Cai giai đoạn 2026 – 2030.
-                  </p>
-                </div>
-
-                <p style={{ fontSize: '0.88rem', color: '#C8DAD0', fontStyle: 'italic', marginBottom: '20px' }}>
-                  * Laocai.today cam kết tính minh bạch: Mọi hồ sơ doanh nghiệp, sản phẩm OCOP và dự án kêu gọi đầu tư đều được chuẩn hóa và cập nhật thường xuyên cùng Trợ lý AI đa ngôn ngữ.
-                </p>
-
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  <Link to={`/posts?category=${encodeURIComponent('Cửa khẩu & Logistics')}`} className="btn-daklak-gold" style={{ padding: '10px 20px', fontSize: '0.88rem' }}>
-                    Xem Chuyên mục Cửa khẩu & Logistics
-                  </Link>
-                  <button onClick={() => scrollToConsult('Hợp tác Đầu tư & Giao thương Lào Cai')} className="btn-daklak-outline" style={{ padding: '10px 20px', fontSize: '0.88rem' }}>
-                    Kết nối Xúc tiến Đầu tư
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* ========================================================
             SECTION 13: LÀO CAI BẰNG NHỮNG CON SỐ BIẾT NÓI (DATA DASHBOARD)
@@ -3441,73 +3163,7 @@ export const Home = () => {
           </div>
         </section>
 
-        {/* ========================================================
-            SECTION 17: ĐỐI TÁC CỦA CHÚNG TÔI (CAROUSEL TRÊN FOOTER)
-            ======================================================== */}
-        <section className="daklak-partners-section" id="doi-tac">
-          <div className="daklak-container">
-            <h2 className="daklak-partners-title scroll-reveal scroll-reveal-down">
-              {currentLang === 'en' ? 'OUR ECOSYSTEM PARTNERS' : 'ĐỐI TÁC ĐỒNG HÀNH CÙNG HỆ SINH THÁI'}
-            </h2>
-            <div className="daklak-partners-underline scroll-reveal scroll-reveal-scale" />
 
-            <div
-              className="daklak-partners-carousel-container scroll-reveal scroll-reveal-up"
-              onMouseEnter={() => setIsPartnerHovered(true)}
-              onMouseLeave={() => setIsPartnerHovered(false)}
-            >
-              <button
-                type="button"
-                className="daklak-partner-arrow-btn"
-                onClick={handlePrevPartner}
-                aria-label="Đối tác trước"
-                title={currentLang === 'en' ? 'Previous partner' : 'Đối tác trước'}
-              >
-                <i className="ti ti-arrow-left" />
-              </button>
-
-              <div className="daklak-partners-viewport">
-                <div
-                  className="daklak-partners-track"
-                  style={{
-                    transform: `translateX(-${partnerIndex * (100 / partnerVisibleCount)}%)`,
-                    transition: withPartnerTransition ? 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)' : 'none'
-                  }}
-                >
-                  {[...PARTNER_COMPANIES, ...PARTNER_COMPANIES, ...PARTNER_COMPANIES].map((pt, pIdx) => (
-                    <div
-                      key={`${pt.id}-${pIdx}`}
-                      className="daklak-partner-item-wrap"
-                      style={{
-                        flex: `0 0 ${100 / partnerVisibleCount}%`,
-                        maxWidth: `${100 / partnerVisibleCount}%`
-                      }}
-                    >
-                      <div className="daklak-partner-item" title={pt.name}>
-                        <img
-                          src={pt.logo}
-                          alt={pt.name}
-                          className="daklak-partner-logo"
-                          onError={(e) => { e.target.style.display = 'none'; }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <button
-                type="button"
-                className="daklak-partner-arrow-btn"
-                onClick={handleNextPartner}
-                aria-label="Đối tác tiếp theo"
-                title={currentLang === 'en' ? 'Next partner' : 'Đối tác tiếp theo'}
-              >
-                <i className="ti ti-arrow-right" />
-              </button>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* QUICK EVENT REGISTRATION MODAL */}
