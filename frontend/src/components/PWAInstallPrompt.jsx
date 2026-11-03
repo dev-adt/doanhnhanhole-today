@@ -224,7 +224,7 @@ export const PWAInstallPrompt = () => {
       {isInstallable && !bannerDismissed && (
         <aside className="dnvn-pwa-banner" aria-label="Cài đặt ứng dụng">
           <div className="dnvn-pwa-icon">
-            <img src="/logo_icon.svg" alt="DakLak.today Logo" onError={(e) => { e.target.src = '/logo_icon.png'; }} />
+            <img src="/logo_icon.svg" alt="Laocai.today Logo" onError={(e) => { e.target.src = '/logo_icon.png'; }} />
           </div>
           <div className="dnvn-pwa-content">
             <div className="dnvn-pwa-title">Cài đặt {brandConfig.brandName}</div>

@@ -169,7 +169,7 @@ export const Register = () => {
           </div>
           
           <div className="register-sidebar-text">
-            <h2>DakLak.today Ecosystem</h2>
+            <h2>Laocai.today Ecosystem</h2>
             <p>{t('register_sidebar_desc')}</p>
           </div>
         </div>
@@ -304,7 +304,7 @@ export const Register = () => {
                           <option value="Bình Thuận" />
                           <option value="Cà Mau" />
                           <option value="Cao Bằng" />
-                          <option value="Đắk Lắk" />
+                          <option value="Lào Cai" />
                           <option value="Đắk Nông" />
                           <option value="Điện Biên" />
                           <option value="Đồng Tháp" />
@@ -462,7 +462,7 @@ export const Register = () => {
                         <option value="">{t('placeholder_referral')}</option>
                         <option value="Mạng xã hội (Facebook, LinkedIn...)">Mạng xã hội (Facebook, LinkedIn...)</option>
                         <option value="Báo chí, truyền thông">Báo chí, truyền thông</option>
-                        <option value="Được hội viên DakLak.today giới thiệu">Được hội viên DakLak.today giới thiệu</option>
+                        <option value="Được hội viên Laocai.today giới thiệu">Được hội viên Laocai.today giới thiệu</option>
                         <option value="Tìm kiếm Google">Tìm kiếm Google</option>
                         <option value="Hội thảo, sự kiện">Hội thảo, sự kiện</option>
                       </select>

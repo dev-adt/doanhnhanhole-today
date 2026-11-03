@@ -86,14 +86,14 @@ export const Login = () => {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', marginBottom: '1.5rem', textAlign: 'center' }}>
             <Link to="/" style={{ textDecoration: 'none', display: 'inline-block' }}>
               <img 
-                src="/logo_daklak_dark.png" 
-                alt="DakLak.today Logo" 
-                onError={(e) => { e.target.src = "/logo_daklak.png"; }} 
-                style={{ height: '62px', width: 'auto', maxWidth: '100%', objectFit: 'contain', borderRadius: '10px', filter: 'drop-shadow(0 4px 16px rgba(213, 163, 63, 0.3))' }} 
+                src="/logo_icon.svg" 
+                alt="Laocai.today Logo" 
+                onError={(e) => { e.target.src = "/logo_icon.png"; }} 
+                style={{ height: '62px', width: '62px', objectFit: 'contain', borderRadius: '14px', filter: 'drop-shadow(0 4px 16px rgba(217, 155, 38, 0.35))' }} 
               />
             </Link>
             <h1 style={{ fontSize: '20px', fontWeight: 700, color: 'var(--text-primary)', margin: '8px 0 0', letterSpacing: '-0.02em' }}>
-              Đăng nhập DakLak.today
+              Đăng nhập Laocai.today
             </h1>
           </div>
 

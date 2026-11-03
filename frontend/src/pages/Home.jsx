@@ -690,31 +690,13 @@ export const Home = () => {
     return SMART_ITINERARIES.find(item => item.id === activeItineraryId) || SMART_ITINERARIES[0];
   }, [activeItineraryId]);
 
-  // Hero Intro Video State, Refs & Poster
-  const [isHeroVideoPlaying, setIsHeroVideoPlaying] = useState(false);
-  const [isHeroVideoEnded, setIsHeroVideoEnded] = useState(false);
+  // Hero Ambient Background Video State & Refs (Lao Cai Exclusive Background Video)
   const [isHeroInView, setIsHeroInView] = useState(true);
   const heroSectionRef = useRef(null);
   const heroBgVideoRef = useRef(null);
-  const heroMainVideoRef = useRef(null);
 
-  const isViLang = !currentLang || currentLang === 'vi';
   const heroVideoPoster = 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1280&q=85';
-  const heroMainVideoSrc = isViLang
-    ? '/videos/intro_daklak_vi.mp4'
-    : '/videos/intro_daklak_en.mp4';
-  const heroBgVideoSrc = isViLang
-    ? '/videos/hero_bg_vi.mp4'
-    : '/videos/hero_bg_en.mp4';
-
-  useEffect(() => {
-    setIsHeroVideoPlaying(false);
-    setIsHeroVideoEnded(false);
-    if (heroMainVideoRef.current) {
-      heroMainVideoRef.current.pause();
-      heroMainVideoRef.current.currentTime = 0;
-    }
-  }, [isViLang]);
+  const heroBgVideoSrc = '/videos/hero_bg_laocai.mp4';
 
   useEffect(() => {
     const sectionEl = heroSectionRef.current;
@@ -734,37 +716,13 @@ export const Home = () => {
     const bgVideo = heroBgVideoRef.current;
     if (!bgVideo) return;
     bgVideo.muted = true;
-    if (isHeroInView && (!isHeroVideoPlaying || isHeroVideoEnded)) {
+    if (isHeroInView) {
       const p = bgVideo.play();
       if (p && typeof p.catch === 'function') p.catch(() => {});
     } else {
       bgVideo.pause();
     }
-  }, [isHeroInView, isHeroVideoPlaying, isHeroVideoEnded, heroBgVideoSrc]);
-
-  const handleStartHeroVideo = () => {
-    setIsHeroVideoEnded(false);
-    setIsHeroVideoPlaying(true);
-    const mainVideo = heroMainVideoRef.current;
-    if (mainVideo) {
-      mainVideo.currentTime = 0;
-      mainVideo.muted = false;
-      const p = mainVideo.play();
-      if (p && typeof p.catch === 'function') p.catch(() => {});
-    }
-  };
-
-  const handleReplayHeroVideo = () => {
-    setIsHeroVideoEnded(false);
-    setIsHeroVideoPlaying(true);
-    const mainVideo = heroMainVideoRef.current;
-    if (mainVideo) {
-      mainVideo.currentTime = 0;
-      mainVideo.muted = false;
-      const p = mainVideo.play();
-      if (p && typeof p.catch === 'function') p.catch(() => {});
-    }
-  };
+  }, [isHeroInView, heroBgVideoSrc]);
 
   // AI Special Topic Slider (Single Card 5s infinite auto-cycle)
   const [aiSlideIndex, setAiSlideIndex] = useState(0);
@@ -1493,113 +1451,172 @@ export const Home = () => {
               </div>
             </div>
 
-            {/* Right Column: Hero Intro Video / Visual Showcase */}
+            {/* Right Column: Translucent Glassmorphic Strategic Pulse Showcase (No Intro Video Player — Lets Background Video Shine) */}
             <div className="gt-hero-visuals scroll-reveal scroll-reveal-right">
-              <div className="gt-hero-video-block">
-                <div className="gt-hero-video-frame">
-                  <video
-                    ref={heroMainVideoRef}
-                    className={`gt-hero-video-player ${isHeroVideoPlaying ? 'is-active' : ''}`}
-                    src={heroMainVideoSrc}
-                    poster={heroVideoPoster}
-                    controls={isHeroVideoPlaying && !isHeroVideoEnded}
-                    playsInline
-                    preload="metadata"
-                    title="Khám phá Lào Cai — Đỉnh thiêng hội tụ, Cửa ngõ giao thương"
-                    onPlay={() => setIsHeroVideoEnded(false)}
-                    onEnded={() => setIsHeroVideoEnded(true)}
-                  />
+              <div style={{
+                width: '100%',
+                maxWidth: '580px',
+                background: 'rgba(9, 27, 20, 0.56)',
+                backdropFilter: 'blur(14px)',
+                WebkitBackdropFilter: 'blur(14px)',
+                borderRadius: '24px',
+                border: '1px solid rgba(217, 155, 38, 0.42)',
+                padding: '24px',
+                boxShadow: '0 24px 52px rgba(4, 15, 11, 0.45)',
+                color: '#FFFFFF'
+              }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '12px',
+                  paddingBottom: '14px',
+                  marginBottom: '16px',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.14)',
+                  flexWrap: 'wrap'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{
+                      width: '10px',
+                      height: '10px',
+                      borderRadius: '50%',
+                      background: '#34D399',
+                      boxShadow: '0 0 10px #34D399',
+                      display: 'inline-block'
+                    }} />
+                    <span style={{ fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.6px', color: '#FFE082', textTransform: 'uppercase' }}>
+                      {currentLang === 'en' ? 'LAO CAI STRATEGIC PULSE • LIVE GATEWAY' : 'TÂM ĐIỂM ĐỊA KINH TẾ & BẢN SẮC LÀO CAI'}
+                    </span>
+                  </div>
+                  <span style={{
+                    background: 'rgba(217, 155, 38, 0.2)',
+                    border: '1px solid rgba(217, 155, 38, 0.45)',
+                    color: '#FFE082',
+                    padding: '4px 10px',
+                    borderRadius: '999px',
+                    fontSize: '0.72rem',
+                    fontWeight: 700
+                  }}>
+                    ASEAN ⇄ KUNMING
+                  </span>
+                </div>
 
-                  {!isHeroVideoPlaying && (
-                    <button
-                      type="button"
-                      className="gt-hero-video-poster-btn"
-                      aria-label="Khám phá Lào Cai"
-                      onClick={handleStartHeroVideo}
-                    >
-                      <img
-                        src={heroVideoPoster}
-                        alt="Đỉnh Fansipan & Ruộng bậc thang Lào Cai"
-                        className="gt-hero-video-poster-img"
-                        loading="eager"
-                        decoding="async"
-                      />
-                      <div style={{
-                        position: 'absolute',
-                        inset: 0,
-                        background: 'linear-gradient(180deg, rgba(9, 27, 20, 0.15) 0%, rgba(9, 27, 20, 0.72) 100%)',
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  gap: '12px',
+                  marginBottom: '16px'
+                }}>
+                  {[
+                    {
+                      icon: 'ti-mountain',
+                      metric: '3.143m',
+                      title: currentLang === 'en' ? 'Fansipan Sacred Peak' : 'Đỉnh Thiêng Fansipan',
+                      sub: currentLang === 'en' ? 'Sa Pa • Y Ty • Bac Ha 4-Season Tourism' : 'Du lịch quốc tế Sa Pa • Y Tý • Bắc Hà',
+                      target: '#kham-pha-dia-danh',
+                      accent: '#FFE082'
+                    },
+                    {
+                      icon: 'ti-truck-delivery',
+                      metric: '4,5+ Tỷ USD',
+                      title: currentLang === 'en' ? 'Kim Thanh Border Gate' : 'Cửa Khẩu Kim Thành',
+                      sub: currentLang === 'en' ? 'Kunming – Lao Cai – Hai Phong Corridor' : 'Hành lang Côn Minh – Lào Cai – Hải Phòng',
+                      target: '#top-khu-cong-nghiep',
+                      accent: '#6EE7B7'
+                    },
+                    {
+                      icon: 'ti-building-factory-2',
+                      metric: '120+ Dự Án',
+                      title: currentLang === 'en' ? 'Industrial & FDI Hubs' : 'Đầu Tư & KCN Tằng Loỏng',
+                      sub: currentLang === 'en' ? 'Deep Processing, Logistics & Clean Energy' : 'Chế biến sâu, Logistics & Năng lượng sạch',
+                      target: '#tin-tuc-tieu-diem',
+                      accent: '#93C5FD'
+                    },
+                    {
+                      icon: 'ti-plant-2',
+                      metric: '260+ OCOP',
+                      title: currentLang === 'en' ? 'Highland Herbs & Agro' : 'Dược Liệu & Nông Sản Quý',
+                      sub: currentLang === 'en' ? 'Shan Tuyet Tea, Angelica, Artichoke, Salmon' : 'Chè Shan Tuyết, Đương quy, Atiso, Cá hồi',
+                      target: '#top-xuat-khau-ca-phe',
+                      accent: '#FCA5A5'
+                    }
+                  ].map((item, idx) => (
+                    <a
+                      key={idx}
+                      href={item.target}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const el = document.querySelector(item.target);
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.07)',
+                        border: '1px solid rgba(255, 255, 255, 0.14)',
+                        borderRadius: '16px',
+                        padding: '14px 16px',
+                        textDecoration: 'none',
+                        color: '#FFFFFF',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        padding: '18px 22px',
-                        textAlign: 'left'
-                      }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-                          <span style={{
-                            background: 'rgba(13, 38, 28, 0.85)',
-                            border: '1px solid rgba(217, 155, 38, 0.6)',
-                            color: '#FFE082',
-                            padding: '5px 12px',
-                            borderRadius: '999px',
-                            fontSize: '0.74rem',
-                            fontWeight: 800,
-                            letterSpacing: '0.4px'
-                          }}>
-                            🏔️ FANSIPAN 3.143M • SA PA • BẮC HÀ • Y TÝ
-                          </span>
-                          <span style={{
-                            width: '44px',
-                            height: '44px',
-                            borderRadius: '50%',
-                            background: 'linear-gradient(135deg, #D99B26 0%, #B87D14 100%)',
-                            color: '#091B14',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            boxShadow: '0 4px 16px rgba(217, 155, 38, 0.5)',
-                            fontSize: '1.2rem'
-                          }}>
-                            <i className="ti ti-player-play-filled" />
-                          </span>
-                        </div>
-
-                        <div>
-                          <div style={{ color: '#FFE082', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.6px' }}>
-                            {currentLang === 'en' ? 'GATEWAY TO NORTHWEST VIETNAM & ASEAN - CHINA' : 'TÂM ĐIỂM TÂY BẮC & HÀNH LANG CÔN MINH – LÀO CAI – HẢI PHÒNG'}
-                          </div>
-                          <div style={{ color: '#FFFFFF', fontSize: '1.15rem', fontWeight: 800, marginTop: '4px', lineHeight: 1.3 }}>
-                            {currentLang === 'en' ? 'Stay Longer • Experience Deeper • Invest Smarter in Lao Cai' : 'Kết nối con người – Kết nối doanh nghiệp – Kết nối Lào Cai với thế giới'}
-                          </div>
-                        </div>
+                        gap: '4px',
+                        transition: 'all 0.25s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = 'rgba(217, 155, 38, 0.16)';
+                        e.currentTarget.style.borderColor = 'rgba(217, 155, 38, 0.55)';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.07)';
+                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.14)';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <span className="notranslate" translate="no" style={{ fontSize: '1.25rem', fontWeight: 900, color: item.accent }}>
+                          {item.metric}
+                        </span>
+                        <i className={`ti ${item.icon}`} style={{ fontSize: '1.25rem', color: item.accent, opacity: 0.9 }} />
                       </div>
-                    </button>
-                  )}
+                      <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#FFFFFF' }}>{item.title}</div>
+                      <div style={{ fontSize: '0.76rem', color: 'rgba(255, 255, 255, 0.78)', lineHeight: 1.35 }}>{item.sub}</div>
+                    </a>
+                  ))}
+                </div>
 
-                  {isHeroVideoPlaying && isHeroVideoEnded && (
-                    <div className="gt-hero-video-ended-overlay">
-                      <p className="gt-hero-video-ended-title">
-                        {isViLang ? 'Khám phá & Kết nối Đầu tư cùng Laocai.today' : 'Explore & Connect with Laocai.today'}
-                      </p>
-                      <div className="gt-hero-video-cta-row">
-                        <Link to="/members" className="gt-hero-video-cta gt-hero-video-cta-primary">
-                          <i className="ti ti-building-community" aria-hidden="true" />
-                          <span>Tìm doanh nghiệp</span>
-                        </Link>
-                        <Link to="/ai-chat" className="gt-hero-video-cta gt-hero-video-cta-ai">
-                          <i className="ti ti-sparkles" aria-hidden="true" />
-                          <span>Hỏi Trợ lý AI</span>
-                        </Link>
-                      </div>
-                      <button
-                        type="button"
-                        className="gt-hero-video-replay-btn"
-                        onClick={handleReplayHeroVideo}
-                      >
-                        <i className="ti ti-rotate-clockwise" aria-hidden="true" />
-                        <span>{isViLang ? 'Xem lại video' : 'Replay video'}</span>
-                      </button>
-                    </div>
-                  )}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '10px',
+                  background: 'rgba(13, 38, 28, 0.72)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderRadius: '12px',
+                  padding: '10px 14px',
+                  flexWrap: 'wrap'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: '#E2ECE7', fontWeight: 600 }}>
+                    <i className="ti ti-robot" style={{ color: '#FFE082', fontSize: '1.1rem' }} />
+                    <span>{currentLang === 'en' ? 'AI Lao Cai Assistant: Multilingual B2B & Travel Support' : 'Trợ lý AI Lào Cai: Tư vấn đầu tư, cửa khẩu & lịch trình 24/7'}</span>
+                  </div>
+                  <Link
+                    to="/ai-chat"
+                    style={{
+                      background: 'linear-gradient(135deg, #D99B26 0%, #B87D14 100%)',
+                      color: '#091B14',
+                      fontSize: '0.76rem',
+                      fontWeight: 800,
+                      padding: '6px 12px',
+                      borderRadius: '999px',
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '4px'
+                    }}
+                  >
+                    <span>{currentLang === 'en' ? 'Ask AI Now' : 'Hỏi AI ngay'}</span>
+                    <i className="ti ti-arrow-up-right" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -3332,7 +3349,7 @@ export const Home = () => {
                         id="consult-email"
                         type="email"
                         className="daklak-form-input"
-                        placeholder="Ví dụ: contact@doanhnghiep.vn"
+                        placeholder="Ví dụ: contact@laocai.today"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       />

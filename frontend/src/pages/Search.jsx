@@ -101,7 +101,7 @@ export const Search = () => {
             <i className="ti ti-search" style={{ color: 'var(--primary)' }}></i> Tìm kiếm thông tin
           </h1>
           <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginTop: '4px', marginBlockEnd: 0 }}>
-            Tìm kiếm tin giao thương, doanh nghiệp đối tác và các sự kiện trong hệ sinh thái DakLak.today.
+            Tìm kiếm tin giao thương, doanh nghiệp đối tác và các sự kiện trong hệ sinh thái Laocai.today.
           </p>
         </div>
 
@@ -319,7 +319,7 @@ export const Search = () => {
                             {ev.title}
                           </h3>
                           <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px' }}>
-                            Tổ chức: <strong>{ev.organizer || 'DakLak.today'}</strong>
+                            Tổ chức: <strong>{ev.organizer || 'Laocai.today'}</strong>
                           </div>
                           <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '4px' }}>
                             <i className="ti ti-map-pin"></i> {ev.location}

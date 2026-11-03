@@ -446,7 +446,7 @@ export const MemberDashboard = () => {
   if (modalOpen) {
     return (
       <div className="public-body">
-        <SEOHead title="Đăng Tin Giao Thương Mới | DakLak.today" description="Soạn thảo và đăng tin bài giao thương hội viên DakLak.today" />
+        <SEOHead title="Đăng Tin Giao Thương Mới | Laocai.today" description="Soạn thảo và đăng tin bài giao thương hội viên Laocai.today" />
         <Navbar />
         <div style={{ minHeight: '80vh', padding: '2rem 1.5rem 4rem', backgroundColor: '#F8FAFC' }}>
           <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
@@ -466,7 +466,7 @@ export const MemberDashboard = () => {
                   <span>{editingPostId ? t('modal_edit_post_title') : 'Đăng Tin Cơ Hội Giao Thương Mới'}</span>
                 </h1>
                 <p style={{ color: '#64748B', fontSize: '13.5px', margin: '4px 0 0' }}>
-                  Soạn thảo thông tin hợp tác, tìm kiếm đối tác và giới thiệu sản phẩm nông sản Đắk Lắk trên không gian rộng rãi, trực quan.
+                  Soạn thảo thông tin hợp tác, tìm kiếm đối tác và giới thiệu sản phẩm nông sản Lào Cai trên không gian rộng rãi, trực quan.
                 </p>
               </div>
 
@@ -573,7 +573,7 @@ export const MemberDashboard = () => {
 
                   <div className="fg">
                     <label style={{ fontSize: '13.5px', fontWeight: 700, color: '#1E293B', marginBottom: '6px', display: 'block' }}>Từ khoá (phân tách bằng dấu phẩy)</label>
-                    <input type="text" id="tags" value={newPostData.tags} onChange={handleNewPostChange} placeholder="Ví dụ: cà phê xuất khẩu, hạt tiêu Đắk Lắk, logistics" style={{ fontSize: '14px', padding: '11px 14px', borderRadius: '8px' }} />
+                    <input type="text" id="tags" value={newPostData.tags} onChange={handleNewPostChange} placeholder="Ví dụ: dược liệu vùng cao, chè Shan Tuyết Lào Cai, logistics cửa khẩu" style={{ fontSize: '14px', padding: '11px 14px', borderRadius: '8px' }} />
                   </div>
                 </div>
 
@@ -667,7 +667,7 @@ export const MemberDashboard = () => {
                         onError={(e) => {
                           if (!imagePreview) {
                             e.target.onerror = null;
-                            e.target.src = '/images/daklak/daklak_doi_ca_phe.jpg';
+                            e.target.src = 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80';
                           }
                         }}
                         style={{ height: '80px', width: '130px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #CBD5E1' }} 
@@ -737,7 +737,7 @@ export const MemberDashboard = () => {
 
   return (
     <div className="public-body">
-      <SEOHead title="Dashboard Hội viên | DakLak.today" description="Trang quản trị tài khoản dành cho Hội viên DakLak.today" />
+      <SEOHead title="Dashboard Hội viên | Laocai.today" description="Trang quản trị tài khoản dành cho Hội viên Laocai.today" />
       <Navbar />
       <div className="dashboard-wrap">
         
@@ -885,7 +885,7 @@ export const MemberDashboard = () => {
                       <option value="Cần Thơ" />
                       <option value="Cao Bằng" />
                       <option value="Đà Nẵng" />
-                      <option value="Đắk Lắk" />
+                      <option value="Lào Cai" />
                       <option value="Đắk Nông" />
                       <option value="Điện Biên" />
                       <option value="Đồng Nai" />

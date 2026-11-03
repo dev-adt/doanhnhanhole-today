@@ -265,7 +265,7 @@ export const CreatorDashboard = () => {
 
   return (
     <div className="public-body">
-      <SEOHead title="Dashboard Biên tập viên | DakLak.today" description="Trang quản trị bài viết dành riêng cho Biên tập viên DakLak.today" />
+      <SEOHead title="Dashboard Biên tập viên | Laocai.today" description="Trang quản trị bài viết dành riêng cho Biên tập viên Laocai.today" />
       <Navbar />
 
       {modalOpen ? (
@@ -287,7 +287,7 @@ export const CreatorDashboard = () => {
                   <span>{editingPostId ? 'Chỉnh sửa bài viết' : 'Soạn Thảo Bài Viết Mới'}</span>
                 </h1>
                 <p style={{ color: '#64748B', fontSize: '13.5px', margin: '4px 0 0' }}>
-                  Không gian biên tập tin bài, nội dung chuyên sâu, văn hóa và kinh tế Đắk Lắk trên giao diện trực quan, rộng rãi.
+                  Không gian biên tập tin bài, nội dung chuyên sâu, văn hóa và kinh tế Lào Cai trên giao diện trực quan, rộng rãi.
                 </p>
               </div>
 
@@ -393,7 +393,7 @@ export const CreatorDashboard = () => {
 
                   <div className="fg">
                     <label style={{ fontSize: '13.5px', fontWeight: 700, color: '#1E293B', marginBottom: '6px', display: 'block' }}>Từ khoá SEO (phân tách bằng dấu phẩy)</label>
-                    <input type="text" id="tags" value={newPostData.tags} onChange={handleNewPostChange} placeholder="Ví dụ: cà phê Đắk Lắk, xuất khẩu Robusta, logistics BMT" style={{ fontSize: '14px', padding: '11px 14px', borderRadius: '8px' }} />
+                    <input type="text" id="tags" value={newPostData.tags} onChange={handleNewPostChange} placeholder="Ví dụ: kinh tế cửa khẩu, du lịch Sa Pa, dược liệu Lào Cai" style={{ fontSize: '14px', padding: '11px 14px', borderRadius: '8px' }} />
                   </div>
                 </div>
 
@@ -510,7 +510,7 @@ export const CreatorDashboard = () => {
               </span>
             </div>
             <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', margin: 0 }}>
-              Quản trị & xuất bản tin tức, bài viết truyền thông DakLak.today.
+              Quản trị & xuất bản tin tức, bài viết truyền thông Laocai.today.
             </p>
           </div>
 

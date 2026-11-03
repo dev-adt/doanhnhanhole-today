@@ -105,14 +105,14 @@ export const Posts = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const demoImages = [
-    '/images/daklak/daklak_doi_ca_phe.jpg',
-    '/images/daklak/daklak_dau_tu_logistics.jpg',
-    '/images/daklak/daklak_cong_chieng.jpg',
-    '/images/daklak/daklak_thac_dray_nur.jpg',
-    '/images/daklak/daklak_ca_phe.jpg',
-    '/images/daklak/daklak_le_hoi_nha_rong.jpg',
-    '/images/daklak/daklak_nha_rong_ede.jpg',
-    '/images/daklak/daklak_bien_ganh_da_dia.jpg'
+    'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80'
   ];
 
   const isGenericOrPlaceholder = (url) => {
@@ -225,7 +225,7 @@ export const Posts = () => {
       <SEOHead 
         title={currentLang === 'en' ? 'Business Opportunities & News' : 'Bảng tin cơ hội & Quảng bá Doanh nghiệp'}
         description="Khám phá các tin đăng tìm kiếm đối tác, nhu cầu hợp tác thương mại, sự kiện kết nối đầu tư và thông tin doanh nghiệp trên toàn quốc."
-        keywords="bảng tin doanh nghiệp, cơ hội kinh doanh, Việt Nam, Miền Trung, Tây Nguyên, hợp tác thương mại, quảng bá doanh nghiệp"
+        keywords="bảng tin doanh nghiệp, cơ hội đầu tư Lào Cai, kinh tế cửa khẩu Kim Thành, du lịch Sa Pa, dược liệu vùng cao, Tây Bắc, hợp tác thương mại"
         url="/posts"
       />
 

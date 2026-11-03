@@ -19,7 +19,7 @@ const SEOHead = ({
 }) => {
   useEffect(() => {
     const defaultSiteName = `${brandConfig.brandName} — ${brandConfig.slogan}`;
-    const siteUrl = brandConfig.baseUrl || 'https://daklak.today';
+    const siteUrl = brandConfig.baseUrl || 'https://laocai.today';
 
     // 1. Set Document Title
     const fullTitle = title ? (title.includes(brandConfig.brandName) ? title : `${title} | ${brandConfig.brandName}`) : defaultSiteName;
@@ -50,7 +50,7 @@ const SEOHead = ({
 
     // 2. Standard Meta Tags
     const pageDesc = description || brandConfig.description;
-    const pageKeywords = keywords || `${brandConfig.brandName}, ${brandConfig.brandShortName}, Đắk Lắk, Buôn Ma Thuột, cà phê Đắk Lắk, doanh nghiệp Đắk Lắk, đầu tư Đắk Lắk, du lịch Tây Nguyên, AI Matching`;
+    const pageKeywords = keywords || `${brandConfig.brandName}, ${brandConfig.brandShortName}, Lào Cai, Sa Pa, Fansipan, cửa khẩu Kim Thành, doanh nghiệp Lào Cai, đầu tư Lào Cai, du lịch Tây Bắc, dược liệu vùng cao, AI Matching`;
     const canonicalUrl = url ? (url.startsWith('http') ? url : `${siteUrl}${url}`) : window.location.href;
     const ogImage = (image && typeof image === 'string' && image.trim() && image !== 'null' && image !== 'undefined')
       ? (image.trim().startsWith('http') ? image.trim() : `${siteUrl}${image.trim().startsWith('/') ? '' : '/'}${image.trim()}`)

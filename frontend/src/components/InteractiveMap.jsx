@@ -77,7 +77,7 @@ const LOCATION_DATA = [
     lng: 108.4583,
     address: 'Thành phố Đà Lạt, Tỉnh Lâm Đồng',
     desc: 'Thành phố ngàn hoa và sương mờ với khí hậu mát mẻ quanh năm, hồ Xuân Hương thơ mộng, rừng thông bạt ngàn và đồn điền cà phê.',
-    tags: ['Du lịch sinh thái', 'Ngàn hoa', 'Hồ Xuân Hương', 'Tây Nguyên'],
+    tags: ['Du lịch sinh thái', 'Ngàn hoa', 'Hồ Xuân Hương', 'Tây Bắc'],
     rating: 4.8,
     phone: '0263.3822.342',
     image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'
@@ -162,13 +162,13 @@ const LOCATION_DATA = [
   },
   {
     id: 'loc_13',
-    name: 'Cà phê Arabica Cầu Đất Đà Lạt (OCOP)',
+    name: 'Chè Shan Tuyết cổ thụ Cầu Đất Đà Lạt (OCOP)',
     category: 'ocop',
     lat: 11.9050,
     lng: 108.5250,
     address: 'Cầu Đất, Thành phố Đà Lạt, Tỉnh Lâm Đồng',
-    desc: 'Sản phẩm OCOP tiêu biểu của Tây Nguyên, hạt cà phê Arabica thượng hạng trồng tại độ cao trên 1.500m với hương thơm quyến rũ.',
-    tags: ['Cà phê Arabica', 'Cầu Đất', 'OCOP Tây Nguyên', 'Đặc sản'],
+    desc: 'Sản phẩm OCOP tiêu biểu của Tây Bắc, trà Shan Tuyết cổ thụ thượng hạng trồng tại độ cao trên 1.500m với hương thơm quyến rũ.',
+    tags: ['Chè Shan Tuyết cổ thụ', 'Cầu Đất', 'OCOP Tây Bắc', 'Đặc sản'],
     rating: 4.9,
     phone: '0263.3855.777',
     image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'
