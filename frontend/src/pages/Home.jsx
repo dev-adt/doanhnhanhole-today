@@ -388,242 +388,6 @@ const TRADE_CORRIDOR_NODES = [
   }
 ];
 
-// 8 Điểm đến & Động lực Kinh tế Tiêu biểu Lào Cai (Chương 13 & 21)
-const TOP_DESTINATIONS = [
-  {
-    id: 1,
-    title: 'Đỉnh Thiêng Fansipan & Thung Lũng Mường Hoa',
-    titleEn: 'Fansipan Summit & Muong Hoa Valley',
-    location: 'Khu Du lịch Quốc gia Sa Pa (3.143m)',
-    locationEn: 'Sa Pa National Tourist Area (3,143m)',
-    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=85',
-    category: 'tourism',
-    link: `/posts?category=${encodeURIComponent('Khám phá Lào Cai')}`
-  },
-  {
-    id: 2,
-    title: 'Khu Kinh Tế Cửa Khẩu Quốc Tế Lào Cai – Kim Thành',
-    titleEn: 'Lao Cai – Kim Thanh International Border Economic Zone',
-    location: 'TP. Lào Cai & Hành lang Kinh tế ASEAN – TQ',
-    locationEn: 'Lao Cai City & ASEAN – China Corridor',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=85',
-    category: 'investment',
-    link: `/posts?category=${encodeURIComponent('Cửa khẩu & Logistics')}`
-  },
-  {
-    id: 3,
-    title: 'Cao Nguyên Trắng Bắc Hà & Dinh Hoàng A Tưởng',
-    titleEn: 'Bac Ha White Plateau & Hoang A Tuong Palace',
-    location: 'Huyện Bắc Hà — Di sản Chợ phiên & Đua ngựa',
-    locationEn: 'Bac Ha District — Market & Horse Racing Heritage',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=85',
-    category: 'tourism',
-    link: `/posts?category=${encodeURIComponent('Du lịch & Trải nghiệm')}`
-  },
-  {
-    id: 4,
-    title: 'Dược Liệu Quý Vùng Cao & Chè Cổ Thụ Shan Tuyết',
-    titleEn: 'Precious Highland Herbs & Ancient Shan Tuyet Tea',
-    location: 'Sa Pa, Bắc Hà, Mường Khương & Bát Xát',
-    locationEn: 'Sa Pa, Bac Ha, Muong Khuong & Bat Xat',
-    image: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=900&q=85',
-    category: 'coffee',
-    link: `/posts?category=${encodeURIComponent('Nông sản & Dược liệu')}`
-  },
-  {
-    id: 5,
-    title: 'Đại Ngàn Y Tý & Thiên Đường Săn Mây Biên Giới',
-    titleEn: 'Y Ty Primeval Forest & Cloud Hunting Paradise',
-    location: 'Huyện Bát Xát — Bản sắc Hà Nhì & Cột mốc Lũng Pô',
-    locationEn: 'Bat Xat District — Ha Nhi Culture & Lung Po',
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85',
-    category: 'tourism',
-    link: `/posts?category=${encodeURIComponent('Khám phá Lào Cai')}`
-  },
-  {
-    id: 6,
-    title: 'KCN Tằng Loỏng, Đông Phố Mới & Võ Lao',
-    titleEn: 'Tang Loong, Dong Pho Moi & Vo Lao Industrial Parks',
-    location: 'Bảo Thắng, TP. Lào Cai & Văn Bàn',
-    locationEn: 'Bao Thang, Lao Cai City & Van Ban',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=85',
-    category: 'investment',
-    link: `/posts?category=${encodeURIComponent('Dự án & Đầu tư')}`
-  },
-  {
-    id: 7,
-    title: 'Nông Nghiệp Công Nghệ Cao & Cá Hồi Nước Lạnh',
-    titleEn: 'High-Tech Agriculture & Cold-Water Salmon',
-    location: 'Thác Bạc Sa Pa, Ngũ Chỉ Sơn & Bảo Yên',
-    locationEn: 'Sa Pa Silver Waterfall, Ngu Chi Son & Bao Yen',
-    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=85',
-    category: 'agritech',
-    link: `/posts?category=${encodeURIComponent('Nông sản & Dược liệu')}`
-  },
-  {
-    id: 8,
-    title: 'Đèo Ô Quy Hồ & Không Gian Kinh Tế Đêm Tây Bắc',
-    titleEn: 'O Quy Ho Pass & Northwest Night Economy',
-    location: 'Hoàng Liên Sơn, Thị xã Sa Pa & TP. Lào Cai',
-    locationEn: 'Hoang Lien Son, Sa Pa Town & Lao Cai City',
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=85',
-    category: 'tourism',
-    link: `/posts?category=${encodeURIComponent('Du lịch & Trải nghiệm')}`
-  }
-];
-
-// Cẩm nang 4 Mùa Vùng Cao Lào Cai (Sa Pa – Y Tý – Bắc Hà – Bát Xát)
-const LAOCAI_SEASONS = [
-  {
-    id: 'spring',
-    title: 'Mùa Xuân • Sắc Hoa Vùng Cao & Lễ Hội Đại Ngàn',
-    titleEn: 'Spring • Highland Blossoms & Heritage Festivals',
-    period: 'Tháng 2 – Tháng 4',
-    periodEn: 'February – April',
-    temp: '12°C – 20°C',
-    weather: 'Tiết trời se lạnh, sương sớm trong lành, muôn hoa đua nở',
-    weatherEn: 'Crisp mountain breeze, misty dawns, blooming valleys',
-    badge: '🌸 MÙA LỄ HỘI & HOA RỪNG',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85',
-    desc: 'Lào Cai bước vào mùa xuân với sắc trắng tinh khôi của hoa lê, mận Tam Hoa Bắc Hà phủ trắng triền đồi, hoa đỗ quyên bung nở rực rỡ trên vách đá Fansipan 3.143m cùng hàng loạt lễ hội truyền thống như Lễ hội Đền Thượng, Roóng Poọc của người Giáy.',
-    descEn: 'Spring blankets Lao Cai in pristine white Tam Hoa plum and pear blossoms across Bac Ha hills, while ancient rhododendrons bloom atop Fansipan peak alongside sacred highland festivals.',
-    mustTry: 'Hoa đỗ quyên Hoàng Liên Sơn • Lễ hội Đền Thượng • Chợ phiên Bắc Hà • Rượu ngô Bản Phố',
-    mustTryEn: 'Hoang Lien Azaleas • Upper Temple Festival • Bac Ha Sunday Market • Ban Pho Corn Wine',
-    outfit: 'Áo khoác ấm nhẹ, khăn choàng thổ cẩm, giày leo núi trekking',
-    outfitEn: 'Light down jacket, brocade scarf, sturdy hiking boots'
-  },
-  {
-    id: 'water',
-    title: 'Mùa Nước Đổ • Bích Họa Ruộng Bậc Thang',
-    titleEn: 'Water Season • Cascading Terraced Mirrors',
-    period: 'Tháng 5 – Tháng 6',
-    periodEn: 'May – June',
-    temp: '18°C – 26°C',
-    weather: 'Mát mẻ, nắng nhẹ, những cơn mưa nguồn tưới mát ruộng đồng',
-    weatherEn: 'Pleasantly cool, mild sunshine, refreshing summer rains',
-    badge: '💧 KỲ QUAN BẬC THANG',
-    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=85',
-    desc: 'Những cơn mưa đầu mùa đổ nước từ đỉnh núi tràn qua từng thửa ruộng bậc thang Mường Hoa, Y Tý, Sàng Ma Sáo. Hàng vạn ô ruộng uốn lượn như những tấm gương khổng lồ phản chiếu mây trời Tây Bắc, tạo nên tuyệt tác thiên nhiên hiếm có trên thế giới.',
-    descEn: 'Summer showers funnel water into endless terraced cascades across Muong Hoa and Y Ty valleys. Countless carved terraces mirror the clouds, forming one of the world’s most magnificent agricultural wonders.',
-    mustTry: 'Chụp ảnh bình minh ruộng Mường Hoa • Cột cờ Lũng Pô nơi sông Hồng chảy vào đất Việt • Bản Tả Phìn',
-    mustTryEn: 'Sunrise photography at Muong Hoa • Lung Po Flagpole (Red River Origin) • Ta Phin Village',
-    outfit: 'Trang phục thoáng mát, máy ảnh góc rộng, áo khoác gió mỏng',
-    outfitEn: 'Breathable activewear, wide-angle lens, lightweight windbreaker'
-  },
-  {
-    id: 'harvest',
-    title: 'Mùa Vàng Lúa Chín • Mùa Vàng Kỳ Vĩ Vùng Cao',
-    titleEn: 'Golden Harvest • The Iconic Yellow Cascades',
-    period: 'Tháng 8 – Tháng 10',
-    periodEn: 'August – October',
-    temp: '16°C – 24°C',
-    weather: 'Nắng vàng mật ong, trời xanh ngắt, hương cốm thơm ngát',
-    weatherEn: 'Honey-golden sunlight, deep azure skies, aroma of ripe rice',
-    badge: '🌾 MÙA VÀNG TÂY BẮC',
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85',
-    desc: 'Thời khắc đẹp nhất trong năm khi toàn bộ thung lũng Mường Hoa, Tả Van, Nậm Cang và Y Tý chuyển sang sắc vàng rực rỡ. Không khí rộn rã mùa gặt lúa mới của đồng bào H’Mông, Dao đỏ hòa cùng giải chạy vượt núi quốc tế Vietnam Mountain Marathon (VMM).',
-    descEn: 'The most breathtaking season when entire valleys turn into golden sea of ripe terrace rice. The celebratory harvest spirit blends seamlessly with the world-renowned Vietnam Mountain Marathon (VMM).',
-    mustTry: 'Trekking thung lũng Nậm Cang • Trải nghiệm gặt lúa cùng người Dao • Giải chạy VMM Sa Pa • Cốm Bắc Hà',
-    mustTryEn: 'Nam Cang Valley Trekking • Traditional rice harvest • Vietnam Mountain Marathon • Fresh Bac Ha green rice',
-    outfit: 'Trang phục trekking năng động, giày chống trơn trượt, nón rộng vành',
-    outfitEn: 'Trail-running shoes, active sportswear, sunglasses & sun hat'
-  },
-  {
-    id: 'winter',
-    title: 'Mùa Băng Tuyết & Săn Mây • Đỉnh Thiêng Chạm Mây',
-    titleEn: 'Winter & Snow • Sacred Summit in the Clouds',
-    period: 'Tháng 11 – Tháng 1',
-    periodEn: 'November – January',
-    temp: '2°C – 12°C',
-    weather: 'Lạnh giá vùng cao, biển mây cuồn cuộn, cơ hội ngắm băng tuyết',
-    weatherEn: 'Cold mountain frost, sea of rolling clouds, occasional snowfall atop Fansipan',
-    badge: '❄️ BĂNG TUYẾT & SĂN MÂY',
-    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=85',
-    desc: 'Đỉnh thiêng Fansipan 3.143m chìm trong sương mây huyền ảo và có những đợt tuyết rơi trắng xóa như trời Âu. Du khách thả hồn vào biển mây Y Tý bồng bềnh, thưởng thức lẩu cá hồi nóng hổi và sưởi ấm cơ thể bằng bài thuốc tắm lá cổ truyền của người Dao đỏ.',
-    descEn: 'Fansipan 3,143m peak often sees surreal snowfall and frost, creating a European-like winter wonderland. Savor steaming salmon hotpot and rejuvenate with traditional Red Dao herbal baths.',
-    mustTry: 'Chạm tay vào chóp Fansipan 3.143m • Săn biển mây Ngải Thầu – Y Tý • Tắm lá thuốc Dao đỏ • Lẩu cá tầm nước lạnh',
-    mustTryEn: 'Touch the 3,143m Fansipan Marker • Cloud-hunting at Ngai Thau • Red Dao herbal bath • Fresh sturgeon hotpot',
-    outfit: 'Áo phao đại hàn lông vũ, găng tay, mũ len giữ ấm, giày đi tuyết',
-    outfitEn: 'Thermal down jacket, fleece gloves, wool beanie, insulated boots'
-  }
-];
-
-// Kho báu Dược liệu quý & Đặc sản Ôn đới Lào Cai
-const LAOCAI_HERBAL_TREASURES = [
-  {
-    id: 1,
-    name: 'Atiso Sa Pa (Chuẩn GACP-WHO Quốc Tế)',
-    nameEn: 'Sa Pa Artichoke (GACP-WHO Standard)',
-    origin: 'Vùng trồng 1.500m+ tại Thị xã Sa Pa',
-    originEn: 'Cultivated at 1,500m+ in Sa Pa Town',
-    cert: 'GACP-WHO • OCOP 5 Sao',
-    image: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=600&q=85',
-    desc: 'Cây Atiso Sa Pa đạt hàm lượng cynarin cao vượt trội nhờ khí hậu mát lạnh quanh năm. Được tinh chế thành cao mềm, trà túi lọc và dược phẩm bảo vệ gan, thanh nhiệt đạt chuẩn Tổ chức Y tế Thế giới.',
-    descEn: 'Sa Pa Artichoke contains exceptionally high cynarin levels due to alpine climate, processed into medicinal extracts and premium detox teas certified by WHO.',
-    category: 'herbs'
-  },
-  {
-    id: 2,
-    name: 'Chè Shan Tuyết Cổ Thụ Hữu Cơ Bản Liền',
-    nameEn: 'Ancient Organic Shan Tuyet Tea',
-    origin: 'Rừng chè cổ thụ 300+ năm tuổi Huyện Bắc Hà',
-    originEn: '300+ Year-Old Ancient Tea Forest, Bac Ha',
-    cert: 'Organic EU / USDA • OCOP 5 Sao',
-    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=85',
-    desc: 'Những búp chè ngậm sương muối trên đỉnh núi cao trên 1.200m được đồng bào Tày hái thủ công. Trà có vị chát dịu, hậu ngọt sâu và hương thơm thảo mộc tinh khiết, xuất khẩu sang châu Âu và Bắc Mỹ.',
-    descEn: 'Hand-picked mist-kissed tea buds from 300-year-old trees atop 1,200m peaks, certified Organic by EU and USDA, celebrated for velvety sweetness and pure herbal aroma.',
-    category: 'tea'
-  },
-  {
-    id: 3,
-    name: 'Đương Quy & Tam Thất Bắc Si Ma Cai – Mường Khương',
-    nameEn: 'Angelica & Panax Ginseng of Si Ma Cai',
-    origin: 'Vùng dược liệu thổ nhưỡng đá vôi vùng cao',
-    originEn: 'Highland Karst Limestone Herbal Plateaus',
-    cert: 'Dược liệu Quốc gia • VietGAP',
-    image: 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=600&q=85',
-    desc: 'Củ đương quy và tam thất bắc Lào Cai có hàm lượng hoạt chất bồi bổ khí huyết, tăng cường sinh lực cao hàng đầu Đông Nam Á, là thành phần chủ lực trong ngành y học cổ truyền và dược phẩm cao cấp.',
-    descEn: 'Lao Cai Angelica and Panax Notoginseng yield peak bio-active compounds for blood circulation and vitality, serving as core ingredients for high-end phytomedicine.',
-    category: 'herbs'
-  },
-  {
-    id: 4,
-    name: 'Cá Hồi & Cá Tầm Nước Lạnh Thác Bạc Sa Pa',
-    nameEn: 'Cold-Water Salmon & Sturgeon of Silver Falls',
-    origin: 'Độ cao 1.800m dưới chân đèo Ô Quy Hồ',
-    originEn: '1,800m Elevation at O Quy Ho Pass Base',
-    cert: 'VietGAP • Nông sản Chủ lực Miền Bắc',
-    image: 'https://images.unsplash.com/photo-1544943910-4c1dc44a0344?auto=format&fit=crop&w=600&q=85',
-    desc: 'Nguồn nước lạnh tinh khiết tan từ đỉnh Fansipan ở nhiệt độ dưới 15°C tạo môi trường lý tưởng nuôi cá hồi vân và cá tầm lấy trứng đen cao cấp, khẳng định vị thế thủ phủ thủy sản nước lạnh số 1 Việt Nam.',
-    descEn: 'Glacial-cold mountain water flowing from Fansipan under 15°C provides ideal habitat for rainbow trout and black caviar sturgeon, leading Vietnam’s cold-water aquaculture.',
-    category: 'cold-water'
-  },
-  {
-    id: 5,
-    name: 'Quế Hữu Cơ & Tinh Dầu Quế Đại Ngàn Bảo Yên',
-    nameEn: 'Organic Cinnamon & Essential Oils of Bao Yen',
-    origin: 'Vùng nguyên liệu 50.000+ ha Huyện Bảo Yên & Văn Bàn',
-    originEn: '50,000+ Ha Organic Cinnamon Forest, Bao Yen',
-    cert: 'Organic Quốc Tế • Chuỗi Giá Trị Xanh',
-    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=85',
-    desc: 'Lào Cai là vùng sản xuất quế lớn nhất Việt Nam. Vỏ quế dày cay nồng và tinh dầu chưng cất tự nhiên là nguồn hương liệu, dược liệu quý xuất khẩu đến hơn 30 quốc gia trên thế giới.',
-    descEn: 'Lao Cai is Vietnam’s premier organic cinnamon hub. High-cinnamaldehyde bark and steam-distilled essential oils are exported to over 30 countries worldwide.',
-    category: 'specialty'
-  },
-  {
-    id: 6,
-    name: 'Gạo Séng Cù Mường Vi & Mận Tam Hoa Bắc Hà',
-    nameEn: 'Seng Cu Aromatic Rice & Tam Hoa Plum',
-    origin: 'Thung lũng Mường Vi (Bát Xát) & Cao nguyên Bắc Hà',
-    originEn: 'Muong Vi Valley (Bat Xat) & Bac Ha Plateau',
-    cert: 'Chỉ Dẫn Địa Lý • OCOP 4-5 Sao',
-    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=85',
-    desc: 'Hạt gạo Séng Cù dẻo thơm trứ danh được tưới bởi mạch ngầm núi đá vôi, kết hợp cùng trái mận Tam Hoa giòn ngọt mọng nước đã làm nên thương hiệu nông sản bản địa vang danh cả nước.',
-    descEn: 'Celebrated Seng Cu rice irrigated by karst spring water paired with succulent Tam Hoa plums define the distinctive agro-culinary identity of Northwest Vietnam.',
-    category: 'specialty'
-  }
-];
-
 // Bộ ảnh dự phòng chất lượng cao mang đậm cảnh sắc Lào Cai (Fansipan, ruộng bậc thang, cửa khẩu, dược liệu)
 const FALLBACK_POST_IMAGES = [
   'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=85',
@@ -727,12 +491,6 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, [isAiSlideHovered]);
 
-  // Top Destinations Tab Filter
-  const [activeDestTab, setActiveDestTab] = useState('all');
-  const filteredDestinations = activeDestTab === 'all'
-    ? TOP_DESTINATIONS.slice(0, 8)
-    : TOP_DESTINATIONS.filter(d => d.category === activeDestTab).concat(TOP_DESTINATIONS.filter(d => d.category !== activeDestTab)).slice(0, 4);
-
   // FAQ Accordion State
   const [activeFaq, setActiveFaq] = useState(0);
 
@@ -741,12 +499,6 @@ export const Home = () => {
 
   // State Hành lang Kinh tế Côn Minh – Lào Cai – Hải Phòng
   const [activeCorridorNode, setActiveCorridorNode] = useState(1); // Mặc định: Kim Thành & Ga quốc tế
-
-  // State Cẩm nang 4 Mùa Lào Cai
-  const [activeSeasonId, setActiveSeasonId] = useState('spring');
-
-  // State Bộ lọc Kho báu Dược liệu & Đặc sản
-  const [activeHerbalCat, setActiveHerbalCat] = useState('all');
 
   // Form Tư vấn & Hợp tác đầu tư (POST /api/leads)
   const [formData, setFormData] = useState({
@@ -1648,88 +1400,6 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            SECTION 2: TRỤ CỘT ĐẦU TƯ, CỬA KHẨU & ĐIỂM ĐẾN TIÊU BIỂU LÀO CAI
-            ======================================================== */}
-        <section className="gt-dest-section" id="top-destinations">
-          <div className="gt-dest-container">
-            <div className="gt-dest-header scroll-reveal scroll-reveal-down">
-              <div className="gt-dest-header-left">
-                <span className="daklak-section-badge" style={{ width: 'fit-content' }}>
-                  <i className="ti ti-compass" style={{ marginRight: '6px' }} />
-                  {currentLang === 'en' ? '5 Experience & Economic Clusters' : '5 Cụm Trải Nghiệm & Động Lực Tăng Trưởng'}
-                </span>
-                <h2 className="gt-section-title">
-                  {currentLang === 'en' ? 'Lao Cai Strategic Hubs & Iconic Destinations' : 'Tâm Điểm Giao Thương, Đầu Tư & Danh Thắng Lào Cai'}
-                </h2>
-                <div className="gt-dest-tabs">
-                  <button 
-                    className={`gt-filter-pill ${activeDestTab === 'all' ? 'active' : ''}`}
-                    onClick={() => setActiveDestTab('all')}
-                  >
-                    {currentLang === 'en' ? 'All 8 Highlights' : 'Tất cả 8 tâm điểm'}
-                  </button>
-                  <button 
-                    className={`gt-filter-pill ${activeDestTab === 'tourism' ? 'active' : ''}`}
-                    onClick={() => setActiveDestTab('tourism')}
-                  >
-                    {currentLang === 'en' ? 'Fansipan, Sa Pa, Bac Ha & Y Ty' : 'Fansipan • Sa Pa • Bắc Hà • Y Tý'}
-                  </button>
-                  <button 
-                    className={`gt-filter-pill ${activeDestTab === 'investment' ? 'active' : ''}`}
-                    onClick={() => setActiveDestTab('investment')}
-                  >
-                    {currentLang === 'en' ? 'Border Gate & Industrial Parks' : 'Kinh tế Cửa khẩu & KCN'}
-                  </button>
-                  <button 
-                    className={`gt-filter-pill ${activeDestTab === 'coffee' ? 'active' : ''}`}
-                    onClick={() => setActiveDestTab('coffee')}
-                  >
-                    {currentLang === 'en' ? 'Medicinal Herbs & Shan Tea' : 'Dược liệu & Chè Shan Tuyết'}
-                  </button>
-                  <button 
-                    className={`gt-filter-pill ${activeDestTab === 'agritech' ? 'active' : ''}`}
-                    onClick={() => setActiveDestTab('agritech')}
-                  >
-                    {currentLang === 'en' ? 'High-Tech Agri & Cold-Water Fish' : 'Nông nghiệp CNC & Cá nước lạnh'}
-                  </button>
-                </div>
-              </div>
-              <Link to={`/posts?category=${encodeURIComponent('Khám phá Lào Cai')}`} className="gt-dest-view-all">
-                <span>{currentLang === 'en' ? 'Explore all Lao Cai hubs' : 'Khám phá toàn cảnh Lào Cai'}</span>
-                <i className="ti ti-arrow-right" />
-              </Link>
-            </div>
-
-            <div className="gt-dest-grid">
-              {filteredDestinations.map((dest, idx) => {
-                const animDir = idx % 2 === 0 ? 'scroll-reveal-left' : 'scroll-reveal-right';
-                const staggerClass = `stagger-${(idx % 4) + 1}`;
-                return (
-                  <div 
-                    key={dest.id} 
-                    className={`gt-dest-card scroll-reveal ${animDir} ${staggerClass}`}
-                    onClick={() => navigate(dest.link)}
-                  >
-                    <div className="gt-dest-img-wrap">
-                      <img src={dest.image} alt={dest.title} loading="lazy" />
-                    </div>
-                    <div className="gt-dest-info">
-                      <h3 className="gt-dest-name">
-                        {currentLang === 'en' ? dest.titleEn : dest.title}
-                      </h3>
-                      <p className="gt-dest-location">
-                        <i className="ti ti-map-pin" style={{ color: '#D99B26', marginRight: '4px' }} />
-                        {currentLang === 'en' ? dest.locationEn : dest.location}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
             SECTION 3: TIÊU ĐIỂM & TIN TỨC MỚI NHẤT LÀO CAI
             ======================================================== */}
         <section className="news-spotlight-section" id="tin-tuc-tieu-diem">
@@ -2103,119 +1773,6 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            MODULE 2: KHO BÁU DƯỢC LIỆU QUÝ & ĐẶC SẢN ÔN ĐỚI LÀO CAI
-            (Atiso Sa Pa, Chè Shan Tuyết, Tam Thất, Cá Hồi, Quế Hữu Cơ)
-            ======================================================== */}
-        <section className="laocai-herbal-section" id="duoc-lieu-dac-san">
-          <div className="daklak-container">
-            <div className="daklak-section-header scroll-reveal scroll-reveal-down" style={{ textAlign: 'center' }}>
-              <span className="daklak-section-badge">
-                <i className="ti ti-plant-2" style={{ marginRight: '6px' }} />
-                {currentLang === 'en' ? 'VƯƠNG QUỐC DƯỢC LIỆU & NÔNG SẢN ÔN ĐỚI' : 'VƯƠNG QUỐC DƯỢC LIỆU & NÔNG SẢN ÔN ĐỚI'}
-              </span>
-              <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Lao Cai Highland Treasures & GACP-WHO Herbal Heritage' : 'Kho Báu Dược Liệu Quý & Đặc Sản Ôn Đới Lào Cai'}
-              </h2>
-              <p className="daklak-section-desc" style={{ maxWidth: '780px', margin: '0 auto' }}>
-                {currentLang === 'en'
-                  ? 'Blessed with pristine alpine altitudes from 1,500m to 3,143m, Lao Cai is Vietnam’s national capital of organic medicinal herbs and temperate culinary treasures.'
-                  : 'Được thiên nhiên ưu đãi khí hậu á nhiệt đới và sương mây ở độ cao từ 1.500m đến 3.143m, Lào Cai là trung tâm dược liệu sạch chuẩn GACP-WHO và thủ phủ nông sản ôn đới hàng đầu cả nước.'}
-              </p>
-
-              {/* Tabs Lọc Phân Loại */}
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '24px', flexWrap: 'wrap' }}>
-                {[
-                  { id: 'all', label: 'Tất cả Kho báu', labelEn: 'All Treasures' },
-                  { id: 'herbs', label: 'Dược liệu GACP-WHO', labelEn: 'GACP-WHO Herbs' },
-                  { id: 'tea', label: 'Trà Cổ Thụ Shan Tuyết', labelEn: 'Ancient Shan Tea' },
-                  { id: 'cold-water', label: 'Thủy sản Nước lạnh', labelEn: 'Cold-Water Seafood' },
-                  { id: 'specialty', label: 'Đặc sản & Quế Hữu cơ', labelEn: 'Organic Specialties' }
-                ].map((tb) => (
-                  <button
-                    key={tb.id}
-                    type="button"
-                    onClick={() => setActiveHerbalCat(tb.id)}
-                    style={{
-                      padding: '8px 18px',
-                      borderRadius: '999px',
-                      border: activeHerbalCat === tb.id ? '1.5px solid #145A3E' : '1.5px solid #D5E0DA',
-                      background: activeHerbalCat === tb.id ? '#145A3E' : '#FFFFFF',
-                      color: activeHerbalCat === tb.id ? '#FFFFFF' : '#2D4037',
-                      fontSize: '0.85rem',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                      transition: 'all 0.22s ease'
-                    }}
-                  >
-                    {currentLang === 'en' ? tb.labelEn : tb.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Lưới Thẻ Dược Liệu & Đặc Sản */}
-            <div className="laocai-herbal-grid">
-              {LAOCAI_HERBAL_TREASURES
-                .filter(item => activeHerbalCat === 'all' || item.category === activeHerbalCat)
-                .map((item) => (
-                  <div key={item.id} className="laocai-herbal-card scroll-reveal scroll-reveal-up">
-                    <div className="laocai-herbal-card-img-wrap">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="laocai-herbal-card-img"
-                        loading="lazy"
-                      />
-                      <span className="laocai-herbal-badge">
-                        {item.cert}
-                      </span>
-                    </div>
-
-                    <div className="laocai-herbal-card-body">
-                      <div className="laocai-herbal-card-origin">
-                        <i className="ti ti-map-pin" />
-                        <span>{currentLang === 'en' ? item.originEn : item.origin}</span>
-                      </div>
-                      <h3 className="laocai-herbal-card-title">
-                        {currentLang === 'en' ? item.nameEn : item.name}
-                      </h3>
-                      <p className="laocai-herbal-card-desc">
-                        {currentLang === 'en' ? item.descEn : item.desc}
-                      </p>
-
-                      <div className="laocai-herbal-card-footer">
-                        <span className="laocai-herbal-card-cert">
-                          <i className="ti ti-rosette-discount-check" />
-                          <span>Chuẩn Quốc tế</span>
-                        </span>
-                        <button
-                          type="button"
-                          className="laocai-herbal-card-btn"
-                          onClick={() => scrollToConsult(`Liên kết tiêu thụ & Hợp tác: ${item.name}`)}
-                        >
-                          <span>{currentLang === 'en' ? 'B2B Sourcing' : 'Kết nối thu mua'}</span>
-                          <i className="ti ti-arrow-right" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </div>
-
-            <div style={{ textAlign: 'center', marginTop: '36px' }}>
-              <Link
-                to={`/posts?category=${encodeURIComponent('Nông sản & Dược liệu')}`}
-                className="btn-daklak-primary"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-              >
-                <i className="ti ti-archive" />
-                <span>{currentLang === 'en' ? 'Explore Full OCOP & Herbal Directory' : 'Xem toàn bộ 260+ Sản phẩm OCOP & Dược liệu Lào Cai'}</span>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
             SECTION 8: HOẠT ĐỘNG TRỌNG ĐIỂM - SỰ KIỆN SẮP DIỄN RA TẠI LÀO CAI
             ======================================================== */}
         <section className="daklak-home-events-section" id="su-kien">
@@ -2415,125 +1972,6 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            MODULE 3: CẨM NANG KHÁM PHÁ 4 MÙA SA PA – Y TÝ – BẮC HÀ – BÁT XÁT
-            (Xuân Sắc Hoa • Hè Nước Đổ • Thu Mùa Vàng • Đông Băng Tuyết & Săn Mây)
-            ======================================================== */}
-        <section className="laocai-seasons-section" id="kham-pha-4-mua">
-          <div className="daklak-container">
-            <div className="daklak-section-header scroll-reveal scroll-reveal-down" style={{ textAlign: 'center' }}>
-              <span className="daklak-section-badge">
-                <i className="ti ti-calendar-event" style={{ marginRight: '6px' }} />
-                {currentLang === 'en' ? 'FOUR-SEASON HIGHLAND WONDERLAND' : 'KỲ QUAN KHÁM PHÁ BỐN MÙA LÀO CAI'}
-              </span>
-              <h2 className="daklak-section-title">
-                {currentLang === 'en' ? 'Sa Pa – Y Ty – Bac Ha: A Living Canvas All Year Round' : 'Cẩm Nang Khám Phá 4 Mùa Sa Pa – Y Tý – Bắc Hà'}
-              </h2>
-              <p className="daklak-section-desc" style={{ maxWidth: '780px', margin: '0 auto' }}>
-                {currentLang === 'en'
-                  ? 'Unlike any other region in Vietnam, Lao Cai offers four distinct seasons: spring plum blossoms, cascading summer mirrors, golden autumn valleys, and surreal winter snow atop Fansipan.'
-                  : 'Nơi duy nhất tại Việt Nam hội tụ trọn vẹn vẻ đẹp 4 mùa: mùa xuân hoa lê hoa mận nở trắng rừng, mùa hạ ruộng bậc thang lung linh bích họa nước đổ, mùa thu vàng dệt thảm lúa chín và mùa đông băng tuyết sừng sững đỉnh thiêng Fansipan.'}
-              </p>
-
-              {/* 4 Tabs Mùa */}
-              <div className="laocai-seasons-nav">
-                {LAOCAI_SEASONS.map((ss) => (
-                  <button
-                    key={ss.id}
-                    type="button"
-                    className={`laocai-season-tab ${activeSeasonId === ss.id ? 'active' : ''}`}
-                    onClick={() => setActiveSeasonId(ss.id)}
-                  >
-                    <span>{ss.badge.split(' ')[0]}</span>
-                    <span>{currentLang === 'en' ? ss.titleEn.split('•')[0].trim() : ss.title.split('•')[0].trim()}</span>
-                    <span style={{ fontSize: '0.78rem', opacity: 0.85 }}>({currentLang === 'en' ? ss.periodEn : ss.period})</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Thẻ Trải Nghiệm Mùa Được Chọn */}
-            {(() => {
-              const currentSeason = LAOCAI_SEASONS.find(s => s.id === activeSeasonId) || LAOCAI_SEASONS[0];
-              return (
-                <div className="laocai-season-card scroll-reveal scroll-reveal-up">
-                  <div className="laocai-season-img-wrap">
-                    <img
-                      src={currentSeason.image}
-                      alt={currentSeason.title}
-                      className="laocai-season-img"
-                    />
-                    <div className="laocai-season-img-badge">
-                      {currentSeason.badge}
-                    </div>
-                  </div>
-
-                  <div className="laocai-season-content">
-                    <div className="laocai-season-header-row">
-                      <span className="laocai-season-temp">
-                        <i className="ti ti-temperature" />
-                        <span>{currentSeason.temp}</span>
-                      </span>
-                      <span style={{ fontSize: '0.82rem', color: '#145A3E', fontWeight: 700 }}>
-                        📍 Sa Pa • Y Tý • Bắc Hà • Bát Xát
-                      </span>
-                    </div>
-
-                    <h3 className="laocai-season-title">
-                      {currentLang === 'en' ? currentSeason.titleEn : currentSeason.title}
-                    </h3>
-
-                    <p className="laocai-season-desc">
-                      {currentLang === 'en' ? currentSeason.descEn : currentSeason.desc}
-                    </p>
-
-                    <div className="laocai-season-highlights">
-                      <div className="laocai-season-hl-item">
-                        <div className="laocai-season-hl-label">
-                          <i className="ti ti-compass" />
-                          <span>{currentLang === 'en' ? 'Must-Experience' : 'Trải nghiệm không thể bỏ lỡ'}</span>
-                        </div>
-                        <div className="laocai-season-hl-val">
-                          {currentLang === 'en' ? currentSeason.mustTryEn : currentSeason.mustTry}
-                        </div>
-                      </div>
-
-                      <div className="laocai-season-hl-item">
-                        <div className="laocai-season-hl-label">
-                          <i className="ti ti-shirt" />
-                          <span>{currentLang === 'en' ? 'Suggested Outfit' : 'Gợi ý trang phục & tư trang'}</span>
-                        </div>
-                        <div className="laocai-season-hl-val">
-                          {currentLang === 'en' ? currentSeason.outfitEn : currentSeason.outfit}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-                      <Link
-                        to={`/posts?category=${encodeURIComponent('Du lịch & Trải nghiệm')}`}
-                        className="btn-daklak-primary"
-                        style={{ padding: '11px 24px', fontSize: '0.9rem' }}
-                      >
-                        <i className="ti ti-map" />
-                        <span>{currentLang === 'en' ? 'Explore Tour Itineraries' : 'Khám phá Lịch trình Du lịch Lào Cai'}</span>
-                      </Link>
-                      <Link
-                        to="/ai-chat"
-                        className="btn-daklak-outline"
-                        style={{ padding: '11px 24px', fontSize: '0.9rem' }}
-                      >
-                        <i className="ti ti-sparkles" />
-                        <span>{currentLang === 'en' ? 'Ask AI for Seasonal Tips' : 'Hỏi AI lên kế hoạch mùa này'}</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              );
-            })()}
-          </div>
-        </section>
-
-        {/* ========================================================
             SECTION 10: LÀM CHỦ AI - BỨT PHÁ TƯƠNG LAI (SPECIAL AI TOPIC)
             ======================================================== */}
         <section className="daklak-section daklak-ai-showcase-section" id="lam-chu-ai">
@@ -2624,6 +2062,15 @@ export const Home = () => {
                   onMouseEnter={() => setIsAiSlideHovered(true)}
                   onMouseLeave={() => setIsAiSlideHovered(false)}
                 >
+                  <button
+                    type="button"
+                    className="daklak-ai-nav-arrow daklak-ai-nav-prev"
+                    onClick={() => setAiSlideIndex(prev => (prev - 1 + 3) % 3)}
+                    aria-label="Bài viết trước"
+                  >
+                    <i className="ti ti-chevron-left" />
+                  </button>
+
                   <div className="daklak-ai-slider-viewport">
                     <div 
                       className="daklak-ai-slider-track"
@@ -2674,52 +2121,29 @@ export const Home = () => {
                     </div>
                   </div>
 
-                  <div className="daklak-ai-slider-nav">
-                    <button
-                      type="button"
-                      className="daklak-ai-nav-arrow"
-                      onClick={() => setAiSlideIndex(prev => (prev - 1 + 3) % 3)}
-                      aria-label="Bài viết trước"
-                    >
-                      <i className="ti ti-chevron-left" />
-                    </button>
-                    <div className="daklak-ai-slider-indicators">
-                      {[0, 1, 2].map((idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          className={`daklak-ai-indicator ${aiSlideIndex === idx ? 'active' : ''}`}
-                          onClick={() => setAiSlideIndex(idx)}
-                          aria-label={`Chuyển đến bài ${idx + 1}`}
-                        />
-                      ))}
-                    </div>
-                    <button
-                      type="button"
-                      className="daklak-ai-nav-arrow"
-                      onClick={() => setAiSlideIndex(prev => (prev + 1) % 3)}
-                      aria-label="Bài viết tiếp theo"
-                    >
-                      <i className="ti ti-chevron-right" />
-                    </button>
+                  <button
+                    type="button"
+                    className="daklak-ai-nav-arrow daklak-ai-nav-next"
+                    onClick={() => setAiSlideIndex(prev => (prev + 1) % 3)}
+                    aria-label="Bài viết tiếp theo"
+                  >
+                    <i className="ti ti-chevron-right" />
+                  </button>
+
+                  <div className="daklak-ai-slider-indicators">
+                    {[0, 1, 2].map((idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        className={`daklak-ai-indicator ${aiSlideIndex === idx ? 'active' : ''}`}
+                        onClick={() => setAiSlideIndex(idx)}
+                        aria-label={`Chuyển đến bài ${idx + 1}`}
+                      />
+                    ))}
                   </div>
                 </div>
               );
             })()}
-
-            <div className="daklak-ai-actions">
-              <Link
-                to="/posts?category=Doanh%20nghi%E1%BB%87p%20%26%20S%E1%BA%A3n%20ph%E1%BA%A9m&sub_category=Showroom%20s%E1%BB%91"
-                className="btn-daklak-ai-category"
-              >
-                <i className="ti ti-layout-grid" />
-                <span>{currentLang === 'en' ? 'View all AI Category Articles' : 'Xem toàn bộ bài viết chuyên mục AI'}</span>
-              </Link>
-              <Link to="/ai-chat" className="btn-daklak-ai-chat">
-                <i className="ti ti-messages" />
-                <span>{currentLang === 'en' ? 'Chat with Lao Cai AI Assistant' : 'Trò chuyện cùng Trợ lý AI Lào Cai'}</span>
-              </Link>
-            </div>
           </div>
         </section>
 
