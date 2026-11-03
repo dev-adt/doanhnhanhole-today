@@ -690,7 +690,7 @@ export const Home = () => {
       clearTimeout(t2);
       observer.disconnect();
     };
-  }, [latestPosts, filteredDestinations, featuredMembers, eventsList, activeItineraryId]);
+  }, [latestPosts, featuredMembers, eventsList, activeItineraryId]);
 
   // Xử lý Tìm kiếm
   const handleSearchSubmit = (e) => {
