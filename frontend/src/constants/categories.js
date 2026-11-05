@@ -82,7 +82,7 @@ export const CATEGORIES_DATA = [
     name_en: 'Events & Forums',
     order_index: 7,
     subcategories: [
-      'Lễ hội truyền thống (Đền Hùng, Tây Thiên, Khai hạ Mường Bi)',
+      'Lễ hội truyền thống (Đền Hùng, Tây Thiên, Mường Bi)',
       'Diễn đàn Xúc tiến Đầu tư & Thương mại',
       'Hội chợ & Triển lãm OCOP Liên vùng'
     ]
@@ -109,20 +109,31 @@ export const CATEGORY_LABELS = {
   'Sự kiện & Diễn đàn': { vi: 'Sự kiện & Diễn đàn', en: 'Events & Forums', zh: '活动与论坛', ja: 'イベント・フォーラム', ko: '이벤트 및 포럼' }
 };
 
-export const getCategoryLabel = (categoryName, lang = 'vi') => {
-  if (!categoryName) return '';
+export const getCategoryLabel = (categoryInput, lang = 'vi') => {
+  if (!categoryInput) return '';
   const langKey = (lang || 'vi').toLowerCase();
+  const categoryName = typeof categoryInput === 'object' ? (categoryInput.name || '') : String(categoryInput);
+  if (!categoryName) return '';
+
   if (CATEGORY_LABELS[categoryName] && CATEGORY_LABELS[categoryName][langKey]) {
     return CATEGORY_LABELS[categoryName][langKey];
   }
-  const found = CATEGORIES_DATA.find(c => c.name === categoryName);
+  const found = CATEGORIES_DATA.find(c => c.name === categoryName || c.id === categoryName || (typeof categoryInput === 'object' && c.id === categoryInput.id));
   if (found) {
     if (langKey === 'en' && found.name_en) return found.name_en;
     return found.name;
   }
+  if (typeof categoryInput === 'object' && categoryInput.name_en && langKey === 'en') {
+    return categoryInput.name_en;
+  }
   return categoryName;
 };
 
-export const getSubCategoryLabel = (subName, lang = 'vi') => {
-  return subName;
+export const getSubCategoryLabel = (subInput, lang = 'vi') => {
+  if (!subInput) return '';
+  if (typeof subInput === 'object') {
+    if (lang === 'en' && subInput.name_en) return subInput.name_en;
+    return subInput.name || '';
+  }
+  return String(subInput);
 };

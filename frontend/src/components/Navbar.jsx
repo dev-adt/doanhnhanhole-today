@@ -971,7 +971,7 @@ export const Navbar = () => {
               }}
             >
               <i className="ti ti-sparkles" style={{ color: '#E5A93B', fontSize: '16px' }} />
-              <span>{currentLang === 'en' ? 'Lao Cai AI Assistant' : 'Trợ lý AI Lào Cai'}</span>
+              <span>{currentLang === 'en' ? 'Phu Tho AI Assistant' : 'Trợ lý AI Phú Thọ'}</span>
             </Link>
 
             {/* Danh mục cấp 1 & con động trên mobile */}
