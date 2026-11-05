@@ -448,7 +448,6 @@ export const Home = () => {
 
   // Search State
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchScope, setSearchScope] = useState('all');
 
   // Active Tab State cho 3 Không gian Hội tụ
   const [activeZoneId, setActiveZoneId] = useState('zone-phutho');
@@ -549,17 +548,11 @@ export const Home = () => {
     return () => { isMounted = false; };
   }, []);
 
-  // Xử lý Tìm kiếm
+  // Xử lý Tìm kiếm toàn hệ thống
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      if (searchScope === 'members') {
-        navigate(`/members?search=${encodeURIComponent(searchQuery.trim())}`);
-      } else if (searchScope === 'events') {
-        navigate(`/events?search=${encodeURIComponent(searchQuery.trim())}`);
-      } else {
-        navigate(`/posts?search=${encodeURIComponent(searchQuery.trim())}`);
-      }
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
 
@@ -691,41 +684,43 @@ export const Home = () => {
                 Cội nguồn Đất Tổ Hùng Vương, Cực tăng trưởng công nghiệp công nghệ cao và Kỳ quan sinh thái Tây Bắc.
               </p>
 
-              {/* Smart Integrated Search Bar */}
+              {/* Single Pure Search Input Bar */}
               <form onSubmit={handleSearchSubmit} className="pt-hero-search-box">
-                <select 
-                  className="pt-hero-search-scope notranslate" 
-                  translate="no"
-                  value={searchScope}
-                  onChange={(e) => setSearchScope(e.target.value)}
-                >
-                  <option value="all">Tất cả dữ liệu</option>
-                  <option value="posts">Điểm đến & Bài viết</option>
-                  <option value="members">Doanh nghiệp B2B</option>
-                  <option value="events">Sự kiện & Diễn đàn</option>
-                </select>
+                <div className="pt-hero-search-icon-wrap">
+                  <i className="ti ti-search"></i>
+                </div>
                 <input 
                   type="text"
                   className="pt-hero-search-input"
-                  placeholder={currentLang === 'en' ? 'Search destinations, industrial parks, OCOP, 148 wards...' : 'Tìm kiếm điểm đến, KCN, sản phẩm OCOP, 148 xã/phường mới...'}
+                  placeholder={currentLang === 'en' ? 'Search destinations, events, OCOP products, 148 wards...' : 'Nhập từ khóa tìm kiếm điểm đến, sự kiện, sản phẩm OCOP, 148 xã/phường mới...'}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
+                {searchQuery && (
+                  <button 
+                    type="button" 
+                    className="pt-hero-search-clear-btn"
+                    onClick={() => setSearchQuery('')}
+                    title="Xóa"
+                  >
+                    <i className="ti ti-x"></i>
+                  </button>
+                )}
                 <button type="submit" className="pt-hero-search-btn">
-                  <i className="ti ti-search"></i>
                   <span>{currentLang === 'en' ? 'Search' : 'Tìm kiếm'}</span>
+                  <i className="ti ti-arrow-right"></i>
                 </button>
               </form>
 
               {/* Quick Tags Suggestions */}
               <div className="pt-hero-quick-tags">
                 <span style={{ fontWeight: '600' }}>Gợi ý nhanh:</span>
-                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('Đền Hùng'); navigate('/posts?search=Đền%20Hùng'); }}>🏛️ Đền Hùng</span>
-                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('Tam Đảo'); navigate('/posts?search=Tam%20Đảo'); }}>☁️ Tam Đảo</span>
-                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('Hồ Hòa Bình'); navigate('/posts?search=Hồ%20Hòa%20Bình'); }}>🌊 Hồ Hòa Bình</span>
-                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('KCN Thăng Long Vĩnh Phúc'); navigate('/posts?search=Thăng%20Long'); }}>⚙️ KCN Thăng Long</span>
-                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('Bưởi Đoan Hùng'); navigate('/posts?search=Đoan%20Hùng'); }}>🌿 Bưởi Đoan Hùng</span>
-                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('148 xã phường mới'); navigate('/posts?search=148%20xã%20phường'); }}>📍 148 Xã/Phường</span>
+                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('Đền Hùng'); navigate('/search?q=Đền%20Hùng'); }}>🏛️ Đền Hùng</span>
+                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('Tam Đảo'); navigate('/search?q=Tam%20Đảo'); }}>☁️ Tam Đảo</span>
+                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('Hồ Hòa Bình'); navigate('/search?q=Hồ%20Hòa%20Bình'); }}>🌊 Hồ Hòa Bình</span>
+                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('KCN Thăng Long Vĩnh Phúc'); navigate('/search?q=Thăng%20Long'); }}>⚙️ KCN Thăng Long</span>
+                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('Bưởi Đoan Hùng'); navigate('/search?q=Đoan%20Hùng'); }}>🌿 Bưởi Đoan Hùng</span>
+                <span className="pt-hero-tag-chip" onClick={() => { setSearchQuery('148 xã phường mới'); navigate('/search?q=148%20xã%20phường'); }}>📍 148 Xã/Phường</span>
               </div>
             </div>
           </div>

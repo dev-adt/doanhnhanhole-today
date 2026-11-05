@@ -2657,3 +2657,30 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+.pt-hero-search-icon-wrap {
+  padding-left: 20px;
+  color: #7A9187;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pt-hero-search-clear-btn {
+  background: none;
+  border: none;
+  color: #A0AEC0;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.pt-hero-search-clear-btn:hover {
+  color: #E53E3E;
+}
