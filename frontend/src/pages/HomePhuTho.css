@@ -1,0 +1,1495 @@
+/* ==============================================================================
+   PHUTHO.TODAY — HOMEPAGE EXCLUSIVE DESIGN SYSTEM (HOMEPHUTHO.CSS)
+   Inspired by Đất Tổ Heritage, Trống Đồng Đông Sơn, Tam Đảo Mists & Hồ Hòa Bình Jade
+   ============================================================================== */
+
+:root {
+  --pt-primary: #0E382B;
+  --pt-primary-dark: #071F18;
+  --pt-primary-light: #165642;
+  --pt-gold: #C59325;
+  --pt-gold-light: #E5B342;
+  --pt-gold-glow: rgba(197, 147, 37, 0.35);
+  --pt-bronze: #9E6E1D;
+  --pt-teal: #125C51;
+  --pt-cream: #F4F7F5;
+  --pt-surface: #FFFFFF;
+  --pt-border: rgba(14, 56, 43, 0.12);
+  --pt-border-gold: rgba(197, 147, 37, 0.3);
+  --pt-shadow: 0 10px 30px -10px rgba(14, 56, 43, 0.08);
+  --pt-shadow-lg: 0 20px 45px -15px rgba(14, 56, 43, 0.16);
+  --pt-radius: 14px;
+}
+
+/* Animations */
+@keyframes ptFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ptPulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(197, 147, 37, 0.25); }
+  50% { box-shadow: 0 0 30px rgba(197, 147, 37, 0.6); }
+}
+
+@keyframes ptShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Section Common Container */
+.pt-section-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pt-section-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 40px auto;
+}
+
+.pt-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(197, 147, 37, 0.12);
+  color: var(--pt-gold);
+  border: 1px solid var(--pt-border-gold);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.pt-section-title {
+  font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #12241D;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.pt-section-title span.pt-highlight {
+  color: var(--pt-gold);
+  position: relative;
+}
+
+.pt-section-desc {
+  font-size: 15px;
+  color: #4D6359;
+  line-height: 1.6;
+}
+
+/* ==============================================================================
+   1. HERO SECTION & SMART METRICS BAR
+   ============================================================================== */
+.pt-hero-section {
+  position: relative;
+  min-height: 560px;
+  background: linear-gradient(135deg, rgba(7, 31, 24, 0.94) 0%, rgba(14, 56, 43, 0.88) 50%, rgba(4, 18, 13, 0.96) 100%),
+              url('https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 60px 0 80px 0;
+  overflow: hidden;
+}
+
+.pt-hero-glow-orb-1 {
+  position: absolute;
+  top: -100px;
+  left: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(197, 147, 37, 0.22) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.pt-hero-glow-orb-2 {
+  position: absolute;
+  bottom: -150px;
+  right: 5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(18, 92, 81, 0.35) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.pt-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pt-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(229, 179, 66, 0.45);
+  color: #FFE082;
+  padding: 7px 18px;
+  border-radius: 40px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.pt-hero-title {
+  font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+  font-size: 44px;
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  margin-bottom: 16px;
+  color: #FFFFFF;
+}
+
+.pt-hero-title span.pt-gold-text {
+  background: linear-gradient(135deg, #FFF0B3 0%, #E5B342 50%, #C59325 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pt-hero-subtitle {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #D1E5DA;
+  max-width: 820px;
+  margin: 0 auto 30px auto;
+  font-weight: 400;
+}
+
+/* Hero Search Component */
+.pt-hero-search-box {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(197, 147, 37, 0.4);
+  padding: 8px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  max-width: 780px;
+  margin: 0 auto 24px auto;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+.pt-hero-search-box:focus-within {
+  border-color: var(--pt-gold);
+  box-shadow: 0 18px 45px rgba(197, 147, 37, 0.3);
+  transform: translateY(-2px);
+}
+
+.pt-hero-search-scope {
+  background: #EAEFEB;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 650;
+  color: #0E382B;
+  outline: none;
+  cursor: pointer;
+  margin-right: 10px;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+
+.pt-hero-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #12241D;
+  outline: none;
+  font-family: inherit;
+}
+
+.pt-hero-search-input::placeholder {
+  color: #7A9187;
+}
+
+.pt-hero-search-btn {
+  background: linear-gradient(135deg, #C59325 0%, #9E6E1D 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 28px;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  font-family: inherit;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(197, 147, 37, 0.35);
+}
+
+.pt-hero-search-btn:hover {
+  background: linear-gradient(135deg, #E5B342 0%, #C59325 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(197, 147, 37, 0.5);
+}
+
+/* Quick Search Suggestions */
+.pt-hero-quick-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #B5D1C4;
+}
+
+.pt-hero-tag-chip {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.pt-hero-tag-chip:hover {
+  background: rgba(197, 147, 37, 0.3);
+  border-color: #E5B342;
+  color: #FFE082;
+}
+
+/* Metrics Bar Under Hero */
+.pt-metrics-bar-wrapper {
+  margin-top: -38px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 50px;
+}
+
+.pt-metrics-bar {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(14, 56, 43, 0.12);
+  border: 1px solid rgba(197, 147, 37, 0.25);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 24px 16px;
+  divide-x: 1px solid rgba(14, 56, 43, 0.08);
+}
+
+.pt-metric-col {
+  padding: 0 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pt-metric-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(197, 147, 37, 0.12);
+  color: var(--pt-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.pt-metric-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 850;
+  color: #0E382B;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.pt-metric-label {
+  font-size: 12px;
+  font-weight: 650;
+  color: #637B71;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==============================================================================
+   2. INTERACTIVE TRI-ZONE PANORAMA HUB (KHÔNG GIAN BA VÙNG HỘI TỤ)
+   ============================================================================== */
+.pt-trizone-section {
+  padding: 40px 0 70px 0;
+  background: #F4F7F5;
+}
+
+.pt-trizone-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.pt-trizone-tab-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--pt-border);
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #4D6359;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  font-family: inherit;
+  box-shadow: var(--pt-shadow);
+}
+
+.pt-trizone-tab-btn.active {
+  background: var(--pt-primary);
+  color: #FFFFFF;
+  border-color: var(--pt-primary);
+  box-shadow: 0 10px 25px rgba(14, 56, 43, 0.25);
+}
+
+.pt-trizone-tab-btn i {
+  font-size: 18px;
+  color: var(--pt-gold);
+}
+
+.pt-trizone-tab-btn.active i {
+  color: #FFE082;
+}
+
+/* Active Tri-Zone Card Layout */
+.pt-trizone-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--pt-shadow-lg);
+  border: 1px solid rgba(197, 147, 37, 0.2);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  animation: ptFadeIn 0.35s ease;
+}
+
+.pt-trizone-visual {
+  position: relative;
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+}
+
+.pt-trizone-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 56, 43, 0.15) 0%, rgba(7, 31, 24, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px;
+  color: #FFFFFF;
+}
+
+.pt-trizone-visual-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(197, 147, 37, 0.9);
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.pt-trizone-visual-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.pt-trizone-visual-desc {
+  font-size: 14.5px;
+  color: #E0EFE8;
+  line-height: 1.55;
+}
+
+.pt-trizone-details {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pt-trizone-keypoints {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.pt-trizone-point {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: #F8FAF9;
+  border-radius: 12px;
+  border: 1px solid rgba(14, 56, 43, 0.06);
+}
+
+.pt-trizone-point-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(197, 147, 37, 0.15);
+  color: var(--pt-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.pt-trizone-point-title {
+  font-size: 14px;
+  font-weight: 750;
+  color: #12241D;
+  margin-bottom: 3px;
+}
+
+.pt-trizone-point-desc {
+  font-size: 12.5px;
+  color: #556E63;
+  line-height: 1.5;
+}
+
+.pt-trizone-action-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid rgba(14, 56, 43, 0.08);
+}
+
+.pt-btn-primary {
+  background: var(--pt-primary);
+  color: #FFFFFF;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s;
+}
+
+.pt-btn-primary:hover {
+  background: var(--pt-primary-dark);
+  transform: translateY(-1px);
+}
+
+.pt-btn-outline {
+  background: transparent;
+  color: var(--pt-primary);
+  border: 1.5px solid var(--pt-primary);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s;
+}
+
+.pt-btn-outline:hover {
+  background: rgba(14, 56, 43, 0.06);
+}
+
+/* ==============================================================================
+   3. FOUR STRATEGIC GROWTH CORRIDORS (4 TRỤC HÀNH LANG PHÁT TRIỂN)
+   ============================================================================== */
+.pt-corridors-section {
+  padding: 70px 0;
+  background: #FFFFFF;
+}
+
+.pt-corridors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.pt-corridor-card {
+  background: #FAFBFB;
+  border-radius: 16px;
+  border: 1px solid var(--pt-border);
+  padding: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.pt-corridor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pt-primary) 0%, var(--pt-gold) 100%);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.pt-corridor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--pt-shadow-lg);
+  border-color: rgba(197, 147, 37, 0.4);
+  background: #FFFFFF;
+}
+
+.pt-corridor-card:hover::before {
+  opacity: 1;
+}
+
+.pt-corridor-num {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--pt-gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.pt-corridor-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #12241D;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.pt-corridor-desc {
+  font-size: 13px;
+  color: #556E63;
+  line-height: 1.55;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.pt-corridor-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pt-corridor-tag {
+  background: #EAEFEB;
+  color: #0E382B;
+  font-size: 11px;
+  font-weight: 650;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* ==============================================================================
+   4. INDUSTRIAL SUPPLY CHAIN & HIGH-TECH PARKS (HỆ SINH THÁI CÔNG NGHIỆP)
+   ============================================================================== */
+.pt-industrial-section {
+  padding: 70px 0;
+  background: #F4F7F5;
+}
+
+.pt-industrial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.pt-industrial-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid var(--pt-border);
+  padding: 24px;
+  box-shadow: var(--pt-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.pt-industrial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--pt-shadow-lg);
+  border-color: rgba(197, 147, 37, 0.4);
+}
+
+.pt-industrial-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.pt-industrial-badge {
+  background: rgba(14, 56, 43, 0.08);
+  color: var(--pt-primary);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.pt-industrial-area-pill {
+  background: rgba(197, 147, 37, 0.14);
+  color: var(--pt-gold);
+  border: 1px solid var(--pt-border-gold);
+  font-size: 12px;
+  font-weight: 750;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.pt-industrial-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #12241D;
+  margin-bottom: 6px;
+}
+
+.pt-industrial-loc {
+  font-size: 12.5px;
+  color: #637B71;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.pt-industrial-sectors {
+  background: #FAFBFB;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid rgba(14, 56, 43, 0.06);
+  margin-bottom: 16px;
+}
+
+.pt-industrial-sectors-title {
+  font-size: 11px;
+  font-weight: 750;
+  color: #637B71;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.pt-industrial-sectors-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #12241D;
+  line-height: 1.45;
+}
+
+.pt-industrial-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #637B71;
+  padding-top: 12px;
+  border-top: 1px solid rgba(14, 56, 43, 0.08);
+}
+
+.pt-industrial-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 650;
+  color: #166534;
+}
+
+.pt-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22C55E;
+}
+
+/* ==============================================================================
+   5. CURATED HERITAGE & WELLNESS ITINERARIES (HÀNH TRÌNH KHÁM PHÁ)
+   ============================================================================== */
+.pt-itineraries-section {
+  padding: 70px 0;
+  background: #FFFFFF;
+}
+
+.pt-itinerary-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.pt-itinerary-tab-btn {
+  background: #F4F7F5;
+  border: 1px solid var(--pt-border);
+  border-radius: 40px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #4D6359;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.pt-itinerary-tab-btn.active {
+  background: var(--pt-primary);
+  color: #FFFFFF;
+  border-color: var(--pt-primary);
+  box-shadow: 0 6px 18px rgba(14, 56, 43, 0.2);
+}
+
+.pt-itinerary-active-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  border: 1px solid rgba(197, 147, 37, 0.25);
+  box-shadow: var(--pt-shadow-lg);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  animation: ptFadeIn 0.3s ease;
+}
+
+.pt-itinerary-hero-img {
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+}
+
+.pt-itinerary-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(7, 31, 24, 0.88) 100%);
+}
+
+.pt-itinerary-hero-content {
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+}
+
+.pt-itinerary-badge {
+  background: var(--pt-gold);
+  color: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.pt-itinerary-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.pt-itinerary-meta-chips {
+  display: flex;
+  gap: 12px;
+  font-size: 12.5px;
+  color: #E0EFE8;
+  margin-top: 10px;
+}
+
+.pt-itinerary-meta-chips span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pt-itinerary-steps-panel {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pt-itinerary-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.pt-itinerary-step-item {
+  display: flex;
+  gap: 14px;
+}
+
+.pt-itinerary-step-time {
+  width: 90px;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--pt-gold);
+  text-transform: uppercase;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.pt-itinerary-step-body h4 {
+  font-size: 14px;
+  font-weight: 750;
+  color: #12241D;
+  margin-bottom: 3px;
+}
+
+.pt-itinerary-step-body p {
+  font-size: 12.5px;
+  color: #556E63;
+  line-height: 1.5;
+}
+
+/* ==============================================================================
+   6. REGIONAL OCOP & LOCAL PRODUCE SHOWCASE (SẢN PHẨM BẢN ĐỊA)
+   ============================================================================== */
+.pt-ocop-section {
+  padding: 70px 0;
+  background: #F4F7F5;
+}
+
+.pt-ocop-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.pt-ocop-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid var(--pt-border);
+  overflow: hidden;
+  box-shadow: var(--pt-shadow);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.pt-ocop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--pt-shadow-lg);
+  border-color: rgba(197, 147, 37, 0.4);
+}
+
+.pt-ocop-img-wrap {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.pt-ocop-star-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(14, 56, 43, 0.88);
+  backdrop-filter: blur(4px);
+  color: #FFE082;
+  border: 1px solid rgba(229, 179, 66, 0.5);
+  font-size: 11px;
+  font-weight: 750;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.pt-ocop-origin-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.pt-ocop-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.pt-ocop-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #12241D;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.pt-ocop-desc {
+  font-size: 12.5px;
+  color: #556E63;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.pt-ocop-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(14, 56, 43, 0.06);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pt-primary);
+}
+
+/* ==============================================================================
+   7. KEY EVENTS & DIALOGUES (SỰ KIỆN & LỄ HỘI)
+   ============================================================================== */
+.pt-events-section {
+  padding: 70px 0;
+  background: #FFFFFF;
+}
+
+.pt-events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.pt-event-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid var(--pt-border);
+  box-shadow: var(--pt-shadow);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  transition: all 0.3s ease;
+}
+
+.pt-event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--pt-shadow-lg);
+  border-color: rgba(197, 147, 37, 0.35);
+}
+
+.pt-event-img {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.pt-event-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pt-event-date-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--pt-gold);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.pt-event-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #12241D;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.pt-event-location {
+  font-size: 12.5px;
+  color: #637B71;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.pt-event-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(14, 56, 43, 0.08);
+}
+
+.pt-event-price {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0E382B;
+}
+
+.pt-btn-ticket {
+  background: linear-gradient(135deg, #0E382B 0%, #165642 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pt-btn-ticket:hover {
+  background: linear-gradient(135deg, #C59325 0%, #9E6E1D 100%);
+}
+
+/* ==============================================================================
+   8. ENTERPRISES & B2B MATCHING SHOWCASE
+   ============================================================================== */
+.pt-enterprises-section {
+  padding: 60px 0;
+  background: #F4F7F5;
+}
+
+.pt-enterprises-slider {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.pt-enterprise-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  border: 1px solid var(--pt-border);
+  padding: 20px;
+  box-shadow: var(--pt-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s;
+}
+
+.pt-enterprise-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(197, 147, 37, 0.4);
+  box-shadow: var(--pt-shadow-lg);
+}
+
+.pt-enterprise-tier-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.pt-tier-diamond {
+  background: rgba(30, 64, 175, 0.1);
+  color: #1E40AF;
+  border: 1px solid rgba(30, 64, 175, 0.25);
+}
+
+.pt-tier-platinum {
+  background: rgba(100, 116, 139, 0.1);
+  color: #334155;
+  border: 1px solid rgba(100, 116, 139, 0.25);
+}
+
+.pt-tier-gold {
+  background: rgba(197, 147, 37, 0.12);
+  color: #B45309;
+  border: 1px solid rgba(197, 147, 37, 0.3);
+}
+
+.pt-enterprise-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 750;
+  color: #12241D;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.pt-enterprise-ind {
+  font-size: 12px;
+  color: #637B71;
+  margin-bottom: 12px;
+}
+
+.pt-enterprise-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pt-gold);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ==============================================================================
+   9. ARTICLES & REGIONAL RESEARCH (TIN TỨC & DỰ ÁN)
+   ============================================================================== */
+.pt-news-section {
+  padding: 70px 0;
+  background: #FFFFFF;
+}
+
+.pt-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pt-news-card {
+  background: #FAFBFB;
+  border-radius: 16px;
+  border: 1px solid var(--pt-border);
+  overflow: hidden;
+  box-shadow: var(--pt-shadow);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.pt-news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--pt-shadow-lg);
+  border-color: rgba(197, 147, 37, 0.35);
+  background: #FFFFFF;
+}
+
+.pt-news-thumb {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.pt-news-category-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(14, 56, 43, 0.9);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.pt-news-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.pt-news-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #12241D;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.pt-news-excerpt {
+  font-size: 13px;
+  color: #556E63;
+  line-height: 1.55;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pt-news-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+  color: #839B8F;
+  border-top: 1px solid rgba(14, 56, 43, 0.06);
+  padding-top: 10px;
+}
+
+/* ==============================================================================
+   10. STRATEGIC LEAD CAPTURE FORM (TIẾP NHẬN ĐẦU TƯ)
+   ============================================================================== */
+.pt-consult-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #071F18 0%, #0E382B 50%, #0A2920 100%);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.pt-consult-wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(197, 147, 37, 0.35);
+  border-radius: 24px;
+  padding: 44px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.pt-consult-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.pt-consult-header h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 850;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.pt-consult-header p {
+  font-size: 15px;
+  color: #C8DAD0;
+}
+
+.pt-consult-grid-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.pt-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pt-form-group.full-width {
+  grid-column: span 2;
+}
+
+.pt-form-group label {
+  font-size: 12.5px;
+  font-weight: 650;
+  color: #FFE082;
+}
+
+.pt-form-control {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #FFFFFF;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.pt-form-control:focus {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--pt-gold);
+  box-shadow: 0 0 12px rgba(197, 147, 37, 0.3);
+}
+
+.pt-form-control::placeholder {
+  color: #9DB4A8;
+}
+
+.pt-form-control option {
+  background: #0E382B;
+  color: #FFFFFF;
+}
+
+.pt-btn-submit-consult {
+  background: linear-gradient(135deg, #C59325 0%, #9E6E1D 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: all 0.25s;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(197, 147, 37, 0.35);
+  font-family: inherit;
+}
+
+.pt-btn-submit-consult:hover {
+  background: linear-gradient(135deg, #E5B342 0%, #C59325 100%);
+  transform: translateY(-1px);
+}
+
+/* ==============================================================================
+   11. FAQ ACCORDION (HỎI ĐÁP & TRA CỨU ĐỊA CHỈ SAU SÁP NHẬP)
+   ============================================================================== */
+.pt-faq-section {
+  padding: 70px 0;
+  background: #F4F7F5;
+}
+
+.pt-faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pt-faq-item {
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid var(--pt-border);
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.pt-faq-item.active {
+  border-color: rgba(197, 147, 37, 0.4);
+  box-shadow: var(--pt-shadow);
+}
+
+.pt-faq-question {
+  padding: 18px 22px;
+  font-size: 15px;
+  font-weight: 750;
+  color: #12241D;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pt-faq-question i {
+  color: var(--pt-gold);
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.pt-faq-item.active .pt-faq-question i {
+  transform: rotate(180deg);
+}
+
+.pt-faq-answer {
+  padding: 0 22px 20px 22px;
+  font-size: 14px;
+  color: #4D6359;
+  line-height: 1.6;
+}
+
+/* ==============================================================================
+   RESPONSIVE QUERIES
+   ============================================================================== */
+@media (max-width: 1200px) {
+  .pt-corridors-grid { grid-template-columns: repeat(2, 1fr); }
+  .pt-ocop-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .pt-hero-title { font-size: 34px; }
+  .pt-metrics-bar { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pt-trizone-card { grid-template-columns: 1fr; }
+  .pt-trizone-visual { min-height: 300px; }
+  .pt-industrial-grid { grid-template-columns: repeat(2, 1fr); }
+  .pt-itinerary-active-card { grid-template-columns: 1fr; }
+  .pt-itinerary-hero-img { min-height: 280px; }
+  .pt-events-grid { grid-template-columns: 1fr; }
+  .pt-enterprises-slider { grid-template-columns: repeat(2, 1fr); }
+  .pt-news-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .pt-hero-title { font-size: 28px; }
+  .pt-hero-subtitle { font-size: 14.5px; }
+  .pt-hero-search-box { flex-direction: column; border-radius: 18px; padding: 12px; gap: 8px; }
+  .pt-hero-search-scope { width: 100%; margin-right: 0; }
+  .pt-hero-search-btn { width: 100%; justify-content: center; }
+  .pt-metrics-bar { grid-template-columns: 1fr; divide-x: none; }
+  .pt-corridors-grid { grid-template-columns: 1fr; }
+  .pt-industrial-grid { grid-template-columns: 1fr; }
+  .pt-ocop-grid { grid-template-columns: repeat(2, 1fr); }
+  .pt-event-card { grid-template-columns: 1fr; }
+  .pt-event-img { height: 160px; }
+  .pt-news-grid { grid-template-columns: 1fr; }
+  .pt-consult-wrapper { padding: 24px 16px; }
+  .pt-consult-grid-inputs { grid-template-columns: 1fr; }
+  .pt-form-group.full-width { grid-column: span 1; }
+}
+
+@media (max-width: 480px) {
+  .pt-ocop-grid { grid-template-columns: 1fr; }
+  .pt-enterprises-slider { grid-template-columns: 1fr; }
+}

@@ -69,7 +69,7 @@ export const PWAProvider = ({ children }) => {
   // Hàm kích hoạt cài đặt PWA
   const installApp = async () => {
     if (isInstalled) {
-      alert('Ứng dụng Laocai.today đã được cài đặt trên thiết bị của bạn.');
+      alert('Ứng dụng Phutho.today đã được cài đặt trên thiết bị của bạn.');
       return;
     }
 

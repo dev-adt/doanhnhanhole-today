@@ -22,7 +22,7 @@ export const Navbar = () => {
   // Khởi tạo ngay lập tức từ bộ nhớ đệm hoặc CATEGORIES_DATA chuẩn để Header luôn hiện 0ms không bao giờ bị trắng
   const [categoriesList, setCategoriesList] = useState(() => {
     try {
-      const cached = localStorage.getItem('laocai_cached_categories');
+      const cached = localStorage.getItem('phutho_cached_categories');
       if (cached) {
         const parsed = JSON.parse(cached);
         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -73,7 +73,7 @@ export const Navbar = () => {
             const sorted = [...json.data].sort((a, b) => (a.order_index || 0) - (b.order_index || 0));
             setCategoriesList(sorted);
             try {
-              localStorage.setItem('laocai_cached_categories', JSON.stringify(sorted));
+              localStorage.setItem('phutho_cached_categories', JSON.stringify(sorted));
             } catch (e) {}
           }
         }
@@ -87,7 +87,7 @@ export const Navbar = () => {
     const handleUpdate = () => fetchCategories();
     window.addEventListener('categories-updated', handleUpdate);
     window.addEventListener('storage', (e) => {
-      if (e.key === 'laocai_cached_categories' || !e.key) {
+      if (e.key === 'phutho_cached_categories' || !e.key) {
         fetchCategories();
       }
     });
@@ -522,20 +522,20 @@ export const Navbar = () => {
             <div className="dnvn-brand-icon notranslate" translate="no">
               <img 
                 src="/logo_icon.svg" 
-                alt="Laocai.today Logo" 
+                alt="Phutho.today Logo" 
                 className="dnvn-brand-icon-img"
                 onError={(e) => { 
                   e.target.style.display = 'none';
-                  e.target.parentNode.innerText = 'LC';
+                  e.target.parentNode.innerText = 'PT';
                 }}
               />
             </div>
             <div className="dnvn-brand-text-box notranslate" translate="no">
               <span className="dnvn-brand-title notranslate" translate="no">
-                Laocai<span style={{ color: '#E5A93B' }}>.today</span>
+                Phutho<span style={{ color: '#E5A93B' }}>.today</span>
               </span>
               <span className="dnvn-brand-subtitle">
-                {currentLang === 'en' ? 'LAO CAI COOPERATION, INVESTMENT & PROMOTION' : 'KẾT NỐI HỢP TÁC, ĐẦU TƯ & QUẢNG BÁ LÀO CAI'}
+                {currentLang === 'en' ? 'PHU THO HERITAGE, TOURISM & INVESTMENT' : 'DI SẢN, DU LỊCH & ĐẦU TƯ PHÚ THỌ MỚI'}
               </span>
             </div>
           </Link>

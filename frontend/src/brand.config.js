@@ -1,29 +1,29 @@
 /**
  * BRAND CONFIGURATION (CẤU HÌNH THƯƠNG HIỆU TẬP TRUNG)
  * -------------------------------------------------------------
- * File này quản lý toàn bộ thông tin nhận diện thương hiệu của nền tảng Laocai.today.
- * Định vị: Nền tảng kết nối hợp tác, xúc tiến đầu tư và quảng bá Lào Cai tích hợp Trợ lý AI đa ngôn ngữ.
- * Triết lý: "Kết nối con người – Kết nối doanh nghiệp – Kết nối Lào Cai với thế giới" (Media + Data + Platform + AI)
+ * File này quản lý toàn bộ thông tin nhận diện thương hiệu của nền tảng Phutho.today.
+ * Dự án: Nền tảng kết nối du lịch, thương mại và đầu tư tỉnh Phú Thọ mới (Phú Thọ - Vĩnh Phúc - Hòa Bình)
+ * Định vị: "Phú Thọ Mới — Kết Nối Di Sản, Du Lịch & Hội Tụ Cơ Hội Đầu Tư" (Media + Data + Platform + AI)
  */
 
 export const brandConfig = {
   // Thông tin định danh thương hiệu
-  brandName: 'Laocai.today',         // Tên thương hiệu hiển thị chính
-  brandShortName: 'Lào Cai',         // Tên viết tắt ngắn gọn (tránh trùng .today)
-  platformName: 'Laocai.today Digital Platform',
-  companyLegalName: 'Nền tảng Kết nối Hợp tác, Xúc tiến Đầu tư & Quảng bá Lào Cai',
+  brandName: 'Phutho.today',
+  brandShortName: 'Phú Thọ',
+  platformName: 'Phutho.today Digital Platform',
+  companyLegalName: 'Nền tảng Kết nối Du lịch, Giao thương & Xúc tiến Đầu tư Tỉnh Phú Thọ Mới',
   partnerLegalName: 'Công ty Cổ phần ADT Quốc tế',
   
-  // Slogan & Định vị theo tài liệu Giới thiệu dự án Laocai.today
-  slogan: 'Kết nối con người • Kết nối doanh nghiệp • Kết nối Lào Cai với thế giới',
-  tagline: 'Lào Cai – Đỉnh thiêng hội tụ, Cửa ngõ giao thương ASEAN – Trung Quốc',
-  description: 'Laocai.today là nền tảng kết nối hợp tác, xúc tiến đầu tư và quảng bá Lào Cai tích hợp Trợ lý AI đa ngôn ngữ.',
+  // Slogan & Định vị theo Đề án dự án Phutho.today
+  slogan: 'Phú Thọ Mới — Kết Nối Di Sản, Du Lịch & Hội Tụ Đầu Tư',
+  tagline: 'Cội nguồn Đất Tổ Hùng Vương • Đô thị Công nghiệp Công nghệ cao • Kỳ quan Sinh thái Tây Bắc',
+  description: 'Phutho.today là nền tảng số đa ngôn ngữ giúp du khách khám phá điểm đến, doanh nghiệp tìm đối tác và nhà đầu tư tiếp cận thông tin có nguồn về tỉnh Phú Thọ mới sau sáp nhập.',
   
   // Tên miền & Đường dẫn
-  domain: 'laocai.today',
-  demoDomain: 'dev.laocai.today',
-  baseUrl: 'https://laocai.today',
-  demoUrl: 'https://dev.laocai.today',
+  domain: 'phutho.today',
+  demoDomain: 'dev.phutho.today',
+  baseUrl: 'https://phutho.today',
+  demoUrl: 'https://dev.phutho.today',
   apiBaseUrl: '/api',
 
   // Nhận diện hình ảnh & Logo
@@ -31,67 +31,68 @@ export const brandConfig = {
     primary: '/logo_icon.svg',
     dark: '/logo_icon.svg',
     icon: '/logo_icon.svg',
-    alt: 'Laocai.today Logo',
+    alt: 'Phutho.today Logo',
     favicon: '/favicon.svg',
-    defaultThumbnail: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=85',
+    defaultThumbnail: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=1200&q=85',
     fallbackCompanyLogo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80'
   },
 
-  // Hệ màu chuẩn cảm hứng Tây Bắc - Đỉnh Fansipan, Rừng đại ngàn, Vàng mùa lúa chín & Đỏ thổ cẩm
+  // Hệ màu chuẩn cảm hứng Đất Tổ Hùng Vương, Trống đồng Đông Sơn, Đồi chè Long Cốc & Hồ Hòa Bình
   colors: {
-    forestGreen: '#145A3E',   // Xanh đại ngàn Hoàng Liên (Màu chủ đạo, nút hành động)
-    coffeeOrange: '#D99B26',  // Vàng mùa lúa chín ruộng bậc thang (Điểm nhấn, nội dung nổi bật)
-    oceanBlue: '#1B6E8C',     // Xanh sương mây & Cửa khẩu quốc tế
-    creamBg: '#F6F8F5',       // Trắng sương mây vùng cao (Nền trang thoáng đãng)
-    charcoalDark: '#12261E',  // Xanh chàm thổ cẩm đậm (Tiêu đề và nội dung)
-    brocadeRed: '#B83B2A',    // Đỏ thổ cẩm & Hoa đỗ quyên rừng
-    primary: '#145A3E',
-    primaryHover: '#0F4630',
-    primaryDark: '#0A2E1F',
-    primaryLight: '#F6F8F5',
-    secondary: '#1B6E8C',
-    accent: '#D99B26',
-    accentGlow: 'rgba(217, 155, 38, 0.4)',
-    gold: '#D99B26',
-    bazanBrown: '#8C3A2B',
-    coffee: '#132A21',
-    cream: '#F6F8F5',
-    darkBg: '#0D211A',
-    darkCard: '#153026'
+    heritageGreen: '#0E382B',   // Xanh di sản đại ngàn & đồi chè trung du
+    bronzeGold: '#C59325',      // Vàng đồng Đông Sơn & Ánh kim di sản
+    lakeTeal: '#125C51',        // Xanh ngọc bích hồ Hòa Bình & Suối khoáng
+    mistWhite: '#F4F7F5',       // Trắng sương mây Tam Đảo (Nền trang thoáng sáng)
+    charcoalDark: '#12241D',    // Đen than di sản
+    earthOchre: '#96631E',      // Nâu đất phù sa ba dòng sông (Hồng, Lô, Đà)
+    primary: '#0E382B',
+    primaryHover: '#08261D',
+    primaryDark: '#04140F',
+    primaryLight: '#F4F7F5',
+    secondary: '#125C51',
+    accent: '#C59325',
+    accentGlow: 'rgba(197, 147, 37, 0.4)',
+    gold: '#C59325',
+    goldLight: '#E5B342',
+    bazanBrown: '#96631E',
+    coffee: '#12241D',
+    cream: '#F4F7F5',
+    darkBg: '#081C15',
+    darkCard: '#0F2C22'
   },
 
   // Trợ lý Trí tuệ Nhân tạo (AI Assistant)
   aiAssistant: {
-    name: 'AI Lào Cai Assistant',
-    shortName: 'Lào Cai AI',
-    title: 'Trợ lý AI Xúc tiến Đầu tư, Giao thương & Du lịch Lào Cai Đa ngôn ngữ',
+    name: 'AI Phú Thọ Assistant',
+    shortName: 'Phú Thọ AI',
+    title: 'Trợ lý AI Đa Năng Cố Vấn Du Lịch, Giao Thương & Đầu Tư Tỉnh Phú Thọ Mới',
     avatar: '/ai_robot_avatar-removebg.png',
-    welcomeMessage: 'Xin chào! Tôi là Trợ lý AI đa ngôn ngữ của Laocai.today. Tôi có thể hỗ trợ quý vị tra cứu cơ hội đầu tư Khu kinh tế cửa khẩu Lào Cai, các KCN Tằng Loỏng - Đông Phố Mới, chuỗi nông sản dược liệu vùng cao, doanh nghiệp địa phương và thiết kế hành trình khám phá Sa Pa – Fansipan – Bắc Hà – Y Tý 24/7.',
-    systemRole: 'Bạn là trợ lý AI chuyên nghiệp đa ngôn ngữ của nền tảng Laocai.today — Nền tảng kết nối hợp tác, xúc tiến đầu tư và quảng bá Lào Cai. Hãy tư vấn sâu sắc, chuẩn xác, giàu thông tin và truyền cảm hứng về cơ hội đầu tư, Khu kinh tế cửa khẩu Quốc tế Lào Cai - Kim Thành, logistics biên giới ASEAN - Trung Quốc, công nghiệp chế biến sâu, nông sản dược liệu quý (Atiso, tam thất, chè Shan Tuyết, cá hồi Sa Pa), bản sắc văn hóa các dân tộc Tây Bắc và hành trình du lịch thông minh bốn mùa ("Ở lại lâu hơn, trải nghiệm sâu hơn").',
+    welcomeMessage: 'Kính chào Quý vị! Tôi là Trợ lý AI của nền tảng Phutho.today. Tôi có thể hỗ trợ Quý vị tra cứu thông tin điểm đến 3 vùng (Phú Thọ – Vĩnh Phúc – Hòa Bình), danh bạ doanh nghiệp, các khu công nghiệp công nghệ cao, sản phẩm OCOP và hướng dẫn thủ tục đầu tư 24/7.',
+    systemRole: 'Bạn là trợ lý AI chuyên nghiệp đa ngôn ngữ của nền tảng Phutho.today. Hãy tư vấn sâu sắc, chuẩn xác, có dẫn chứng và truyền cảm hứng về tỉnh Phú Thọ mới sau sắp xếp theo Nghị quyết 202/2025/QH15 (gồm ba không gian văn hóa - kinh tế: Phú Thọ, Vĩnh Phúc và Hòa Bình trước đây). Nắm rõ 148 xã/phường, các điểm đến tiêu biểu (Đền Hùng, Tam Đảo, Hồ Hòa Bình, Mai Châu, Long Cốc, Tây Thiên, Thanh Thủy, Kim Bôi), các cực công nghiệp (KCN Thăng Long Vĩnh Phúc, Bá Thiện, Khai Quang, Phú Hà, Lương Sơn) và đặc sản OCOP 3 vùng.',
     quickSuggestions: [
-      'Chính sách ưu đãi đầu tư tại Khu Kinh tế Cửa khẩu Lào Cai & Kim Thành',
-      'Gợi ý hành trình khám phá Sa Pa – Fansipan – Bắc Hà – Y Tý 3 ngày 2 đêm',
-      'Tìm doanh nghiệp dược liệu vùng cao, chè Shan Tuyết & nông sản OCOP Lào Cai',
-      'Tiềm năng logistics liên vận quốc tế và Cảng hàng không Sa Pa'
+      'Gợi ý lịch trình 2 ngày 1 đêm khám phá Đền Hùng & Đồi chè Long Cốc',
+      'Cơ hội đầu tư tại KCN Thăng Long Vĩnh Phúc & KCN Phú Hà',
+      'Tra cứu thông tin du lịch nghỉ dưỡng Hồ Hòa Bình & Thung lũng Mai Châu',
+      'Danh sách sản phẩm OCOP tiêu biểu: Bưởi Đoan Hùng, Cam Cao Phong, Su su Tam Đảo'
     ]
   },
 
   // Thông tin liên hệ & Văn phòng
   contact: {
-    hotline: '0214 3888 999',
+    hotline: '0210 3888 999',
     techHotline: '0986 354 152',
-    email: 'contact@laocai.today',
-    supportEmail: 'support@laocai.today',
-    address: 'Đại lộ Trần Hưng Đạo, Phường Nam Cường, TP. Lào Cai, Tỉnh Lào Cai',
+    email: 'contact@phutho.today',
+    supportEmail: 'support@phutho.today',
+    address: 'Đại lộ Hùng Vương, Phường Gia Cẩm, TP. Việt Trì, Tỉnh Phú Thọ',
     techAddress: '26 TT23 Khu đô thị Văn Phú, P. Kiến Hưng, Hà Nội',
     workingHours: '08:00 - 17:30 (Thứ 2 - Thứ 6)',
-    copyright: '© 2026 Laocai.today — Nền tảng phát triển & vận hành bởi ADT Quốc tế.'
+    copyright: '© 2026 Phutho.today — Phát triển trên nền tảng Today Platform bởi ADT Quốc tế.'
   },
 
   // Thông tin thanh toán / Chuyển khoản sự kiện (VietQR)
   bankAccount: {
     bankName: 'Techcombank',
-    bankBranch: 'CN Lào Cai / PGD Văn Quán',
+    bankBranch: 'CN Phú Thọ / PGD Văn Quán',
     accountNumber: '19036730021017',
     accountHolder: 'CONG TY CO PHAN ADT QUOC TE',
     binCode: '970407'
@@ -99,16 +100,16 @@ export const brandConfig = {
 
   // Mạng xã hội
   socials: {
-    facebook: 'https://facebook.com/laocai.today',
-    youtube: 'https://youtube.com/@laocai.today',
-    zalo: 'https://zalo.me/laocaitoday',
-    linkedin: 'https://linkedin.com/company/laocai-today'
+    facebook: 'https://facebook.com/phutho.today',
+    youtube: 'https://youtube.com/@phutho.today',
+    zalo: 'https://zalo.me/phuthotoday',
+    linkedin: 'https://linkedin.com/company/phutho-today'
   },
 
   // Thông tin Đăng ký Hội viên & Gói dịch vụ
   membership: {
-    benefitsTitle: 'Quyền lợi Hội viên Laocai.today',
-    badgeText: 'Mạng lưới kết nối doanh nghiệp, thương mại biên giới & nhà đầu tư Lào Cai',
+    benefitsTitle: 'Quyền lợi Hội viên Doanh nghiệp Phutho.today',
+    badgeText: 'Mạng lưới kết nối giao thương, chuỗi cung ứng & nhà đầu tư tỉnh Phú Thọ mới',
     tiers: [
       { id: 'Standard', name: 'Khám phá (Cơ bản)', badge: 'Thành viên Khám phá' },
       { id: 'Silver', name: 'Doanh nghiệp Kết nối', badge: 'Đối tác Bạc' },

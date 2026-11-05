@@ -1,7 +1,7 @@
 {
-  "name": "daklak-today",
+  "name": "phutho-today",
   "version": "2.0.0",
-  "description": "DakLak.today — Cổng thông tin, dữ liệu và kết nối đầu tư Đắk Lắk",
+  "description": "Phutho.today — Nền tảng kết nối du lịch, thương mại và đầu tư tỉnh Phú Thọ mới",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

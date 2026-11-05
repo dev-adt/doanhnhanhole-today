@@ -10,12 +10,12 @@ export const Footer = () => {
 
   return (
     <footer style={{
-      backgroundColor: '#091B14',
-      backgroundImage: 'linear-gradient(180deg, #0D261C 0%, #06130E 100%)',
+      backgroundColor: '#071A14',
+      backgroundImage: 'linear-gradient(180deg, #0A241C 0%, #04120D 100%)',
       color: '#B5C9BF',
       padding: '3.5rem 0 1.5rem',
       fontSize: '12.5px',
-      borderTop: '1px solid rgba(217, 155, 38, 0.3)',
+      borderTop: '1px solid rgba(197, 147, 37, 0.35)',
       lineHeight: '1.65'
     }}>
       <div style={{ maxWidth: '1380px', margin: '0 auto', padding: '0 1.5rem' }}>
@@ -31,50 +31,50 @@ export const Footer = () => {
             <Link to="/" className="notranslate" translate="no" style={{ textDecoration: 'none', display: 'inline-block', marginBottom: '1rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <div style={{
-                  width: '42px',
-                  height: '42px',
+                  width: '44px',
+                  height: '44px',
                   borderRadius: '10px',
                   overflow: 'hidden',
-                  background: 'linear-gradient(135deg, #145A3E 0%, #D99B26 100%)',
+                  background: 'linear-gradient(135deg, #0E382B 0%, #C59325 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
                   fontWeight: '900',
                   fontSize: '16px',
-                  border: '1px solid rgba(217, 155, 38, 0.45)',
+                  border: '1px solid rgba(197, 147, 37, 0.5)',
                   flexShrink: 0
                 }}>
                   <img 
                     src="/logo_icon.svg" 
-                    alt="Laocai.today Logo" 
+                    alt="Phutho.today Logo" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     onError={(e) => { 
                       e.target.style.display = 'none';
-                      e.target.parentNode.innerText = 'LC';
+                      e.target.parentNode.innerText = 'PT';
                     }}
                   />
                 </div>
                 <div>
                   <div style={{
-                    fontFamily: "'Be Vietnam Pro', 'Outfit', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', 'Be Vietnam Pro', 'Outfit', sans-serif",
                     fontSize: '20px',
                     fontWeight: '800',
                     color: '#ffffff',
                     letterSpacing: '-0.3px',
                     lineHeight: '1.1'
                   }}>
-                    Laocai<span style={{ color: '#E5A93B' }}>.today</span>
+                    Phutho<span style={{ color: '#E5B342' }}>.today</span>
                   </div>
                   <div style={{
-                    fontSize: '9px',
+                    fontSize: '9.5px',
                     fontWeight: '700',
-                    color: '#E5A93B',
+                    color: '#E5B342',
                     textTransform: 'uppercase',
                     letterSpacing: '0.6px',
                     marginTop: '2px'
                   }}>
-                    {currentLang === 'en' ? 'Cooperation, Investment & Promotion' : 'Kết nối Hợp tác, Đầu tư & Quảng bá'}
+                    {currentLang === 'en' ? 'Heritage, Tourism & Investment Hub' : 'Kết nối Di sản, Du lịch & Đầu tư'}
                   </div>
                 </div>
               </div>
@@ -91,10 +91,10 @@ export const Footer = () => {
             <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
               <button
                 onClick={installApp}
-                title="Cài đặt ứng dụng Laocai.today (PWA)"
+                title="Cài đặt ứng dụng Phutho.today (PWA)"
                 style={{
-                  background: 'rgba(217, 155, 38, 0.16)',
-                  border: '1px solid rgba(217, 155, 38, 0.45)',
+                  background: 'rgba(197, 147, 37, 0.16)',
+                  border: '1px solid rgba(197, 147, 37, 0.45)',
                   color: '#FFE082',
                   padding: '6px 12px',
                   borderRadius: '6px',
@@ -106,8 +106,8 @@ export const Footer = () => {
                   gap: '6px',
                   transition: 'all 0.18s'
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(217, 155, 38, 0.3)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(217, 155, 38, 0.16)'; }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(197, 147, 37, 0.3)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(197, 147, 37, 0.16)'; }}
               >
                 <i className="ti ti-device-mobile-down"></i>
                 <span>{isInstalled ? (currentLang === 'en' ? '✓ PWA App Installed' : '✓ Ứng dụng PWA đã cài') : (currentLang === 'en' ? 'Install PWA App' : 'Cài đặt ứng dụng PWA')}</span>
@@ -117,9 +117,9 @@ export const Footer = () => {
                 to="/guide"
                 title={currentLang === 'en' ? 'System User Guide' : 'Hướng dẫn sử dụng hệ thống'}
                 style={{
-                  background: 'rgba(20, 90, 62, 0.35)',
-                  border: '1px solid rgba(46, 160, 114, 0.45)',
-                  color: '#7CE3B6',
+                  background: 'rgba(14, 56, 43, 0.45)',
+                  border: '1px solid rgba(197, 147, 37, 0.35)',
+                  color: '#A7E8BD',
                   padding: '6px 14px',
                   borderRadius: '6px',
                   fontSize: '11.5px',
@@ -130,8 +130,8 @@ export const Footer = () => {
                   gap: '6px',
                   transition: 'all 0.18s'
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(20, 90, 62, 0.55)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(20, 90, 62, 0.35)'; }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(14, 56, 43, 0.7)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(14, 56, 43, 0.45)'; }}
               >
                 <i className="ti ti-book"></i>
                 <span>{currentLang === 'en' ? 'User Guide' : 'Hướng dẫn sử dụng'}</span>
@@ -224,7 +224,7 @@ export const Footer = () => {
                 </a>
                 <Link 
                   to="/ai-chat"
-                  style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: 'rgba(217, 155, 38, 0.2)', border: '1px solid #E5A93B', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFE082', textDecoration: 'none', transition: 'transform 0.2s' }}
+                  style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: 'rgba(197, 147, 37, 0.2)', border: '1px solid #E5A93B', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFE082', textDecoration: 'none', transition: 'transform 0.2s' }}
                   title={brandConfig.aiAssistant.name}
                 >
                   <i className="ti ti-sparkles" style={{ fontSize: '15px' }}></i>
@@ -261,23 +261,23 @@ export const Footer = () => {
                 gap: '5px',
                 padding: '4px 12px',
                 borderRadius: '6px',
-                background: 'rgba(217, 155, 38, 0.14)',
-                border: '1px solid rgba(217, 155, 38, 0.38)',
+                background: 'rgba(197, 147, 37, 0.14)',
+                border: '1px solid rgba(197, 147, 37, 0.38)',
                 transition: 'all 0.2s'
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(217, 155, 38, 0.28)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(217, 155, 38, 0.14)'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(197, 147, 37, 0.28)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(197, 147, 37, 0.14)'; }}
             >
               <i className="ti ti-book" style={{ fontSize: '14px' }}></i>
               <span>{currentLang === 'en' ? 'User Guide' : 'Hướng dẫn sử dụng'}</span>
             </Link>
-            <Link to="/posts" style={{ color: '#B5C9BF', textDecoration: 'none' }}>
+            <Link to="/posts" style={{ color: '#B5C9BD', textDecoration: 'none' }}>
               {currentLang === 'en' ? 'Articles & News' : 'Tin tức & Cơ hội'}
             </Link>
-            <Link to="/members" style={{ color: '#B5C9BF', textDecoration: 'none' }}>
+            <Link to="/members" style={{ color: '#B5C9BD', textDecoration: 'none' }}>
               {currentLang === 'en' ? 'Enterprises' : 'Doanh nghiệp'}
             </Link>
-            <Link to="/events" style={{ color: '#B5C9BF', textDecoration: 'none' }}>
+            <Link to="/events" style={{ color: '#B5C9BD', textDecoration: 'none' }}>
               {currentLang === 'en' ? 'Events' : 'Sự kiện'}
             </Link>
           </div>

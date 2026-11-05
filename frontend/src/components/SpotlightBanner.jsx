@@ -6,9 +6,9 @@ import brandConfig from '../brand.config';
  * Styled with Central Highlands Deep Coffee, Bazan Earth, and Gong Bronze Gold theme.
  */
 export const SpotlightBanner = ({
-  badgeText = 'SỨ MỆNH CHIẾN LƯỢC • LAOCAI.TODAY',
-  title = 'Laocai.today — Đỉnh thiêng hội tụ, Cửa ngõ giao thương quốc tế',
-  subtitle = 'Nền tảng số kết nối con người, doanh nghiệp, sản phẩm vùng cao, du lịch bốn mùa, dữ liệu và cơ hội đầu tư của tỉnh Lào Cai.',
+  badgeText = 'SỨ MỆNH CHIẾN LƯỢC • PHUTHO.TODAY',
+  title = 'Phutho.today — Phú Thọ Mới: Kết Nối Di Sản, Du Lịch & Hội Tụ Đầu Tư',
+  subtitle = 'Nền tảng số đa ngôn ngữ kết nối du lịch 3 vùng Đất Tổ - Vĩnh Phúc - Hòa Bình, chuỗi cung ứng sản xuất và cơ hội đầu tư.',
   buttonText = 'Khám phá Hệ sinh thái',
   link = '/posts',
   variant = 'primary'
@@ -17,7 +17,7 @@ export const SpotlightBanner = ({
     <div style={{
       width: '100%',
       position: 'relative',
-      background: 'linear-gradient(135deg, #091B14 0%, #0D261C 50%, #145A3E 100%)',
+      background: 'linear-gradient(135deg, #071A14 0%, #0E382B 50%, #145A3E 100%)',
       color: '#FFFFFF',
       borderBottom: '2px solid rgba(213, 163, 63, 0.4)',
       boxShadow: '0 8px 30px rgba(28, 15, 8, 0.45), inset 0 1px 0 rgba(213, 163, 63, 0.25)',

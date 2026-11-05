@@ -1,14 +1,14 @@
 {
-  "name": "Laocai.today — Nền tảng kết nối hợp tác, xúc tiến đầu tư và quảng bá Lào Cai",
-  "short_name": "Laocai.today",
-  "description": "Laocai.today là nền tảng kết nối hợp tác, xúc tiến đầu tư và quảng bá Lào Cai tích hợp Trợ lý AI đa ngôn ngữ.",
+  "name": "Phutho.today — Nền tảng kết nối du lịch, thương mại và đầu tư tỉnh Phú Thọ mới",
+  "short_name": "Phutho.today",
+  "description": "Phutho.today là nền tảng số đa ngôn ngữ giúp du khách khám phá điểm đến, doanh nghiệp tìm đối tác và nhà đầu tư tiếp cận thông tin có nguồn về tỉnh Phú Thọ mới (Phú Thọ - Vĩnh Phúc - Hòa Bình).",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#091B14",
-  "theme_color": "#0D261C",
+  "background_color": "#081C15",
+  "theme_color": "#0E382B",
   "categories": ["business", "news", "travel", "investment"],
   "icons": [
     {
@@ -26,24 +26,24 @@
   ],
   "shortcuts": [
     {
-      "name": "Cửa khẩu & Logistics Lào Cai",
-      "short_name": "Cửa khẩu",
-      "description": "Khám phá Khu kinh tế cửa khẩu Lào Cai và chuỗi logistics quốc tế",
-      "url": "/posts?category=Cửa%20khẩu%20%26%20Logistics",
+      "name": "Khám phá Phú Thọ Mới",
+      "short_name": "Khám phá",
+      "description": "Đất Tổ Hùng Vương, Tam Đảo mù sương, Hồ Hòa Bình",
+      "url": "/posts?category=Khám%20phá%20Phú%20Thọ",
       "icons": [{ "src": "/logo_icon.svg", "sizes": "192x192" }]
     },
     {
-      "name": "Trợ lý AI Lào Cai",
+      "name": "Trợ lý AI Phú Thọ",
       "short_name": "AI Assistant",
-      "description": "Hỏi đáp đầu tư, giao thương và du lịch Lào Cai cùng Trợ lý AI",
+      "description": "Hỏi đáp tra cứu địa chỉ mới, gợi ý hành trình và cơ hội đầu tư 24/7",
       "url": "/ai-chat",
       "icons": [{ "src": "/logo_icon.svg", "sizes": "192x192" }]
     },
     {
-      "name": "Cơ hội Đầu tư & Doanh nghiệp",
+      "name": "Đầu tư & Khu Công Nghiệp",
       "short_name": "Đầu tư",
-      "description": "Tra cứu dự án kêu gọi đầu tư và danh bạ doanh nghiệp Lào Cai",
-      "url": "/members",
+      "description": "Hạ tầng KCN Thăng Long Vĩnh Phúc, Bá Thiện, Phú Hà, Lương Sơn",
+      "url": "/posts?category=Đầu%20tư%20%26%20Hợp%20tác",
       "icons": [{ "src": "/logo_icon.svg", "sizes": "192x192" }]
     }
   ]

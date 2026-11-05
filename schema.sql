@@ -1,7 +1,7 @@
 -- ============================================
--- Laocai.today — MySQL Database Schema
+-- Phutho.today — MySQL Database Schema
 -- Nền tảng thông tin, dữ liệu, truyền thông và kết nối đầu tư Lào Cai
--- Database: laocai_db | User: laocai_user
+-- Database: phutho_db | User: phutho_user
 -- ============================================
 
 -- ── 1. Bảng hội viên doanh nghiệp ─────────────────────────────
@@ -300,51 +300,56 @@ CREATE TABLE IF NOT EXISTS chat_logs (
 ) ENGINE=InnoDB COMMENT='Lịch sử trò chuyện với AI Bot';
 
 -- ============================================
--- DỮ LIỆU KHỞI TẠO MẪU (Laocai.today)
+-- DỮ LIỆU KHỞI TẠO MẪU (Phutho.today)
 -- ============================================
 
 -- Admin mặc định (Username: admin | Password: Admin@123)
 INSERT INTO admins (username, password_hash, name, email, role) VALUES
-('admin', '$2b$10$3luJFH.EMVPnxeH8BdXn9.5tnCQ9huv13yzOzHrwYGiRhgV7dcufq', 'Ban Quản trị Laocai.today', 'admin@laocai.today', 'superadmin')
+('admin', '$2b$10$3luJFH.EMVPnxeH8BdXn9.5tnCQ9huv13yzOzHrwYGiRhgV7dcufq', 'Ban Quản trị Phutho.today', 'admin@phutho.today', 'superadmin')
 ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 -- Cấu hình AI mặc định (Google Gemini Flash qua OpenRouter / Google API)
 INSERT INTO ai_config (provider, model, is_active) VALUES ('openrouter', 'google/gemini-3-flash-preview', 1)
 ON DUPLICATE KEY UPDATE model=VALUES(model);
 
--- Khởi tạo 7 Chuyên mục chính Lào Cai
+-- Khởi tạo 7 Chuyên mục chính Phú Thọ Mới
 INSERT INTO categories (name, name_en, slug, order_index, status) VALUES
-('Khám phá Lào Cai', 'Discover Lao Cai', 'kham-pha-lao-cai', 1, 'active'),
-('Doanh nghiệp & Sản phẩm', 'Enterprises & Products', 'doanh-nghiep-san-pham', 2, 'active'),
-('Dự án & Đầu tư', 'Projects & Investment', 'du-an-dau-tu', 3, 'active'),
-('Cửa khẩu & Logistics', 'Border Gate & Logistics', 'cua-khau-logistics', 4, 'active'),
-('Nông sản & Dược liệu', 'Agro-Forestry & Medicinal Herbs', 'nong-san-duoc-lieu', 5, 'active'),
-('Du lịch & Trải nghiệm', 'Tourism & Experiences', 'du-lich-trai-nghiem', 6, 'active'),
+('Khám phá Phú Thọ', 'Discover Phu Tho', 'kham-pha-phu-tho', 1, 'active'),
+('Du lịch & Trải nghiệm', 'Tourism & Experiences', 'du-lich-trai-nghiem', 2, 'active'),
+('Doanh nghiệp & Giao thương', 'Enterprises & Trade', 'doanh-nghiep-giao-thuong', 3, 'active'),
+('Sản phẩm địa phương & OCOP', 'Local Produce & OCOP', 'san-pham-dia-phuong', 4, 'active'),
+('Đầu tư & Hợp tác', 'Investment & Cooperation', 'dau-tu-hop-tac', 5, 'active'),
+('Tri thức & Đào tạo số', 'Knowledge & Digital Skills', 'tri-thuc-dao-tao', 6, 'active'),
 ('Sự kiện & Diễn đàn', 'Events & Forums', 'su-kien-dien-dan', 7, 'active')
 ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 -- Khởi tạo Lĩnh vực con tương ứng
 INSERT INTO sub_categories (category_id, name, name_en, slug, order_index, status) VALUES
-(1, 'Tổng quan & Vị thế', 'Overview & Position', 'tong-quan-vi-the', 1, 'active'),
-(1, 'Bản sắc vùng cao', 'Highland Identity', 'ban-sac-vung-cao', 2, 'active'),
-(1, 'Quy hoạch & Hạ tầng', 'Planning & Infrastructure', 'quy-hoach-ha-tang', 3, 'active'),
-(2, 'Danh bạ Doanh nghiệp', 'Business Directory', 'danh-ba-doanh-nghiep', 1, 'active'),
-(2, 'Thương hiệu & OCOP Lào Cai', 'Lao Cai OCOP & Brands', 'thuong-hieu-ocop-lao-cai', 2, 'active'),
-(2, 'Showroom số B2B', 'B2B Digital Showroom', 'showroom-so-b2b', 3, 'active'),
-(3, 'Dự án kêu gọi đầu tư', 'Investment-Ready Projects', 'du-an-keu-goi-dau-tu', 1, 'active'),
-(3, 'Khu kinh tế & KCN', 'Economic & Industrial Zones', 'khu-kinh-te-kcn', 2, 'active'),
-(3, 'Chính sách & Ưu đãi', 'Incentives & Policies', 'chinh-sach-uu-dai', 3, 'active'),
-(4, 'Kinh tế cửa khẩu Kim Thành', 'Kim Thanh Border Gate Economy', 'kinh-te-cua-khau-kim-thanh', 1, 'active'),
-(4, 'Hành lang Côn Minh – Lào Cai – Hải Phòng', 'Kunming - Lao Cai - Hai Phong Corridor', 'hanh-lang-con-minh-lao-cai-hai-phong', 2, 'active'),
-(4, 'Xuất nhập khẩu & Hải quan số', 'Import-Export & Smart Customs', 'xuat-nhap-khau-hai-quan-so', 3, 'active'),
-(5, 'Dược liệu quý vùng cao', 'Highland Medicinal Herbs', 'duoc-lieu-quy-vung-cao', 1, 'active'),
-(5, 'Nông nghiệp ôn đới & Đặc sản', 'Temperate Agriculture & Specialties', 'nong-nghiep-on-doi-dac-san', 2, 'active'),
-(5, 'Chế biến sâu & Truy xuất nguồn gốc', 'Deep Processing & Traceability', 'che-bien-sau-truy-xuat-nguon-goc', 3, 'active'),
-(6, 'Sa Pa – Fansipan – Y Tý', 'Sa Pa - Fansipan - Y Ty', 'sa-pa-fansipan-y-ty', 1, 'active'),
-(6, 'Bắc Hà – Bát Xát – Bảo Yên', 'Bac Ha - Bat Xat - Bao Yen', 'bac-ha-bat-xat-bao-yen', 2, 'active'),
-(6, 'Lịch trình gợi ý & Mùa lễ hội', 'Suggested Itineraries & Festivals', 'lich-trinh-goi-y-mua-le-hoi', 3, 'active'),
-(7, 'Hội chợ Thương mại Quốc tế Việt – Trung', 'Viet - China International Trade Fair', 'hoi-cho-thuong-mai-quoc-te-viet-trung', 1, 'active'),
-(7, 'Diễn đàn Xúc tiến Đầu tư & Du lịch', 'Investment & Tourism Promotion Forum', 'dien-dan-xuc-tien-dau-tu-du-lich', 2, 'active'),
-(7, 'Lễ hội Văn hóa Tây Bắc', 'Northwest Cultural Festivals', 'le-hoi-van-hoa-tay-bac', 3, 'active')
+(1, 'Đất Tổ Hùng Vương & Di sản', 'Hung Kings Heritage & Ancestral Land', 'dat-to-hung-vuong-di-san', 1, 'active'),
+(1, 'Tam Đảo & Tây Thiên Vĩnh Phúc', 'Tam Dao & Tay Thien Vinh Phuc', 'tam-dao-tay-thien', 2, 'active'),
+(1, 'Kỳ quan Hồ Hòa Bình & Bản sắc Mường', 'Hoa Binh Lake & Muong Culture', 'ho-hoa-binh-ban-sac-muong', 3, 'active'),
+(1, 'Tra cứu địa chỉ sau sáp nhập', 'Post-Merger Administrative Lookup', 'tra-cuu-dia-chi-moi', 4, 'active'),
+(2, 'Điểm đến & Thắng cảnh 3 vùng', 'Destinations Across 3 Regions', 'diem-den-thang-canh-3-vung', 1, 'active'),
+(2, 'Lịch trình gợi ý (1N, 2N1Đ, 3N2Đ)', 'Curated Itineraries', 'lich-trinh-goi-y', 2, 'active'),
+(2, 'Nghỉ dưỡng & Khoáng nóng Onsen', 'Resorts & Hot Springs Onsen', 'nghi-duong-khoang-nong', 3, 'active'),
+(2, 'Ẩm thực bản địa & Trải nghiệm', 'Local Cuisine & Experiences', 'am-thuc-ban-dia', 4, 'active'),
+(3, 'Danh bạ Doanh nghiệp 3 vùng', 'Enterprise Directory 3 Regions', 'danh-ba-doanh-nghiep-3-vung', 1, 'active'),
+(3, 'Hồ sơ năng lực & Cung ứng', 'Capacity Profiles & Sourcing', 'ho-so-nang-luc-cung-ung', 2, 'active'),
+(3, 'Nhu cầu mua hàng & Hợp tác B2B', 'B2B Sourcing Demands', 'nhu-cau-mua-hang-b2b', 3, 'active'),
+(3, 'Showroom số doanh nghiệp', 'Digital Enterprise Showroom', 'showroom-so-doanh-nghiep', 4, 'active'),
+(4, 'Sản phẩm OCOP tiêu biểu', 'Featured OCOP Products', 'san-pham-ocop-tieu-bieu', 1, 'active'),
+(4, 'Đặc sản Đất Tổ (Bưởi, Chè Long Cốc)', 'Dat To Specialties', 'dac-san-dat-to', 2, 'active'),
+(4, 'Đặc sản Vĩnh Phúc (Su su, Mật ong)', 'Vinh Phuc Specialties', 'dac-san-vinh-phuc', 3, 'active'),
+(4, 'Đặc sản Hòa Bình (Cam Cao Phong, Rượu cần)', 'Hoa Binh Specialties', 'dac-san-hoa-binh', 4, 'active'),
+(5, 'Khu & Cụm công nghiệp trọng điểm', 'Key Industrial Parks', 'khu-cum-cong-nghiep-trong-diem', 1, 'active'),
+(5, 'Hành lang kinh tế & Quy hoạch liên vùng', 'Economic Corridors & Master Plan', 'hanh-lang-kinh-te-quy-hoach', 2, 'active'),
+(5, 'Chính sách & Ưu đãi đầu tư', 'Investment Policies & Incentives', 'chinh-sach-uu-dai-dau-tu', 3, 'active'),
+(5, 'Danh mục dự án kêu gọi hợp tác', 'Investment Call Projects', 'danh-muc-du-an-keu-goi', 4, 'active'),
+(6, 'Chuyển đổi số & Ứng dụng AI', 'Digital Transformation & AI', 'chuyen-doi-so-ung-dung-ai', 1, 'active'),
+(6, 'Kỹ năng du lịch & Dịch vụ đa ngữ', 'Tourism & Multilingual Skills', 'ky-nang-du-lich-dich-vu', 2, 'active'),
+(6, 'Nghiên cứu kinh tế & Báo cáo thị trường', 'Economic Research & Reports', 'nghien-cuu-kinh-te-bao-cao', 3, 'active'),
+(7, 'Lễ hội truyền thống (Đền Hùng, Tây Thiên, Mường Bi)', 'Traditional Festivals', 'le-hoi-truyen-thong', 1, 'active'),
+(7, 'Diễn đàn Xúc tiến Đầu tư & Thương mại', 'Investment & Trade Forums', 'dien-dan-xuc-tien-dau-tu', 2, 'active'),
+(7, 'Hội chợ & Triển lãm OCOP Liên vùng', 'Regional OCOP Fairs & Expos', 'hoi-cho-trien-lam-ocop', 3, 'active')
 ON DUPLICATE KEY UPDATE name=VALUES(name);
 
