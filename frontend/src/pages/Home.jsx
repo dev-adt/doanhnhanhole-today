@@ -388,16 +388,18 @@ const TRADE_CORRIDOR_NODES = [
   }
 ];
 
-// Bộ ảnh dự phòng chất lượng cao mang đậm cảnh sắc Lào Cai (Fansipan, ruộng bậc thang, cửa khẩu, dược liệu)
+// Bộ ảnh dự phòng chất lượng cao mang đậm cảnh sắc Lào Cai mới (Fansipan, Mù Cang Chải, Suối Giàng, Hồ Thác Bà, Cửa khẩu Kim Thành, Quế Văn Yên)
 const FALLBACK_POST_IMAGES = [
-  'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=85',
-  'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=85',
-  'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=1000&q=85',
-  'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85',
-  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85',
-  'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85',
-  'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=85',
-  'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=85'
+  'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=85', // Đỉnh Fansipan Sa Pa & Thung lũng Mường Hoa
+  'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85', // Mù Cang Chải - Ruộng bậc thang di sản mùa vàng
+  'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=85', // Cửa khẩu Quốc tế Kim Thành & Logistics biên giới
+  'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=1000&q=85', // Vùng trồng Dược liệu Atiso Sa Pa chuẩn GACP-WHO
+  'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=1000&q=85', // Rừng Chè Shan Tuyết Cổ Thụ Suối Giàng & Bản Liền
+  'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85', // Vùng Quế hữu cơ đại ngàn Văn Yên & Bảo Yên
+  'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85', // Đèo Khau Phạ & Đèo Ô Quy Hồ
+  'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=85', // Hồ sinh thái Thác Bà - Hạ Long trên núi
+  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85', // Thiên đường mây Y Tý & Cột cờ Lũng Pô
+  'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=85'  // Diễn đàn kinh tế & Hội nghị xúc tiến đầu tư
 ];
 
 // Hàm lấy ảnh bài viết an toàn
