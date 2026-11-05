@@ -120,7 +120,7 @@ const TOP_TRI_ZONES = [
     nameEn: 'Ancestral Land & Cultural Heritage',
     subTitle: 'Phú Thọ Trước Sắp Xếp • Di Sản UNESCO & Đồi Chè Trung Du',
     tag: 'ĐẤT TỔ HÙNG VƯƠNG',
-    image: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=1200&q=85',
+    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=85',
     desc: 'Cội nguồn thiêng liêng của dân tộc Việt Nam với Di sản Tín ngưỡng Thờ cúng Hùng Vương và Hát Xoan Phú Thọ được UNESCO vinh danh; vẻ đẹp kỳ vĩ của "ốc đảo" đồi chè hình bát úp Long Cốc, Vườn Quốc gia Xuân Sơn và suối khoáng nóng Thanh Thủy.',
     keyPoints: [
       {
@@ -295,7 +295,7 @@ const CURATED_ITINERARIES = [
     badge: 'DI SẢN TÂM LINH & KHOÁNG NÓNG NGHỈ DƯỠNG',
     title: 'Hành Trình Về Cội Nguồn Đất Tổ – Đồi Chè Long Cốc – Onsen Thanh Thủy',
     summary: 'Dâng hương chiêm bái Đền Hùng linh thiêng, thưởng thức làn điệu Hát Xoan làng cổ An Thái, đón bình minh mờ ảo trên đồi chè bát úp Long Cốc và ngâm mình trong nguồn khoáng nóng Thanh Thủy tự nhiên.',
-    image: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=1000&q=85',
+    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=85',
     duration: '2 Ngày 1 Đêm',
     suitability: 'Gia đình, Đoàn cơ quan, Nghỉ dưỡng chữa lành',
     steps: [
@@ -870,7 +870,7 @@ export const Home = () => {
                 <div className="pt-post-featured-card">
                   <Link to={`/posts/${featuredPost.slug || featuredPost.id}`} className="pt-post-featured-thumb-wrap">
                     <img 
-                      src={featuredPost.image_url || 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=1200&q=85'} 
+                      src={featuredPost.image_url || 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=85'} 
                       alt={featuredPost.title} 
                       className="pt-post-featured-img"
                       loading="lazy"
@@ -929,7 +929,7 @@ export const Home = () => {
                     <Link 
                       to={`/posts/${post.slug || post.id}`} 
                       className="pt-compact-post-thumb"
-                      style={{ backgroundImage: `url(${post.image_url || 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=600&q=80'})` }}
+                      style={{ backgroundImage: `url(${post.image_url || 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80'})` }}
                     />
                     <div className="pt-compact-post-content">
                       <div className="pt-compact-post-meta">
@@ -956,13 +956,7 @@ export const Home = () => {
               </div>
             </div>
 
-            <div className="pt-section-footer-cta">
-              <Link to="/posts" className="pt-btn-view-all">
-                <i className="ti ti-article"></i>
-                <span>Xem toàn bộ bài viết & ấn phẩm nghiên cứu</span>
-                <i className="ti ti-arrow-right"></i>
-              </Link>
-            </div>
+
           </div>
         </section>
 
@@ -992,120 +986,130 @@ export const Home = () => {
               </div>
             </div>
 
-            <div className="pt-events-layout">
-              {/* CỘT TRÁI: 1 SỰ KIỆN GẦN NHẤT NỔI BẬT CÓ ĐẾM NGƯỢC */}
-              {featuredEvent && (
-                <div className="pt-event-featured-card">
-                  <div className="pt-event-featured-thumb-wrap">
-                    <img 
-                      src={featuredEvent.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=85'} 
-                      alt={featuredEvent.title} 
-                      className="pt-event-featured-img"
-                      loading="lazy"
-                    />
-                    <div className="pt-event-featured-badge">
-                      <span className="pt-pulse-dot" />
-                      <span>Sự Kiện Gần Nhất</span>
+            {/* BỐ CỤC SỰ KIỆN RIÊNG BIỆT: BANNER TIÊU ĐIỂM Ở TRÊN + LƯỚI 3 CỘT Ở DƯỚI */}
+            {featuredEvent && (
+              <div className="pt-event-hero-banner">
+                <div className="pt-event-hero-visual">
+                  <img 
+                    src={featuredEvent.image_url || 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1000&q=85'} 
+                    alt={featuredEvent.title} 
+                    className="pt-event-hero-img"
+                    loading="lazy"
+                  />
+                  <div className="pt-event-hero-badge">
+                    <span className="pt-pulse-dot" />
+                    <span>Sự Kiện Gần Nhất</span>
+                  </div>
+                  <div className="pt-event-hero-price">
+                    {formatEventPrice(featuredEvent)}
+                  </div>
+                </div>
+
+                <div className="pt-event-hero-info">
+                  <div>
+                    <div className="pt-event-meta-chips">
+                      <div className="pt-event-chip-date">
+                        <i className="ti ti-calendar-event"></i>
+                        <span>{formatEventDateTime(featuredEvent.start_date)}</span>
+                      </div>
+                      <div className="pt-event-chip-loc">
+                        <i className="ti ti-map-pin"></i>
+                        <span>{featuredEvent.location}</span>
+                      </div>
                     </div>
-                    <div className="pt-event-featured-price-pill">
-                      {formatEventPrice(featuredEvent)}
+
+                    <h3 className="pt-event-hero-title">
+                      <Link to={`/events/${featuredEvent.slug || featuredEvent.id}`}>
+                        {featuredEvent.title}
+                      </Link>
+                    </h3>
+
+                    <p className="pt-event-hero-desc">
+                      {featuredEvent.description || 'Sự kiện quy tụ cộng đồng doanh nghiệp, nhân dân và du khách trải nghiệm các hoạt động di sản, du lịch và giao thương nổi bật của tỉnh Phú Thọ mới.'}
+                    </p>
+
+                    {/* Khối đếm ngược sự kiện gần nhất */}
+                    <div className="pt-event-hero-timer-box">
+                      <div className="pt-timer-label">
+                        <i className="ti ti-clock"></i>
+                        <span>Thời gian đếm ngược đến ngày khai mạc:</span>
+                      </div>
+                      <HomeEventCountdown eventDate={featuredEvent.start_date} />
                     </div>
                   </div>
 
-                  <div className="pt-event-featured-body">
-                    <div>
-                      <div className="pt-event-featured-info-row">
-                        <div className="pt-event-info-item">
-                          <i className="ti ti-calendar-event"></i>
-                          <span>{formatEventDateTime(featuredEvent.start_date)}</span>
-                        </div>
-                        <div className="pt-event-info-item loc">
-                          <i className="ti ti-map-pin"></i>
-                          <span>{featuredEvent.location}</span>
-                        </div>
-                      </div>
+                  <div className="pt-event-hero-actions">
+                    <button 
+                      className="pt-btn-ticket-primary"
+                      onClick={() => handleOpenRegisterModal(featuredEvent)}
+                    >
+                      <i className="ti ti-ticket"></i>
+                      <span>Đăng ký vé QR ngay</span>
+                    </button>
+                    <Link 
+                      to={`/events/${featuredEvent.slug || featuredEvent.id}`} 
+                      className="pt-btn-event-detail"
+                    >
+                      <span>Xem chi tiết sự kiện</span>
+                      <i className="ti ti-arrow-right"></i>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
 
-                      <h3 className="pt-event-featured-title">
-                        <Link to={`/events/${featuredEvent.slug || featuredEvent.id}`}>
-                          {featuredEvent.title}
-                        </Link>
-                      </h3>
+            {/* HÀNG DƯỚI: CÁC SỰ KIỆN SAU HIỂN THỊ DẠNG LƯỚI 3 CỘT (CHỈ TÊN, ẢNH, TÓM TẮT, CHI TIẾT) */}
+            <div className="pt-upcoming-events-grid">
+              {remainingEvents.map((evt) => (
+                <div key={evt.id} className="pt-upcoming-card">
+                  <div className="pt-upcoming-visual">
+                    <img 
+                      src={evt.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80'} 
+                      alt={evt.title} 
+                      className="pt-upcoming-img"
+                      loading="lazy"
+                    />
+                    <div className="pt-upcoming-price-tag">
+                      {formatEventPrice(evt)}
+                    </div>
+                    <div className="pt-upcoming-date-pill">
+                      <i className="ti ti-calendar"></i>
+                      <span>{formatEventDateTime(evt.start_date).split(',')[0]}</span>
+                    </div>
+                  </div>
 
-                      <p className="pt-event-featured-desc">
-                        {featuredEvent.description || 'Sự kiện quy tụ cộng đồng doanh nghiệp, nhân dân và du khách trải nghiệm các hoạt động di sản, du lịch và giao thương nổi bật của tỉnh Phú Thọ mới.'}
-                      </p>
-
-                      {/* Khối đếm ngược sự kiện gần nhất */}
-                      <div className="pt-event-countdown-box">
-                        <div className="pt-countdown-title">
-                          <i className="ti ti-clock"></i>
-                          <span>Thời gian đếm ngược đến ngày khai mạc:</span>
-                        </div>
-                        <HomeEventCountdown eventDate={featuredEvent.start_date} />
-                      </div>
+                  <div className="pt-upcoming-body">
+                    <div className="pt-upcoming-loc">
+                      <i className="ti ti-map-pin"></i>
+                      <span>{evt.location}</span>
                     </div>
 
-                    <div className="pt-event-featured-actions">
+                    <h4 className="pt-upcoming-title">
+                      <Link to={`/events/${evt.slug || evt.id}`}>
+                        {evt.title}
+                      </Link>
+                    </h4>
+
+                    <p className="pt-upcoming-desc">
+                      {evt.description || `Địa điểm tổ chức: ${evt.location}`}
+                    </p>
+
+                    <div className="pt-upcoming-footer">
                       <button 
-                        className="pt-btn-ticket-primary"
-                        onClick={() => handleOpenRegisterModal(featuredEvent)}
+                        className="pt-btn-ticket-subtle"
+                        onClick={() => handleOpenRegisterModal(evt)}
                       >
                         <i className="ti ti-ticket"></i>
-                        <span>Đăng ký vé QR ngay</span>
+                        <span>Vé QR</span>
                       </button>
-                      <Link 
-                        to={`/events/${featuredEvent.slug || featuredEvent.id}`} 
-                        className="pt-btn-event-detail"
-                      >
-                        <span>Xem chi tiết sự kiện</span>
+                      <Link to={`/events/${evt.slug || evt.id}`} className="pt-upcoming-link">
+                        <span>Xem chi tiết</span>
                         <i className="ti ti-arrow-right"></i>
                       </Link>
                     </div>
                   </div>
                 </div>
-              )}
-
-              {/* CỘT PHẢI: CÁC SỰ KIỆN SAU (TÊN, ẢNH, TÓM TẮT, XEM CHI TIẾT) */}
-              <div className="pt-compact-events-list">
-                {remainingEvents.map((evt) => (
-                  <div key={evt.id} className="pt-compact-event-item">
-                    <Link 
-                      to={`/events/${evt.slug || evt.id}`}
-                      className="pt-compact-event-thumb"
-                      style={{ backgroundImage: `url(${evt.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80'})` }}
-                    />
-                    <div className="pt-compact-event-content">
-                      <div className="pt-compact-event-meta">
-                        <i className="ti ti-calendar"></i>
-                        <span>{formatEventDateTime(evt.start_date)}</span>
-                      </div>
-                      <h4 className="pt-compact-event-title">
-                        <Link to={`/events/${evt.slug || evt.id}`}>
-                          {evt.title}
-                        </Link>
-                      </h4>
-                      <p className="pt-compact-event-desc">
-                        {evt.description || `Địa điểm tổ chức: ${evt.location}`}
-                      </p>
-                      <div className="pt-compact-event-footer">
-                        <span className="pt-compact-event-price">{formatEventPrice(evt)}</span>
-                        <Link to={`/events/${evt.slug || evt.id}`} className="pt-compact-event-btn">
-                          <span>Xem chi tiết</span>
-                          <i className="ti ti-arrow-right"></i>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="pt-section-footer-cta">
-              <Link to="/events" className="pt-btn-view-all">
-                <i className="ti ti-calendar-event"></i>
-                <span>Xem toàn bộ lịch trình sự kiện & hội nghị ({eventsList.length}+)</span>
-                <i className="ti ti-arrow-right"></i>
-              </Link>
+              ))}
             </div>
           </div>
         </section>
@@ -1139,61 +1143,6 @@ export const Home = () => {
                     {c.tags.map((t, idx) => (
                       <span key={idx} className="pt-corridor-tag">{t}</span>
                     ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            4. INDUSTRIAL SUPPLY CHAIN & HIGH-TECH PARKS (HỆ SINH THÁI KCN)
-            ======================================================== */}
-        <section className="pt-industrial-section">
-          <div className="pt-section-container">
-            <div className="pt-section-header">
-              <div className="pt-section-badge">
-                <i className="ti ti-building-factory-2"></i>
-                <span>Cực Sản Xuất Công Nghiệp Mũi Nhọn</span>
-              </div>
-              <h2 className="pt-section-title">
-                Hệ Sinh Thái Khu Công Nghiệp — <span className="pt-highlight">Chuỗi Cung Ứng Bán Dẫn & Ô Tô</span>
-              </h2>
-              <p className="pt-section-desc">
-                Hội tụ các tập đoàn FDI hàng đầu thế giới (Toyota, Honda, Sumitomo, Compal, Prime) 
-                cùng quỹ đất công nghiệp sạch sẵn sàng đón làn sóng đầu tư thế hệ mới.
-              </p>
-            </div>
-
-            <div className="pt-industrial-grid">
-              {KEY_INDUSTRIAL_PARKS.map((park, idx) => (
-                <div key={idx} className="pt-industrial-card">
-                  <div>
-                    <div className="pt-industrial-top">
-                      <span className="pt-industrial-badge">{park.sub}</span>
-                      <span className="pt-industrial-area-pill">{park.area}</span>
-                    </div>
-                    <h3 className="pt-industrial-name">{park.name}</h3>
-                    <div className="pt-industrial-loc">
-                      <i className="ti ti-map-pin"></i>
-                      <span>{park.location}</span>
-                    </div>
-                    <div className="pt-industrial-sectors">
-                      <div className="pt-industrial-sectors-title">Lĩnh vực trọng tâm</div>
-                      <div className="pt-industrial-sectors-text">{park.sectors}</div>
-                    </div>
-                  </div>
-                  <div className="pt-industrial-footer">
-                    <div className="pt-industrial-status">
-                      <span className="pt-status-dot"></span>
-                      <span>{park.status}</span>
-                    </div>
-                    <button 
-                      onClick={() => scrollToConsult(`Khảo sát đầu tư tại ${park.name}`)}
-                      style={{ background: 'none', border: 'none', color: 'var(--pt-gold)', fontWeight: '700', cursor: 'pointer', fontSize: '12px' }}
-                    >
-                      Khảo sát →
-                    </button>
                   </div>
                 </div>
               ))}
