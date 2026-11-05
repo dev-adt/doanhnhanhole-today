@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingAIBot from '../components/FloatingAIBot';
 import SEOHead from '../components/SEOHead';
-import SpotlightBanner from '../components/SpotlightBanner';
 import brandConfig from '../brand.config';
 import { getCategoryLabel } from '../constants/categories';
 import { fetchJsonWithTimeout, FALLBACK_POSTS, FALLBACK_EVENTS, FALLBACK_MEMBERS } from '../utils/api';
@@ -27,6 +26,23 @@ const formatEventDateTime = (dateVal) => {
     const dayName = dayNames[d.getDay()];
     const dateFormatted = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
     return `${timeStr} ${dayName}, ${dateFormatted}`;
+  } catch (e) {
+    return String(dateVal);
+  }
+};
+
+
+// Helper format ngày đăng cho bài viết
+const formatPostDate = (dateVal) => {
+  if (!dateVal) return '';
+  try {
+    let dateStr = String(dateVal).trim();
+    if (/^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}(:\d{2})?$/.test(dateStr)) {
+      dateStr = dateStr.replace(' ', 'T') + '+07:00';
+    }
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return String(dateVal);
+    return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
   } catch (e) {
     return String(dateVal);
   }
@@ -467,6 +483,30 @@ export const Home = () => {
   const [eventsList, setEventsList] = useState(FALLBACK_EVENTS);
   const [featuredMembers, setFeaturedMembers] = useState(FALLBACK_MEMBERS);
 
+
+  // Bài viết nổi bật nhất (hoặc bài mới nhất) & danh sách bài viết tiếp theo
+  const featuredPost = useMemo(() => {
+    if (!latestPosts || latestPosts.length === 0) return null;
+    return latestPosts.find((p) => p.is_featured) || latestPosts[0];
+  }, [latestPosts]);
+
+  const remainingPosts = useMemo(() => {
+    if (!latestPosts || latestPosts.length <= 1) return [];
+    const featuredId = featuredPost?.id;
+    return latestPosts.filter((p) => p.id !== featuredId).slice(0, 4);
+  }, [latestPosts, featuredPost]);
+
+  // Sự kiện nổi bật nhất (gần nhất) & danh sách sự kiện tiếp theo
+  const featuredEvent = useMemo(() => {
+    if (!eventsList || eventsList.length === 0) return null;
+    return eventsList[0];
+  }, [eventsList]);
+
+  const remainingEvents = useMemo(() => {
+    if (!eventsList || eventsList.length <= 1) return [];
+    return eventsList.slice(1, 4);
+  }, [eventsList]);
+
   // Quick Event Registration Modal State
   const [registerModalEvent, setRegisterModalEvent] = useState(null);
   const [regForm, setRegForm] = useState({
@@ -627,7 +667,6 @@ export const Home = () => {
         title={`${brandConfig.brandName} — ${brandConfig.slogan}`}
         description={brandConfig.description}
       />
-      <SpotlightBanner />
       <Navbar />
 
       <main style={{ flex: 1 }}>
@@ -798,6 +837,279 @@ export const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* ========================================================
+            3. ARTICLES & REGIONAL RESEARCH (BÀI VIẾT & TIN TỨC TIÊU ĐIỂM)
+            ======================================================== */}
+        <section className="pt-news-section">
+          <div className="pt-section-container">
+            <div className="pt-section-header-row">
+              <div className="pt-section-header-left">
+                <div className="pt-section-badge">
+                  <i className="ti ti-news"></i>
+                  <span>Dữ Liệu & Tin Tức Kinh Tế</span>
+                </div>
+                <h2 className="pt-section-title">
+                  Tin Tức & Báo Cáo Nghiên Cứu — <span className="pt-highlight">Tiêu Điểm Phú Thọ Mới</span>
+                </h2>
+                <p className="pt-section-desc">
+                  Thông tin quy hoạch, dữ liệu đầu tư liên vùng và bài viết khám phá du lịch 3 vùng Đất Tổ — Vĩnh Phúc — Hòa Bình.
+                </p>
+              </div>
+              <div className="pt-section-header-right">
+                <Link to="/posts" className="pt-btn-header-more">
+                  <span>Xem toàn bộ bài viết</span>
+                  <i className="ti ti-arrow-right"></i>
+                </Link>
+              </div>
+            </div>
+
+            <div className="pt-articles-layout">
+              {/* CỘT TRÁI: BÀI VIẾT NỔI BẬT NHẤT (HOẶC MỚI NHẤT) */}
+              {featuredPost && (
+                <div className="pt-post-featured-card">
+                  <Link to={`/posts/${featuredPost.slug || featuredPost.id}`} className="pt-post-featured-thumb-wrap">
+                    <img 
+                      src={featuredPost.image_url || 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=1200&q=85'} 
+                      alt={featuredPost.title} 
+                      className="pt-post-featured-img"
+                      loading="lazy"
+                    />
+                    <div className="pt-post-featured-badge">
+                      <i className="ti ti-flame"></i>
+                      <span>Tiêu Điểm Nổi Bật</span>
+                    </div>
+                    <div className="pt-post-category-pill">
+                      {featuredPost.category || 'Tin tức Phú Thọ'}
+                    </div>
+                  </Link>
+
+                  <div className="pt-post-featured-body">
+                    <div>
+                      <div className="pt-post-date-tag">
+                        <i className="ti ti-calendar"></i>
+                        <span>{formatPostDate(featuredPost.created_at)}</span>
+                        {featuredPost.views && (
+                          <>
+                            <span className="pt-dot-separator">•</span>
+                            <span><i className="ti ti-eye"></i> {featuredPost.views.toLocaleString()} lượt đọc</span>
+                          </>
+                        )}
+                      </div>
+
+                      <h3 className="pt-post-featured-title">
+                        <Link to={`/posts/${featuredPost.slug || featuredPost.id}`}>
+                          {featuredPost.title}
+                        </Link>
+                      </h3>
+
+                      <p className="pt-post-featured-excerpt">
+                        {featuredPost.summary || featuredPost.excerpt}
+                      </p>
+                    </div>
+
+                    <div className="pt-post-featured-meta">
+                      <div className="pt-post-author-box">
+                        <i className="ti ti-user-check"></i>
+                        <span>{featuredPost.author_name || brandConfig.brandName}</span>
+                      </div>
+                      <Link to={`/posts/${featuredPost.slug || featuredPost.id}`} className="pt-btn-read-post">
+                        <span>Đọc toàn văn bài viết</span>
+                        <i className="ti ti-arrow-right"></i>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* CỘT PHẢI: CÁC BÀI VIẾT TIẾP THEO (TÊN, ẢNH, TÓM TẮT, XEM CHI TIẾT) */}
+              <div className="pt-compact-posts-list">
+                {remainingPosts.map((post) => (
+                  <div key={post.id} className="pt-compact-post-item">
+                    <Link 
+                      to={`/posts/${post.slug || post.id}`} 
+                      className="pt-compact-post-thumb"
+                      style={{ backgroundImage: `url(${post.image_url || 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=600&q=80'})` }}
+                    />
+                    <div className="pt-compact-post-content">
+                      <div className="pt-compact-post-meta">
+                        <span className="pt-compact-cat-badge">{post.category || 'Tin tức'}</span>
+                        <span className="pt-compact-date">{formatPostDate(post.created_at)}</span>
+                      </div>
+                      <h4 className="pt-compact-post-title">
+                        <Link to={`/posts/${post.slug || post.id}`}>
+                          {post.title}
+                        </Link>
+                      </h4>
+                      <p className="pt-compact-post-excerpt">
+                        {post.summary || post.excerpt}
+                      </p>
+                      <div className="pt-compact-post-footer">
+                        <Link to={`/posts/${post.slug || post.id}`} className="pt-compact-btn-link">
+                          <span>Xem chi tiết</span>
+                          <i className="ti ti-arrow-right"></i>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-section-footer-cta">
+              <Link to="/posts" className="pt-btn-view-all">
+                <i className="ti ti-article"></i>
+                <span>Xem toàn bộ bài viết & ấn phẩm nghiên cứu</span>
+                <i className="ti ti-arrow-right"></i>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================
+            4. KEY EVENTS & FORUMS (SỰ KIỆN & LỄ HỘI)
+            ======================================================== */}
+        <section className="pt-events-section">
+          <div className="pt-section-container">
+            <div className="pt-section-header-row">
+              <div className="pt-section-header-left">
+                <div className="pt-section-badge">
+                  <i className="ti ti-calendar"></i>
+                  <span>Lễ Hội & Diễn Đàn Trọng Điểm</span>
+                </div>
+                <h2 className="pt-section-title">
+                  Sự Kiện Đang & Sắp Diễn Ra — <span className="pt-highlight">Đăng Ký Vé QR</span>
+                </h2>
+                <p className="pt-section-desc">
+                  Cập nhật các đại lễ truyền thống, tuần lễ văn hóa du lịch và hội nghị xúc tiến kinh tế tỉnh Phú Thọ mới.
+                </p>
+              </div>
+              <div className="pt-section-header-right">
+                <Link to="/events" className="pt-btn-header-more">
+                  <span>Xem toàn bộ sự kiện</span>
+                  <i className="ti ti-arrow-right"></i>
+                </Link>
+              </div>
+            </div>
+
+            <div className="pt-events-layout">
+              {/* CỘT TRÁI: 1 SỰ KIỆN GẦN NHẤT NỔI BẬT CÓ ĐẾM NGƯỢC */}
+              {featuredEvent && (
+                <div className="pt-event-featured-card">
+                  <div className="pt-event-featured-thumb-wrap">
+                    <img 
+                      src={featuredEvent.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=85'} 
+                      alt={featuredEvent.title} 
+                      className="pt-event-featured-img"
+                      loading="lazy"
+                    />
+                    <div className="pt-event-featured-badge">
+                      <span className="pt-pulse-dot" />
+                      <span>Sự Kiện Gần Nhất</span>
+                    </div>
+                    <div className="pt-event-featured-price-pill">
+                      {formatEventPrice(featuredEvent)}
+                    </div>
+                  </div>
+
+                  <div className="pt-event-featured-body">
+                    <div>
+                      <div className="pt-event-featured-info-row">
+                        <div className="pt-event-info-item">
+                          <i className="ti ti-calendar-event"></i>
+                          <span>{formatEventDateTime(featuredEvent.start_date)}</span>
+                        </div>
+                        <div className="pt-event-info-item loc">
+                          <i className="ti ti-map-pin"></i>
+                          <span>{featuredEvent.location}</span>
+                        </div>
+                      </div>
+
+                      <h3 className="pt-event-featured-title">
+                        <Link to={`/events/${featuredEvent.slug || featuredEvent.id}`}>
+                          {featuredEvent.title}
+                        </Link>
+                      </h3>
+
+                      <p className="pt-event-featured-desc">
+                        {featuredEvent.description || 'Sự kiện quy tụ cộng đồng doanh nghiệp, nhân dân và du khách trải nghiệm các hoạt động di sản, du lịch và giao thương nổi bật của tỉnh Phú Thọ mới.'}
+                      </p>
+
+                      {/* Khối đếm ngược sự kiện gần nhất */}
+                      <div className="pt-event-countdown-box">
+                        <div className="pt-countdown-title">
+                          <i className="ti ti-clock"></i>
+                          <span>Thời gian đếm ngược đến ngày khai mạc:</span>
+                        </div>
+                        <HomeEventCountdown eventDate={featuredEvent.start_date} />
+                      </div>
+                    </div>
+
+                    <div className="pt-event-featured-actions">
+                      <button 
+                        className="pt-btn-ticket-primary"
+                        onClick={() => handleOpenRegisterModal(featuredEvent)}
+                      >
+                        <i className="ti ti-ticket"></i>
+                        <span>Đăng ký vé QR ngay</span>
+                      </button>
+                      <Link 
+                        to={`/events/${featuredEvent.slug || featuredEvent.id}`} 
+                        className="pt-btn-event-detail"
+                      >
+                        <span>Xem chi tiết sự kiện</span>
+                        <i className="ti ti-arrow-right"></i>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* CỘT PHẢI: CÁC SỰ KIỆN SAU (TÊN, ẢNH, TÓM TẮT, XEM CHI TIẾT) */}
+              <div className="pt-compact-events-list">
+                {remainingEvents.map((evt) => (
+                  <div key={evt.id} className="pt-compact-event-item">
+                    <Link 
+                      to={`/events/${evt.slug || evt.id}`}
+                      className="pt-compact-event-thumb"
+                      style={{ backgroundImage: `url(${evt.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80'})` }}
+                    />
+                    <div className="pt-compact-event-content">
+                      <div className="pt-compact-event-meta">
+                        <i className="ti ti-calendar"></i>
+                        <span>{formatEventDateTime(evt.start_date)}</span>
+                      </div>
+                      <h4 className="pt-compact-event-title">
+                        <Link to={`/events/${evt.slug || evt.id}`}>
+                          {evt.title}
+                        </Link>
+                      </h4>
+                      <p className="pt-compact-event-desc">
+                        {evt.description || `Địa điểm tổ chức: ${evt.location}`}
+                      </p>
+                      <div className="pt-compact-event-footer">
+                        <span className="pt-compact-event-price">{formatEventPrice(evt)}</span>
+                        <Link to={`/events/${evt.slug || evt.id}`} className="pt-compact-event-btn">
+                          <span>Xem chi tiết</span>
+                          <i className="ti ti-arrow-right"></i>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-section-footer-cta">
+              <Link to="/events" className="pt-btn-view-all">
+                <i className="ti ti-calendar-event"></i>
+                <span>Xem toàn bộ lịch trình sự kiện & hội nghị ({eventsList.length}+)</span>
+                <i className="ti ti-arrow-right"></i>
+              </Link>
+            </div>
+          </div>
+        </section>
+
 
         {/* ========================================================
             3. FOUR STRATEGIC GROWTH CORRIDORS (4 HÀNH LANG PHÁT TRIỂN)
@@ -1021,60 +1333,7 @@ export const Home = () => {
           </div>
         </section>
 
-        {/* ========================================================
-            7. KEY EVENTS & FORUMS (SỰ KIỆN & LỄ HỘI)
-            ======================================================== */}
-        <section className="pt-events-section">
-          <div className="pt-section-container">
-            <div className="pt-section-header">
-              <div className="pt-section-badge">
-                <i className="ti ti-calendar"></i>
-                <span>Lễ Hội & Diễn Đàn Trọng Điểm</span>
-              </div>
-              <h2 className="pt-section-title">
-                Sự Kiện Đang & Sắp Diễn Ra — <span className="pt-highlight">Đăng Ký Tham Gia Vé QR</span>
-              </h2>
-              <p className="pt-section-desc">
-                Cập nhật các đại lễ truyền thống, tuần lễ văn hóa du lịch và hội nghị xúc tiến kinh tế tỉnh Phú Thọ mới.
-              </p>
-            </div>
-
-            <div className="pt-events-grid">
-              {eventsList.map((evt) => (
-                <div key={evt.id} className="pt-event-card">
-                  <div className="pt-event-img" style={{ backgroundImage: `url(${evt.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80'})` }} />
-                  <div className="pt-event-body">
-                    <div>
-                      <div className="pt-event-date-row">
-                        <i className="ti ti-calendar-event"></i>
-                        <span>{formatEventDateTime(evt.start_date)}</span>
-                      </div>
-                      <h3 className="pt-event-title">{evt.title}</h3>
-                      <div className="pt-event-location">
-                        <i className="ti ti-map-pin"></i>
-                        <span>{evt.location}</span>
-                      </div>
-                      <HomeEventCountdown eventDate={evt.start_date} />
-                    </div>
-
-                    <div className="pt-event-footer-row">
-                      <div className="pt-event-price">
-                        {formatEventPrice(evt)}
-                      </div>
-                      <button 
-                        className="pt-btn-ticket"
-                        onClick={() => handleOpenRegisterModal(evt)}
-                      >
-                        <i className="ti ti-ticket"></i>
-                        <span>Đăng ký vé QR</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        
 
         {/* ========================================================
             8. FEATURED ENTERPRISES & B2B DIRECTORY (DOANH NGHIỆP)
@@ -1117,48 +1376,7 @@ export const Home = () => {
           </div>
         </section>
 
-        {/* ========================================================
-            9. ARTICLES & REGIONAL RESEARCH (TIN TỨC & DỰ ÁN)
-            ======================================================== */}
-        <section className="pt-news-section">
-          <div className="pt-section-container">
-            <div className="pt-section-header">
-              <div className="pt-section-badge">
-                <i className="ti ti-news"></i>
-                <span>Dữ Liệu & Tin Tức Kinh Tế</span>
-              </div>
-              <h2 className="pt-section-title">
-                Tin Tức & Báo Cáo Nghiên Cứu — <span className="pt-highlight">Cập Nhật Mới Nhất</span>
-              </h2>
-              <p className="pt-section-desc">
-                Thông tin chính sách, dữ liệu đầu tư và bài viết khám phá du lịch có nguồn dẫn chứng tin cậy.
-              </p>
-            </div>
-
-            <div className="pt-news-grid">
-              {latestPosts.map((post) => (
-                <Link key={post.id} to={`/posts/${post.slug || post.id}`} className="pt-news-card">
-                  <div 
-                    className="pt-news-thumb"
-                    style={{ backgroundImage: `url(${post.image_url || 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=600&q=80'})` }}
-                  >
-                    <span className="pt-news-category-badge">{post.category}</span>
-                  </div>
-                  <div className="pt-news-content">
-                    <div>
-                      <h3 className="pt-news-title">{post.title}</h3>
-                      <p className="pt-news-excerpt">{post.summary}</p>
-                    </div>
-                    <div className="pt-news-meta">
-                      <span>{post.author_name || brandConfig.brandName}</span>
-                      <span><i className="ti ti-eye"></i> {post.views || 120}</span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+        
 
         {/* ========================================================
             10. STRATEGIC LEAD CAPTURE FORM (TIẾP NHẬN ĐẦU TƯ)
