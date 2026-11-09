@@ -12,8 +12,8 @@ export const NotFound = () => {
   return (
     <div className="public-body" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#F7F1E8' }}>
       <SEOHead 
-        title={currentLang === 'en' ? '404 - Page Not Found | Laocai.today' : '404 - Không Tìm Thấy Trang | Laocai.today'}
-        description={currentLang === 'en' ? 'The requested page could not be found on Laocai.today.' : 'Liên kết bạn yêu cầu không tồn tại hoặc đã được chuyển sang địa chỉ mới trên Laocai.today.'}
+        title={currentLang === 'en' ? '404 - Page Not Found | Phutho.today' : '404 - Không Tìm Thấy Trang | Phutho.today'}
+        description={currentLang === 'en' ? 'The requested page could not be found on Phutho.today.' : 'Liên kết bạn yêu cầu không tồn tại hoặc đã được chuyển sang địa chỉ mới trên Phutho.today.'}
       />
       <Navbar />
 
@@ -93,7 +93,7 @@ export const NotFound = () => {
           }}>
             {currentLang === 'en'
               ? 'The link you followed may be broken, or the page may have been removed or moved to a new destination.'
-              : 'Đường dẫn bạn vừa truy cập không tồn tại, đã bị đổi tên hoặc tạm thời gỡ bỏ khỏi hệ thống Laocai.today.'}
+              : 'Đường dẫn bạn vừa truy cập không tồn tại, đã bị đổi tên hoặc tạm thời gỡ bỏ khỏi hệ thống Phutho.today.'}
           </p>
 
           {/* Quick Action Navigation Buttons */}

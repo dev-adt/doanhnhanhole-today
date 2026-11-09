@@ -446,7 +446,7 @@ export const MemberDashboard = () => {
   if (modalOpen) {
     return (
       <div className="public-body">
-        <SEOHead title="Đăng Tin Giao Thương Mới | Laocai.today" description="Soạn thảo và đăng tin bài giao thương hội viên Laocai.today" />
+        <SEOHead title="Đăng Tin Giao Thương Mới | Phutho.today" description="Soạn thảo và đăng tin bài giao thương hội viên Phutho.today" />
         <Navbar />
         <div style={{ minHeight: '80vh', padding: '2rem 1.5rem 4rem', backgroundColor: '#F8FAFC' }}>
           <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
@@ -466,7 +466,7 @@ export const MemberDashboard = () => {
                   <span>{editingPostId ? t('modal_edit_post_title') : 'Đăng Tin Cơ Hội Giao Thương Mới'}</span>
                 </h1>
                 <p style={{ color: '#64748B', fontSize: '13.5px', margin: '4px 0 0' }}>
-                  Soạn thảo thông tin hợp tác, tìm kiếm đối tác và giới thiệu sản phẩm nông sản Lào Cai trên không gian rộng rãi, trực quan.
+                  Soạn thảo thông tin hợp tác, tìm kiếm đối tác và giới thiệu sản phẩm nông sản Phú Thọ trên không gian rộng rãi, trực quan.
                 </p>
               </div>
 
@@ -573,7 +573,7 @@ export const MemberDashboard = () => {
 
                   <div className="fg">
                     <label style={{ fontSize: '13.5px', fontWeight: 700, color: '#1E293B', marginBottom: '6px', display: 'block' }}>Từ khoá (phân tách bằng dấu phẩy)</label>
-                    <input type="text" id="tags" value={newPostData.tags} onChange={handleNewPostChange} placeholder="Ví dụ: dược liệu vùng cao, chè Shan Tuyết Lào Cai, logistics cửa khẩu" style={{ fontSize: '14px', padding: '11px 14px', borderRadius: '8px' }} />
+                    <input type="text" id="tags" value={newPostData.tags} onChange={handleNewPostChange} placeholder="Ví dụ: dược liệu vùng cao, chè Shan Tuyết Phú Thọ, logistics cửa khẩu" style={{ fontSize: '14px', padding: '11px 14px', borderRadius: '8px' }} />
                   </div>
                 </div>
 
@@ -737,7 +737,7 @@ export const MemberDashboard = () => {
 
   return (
     <div className="public-body">
-      <SEOHead title="Dashboard Hội viên | Laocai.today" description="Trang quản trị tài khoản dành cho Hội viên Laocai.today" />
+      <SEOHead title="Dashboard Hội viên | Phutho.today" description="Trang quản trị tài khoản dành cho Hội viên Phutho.today" />
       <Navbar />
       <div className="dashboard-wrap">
         
@@ -885,7 +885,7 @@ export const MemberDashboard = () => {
                       <option value="Cần Thơ" />
                       <option value="Cao Bằng" />
                       <option value="Đà Nẵng" />
-                      <option value="Lào Cai" />
+                      <option value="Phú Thọ" />
                       <option value="Đắk Nông" />
                       <option value="Điện Biên" />
                       <option value="Đồng Nai" />
@@ -906,7 +906,7 @@ export const MemberDashboard = () => {
                       <option value="Lai Châu" />
                       <option value="Lâm Đồng" />
                       <option value="Lạng Sơn" />
-                      <option value="Lào Cai" />
+                      <option value="Phú Thọ" />
                       <option value="Long An" />
                       <option value="Nam Định" />
                       <option value="Nghệ An" />

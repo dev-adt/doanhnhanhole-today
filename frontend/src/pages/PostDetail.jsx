@@ -100,7 +100,7 @@ export const PostDetail = () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: post ? (isTranslated ? translatedTitle : post.title) : 'Laocai.today',
+          title: post ? (isTranslated ? translatedTitle : post.title) : 'Phutho.today',
           text: post ? (isTranslated ? translatedSummary : post.summary || post.title) : '',
           url: window.location.href
         });
@@ -141,7 +141,7 @@ export const PostDetail = () => {
           fullName: actionForm.fullName,
           phone: actionForm.phone,
           email: actionForm.email,
-          city: 'Lào Cai',
+          city: 'Phú Thọ',
           companyName: actionForm.companyName || 'Cá nhân / Nhà đầu tư',
           memberType: 'Quan tâm đầu tư',
           notes: `${leadSubject}. Ghi chú: ${actionForm.notes || 'Không có'}`
@@ -418,7 +418,7 @@ export const PostDetail = () => {
       parsedTagsStr = String(post.tags);
     }
   }
-  const metaKeywords = [parsedTagsStr, post.category, post.sub_category, 'Laocai.today', 'Cổng thông tin & Dữ liệu Laocai.today', post.title].filter(Boolean).join(', ');
+  const metaKeywords = [parsedTagsStr, post.category, post.sub_category, 'Phutho.today', 'Cổng thông tin & Dữ liệu Phutho.today', post.title].filter(Boolean).join(', ');
 
   // Generate NewsArticle JSON-LD schema
   const newsSchema = {
@@ -430,14 +430,14 @@ export const PostDetail = () => {
     "dateModified": post.updated_at || post.created_at,
     "author": [{
       "@type": "Organization",
-      "name": post.company_name || "Hội viên Laocai.today"
+      "name": post.company_name || "Hội viên Phutho.today"
     }],
     "publisher": {
       "@type": "Organization",
-      "name": "Laocai.today",
+      "name": "Phutho.today",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://laocai.today/logo_icon.png"
+        "url": "https://phutho.today/logo_icon.png"
       }
     },
     "description": metaDescription
@@ -673,7 +673,7 @@ export const PostDetail = () => {
                   <p className="post-action-desc">
                     {currentLang === 'en'
                       ? 'Interested in business partnerships, agricultural value chains, or investment incentives in Lao Cai? Submit your interest to receive official dossiers and direct support.'
-                      : 'Độc giả và nhà đầu tư quan tâm đến cơ hội hợp tác, chuỗi cung ứng hoặc thông tin đầu tư tại Lào Cai có thể đăng ký trực tiếp để được kết nối sớm nhất.'}
+                      : 'Độc giả và nhà đầu tư quan tâm đến cơ hội hợp tác, chuỗi cung ứng hoặc thông tin đầu tư tại Phú Thọ có thể đăng ký trực tiếp để được kết nối sớm nhất.'}
                   </p>
                 </div>
                 <div className="post-action-buttons">
@@ -748,7 +748,7 @@ export const PostDetail = () => {
                   </div>
                   <div style={{ fontSize: '14px', color: 'var(--text-primary)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
                     <i className="ti ti-info-square" style={{ color: 'var(--primary-dark)' }}></i>
-                    {post.contact_info || (currentLang === 'en' ? 'Contact publisher / editorial board' : 'Ban biên tập & Xúc tiến Laocai.today')}
+                    {post.contact_info || (currentLang === 'en' ? 'Contact publisher / editorial board' : 'Ban biên tập & Xúc tiến Phutho.today')}
                   </div>
                   
                   {/* Direct Call if phone available */}
@@ -1007,7 +1007,7 @@ export const PostDetail = () => {
                 <p>
                   {actionModalType === 'dossier'
                     ? (currentLang === 'en' ? 'Project dossier and investment documentation will be delivered to your contact info shortly.' : 'Hồ sơ dự án chi tiết và tài liệu xúc tiến sẽ được gửi tới Email / Số điện thoại của bạn trong thời gian sớm nhất.')
-                    : (currentLang === 'en' ? 'Laocai.today and the relevant team will reach out to you within 24 hours.' : 'Ban xúc tiến đầu tư Laocai.today và đơn vị liên quan sẽ liên hệ trao đổi với bạn trong vòng 24 giờ.')}
+                    : (currentLang === 'en' ? 'Phutho.today and the relevant team will reach out to you within 24 hours.' : 'Ban xúc tiến đầu tư Phutho.today và đơn vị liên quan sẽ liên hệ trao đổi với bạn trong vòng 24 giờ.')}
                 </p>
                 <button onClick={() => setShowActionModal(false)} className="post-act-btn primary" style={{ marginTop: '20px' }}>
                   {currentLang === 'en' ? 'Close Window' : 'Đóng cửa sổ'}

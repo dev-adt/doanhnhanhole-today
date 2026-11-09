@@ -87,13 +87,13 @@ export const Login = () => {
             <Link to="/" style={{ textDecoration: 'none', display: 'inline-block' }}>
               <img 
                 src="/logo_icon.svg" 
-                alt="Laocai.today Logo" 
+                alt="Phutho.today Logo" 
                 onError={(e) => { e.target.src = "/logo_icon.png"; }} 
                 style={{ height: '62px', width: '62px', objectFit: 'contain', borderRadius: '14px', filter: 'drop-shadow(0 4px 16px rgba(217, 155, 38, 0.35))' }} 
               />
             </Link>
             <h1 style={{ fontSize: '20px', fontWeight: 700, color: 'var(--text-primary)', margin: '8px 0 0', letterSpacing: '-0.02em' }}>
-              Đăng nhập Laocai.today
+              Đăng nhập Phutho.today
             </h1>
           </div>
 

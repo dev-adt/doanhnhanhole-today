@@ -358,7 +358,7 @@ const LANGS = {
     step_3_title: '3. Thiết lập tài khoản bảo mật & gói hội viên',
     placeholder_company_name: 'Ví dụ: Công ty CP Du lịch & Thương mại Quốc tế Phú Thọ',
     label_website: 'Địa chỉ Website doanh nghiệp',
-    placeholder_website: 'Ví dụ: https://laocaitrade.vn',
+    placeholder_website: 'Ví dụ: https://phuthotrade.vn',
     placeholder_industry: 'Chọn hoặc tự điền lĩnh vực...',
     placeholder_select_scale: '-- Chọn quy mô --',
     scale_under_10: 'Dưới 10 người',
