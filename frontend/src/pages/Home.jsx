@@ -586,7 +586,7 @@ const ADT_GROUP_DATA = {
   tagline: 'Một Trợ Lý AI Làm Việc Bằng Cả 1 Đội Quân',
   taxCode: '0108234567',
   website: 'https://www.adtgroup.net/',
-  logo: '/images/adt_logo.svg',
+  logo: '/images/adt_logo.jpg',
   hotline: '0986 354 152',
   email: 'info@adtgroup.net',
   address: 'Khu đô thị Văn Phú, P. Kiến Hưng, Hà Nội',
@@ -1302,7 +1302,7 @@ export const Home = () => {
                       src={ADT_GROUP_DATA.logo}
                       alt={ADT_GROUP_DATA.shortName}
                       className="hl-fe-logo-img"
-                      style={{ height: '42px' }}
+                      style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
                       loading="lazy"
                     />
                   </a>
@@ -1626,109 +1626,6 @@ export const Home = () => {
         </section>
 
         {/* ========================================================
-            5. SÀN THÔNG TIN CƠ HỘI HỢP TÁC B2B (MỤC 3.2 & 12.4 ĐỀ ÁN)
-            ======================================================== */}
-        <section className="hl-b2b-section">
-          <div className="hl-container">
-            <div className="hl-sec-header hl-reveal">
-              <div className="hl-sec-badge">
-                <i className="ti ti-briefcase"></i>
-                <span>Sàn Cơ Hội Hợp Tác Có Kiểm Duyệt</span>
-              </div>
-              <h2 className="hl-sec-title">
-                Bảng Nhu Cầu Giao Thương & Đầu Tư — <span className="hl-gold-accent">Chuẩn Hóa 12 Trường Thông Tin</span>
-              </h2>
-              <p className="hl-sec-desc">
-                Mỗi cơ hội đều công bố rõ đơn vị đề xuất, sản phẩm/lĩnh vực, thị trường, quy mô dự kiến, tiêu chí đối tác, thời hạn và bước tiếp theo để hội viên dễ dàng thẩm định.
-              </p>
-            </div>
-
-            {/* Filter Buttons */}
-            <div className="hl-b2b-filter-bar hl-reveal">
-              {[
-                { key: 'ALL', label: 'Tất cả nhu cầu (06)' },
-                { key: 'Tìm đại lý / Phân phối', label: 'Tìm đại lý / Nhà phân phối' },
-                { key: 'Mua hàng / Nguồn cung', label: 'Mua hàng / Tìm nhà cung cấp' },
-                { key: 'Góp vốn / Mở nhà máy', label: 'Đầu tư / Mở rộng nhà máy' },
-                { key: 'Hợp tác Dịch vụ & Xuất khẩu', label: 'Dịch vụ, Công nghệ & Du lịch' }
-              ].map((tab) => (
-                <button
-                  key={tab.key}
-                  type="button"
-                  className={`hl-b2b-filter-btn ${b2bFilter === tab.key ? 'active' : ''}`}
-                  onClick={() => setB2bFilter(tab.key)}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-
-            {/* B2B Opportunity Cards Grid */}
-            <div className="hl-b2b-grid">
-              {filteredOpportunities.map((item) => (
-                <div key={item.id} className="hl-b2b-card hl-card-3d">
-                  <div>
-                    <div className="hl-b2b-top">
-                      <span className="hl-b2b-type-badge">{item.type}</span>
-                      <span className="hl-b2b-status-pill">
-                        <i className="ti ti-circle-check"></i> {item.status}
-                      </span>
-                    </div>
-
-                    <h3 className="hl-b2b-title">{item.title}</h3>
-
-                    <div className="hl-b2b-meta-box">
-                      <div className="hl-b2b-meta-row">
-                        <span>Đơn vị đề xuất:</span>
-                        <strong>{item.proposer}</strong>
-                      </div>
-                      <div className="hl-b2b-meta-row">
-                        <span>Thị trường:</span>
-                        <strong>{item.market}</strong>
-                      </div>
-                      <div className="hl-b2b-meta-row">
-                        <span>Quy mô dự kiến:</span>
-                        <strong style={{ color: '#B37B16' }}>{item.scale}</strong>
-                      </div>
-                      <div className="hl-b2b-meta-row">
-                        <span>Thời hạn tiếp nhận:</span>
-                        <strong>{item.deadline}</strong>
-                      </div>
-                    </div>
-
-                    <div className="hl-b2b-criteria">
-                      <strong>Tiêu chí đối tác:</strong> {item.criteria}
-                    </div>
-                  </div>
-
-                  <div className="hl-b2b-footer">
-                    <span style={{ color: '#3E506B', fontWeight: '600' }}>
-                      <i className="ti ti-arrow-forward-up" style={{ color: '#D49A2A' }}></i> {item.nextStep}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => scrollToConsult(`Đề nghị kết nối cơ hội: ${item.title}`)}
-                      style={{
-                        background: '#0B1D3A',
-                        color: '#FFE49E',
-                        border: 'none',
-                        padding: '7px 14px',
-                        borderRadius: '8px',
-                        fontWeight: '750',
-                        fontSize: '12px',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      Kết nối ngay →
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
             6. TIN TỨC, BÀI HỌC ĐIỀU HÀNH & CHÂN DUNG DOANH NHÂN (/api/posts)
             ======================================================== */}
         <section className="pt-news-section">
@@ -1997,89 +1894,6 @@ export const Home = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            9. HỌC VIỆN THỰC CHIẾN: 6 CHUYÊN ĐỀ ĐÀO TẠO & CỐ VẤN 8 TUẦN (MỤC 4.4)
-            ======================================================== */}
-        <section className="hl-academy-section">
-          <div className="hl-container">
-            <div className="hl-sec-header hl-reveal">
-              <div className="hl-sec-badge">
-                <i className="ti ti-school"></i>
-                <span>Phát Triển Năng Lực & Chia Sẻ Kinh Nghiệm Thực Chiến</span>
-              </div>
-              <h2 className="hl-sec-title">
-                Sáu Chuyên Đề Đào Tạo Chủ Doanh Nghiệp & <span className="hl-gold-accent">Cố Vấn Khởi Nghiệp 8 Tuần</span>
-              </h2>
-              <p className="hl-sec-desc">
-                Mỗi chuyên đề đều thiết kế mục tiêu học tập rõ ràng, bài thực hành áp dụng trực tiếp vào doanh nghiệp và khảo sát chất lượng sau khóa học.
-              </p>
-            </div>
-
-            <div className="hl-courses-grid">
-              {SIX_TRAINING_MODULES.map((course, idx) => (
-                <div key={idx} className="hl-course-card hl-card-3d">
-                  <div>
-                    <div className="hl-course-header">
-                      <div className="hl-course-icon">
-                        <i className={`ti ${course.icon}`}></i>
-                      </div>
-                      <span className="hl-course-num">{course.code}</span>
-                    </div>
-                    <h3 className="hl-course-title">{course.title}</h3>
-                    <p className="hl-course-desc">{course.desc}</p>
-                  </div>
-                  <div className="hl-course-outcome">
-                    <i className="ti ti-check" style={{ color: '#D49A2A', marginRight: '6px' }}></i>
-                    {course.outcome}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Mentorship 8-Week Box */}
-            <div className="hl-mentorship-box hl-reveal-scale">
-              <div>
-                <div className="hl-pioneer-badge">
-                  <i className="ti ti-seedling"></i> Chương Trình Cố Vấn Doanh Nhân Trẻ (Mentorship)
-                </div>
-                <h3 style={{ fontSize: '24px', fontWeight: '850', marginBottom: '10px', color: '#FFFFFF' }}>
-                  Mô Hình Cố Vấn 1 Người Hướng Dẫn Kèm 1 – 3 Doanh Nhân Trẻ Trong 8 Tuần
-                </h3>
-                <p style={{ fontSize: '14px', color: '#D5E2F2', lineHeight: '1.6', marginBottom: '18px' }}>
-                  Người trẻ khởi nghiệp được tham gia theo chương trình riêng với người hướng dẫn giàu kinh nghiệm. Hai bên thống nhất mục tiêu, lịch trao đổi định kỳ và nguyên tắc bảo mật thông tin; không dùng tên người cố vấn để quảng cáo hoặc bảo chứng thương mại khi chưa được đồng ý.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => scrollToConsult('Đăng ký Chương trình Cố vấn Khởi nghiệp 8 tuần (Mentor / Mentee)')}
-                  className="hl-search-btn"
-                >
-                  <i className="ti ti-user-check"></i>
-                  <span>Đăng Ký Làm Mentor / Mentee Khởi Nghiệp</span>
-                </button>
-              </div>
-
-              <div className="hl-mentor-steps">
-                <div className="hl-mentor-step">
-                  <h4>Tuần 01 – 02: Chẩn Đoán</h4>
-                  <p>Xác định bài toán cốt lõi của doanh nghiệp trẻ, chốt mục tiêu 8 tuần & ký cam kết bảo mật.</p>
-                </div>
-                <div className="hl-mentor-step">
-                  <h4>Tuần 03 – 05: Thực Thi</h4>
-                  <p>Trao đổi định kỳ hàng tuần, rà soát mô hình sản phẩm, dòng tiền và kênh bán hàng.</p>
-                </div>
-                <div className="hl-mentor-step">
-                  <h4>Tuần 06 – 07: Kết Nối</h4>
-                  <p>Giới thiệu thử nghiệm với hệ sinh thái hội viên phù hợp theo năng lực thực tế.</p>
-                </div>
-                <div className="hl-mentor-step">
-                  <h4>Tuần 08: Kế Hoạch Cải Thiện</h4>
-                  <p>Hoàn thành bản kế hoạch cải thiện cụ thể và đánh giá kết quả chương trình cố vấn.</p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
