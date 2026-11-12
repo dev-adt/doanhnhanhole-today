@@ -1,15 +1,15 @@
 {
-  "name": "Phutho.today — Nền tảng kết nối du lịch, thương mại và đầu tư tỉnh Phú Thọ mới",
-  "short_name": "Phutho.today",
-  "description": "Phutho.today là nền tảng số đa ngôn ngữ giúp du khách khám phá điểm đến, doanh nghiệp tìm đối tác và nhà đầu tư tiếp cận thông tin có nguồn về tỉnh Phú Thọ mới (Phú Thọ - Vĩnh Phúc - Hòa Bình).",
+  "name": "Doanhnhanhole.today — Kết nối Doanh nhân Họ Lê Toàn cầu & Những người bạn",
+  "short_name": "Doanhnhanhole.today",
+  "description": "Nền tảng số kết nối doanh nhân Họ Lê và những người bạn trong nước và quốc tế: Giao thương • Du lịch • Đầu tư • Chia sẻ kinh nghiệm • Đào tạo.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#081C15",
-  "theme_color": "#0E382B",
-  "categories": ["business", "news", "travel", "investment"],
+  "background_color": "#061020",
+  "theme_color": "#0B1D3A",
+  "categories": ["business", "networking", "education", "investment"],
   "icons": [
     {
       "src": "/favicon.svg",
@@ -26,24 +26,24 @@
   ],
   "shortcuts": [
     {
-      "name": "Khám phá Phú Thọ Mới",
-      "short_name": "Khám phá",
-      "description": "Đất Tổ Hùng Vương, Tam Đảo mù sương, Hồ Hòa Bình",
-      "url": "/posts?category=Khám%20phá%20Phú%20Thọ",
+      "name": "Cơ hội Giao thương B2B",
+      "short_name": "Giao thương",
+      "description": "Sàn thông tin cơ hội mua bán, đại lý, phân phối có điều phối",
+      "url": "/posts?category=Cơ%20hội%20Giao%20thương",
       "icons": [{ "src": "/logo_icon.svg", "sizes": "192x192" }]
     },
     {
-      "name": "Trợ lý AI Phú Thọ",
-      "short_name": "AI Assistant",
-      "description": "Hỏi đáp tra cứu địa chỉ mới, gợi ý hành trình và cơ hội đầu tư 24/7",
+      "name": "Trợ lý AI Doanh nhân Họ Lê",
+      "short_name": "Họ Lê AI",
+      "description": "Hỏi đáp cộng đồng, soạn nháp hồ sơ doanh nghiệp & kết nối đối tác",
       "url": "/ai-chat",
       "icons": [{ "src": "/logo_icon.svg", "sizes": "192x192" }]
     },
     {
-      "name": "Đầu tư & Khu Công Nghiệp",
-      "short_name": "Đầu tư",
-      "description": "Hạ tầng KCN Thăng Long Vĩnh Phúc, Bá Thiện, Phú Hà, Lương Sơn",
-      "url": "/posts?category=Đầu%20tư%20%26%20Hợp%20tác",
+      "name": "Danh bạ Doanh nghiệp",
+      "short_name": "Danh bạ",
+      "description": "Danh bạ doanh nhân Họ Lê và những người bạn đã xác minh",
+      "url": "/members",
       "icons": [{ "src": "/logo_icon.svg", "sizes": "192x192" }]
     }
   ]

@@ -1,98 +1,99 @@
 /**
  * BRAND CONFIGURATION (CẤU HÌNH THƯƠNG HIỆU TẬP TRUNG)
  * -------------------------------------------------------------
- * File này quản lý toàn bộ thông tin nhận diện thương hiệu của nền tảng Phutho.today.
- * Dự án: Nền tảng kết nối du lịch, thương mại và đầu tư tỉnh Phú Thọ mới (Phú Thọ - Vĩnh Phúc - Hòa Bình)
- * Định vị: "Phú Thọ Mới — Kết Nối Di Sản, Du Lịch & Hội Tụ Cơ Hội Đầu Tư" (Media + Data + Platform + AI)
+ * File này quản lý toàn bộ thông tin nhận diện thương hiệu của nền tảng Doanhnhanhole.today.
+ * Dự án: Phát triển nền tảng Doanh nhân Họ Lê Toàn cầu & Những người bạn (doanhnhanhole.today)
+ * Định vị: "Kết nối Họ Lê toàn cầu, cùng mở cơ hội phát triển"
+ * Trụ cột: Giao thương • Du lịch • Đầu tư • Chia sẻ kinh nghiệm • Đào tạo
  */
 
 export const brandConfig = {
   // Thông tin định danh thương hiệu
-  brandName: 'Phutho.today',
-  brandShortName: 'Phú Thọ',
-  platformName: 'Phutho.today Digital Platform',
-  companyLegalName: 'Nền tảng Kết nối Du lịch, Giao thương & Xúc tiến Đầu tư Tỉnh Phú Thọ Mới',
+  brandName: 'Doanhnhanhole.today',
+  brandShortName: 'Doanh nhân Họ Lê',
+  platformName: 'Doanh nhân Họ Lê Toàn cầu Digital Platform',
+  companyLegalName: 'Cộng đồng Doanh nhân Họ Lê Toàn cầu & Những người bạn',
   partnerLegalName: 'Công ty Cổ phần ADT Quốc tế',
   
-  // Slogan & Định vị theo Đề án dự án Phutho.today
-  slogan: 'Phú Thọ Mới — Kết Nối Di Sản, Du Lịch & Hội Tụ Đầu Tư',
-  tagline: 'Cội nguồn Đất Tổ Hùng Vương • Đô thị Công nghiệp Công nghệ cao • Kỳ quan Sinh thái Tây Bắc',
-  description: 'Phutho.today là nền tảng số đa ngôn ngữ giúp du khách khám phá điểm đến, doanh nghiệp tìm đối tác và nhà đầu tư tiếp cận thông tin có nguồn về tỉnh Phú Thọ mới sau sáp nhập.',
+  // Slogan & Định vị theo Đề án dự án doanhnhanhole.today
+  slogan: 'Kết nối Họ Lê toàn cầu, cùng mở cơ hội phát triển',
+  tagline: 'Giao thương • Du lịch • Đầu tư • Chia sẻ kinh nghiệm • Đào tạo',
+  description: 'Nền tảng số kết nối doanh nhân Họ Lê và những người bạn trong nước và quốc tế: danh bạ doanh nghiệp xác minh, sàn cơ hội giao thương có điều phối, kết nối du lịch về nguồn, xúc tiến đầu tư và đào tạo cố vấn thực chiến.',
   
   // Tên miền & Đường dẫn
-  domain: 'phutho.today',
-  demoDomain: 'dev.phutho.today',
-  baseUrl: 'https://phutho.today',
-  demoUrl: 'https://dev.phutho.today',
+  domain: 'doanhnhanhole.today',
+  demoDomain: 'dev.doanhnhanhole.today',
+  baseUrl: 'https://doanhnhanhole.today',
+  demoUrl: 'https://dev.doanhnhanhole.today',
   apiBaseUrl: '/api',
 
-  // Nhận diện hình ảnh & Logo
+  // Nhận diện hình ảnh & Logo (Chữ L, đường kết nối toàn cầu & cánh cửa thị trường)
   logo: {
     primary: '/logo_icon.svg',
     dark: '/logo_icon.svg',
     icon: '/logo_icon.svg',
-    alt: 'Phutho.today Logo',
+    alt: 'Doanhnhanhole.today Logo',
     favicon: '/favicon.svg',
-    defaultThumbnail: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=1200&q=85',
+    defaultThumbnail: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=85',
     fallbackCompanyLogo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80'
   },
 
-  // Hệ màu chuẩn cảm hứng Đất Tổ Hùng Vương, Trống đồng Đông Sơn, Đồi chè Long Cốc & Hồ Hòa Bình
+  // Hệ màu chuẩn theo Mục 7.1 Đề án: Xanh đậm chủ đạo, Vàng ấm điểm nhấn & Nền sáng dễ đọc
   colors: {
-    heritageGreen: '#0E382B',   // Xanh di sản đại ngàn & đồi chè trung du
-    bronzeGold: '#C59325',      // Vàng đồng Đông Sơn & Ánh kim di sản
-    lakeTeal: '#125C51',        // Xanh ngọc bích hồ Hòa Bình & Suối khoáng
-    mistWhite: '#F4F7F5',       // Trắng sương mây Tam Đảo (Nền trang thoáng sáng)
-    charcoalDark: '#12241D',    // Đen than di sản
-    earthOchre: '#96631E',      // Nâu đất phù sa ba dòng sông (Hồng, Lô, Đà)
-    primary: '#0E382B',
-    primaryHover: '#08261D',
-    primaryDark: '#04140F',
-    primaryLight: '#F4F7F5',
-    secondary: '#125C51',
-    accent: '#C59325',
-    accentGlow: 'rgba(197, 147, 37, 0.4)',
-    gold: '#C59325',
-    goldLight: '#E5B342',
+    royalNavy: '#0B1D3A',       // Xanh đậm chủ đạo (Uy tín, Toàn cầu, Bản lĩnh)
+    deepSapphire: '#122B54',    // Xanh lam hoàng gia chiều sâu 3D
+    warmGold: '#D49A2A',        // Vàng ấm điểm nhấn (Thịnh vượng, Di sản Họ Lê)
+    ivoryLight: '#F7F9FC',      // Nền sáng dễ đọc
+    charcoalDark: '#0A1628',    // Đen xanh đậm
+    amberBronze: '#B37B16',     // Đồng vàng cổ điển
+    primary: '#0B1D3A',
+    primaryHover: '#071428',
+    primaryDark: '#050E1D',
+    primaryLight: '#F7F9FC',
+    secondary: '#16376B',
+    accent: '#D49A2A',
+    accentGlow: 'rgba(212, 154, 42, 0.4)',
+    gold: '#D49A2A',
+    goldLight: '#F5C257',
     bazanBrown: '#96631E',
-    coffee: '#12241D',
-    cream: '#F4F7F5',
-    darkBg: '#081C15',
-    darkCard: '#0F2C22'
+    coffee: '#0A1628',
+    cream: '#F7F9FC',
+    darkBg: '#061020',
+    darkCard: '#0D2142'
   },
 
-  // Trợ lý Trí tuệ Nhân tạo (AI Assistant)
+  // Trợ lý Trí tuệ Nhân tạo (AI Assistant có kiểm soát theo Mục 5.3 Đề án)
   aiAssistant: {
-    name: 'AI Phú Thọ Assistant',
-    shortName: 'Phú Thọ AI',
-    title: 'Trợ lý AI Đa Năng Cố Vấn Du Lịch, Giao Thương & Đầu Tư Tỉnh Phú Thọ Mới',
+    name: 'AI Doanh Nhân Họ Lê',
+    shortName: 'Họ Lê AI',
+    title: 'Trợ lý AI Kết nối Giao thương, Hồ sơ Doanh nghiệp & Tri thức Điều hành',
     avatar: '/ai_robot_avatar-removebg.png',
-    welcomeMessage: 'Kính chào Quý vị! Tôi là Trợ lý AI của nền tảng Phutho.today. Tôi có thể hỗ trợ Quý vị tra cứu thông tin điểm đến 3 vùng (Phú Thọ – Vĩnh Phúc – Hòa Bình), danh bạ doanh nghiệp, các khu công nghiệp công nghệ cao, sản phẩm OCOP và hướng dẫn thủ tục đầu tư 24/7.',
-    systemRole: 'Bạn là trợ lý AI chuyên nghiệp đa ngôn ngữ của nền tảng Phutho.today. Hãy tư vấn sâu sắc, chuẩn xác, có dẫn chứng và truyền cảm hứng về tỉnh Phú Thọ mới sau sắp xếp theo Nghị quyết 202/2025/QH15 (gồm ba không gian văn hóa - kinh tế: Phú Thọ, Vĩnh Phúc và Hòa Bình trước đây). Nắm rõ 148 xã/phường, các điểm đến tiêu biểu (Đền Hùng, Tam Đảo, Hồ Hòa Bình, Mai Châu, Long Cốc, Tây Thiên, Thanh Thủy, Kim Bôi), các cực công nghiệp (KCN Thăng Long Vĩnh Phúc, Bá Thiện, Khai Quang, Phú Hà, Lương Sơn) và đặc sản OCOP 3 vùng.',
+    welcomeMessage: 'Kính chào Quý Doanh nhân và Bạn bè! Tôi là Trợ lý AI của nền tảng Doanhnhanhole.today. Tôi hỗ trợ tra cứu thông tin cộng đồng Doanh nhân Họ Lê Toàn cầu, tìm kiếm cơ hội giao thương B2B, chương trình du lịch về nguồn, dự án đầu tư, chuyên đề đào tạo và hỗ trợ soạn bản nháp giới thiệu doanh nghiệp.',
+    systemRole: 'Bạn là trợ lý AI có kiểm soát của nền tảng Doanhnhanhole.today (Cộng đồng Doanh nhân Họ Lê Toàn cầu và những người bạn trong nước & quốc tế). Nhiệm vụ của bạn: hỗ trợ hỏi đáp về cộng đồng, tra cứu danh bạ doanh nghiệp xác minh, sàn cơ hội giao thương (mua hàng, bán hàng, tìm đại lý, nhà phân phối, nhà cung cấp, đối tác dịch vụ), chương trình kết nối du lịch về nguồn Họ Lê, kết nối đầu tư, chuyên mục Bài học điều hành và 6 chuyên đề đào tạo + cố vấn khởi nghiệp 8 tuần. Hỗ trợ soạn bản nháp giới thiệu doanh nghiệp từ dữ liệu được phép sử dụng. Lưu ý nguyên tắc: Mối liên kết Họ Lê là điểm khởi đầu của niềm tin, giá trị được chứng minh bằng chất lượng kết nối thực chất; không tự ý cam kết lợi nhuận đầu tư; khi thiếu thông tin hoặc cần thẩm định sâu, hãy hướng dẫn thành viên gửi yêu cầu để Ban Thư ký tiếp nhận và phản hồi trong 2 ngày làm việc.',
     quickSuggestions: [
-      'Gợi ý lịch trình 2 ngày 1 đêm khám phá Đền Hùng & Đồi chè Long Cốc',
-      'Cơ hội đầu tư tại KCN Thăng Long Vĩnh Phúc & KCN Phú Hà',
-      'Tra cứu thông tin du lịch nghỉ dưỡng Hồ Hòa Bình & Thung lũng Mai Châu',
-      'Danh sách sản phẩm OCOP tiêu biểu: Bưởi Đoan Hùng, Cam Cao Phong, Su su Tam Đảo'
+      'Quy trình 7 bước kết nối giao thương có điều phối trên Doanhnhanhole.today',
+      'Quyền lợi khi tham gia Chương trình 100 Doanh nhân Tiên phong',
+      'Hành trình du lịch về nguồn Họ Lê kết hợp thăm doanh nghiệp hội viên',
+      'Soạn bản nháp giới thiệu năng lực doanh nghiệp để đăng lên Danh bạ'
     ]
   },
 
-  // Thông tin liên hệ & Văn phòng
+  // Thông tin liên hệ & Ban điều phối
   contact: {
-    hotline: '0210 3888 999',
+    hotline: '0986 354 152',
     techHotline: '0986 354 152',
-    email: 'contact@phutho.today',
-    supportEmail: 'support@phutho.today',
-    address: 'Đại lộ Hùng Vương, Phường Gia Cẩm, TP. Việt Trì, Tỉnh Phú Thọ',
-    techAddress: '26 TT23 Khu đô thị Văn Phú, P. Kiến Hưng, Hà Nội',
-    workingHours: '08:00 - 17:30 (Thứ 2 - Thứ 6)',
-    copyright: '© 2026 Phutho.today — Phát triển trên nền tảng Today Platform bởi ADT Quốc tế.'
+    email: 'banthuky@doanhnhanhole.today',
+    supportEmail: 'support@doanhnhanhole.today',
+    address: 'Ban Điều phối Doanh nhân Họ Lê Toàn cầu — Trụ sở kết nối tại Hà Nội & TP. Hồ Chí Minh',
+    techAddress: '26 TT23 Khu đô thị Văn Phú, P. Kiến Hưng, Hà Nội (Đối tác công nghệ ADT Quốc tế)',
+    workingHours: '08:00 - 17:30 (Thứ 2 - Thứ 7) • Phản hồi yêu cầu kết nối trong 2 ngày làm việc',
+    copyright: '© 2026 Doanhnhanhole.today — Cộng đồng Doanh nhân Họ Lê Toàn cầu & Những người bạn. Triển khai bởi ADT Quốc tế.'
   },
 
-  // Thông tin thanh toán / Chuyển khoản sự kiện (VietQR)
+  // Thông tin thanh toán / Chuyển khoản sự kiện & hội viên (VietQR)
   bankAccount: {
     bankName: 'Techcombank',
-    bankBranch: 'CN Phú Thọ / PGD Văn Quán',
+    bankBranch: 'CN Hà Nội / PGD Văn Quán',
     accountNumber: '19036730021017',
     accountHolder: 'CONG TY CO PHAN ADT QUOC TE',
     binCode: '970407'
@@ -100,21 +101,21 @@ export const brandConfig = {
 
   // Mạng xã hội
   socials: {
-    facebook: 'https://facebook.com/phutho.today',
-    youtube: 'https://youtube.com/@phutho.today',
-    zalo: 'https://zalo.me/phuthotoday',
-    linkedin: 'https://linkedin.com/company/phutho-today'
+    facebook: 'https://facebook.com/doanhnhanhole.today',
+    youtube: 'https://youtube.com/@doanhnhanhole',
+    zalo: 'https://zalo.me/doanhnhanhole',
+    linkedin: 'https://linkedin.com/company/doanhnhanhole-today'
   },
 
-  // Thông tin Đăng ký Hội viên & Gói dịch vụ
+  // Thông tin Đăng ký Hội viên & 3 Nhóm theo Quy chế Mục 6.2
   membership: {
-    benefitsTitle: 'Quyền lợi Hội viên Doanh nghiệp Phutho.today',
-    badgeText: 'Mạng lưới kết nối giao thương, chuỗi cung ứng & nhà đầu tư tỉnh Phú Thọ mới',
+    benefitsTitle: 'Quy chế & Quyền lợi Thành viên Doanhnhanhole.today',
+    badgeText: 'Mạng lưới Doanh nhân Họ Lê Toàn cầu và Những người bạn trong nước & quốc tế',
     tiers: [
-      { id: 'Standard', name: 'Khám phá (Cơ bản)', badge: 'Thành viên Khám phá' },
-      { id: 'Silver', name: 'Doanh nghiệp Kết nối', badge: 'Đối tác Bạc' },
-      { id: 'Gold', name: 'Doanh nghiệp Tiêu biểu', badge: 'Đối tác Vàng' },
-      { id: 'Diamond', name: 'Nhà đầu tư Chiến lược', badge: 'Đối tác Kim Cương' }
+      { id: 'Standard', name: 'Thành viên Cộng đồng', badge: 'Cộng đồng & Khởi nghiệp' },
+      { id: 'Silver', name: 'Hội viên Doanh nghiệp', badge: 'Hồ sơ Xác minh Cơ bản' },
+      { id: 'Gold', name: 'Doanh nghiệp Tiên phong', badge: 'Top 100 Tiên phong' },
+      { id: 'Diamond', name: 'Đối tác Đồng hành Chiến lược', badge: 'Đối tác Đồng hành' }
     ]
   }
 };

@@ -77,7 +77,7 @@ if (process.env.SMTP_HOST) {
 }
 
 const app  = express();
-const PORT = process.env.PORT || 3032;
+const PORT = process.env.PORT || 3034;
 
 // Helper tạo URL slug chuẩn SEO từ chuỗi tiếng Việt
 function slugify(text) {
@@ -193,7 +193,7 @@ app.use((err, req, res, next) => {
 // Helper sinh tệp sitemap.xml và robots.txt thực tế vào thư mục public/
 async function generateSitemapFiles() {
   try {
-    const baseUrl = process.env.SITE_URL || 'https://phutho.today';
+    const baseUrl = process.env.SITE_URL || 'https://doanhnhanhole.today';
     const staticPages = ['', '/posts', '/members', '/events', '/guide', '/register'];
 
     const [approvedPosts] = await db.query(
@@ -254,7 +254,7 @@ app.get('/sitemap.xml', async (req, res) => {
 });
 
 app.get('/robots.txt', (req, res) => {
-  const baseUrl = process.env.SITE_URL || 'https://phutho.today';
+  const baseUrl = process.env.SITE_URL || 'https://doanhnhanhole.today';
   const content = `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /dashboard\nDisallow: /api/\n\nSitemap: ${baseUrl}/sitemap.xml\n`;
   res.setHeader('Content-Type', 'text/plain; charset=utf-8');
   res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -874,69 +874,69 @@ db.query(`
     }
 
     const [catCount] = await db.query('SELECT COUNT(*) as count FROM categories');
-    const [hasOldCategories] = await db.query("SELECT COUNT(*) as count FROM categories WHERE name LIKE '%Đồ Sơn%' OR name LIKE '%Văn hóa – Du lịch%'");
+    const [hasOldCategories] = await db.query("SELECT COUNT(*) as count FROM categories WHERE name LIKE '%Đồ Sơn%' OR name LIKE '%Văn hóa – Du lịch%' OR name LIKE '%Khám phá Lào Cai%' OR name LIKE '%Kinh tế – Đầu tư Phú Thọ%'");
 
     if (catCount[0].count === 0 || hasOldCategories[0].count > 0) {
-      console.log('🌱 Đang khởi tạo/đồng bộ dữ liệu Chuyên mục & Lĩnh vực Phutho.today...');
+      console.log('🌱 Đang khởi tạo/đồng bộ dữ liệu Chuyên mục & Lĩnh vực Doanhnhanhole.today...');
       if (hasOldCategories[0].count > 0) {
-        await db.query('DELETE FROM categories WHERE name LIKE "%Đồ Sơn%" OR name LIKE "%Văn hóa – Du lịch%"');
+        await db.query('DELETE FROM categories WHERE name LIKE "%Đồ Sơn%" OR name LIKE "%Văn hóa – Du lịch%" OR name LIKE "%Khám phá Lào Cai%" OR name LIKE "%Kinh tế – Đầu tư Phú Thọ%"');
       }
 
       const defaultCategories = [
         {
-          name: 'Khám phá Lào Cai', name_en: 'Discover Lao Cai', order: 1,
+          name: 'Cộng đồng & Danh bạ', name_en: 'Community & Directory', order: 1,
           subs: [
-            { vi: 'Tổng quan & Vị thế', en: 'Overview & Position' },
-            { vi: 'Bản sắc vùng cao', en: 'Highland Identity' },
-            { vi: 'Quy hoạch & Hạ tầng', en: 'Planning & Infrastructure' }
+            { vi: '100 Doanh nhân Tiên phong', en: '100 Pioneer Entrepreneurs' },
+            { vi: 'Doanh nhân Họ Lê Toàn cầu', en: 'Global Le Clan Entrepreneurs' },
+            { vi: 'Mạng lưới Những người bạn', en: 'Friends & Allied Partners Network' }
           ]
         },
         {
-          name: 'Doanh nghiệp & Sản phẩm', name_en: 'Enterprises & Products', order: 2,
+          name: 'Cơ hội Giao thương', name_en: 'Trade & B2B Hub', order: 2,
           subs: [
-            { vi: 'Danh bạ Doanh nghiệp', en: 'Business Directory' },
-            { vi: 'Thương hiệu & OCOP Lào Cai', en: 'Lao Cai OCOP & Brands' },
-            { vi: 'Showroom số B2B', en: 'B2B Digital Showroom' }
+            { vi: 'Nhu cầu Mua – Bán B2B', en: 'B2B Buy - Sell Demands' },
+            { vi: 'Tìm Đại lý & Nhà phân phối', en: 'Find Distributors & Agents' },
+            { vi: 'Cung ứng Dịch vụ & OEM', en: 'Service Supply & OEM' }
           ]
         },
         {
-          name: 'Dự án & Đầu tư', name_en: 'Projects & Investment', order: 3,
+          name: 'Du lịch & Về nguồn', name_en: 'Tourism & Heritage', order: 3,
           subs: [
-            { vi: 'Dự án kêu gọi đầu tư', en: 'Investment-Ready Projects' },
-            { vi: 'Khu kinh tế & KCN', en: 'Economic & Industrial Zones' },
-            { vi: 'Chính sách & Ưu đãi', en: 'Incentives & Policies' }
+            { vi: 'Hành trình Về nguồn Lam Kinh', en: 'Lam Kinh Heritage Journey' },
+            { vi: 'Biz-Tour Khảo sát Doanh nghiệp', en: 'Corporate Biz-Tour & Site Visits' },
+            { vi: 'Retreat Gia đình & Thế hệ Kế thừa', en: 'Family & Next-Gen Retreat' }
           ]
         },
         {
-          name: 'Cửa khẩu & Logistics', name_en: 'Border Gate & Logistics', order: 4,
+          name: 'Đầu tư & Dự án', name_en: 'Investment & Projects', order: 4,
           subs: [
-            { vi: 'Kinh tế cửa khẩu Kim Thành', en: 'Kim Thanh Border Gate Economy' },
-            { vi: 'Hành lang Côn Minh – Lào Cai – Hải Phòng', en: 'Kunming - Lao Cai - Hai Phong Corridor' },
-            { vi: 'Xuất nhập khẩu & Hải quan số', en: 'Import-Export & Smart Customs' }
+            { vi: 'Dự án Kêu gọi Đồng đầu tư', en: 'Co-Investment Projects' },
+            { vi: 'Liên doanh & Mở rộng Thị trường', en: 'Joint Ventures & Market Expansion' },
+            { vi: 'M&A & Chuyển nhượng Cổ phần', en: 'M&A & Equity Transfer' }
           ]
         },
         {
-          name: 'Nông sản & Dược liệu', name_en: 'Agro-Forestry & Medicinal Herbs', order: 5,
+          name: 'Bài học Điều hành', name_en: 'Executive Insights', order: 5,
           subs: [
-            { vi: 'Dược liệu quý vùng cao', en: 'Highland Medicinal Herbs' },
-            { vi: 'Nông nghiệp ôn đới & Đặc sản', en: 'Temperate Agriculture & Specialties' },
-            { vi: 'Chế biến sâu & Truy xuất nguồn gốc', en: 'Deep Processing & Traceability' }
+            { vi: 'Case Study Quản trị Thực chiến', en: 'Practical Management Case Studies' },
+            { vi: 'Tài chính, Dòng tiền & Pháp lý', en: 'Finance, Cashflow & Legal' },
+            { vi: 'Chuyển giao Thế hệ & Gia tộc', en: 'Generational Succession & Family Business' }
           ]
         },
         {
-          name: 'Du lịch & Trải nghiệm', name_en: 'Tourism & Experiences', order: 6,
+          name: 'Đào tạo & Cố vấn', name_en: 'Training & Mentorship', order: 6,
           subs: [
-            { vi: 'Sa Pa – Fansipan – Y Tý', en: 'Sa Pa - Fansipan - Y Ty' },
-            { vi: 'Bắc Hà – Bát Xát – Bảo Yên', en: 'Bac Ha - Bat Xat - Bao Yen' },
-            { vi: 'Lịch trình gợi ý & Mùa lễ hội', en: 'Suggested Itineraries & Festivals' }
+            { vi: 'Chương trình 6 Học phần Cốt lõi', en: '6 Core Executive Modules' },
+            { vi: 'Mentorship 8 Tuần Khởi nghiệp', en: '8-Week Startup Mentorship' },
+            { vi: 'Ứng dụng AI & Chuyển đổi số', en: 'AI Adoption & Digital Transformation' }
           ]
         },
         {
-          name: 'Sự kiện & Diễn đàn', name_en: 'Events & Forums', order: 7,
+          name: 'Sự kiện & Hoạt động', name_en: 'Events & Networking', order: 7,
           subs: [
-            { vi: 'Hội chợ Thương mại Quốc tế Việt – Trung', en: 'Viet - China International Trade Fair' },
-            { vi: 'Diễn đàn Xúc tiến Đầu tư & Du lịch', en: 'Investment & Tourism Promotion Forum' },
-            { vi: 'Lễ hội Văn hóa Tây Bắc', en: 'Northwest Cultural Festivals' }
+            { vi: 'Matching 1-1 Định kỳ Hàng tháng', en: 'Monthly 1-on-1 B2B Matching' },
+            { vi: 'Diễn đàn Doanh nhân Họ Lê Toàn cầu', en: 'Global Le Entrepreneurs Forum' },
+            { vi: 'Đón Đoàn Doanh nhân Quốc tế', en: 'International Business Delegation Reception' }
           ]
         }
       ];
@@ -967,7 +967,7 @@ db.query(`
           }
         }
       }
-      console.log('✅ Khởi tạo/đồng bộ 7 Chuyên mục & Lĩnh vực Phutho.today hoàn tất!');
+      console.log('✅ Khởi tạo/đồng bộ 7 Chuyên mục & Lĩnh vực Doanhnhanhole.today hoàn tất!');
     }
 
     // Tạo thư mục kiến thức
@@ -3038,7 +3038,7 @@ app.delete('/api/admin/organizers/:id', authMiddleware, async (req, res) => {
 // ════════════════════════════════════════════
 app.get('/sitemap.xml', async (req, res) => {
   try {
-    const baseUrl = process.env.SITE_URL || 'https://phutho.today';
+    const baseUrl = process.env.SITE_URL || 'https://doanhnhanhole.today';
     const staticPages = ['', '/posts', '/members', '/events', '/guide', '/register'];
 
     const [approvedPosts] = await db.query(
@@ -3077,7 +3077,7 @@ app.get('/sitemap.xml', async (req, res) => {
 });
 
 app.get('/robots.txt', (req, res) => {
-  const baseUrl = process.env.SITE_URL || 'https://phutho.today';
+  const baseUrl = process.env.SITE_URL || 'https://doanhnhanhole.today';
   const content = `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /dashboard\nDisallow: /api/\n\nSitemap: ${baseUrl}/sitemap.xml\n`;
   res.header('Content-Type', 'text/plain');
   res.send(content);
@@ -5231,7 +5231,7 @@ function cleanDescription(summary, body, fallback) {
     text = body.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
   }
   if (!text) {
-    text = fallback || 'Phutho.today kết nối con người, doanh nghiệp, sản phẩm, du lịch, dữ liệu và cơ hội đầu tư của tỉnh Lào Cai bằng nền tảng số và trí tuệ nhân tạo.';
+    text = fallback || 'Doanhnhanhole.today — Nền tảng số kết nối cộng đồng doanh nhân Họ Lê trong nước, quốc tế và mạng lưới đối tác hữu nghị quanh 5 trụ cột: Giao thương, Du lịch, Đầu tư, Chia sẻ kinh nghiệm và Đào tạo.';
   }
   text = text.replace(/[\r\n\t]+/g, ' ').trim();
   if (text.length > 220) {
@@ -5241,7 +5241,7 @@ function cleanDescription(summary, body, fallback) {
 }
 
 function getBaseUrl(req) {
-  const host = req.headers['x-forwarded-host'] || req.get('host') || 'dev.laocai.today';
+  const host = req.headers['x-forwarded-host'] || req.get('host') || 'doanhnhanhole.today';
   if (process.env.SITE_URL && (host.includes('localhost') || host.includes('127.0.0.1'))) {
     return process.env.SITE_URL.replace(/\/+$/, '');
   }
@@ -5316,7 +5316,7 @@ function injectMetaTags(html, { title, description, image, url, type = 'website'
 
   let newMeta = `    <meta name="description" content="${escapeHtml(description)}" />\n`;
   newMeta += `    <link rel="canonical" href="${escapeHtml(url)}" />\n`;
-  newMeta += `    <meta property="og:site_name" content="Phutho.today" />\n`;
+  newMeta += `    <meta property="og:site_name" content="Doanhnhanhole.today" />\n`;
   newMeta += `    <meta property="og:locale" content="vi_VN" />\n`;
   newMeta += `    <meta property="og:type" content="${escapeHtml(type)}" />\n`;
   newMeta += `    <meta property="og:url" content="${escapeHtml(url)}" />\n`;
@@ -5359,8 +5359,8 @@ app.get('*', async (req, res) => {
 
   // Default site metadata (hiển thị Logo của web khi share trang chủ hoặc trang chung)
   let meta = {
-    title: 'Phutho.today — Cổng thông tin, dữ liệu và kết nối đầu tư Lào Cai',
-    description: 'Phutho.today kết nối con người, doanh nghiệp, sản phẩm, du lịch, dữ liệu và cơ hội đầu tư của tỉnh Lào Cai bằng nền tảng số và trí tuệ nhân tạo.',
+    title: 'Doanhnhanhole.today — Doanh nhân Họ Lê Toàn cầu & Những người bạn',
+    description: 'Kết nối Họ Lê toàn cầu, cùng mở cơ hội phát triển — Nền tảng số kết nối Giao thương B2B, Du lịch Về nguồn, Xúc tiến Đầu tư, Chia sẻ Kinh nghiệm và Đào tạo Thế hệ Kế thừa.',
     image: `${baseUrl}/og-image.png?v=4`,
     url: currentUrl,
     type: 'website'
@@ -5383,7 +5383,7 @@ app.get('*', async (req, res) => {
         const [postRows] = await db.query(q, p);
         if (postRows.length) {
           const post = postRows[0];
-          meta.title = `${post.title} — Phutho.today`;
+          meta.title = `${post.title} — Doanhnhanhole.today`;
           meta.description = cleanDescription(post.summary, post.body, meta.description);
           const coverImg = post.image_url || extractFirstImageFromHtml(post.body);
           meta.image = resolveImageUrl(coverImg, baseUrl, `post-${post.id}.og.jpg`);
@@ -5403,8 +5403,8 @@ app.get('*', async (req, res) => {
         if (memRows.length) {
           const m = memRows[0];
           const displayName = m.company_name || m.name;
-          meta.title = `${displayName} — Hội viên Phutho.today`;
-          meta.description = cleanDescription(m.description, '', `Hồ sơ doanh nghiệp ${displayName} trên Cổng thông tin Lào Cai.`);
+          meta.title = `${displayName} — Hội viên Doanhnhanhole.today`;
+          meta.description = cleanDescription(m.description, '', `Hồ sơ doanh nghiệp ${displayName} trên Mạng lưới Doanh nhân Họ Lê Toàn cầu & Những người bạn.`);
           meta.image = resolveImageUrl(m.logo_url || m.cover_url || m.avatar_url, baseUrl);
           meta.url = currentUrl;
         }
@@ -5423,7 +5423,7 @@ app.get('*', async (req, res) => {
         );
         if (evRows.length) {
           const ev = evRows[0];
-          meta.title = `${ev.title} — Sự kiện Phutho.today`;
+          meta.title = `${ev.title} — Sự kiện Doanhnhanhole.today`;
           meta.description = cleanDescription(ev.short_desc || ev.summary, ev.description || ev.content, meta.description);
           const evCover = ev.image_url || extractFirstImageFromHtml(ev.content || ev.description);
           meta.image = resolveImageUrl(evCover, baseUrl);
@@ -5434,18 +5434,18 @@ app.get('*', async (req, res) => {
     }
     // 4. Các trang danh mục chung
     else if (rawPath === '/posts') {
-      meta.title = 'Cơ hội giao thương & Tin tức — Phutho.today';
-      meta.description = 'Cập nhật tin tức, cơ hội giao thương, danh mục kêu gọi đầu tư và tiềm năng phát triển tỉnh Lào Cai.';
+      meta.title = 'Cơ hội Giao thương, Đầu tư & Bài học Điều hành — Doanhnhanhole.today';
+      meta.description = 'Cập nhật nhu cầu giao thương B2B, dự án kêu gọi đầu tư, hành trình về nguồn Lam Kinh và bài học điều hành thực chiến của Doanh nhân Họ Lê Toàn cầu.';
       meta.image = `${baseUrl}/og-image.png?v=4`;
     }
     else if (rawPath === '/members') {
-      meta.title = 'Doanh nghiệp & Hội viên — Phutho.today';
-      meta.description = 'Danh bạ cộng đồng doanh nghiệp, nhà đầu tư, hợp tác xã và thương hiệu tiêu biểu tỉnh Lào Cai.';
+      meta.title = 'Danh bạ Doanh nhân & Hội viên — Doanhnhanhole.today';
+      meta.description = 'Danh bạ doanh nghiệp xác thực của Cộng đồng Doanh nhân Họ Lê Toàn cầu & Những người bạn.';
       meta.image = `${baseUrl}/og-image.png?v=4`;
     }
     else if (rawPath === '/events' || rawPath === '/su-kien') {
-      meta.title = 'Sự kiện & Hội nghị xúc tiến — Phutho.today';
-      meta.description = 'Thông tin các sự kiện xúc tiến thương mại, hội nghị đầu tư, kinh tế cửa khẩu và diễn đàn đầu tư Lào Cai.';
+      meta.title = 'Sự kiện, Matching 1-1 & Biz-Tour — Doanhnhanhole.today';
+      meta.description = 'Lịch sự kiện kết nối giao thương 1-1 định kỳ, đoàn khảo sát doanh nghiệp và hành trình về nguồn Lam Kinh.';
       meta.image = `${baseUrl}/og-image.png?v=4`;
     }
   } catch (err) {

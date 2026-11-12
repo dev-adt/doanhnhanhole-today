@@ -48,23 +48,23 @@ html, body {
   --font-title: 'Plus Jakarta Sans', 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
   --font-body: 'Plus Jakarta Sans', 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
 
-  /* Phu Tho Moi Tokens: Dat To Heritage Green, Dong Son Bronze Gold & Hoa Binh Lake Jade */
-  --primary-coffee: #081C15;
-  --bazan-brown: #0E382B;
+  /* Doanhnhanhole.today Tokens: Royal Deep Navy, Warm Amber Gold & Crisp Ivory */
+  --primary-coffee: #061020;
+  --bazan-brown: #0B1D3A;
   --bazan-red: #A83220;
-  --forest-green: #0E382B;
-  --gong-gold: #C59325;
-  --light-cream: #F4F7F5;
-  --text-dark: #12241D;
+  --forest-green: #0B1D3A;
+  --gong-gold: #D49A2A;
+  --light-cream: #F7F9FC;
+  --text-dark: #0A1628;
 
   /* Color Tokens */
-  --primary: #0E382B;
-  --primary-glow: rgba(14, 56, 43, 0.35);
-  --primary-dark: #061912;
-  --primary-light: #165642;
+  --primary: #0B1D3A;
+  --primary-glow: rgba(11, 29, 58, 0.35);
+  --primary-dark: #061020;
+  --primary-light: #16376B;
   
-  --neon-cyan: #D5A33F;
-  --neon-glow: rgba(213, 163, 63, 0.4);
+  --neon-cyan: #D49A2A;
+  --neon-glow: rgba(212, 154, 42, 0.4);
 
   --emerald: #1F5A3A;
   --emerald-bg: rgba(31, 90, 58, 0.12);

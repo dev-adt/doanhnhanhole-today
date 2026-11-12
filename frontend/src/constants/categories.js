@@ -1,90 +1,91 @@
 /**
- * Cấu hình Chuyên mục chính và Lĩnh vực con mặc định cho Phutho.today
- * (Đồng bộ theo Tài liệu Đề án dự án Phutho.today - Tỉnh Phú Thọ Mới)
+ * Cấu hình Chuyên mục chính và Lĩnh vực con mặc định cho Doanhnhanhole.today
+ * (Đồng bộ theo Tài liệu Đề án dự án Doanh nhân Họ Lê Toàn cầu - doanhnhanhole.today)
  * Lưu ý: Dữ liệu được tải động từ API /api/categories (Quản lý chuyên mục trong Admin).
  */
 
 export const CATEGORIES_DATA = [
   {
-    id: 'kham-pha-phu-tho',
-    name: 'Khám phá Phú Thọ',
-    name_en: 'Discover Phu Tho',
+    id: 'cong-dong-danh-ba',
+    name: 'Cộng đồng & Danh bạ',
+    name_en: 'Community & Directory',
     order_index: 1,
     subcategories: [
-      'Đất Tổ Hùng Vương & Di sản',
-      'Tam Đảo & Tây Thiên Vĩnh Phúc',
-      'Kỳ quan Hồ Hòa Bình & Bản sắc Mường',
-      'Tra cứu địa chỉ sau sáp nhập'
+      '100 Doanh nhân Tiên phong',
+      'Mạng lưới Doanh nhân Họ Lê & Bạn bè',
+      'Đầu mối Khu vực & Quốc tế',
+      'Quy chế & Xác minh Hồ sơ'
     ]
   },
   {
-    id: 'du-lich-trai-nghiem',
-    name: 'Du lịch & Trải nghiệm',
-    name_en: 'Tourism & Experiences',
+    id: 'co-hoi-giao-thuong',
+    name: 'Cơ hội Giao thương',
+    name_en: 'Trade & B2B Hub',
     order_index: 2,
     subcategories: [
-      'Điểm đến & Thắng cảnh 3 vùng',
-      'Lịch trình gợi ý (1N, 2N1Đ, 3N2Đ)',
-      'Nghỉ dưỡng & Khoáng nóng Onsen',
-      'Ẩm thực bản địa & Trải nghiệm'
+      'Nhu cầu Mua hàng & Tìm nhà cung cấp',
+      'Nhu cầu Bán hàng & Xuất khẩu',
+      'Tìm Đại lý & Nhà phân phối',
+      'Hợp tác Dịch vụ & Chuỗi cung ứng'
     ]
   },
   {
-    id: 'doanh-nghiep-giao-thuong',
-    name: 'Doanh nghiệp & Giao thương',
-    name_en: 'Enterprises & Trade',
+    id: 'du-lich-ve-nguon',
+    name: 'Du lịch & Về nguồn',
+    name_en: 'Tourism & Heritage',
     order_index: 3,
     subcategories: [
-      'Danh bạ Doanh nghiệp 3 vùng',
-      'Hồ sơ năng lực & Cung ứng',
-      'Nhu cầu mua hàng & Hợp tác B2B',
-      'Showroom số doanh nghiệp'
+      'Hành trình Về nguồn Họ Lê',
+      'Du lịch Thăm doanh nghiệp (Biz-Tour)',
+      'Đón Doanh nhân Việt ở nước ngoài',
+      'Du lịch Gia đình Doanh nhân'
     ]
   },
   {
-    id: 'san-pham-dia-phuong',
-    name: 'Sản phẩm địa phương & OCOP',
-    name_en: 'Local Produce & OCOP',
+    id: 'dau-tu-du-an',
+    name: 'Đầu tư & Dự án',
+    name_en: 'Investment & Projects',
     order_index: 4,
     subcategories: [
-      'Sản phẩm OCOP tiêu biểu',
-      'Đặc sản Đất Tổ (Bưởi, Chè Long Cốc)',
-      'Đặc sản Vĩnh Phúc (Su su, Mật ong)',
-      'Đặc sản Hòa Bình (Cam Cao Phong, Rượu cần)'
+      'Mở rộng Nhà máy & Sản xuất',
+      'Phát triển Hệ thống Phân phối',
+      'Chuyển giao Công nghệ & Góp vốn',
+      'Phiên Giới thiệu Cơ hội Đầu tư Quý'
     ]
   },
   {
-    id: 'dau-tu-hop-tac',
-    name: 'Đầu tư & Hợp tác',
-    name_en: 'Investment & Cooperation',
+    id: 'bai-hoc-dieu-hanh',
+    name: 'Bài học Điều hành',
+    name_en: 'Executive Insights',
     order_index: 5,
     subcategories: [
-      'Khu & Cụm công nghiệp trọng điểm',
-      'Hành lang kinh tế & Quy hoạch liên vùng',
-      'Chính sách & Ưu đãi đầu tư',
-      'Danh mục dự án kêu gọi hợp tác'
+      'Tình huống Quản trị Thực tế',
+      'Chân dung Doanh nhân Họ Lê',
+      'Đối thoại Chuyên gia Hàng tháng',
+      'Bản tin Hoạt động Cộng đồng'
     ]
   },
   {
-    id: 'tri-thuc-dao-tao',
-    name: 'Tri thức & Đào tạo số',
-    name_en: 'Knowledge & Digital Skills',
+    id: 'dao-tao-co-van',
+    name: 'Đào tạo & Cố vấn',
+    name_en: 'Training & Mentorship',
     order_index: 6,
     subcategories: [
-      'Chuyển đổi số & Ứng dụng AI',
-      'Kỹ năng du lịch & Dịch vụ đa ngữ',
-      'Nghiên cứu kinh tế & Báo cáo thị trường'
+      '6 Chuyên đề Nâng cao Năng lực',
+      'Cố vấn Khởi nghiệp 8 Tuần (1-kèm-3)',
+      'Ứng dụng AI & Chuyển đổi số',
+      'Kỹ năng Lãnh đạo & Kế thừa'
     ]
   },
   {
-    id: 'su-kien-dien-dan',
-    name: 'Sự kiện & Diễn đàn',
-    name_en: 'Events & Forums',
+    id: 'su-kien-hoat-dong',
+    name: 'Sự kiện & Hoạt động',
+    name_en: 'Events & Networking',
     order_index: 7,
     subcategories: [
-      'Lễ hội truyền thống (Đền Hùng, Tây Thiên, Mường Bi)',
-      'Diễn đàn Xúc tiến Đầu tư & Thương mại',
-      'Hội chợ & Triển lãm OCOP Liên vùng'
+      'Phiên Giao thương Hàng tháng',
+      'Đoàn Khảo sát Doanh nghiệp Quý',
+      'Chào đón Thành viên mới'
     ]
   }
 ];
@@ -97,16 +98,20 @@ export const getSubcategoriesByCategory = (categoryName) => {
 };
 
 export const CATEGORY_LABELS = {
-  // Phu Tho Specific Categories
-  'Khám phá Phú Thọ': { vi: 'Khám phá Phú Thọ', en: 'Discover Phu Tho', zh: '探索富寿', ja: 'フート探索', ko: '푸토 탐방' },
-  'Du lịch & Trải nghiệm': { vi: 'Du lịch & Trải nghiệm', en: 'Tourism & Experiences', zh: '旅游与体验', ja: '観光・体験', ko: '관광 및 체험' },
-  'Doanh nghiệp & Giao thương': { vi: 'Doanh nghiệp & Giao thương', en: 'Enterprises & Trade', zh: '企业与商贸', ja: '企業・商取引', ko: '기업 및 교역' },
-  'Doanh nghiệp & Sản phẩm': { vi: 'Doanh nghiệp & Giao thương', en: 'Enterprises & Trade', zh: '企业与商贸', ja: '企業・商取引', ko: '기업 및 교역' },
-  'Sản phẩm địa phương & OCOP': { vi: 'Sản phẩm địa phương & OCOP', en: 'Local Produce & OCOP', zh: '地方特产与OCOP', ja: '特産品・OCOP', ko: '지역 특산품 및 OCOP' },
-  'Đầu tư & Hợp tác': { vi: 'Đầu tư & Hợp tác', en: 'Investment & Cooperation', zh: '投资与合作', ja: '投資・連携', ko: '투자 및 협력' },
-  'Dự án & Đầu tư': { vi: 'Đầu tư & Hợp tác', en: 'Investment & Cooperation', zh: '投资与合作', ja: '投資・連携', ko: '투자 및 협력' },
-  'Tri thức & Đào tạo số': { vi: 'Tri thức & Đào tạo số', en: 'Knowledge & Digital Skills', zh: '知识与数字技能', ja: '知識・デジタル育成', ko: '지식 및 디지털 역량' },
-  'Sự kiện & Diễn đàn': { vi: 'Sự kiện & Diễn đàn', en: 'Events & Forums', zh: '活动与论坛', ja: 'イベント・フォーラム', ko: '이벤트 및 포럼' }
+  // Doanhnhanhole.today Categories
+  'Cộng đồng & Danh bạ': { vi: 'Cộng đồng & Danh bạ', en: 'Community & Directory', zh: '社群与名录', ja: 'コミュニティ・名鑑', ko: '커뮤니티 및 디렉토리' },
+  'Cơ hội Giao thương': { vi: 'Cơ hội Giao thương', en: 'Trade & B2B Hub', zh: '商贸合作机会', ja: '商談・B2B機会', ko: '비즈니스 교역 기회' },
+  'Du lịch & Về nguồn': { vi: 'Du lịch & Về nguồn', en: 'Tourism & Heritage', zh: '寻根与商务旅游', ja: 'ルーツ探訪・観光', ko: '뿌리 찾기 및 비즈니스 투어' },
+  'Đầu tư & Dự án': { vi: 'Đầu tư & Dự án', en: 'Investment & Projects', zh: '投资与项目', ja: '投資・プロジェクト', ko: '투자 및 프로젝트' },
+  'Bài học Điều hành': { vi: 'Bài học Điều hành', en: 'Executive Insights', zh: '经营实战案例', ja: '経営ケーススタディ', ko: '경영 실전 인사이트' },
+  'Đào tạo & Cố vấn': { vi: 'Đào tạo & Cố vấn', en: 'Training & Mentorship', zh: '培训与导师辅导', ja: '研修・メンターシップ', ko: '교육 및 멘토링' },
+  'Sự kiện & Hoạt động': { vi: 'Sự kiện & Hoạt động', en: 'Events & Networking', zh: '活动与对接会', ja: 'イベント・交流会', ko: '이벤트 및 네트워킹' },
+  // Backward compatibility
+  'Doanh nghiệp & Giao thương': { vi: 'Cơ hội Giao thương', en: 'Trade & B2B Hub', zh: '商贸合作机会', ja: '商談・B2B機会', ko: '비즈니스 교역 기회' },
+  'Đầu tư & Hợp tác': { vi: 'Đầu tư & Dự án', en: 'Investment & Projects', zh: '投资与项目', ja: '投資・プロジェクト', ko: '투자 및 프로젝트' },
+  'Du lịch & Trải nghiệm': { vi: 'Du lịch & Về nguồn', en: 'Tourism & Heritage', zh: '寻根与商务旅游', ja: 'ルーツ探訪・観光', ko: '뿌리 찾기 및 비즈니스 투어' },
+  'Tri thức & Đào tạo số': { vi: 'Đào tạo & Cố vấn', en: 'Training & Mentorship', zh: '培训与导师辅导', ja: '研修・メンターシップ', ko: '교육 및 멘토링' },
+  'Sự kiện & Diễn đàn': { vi: 'Sự kiện & Hoạt động', en: 'Events & Networking', zh: '活动与对接会', ja: 'イベント・交流会', ko: '이벤트 및 네트워킹' }
 };
 
 export const getCategoryLabel = (categoryInput, lang = 'vi') => {

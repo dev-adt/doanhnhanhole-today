@@ -10,12 +10,12 @@ export const Footer = () => {
 
   return (
     <footer style={{
-      backgroundColor: '#071A14',
-      backgroundImage: 'linear-gradient(180deg, #0A241C 0%, #04120D 100%)',
-      color: '#B5C9BF',
+      backgroundColor: '#061020',
+      backgroundImage: 'linear-gradient(180deg, #0B1D3A 0%, #040B16 100%)',
+      color: '#B8C7DC',
       padding: '3.5rem 0 1.5rem',
       fontSize: '12.5px',
-      borderTop: '1px solid rgba(197, 147, 37, 0.35)',
+      borderTop: '1px solid rgba(212, 154, 42, 0.38)',
       lineHeight: '1.65'
     }}>
       <div style={{ maxWidth: '1380px', margin: '0 auto', padding: '0 1.5rem' }}>
@@ -35,23 +35,23 @@ export const Footer = () => {
                   height: '44px',
                   borderRadius: '10px',
                   overflow: 'hidden',
-                  background: 'linear-gradient(135deg, #0E382B 0%, #C59325 100%)',
+                  background: 'linear-gradient(135deg, #0B1D3A 0%, #D49A2A 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
                   fontWeight: '900',
                   fontSize: '16px',
-                  border: '1px solid rgba(197, 147, 37, 0.5)',
+                  border: '1px solid rgba(212, 154, 42, 0.5)',
                   flexShrink: 0
                 }}>
                   <img 
                     src="/logo_icon.svg" 
-                    alt="Phutho.today Logo" 
+                    alt="Doanhnhanhole.today Logo" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     onError={(e) => { 
                       e.target.style.display = 'none';
-                      e.target.parentNode.innerText = 'PT';
+                      e.target.parentNode.innerText = 'HL';
                     }}
                   />
                 </div>
@@ -64,17 +64,17 @@ export const Footer = () => {
                     letterSpacing: '-0.3px',
                     lineHeight: '1.1'
                   }}>
-                    Phutho<span style={{ color: '#E5B342' }}>.today</span>
+                    DoanhnhanHoLe<span style={{ color: '#F5C257' }}>.today</span>
                   </div>
                   <div style={{
                     fontSize: '9.5px',
                     fontWeight: '700',
-                    color: '#E5B342',
+                    color: '#F5C257',
                     textTransform: 'uppercase',
                     letterSpacing: '0.6px',
                     marginTop: '2px'
                   }}>
-                    {currentLang === 'en' ? 'Heritage, Tourism & Investment Hub' : 'Kết nối Di sản, Du lịch & Đầu tư'}
+                    {currentLang === 'en' ? 'Global Le Entrepreneurs & Friends' : 'Doanh nhân Họ Lê Toàn cầu & Những người bạn'}
                   </div>
                 </div>
               </div>

@@ -1,18 +1,18 @@
 /**
  * BACKEND BRAND CONFIGURATION
  * -------------------------------------------------------------
- * File cấu hình thương hiệu tập trung cho Node.js Express Backend (Phutho.today).
+ * File cấu hình thương hiệu tập trung cho Node.js Express Backend (Doanhnhanhole.today).
  * Tự động đồng bộ với biến môi trường (.env) nếu có.
  */
 
 require('dotenv').config();
 
 const brandConfig = {
-  appName: process.env.APP_NAME || 'Phutho.today Platform',
-  brandName: process.env.BRAND_NAME || 'Phutho.today',
-  brandShortName: process.env.BRAND_SHORT_NAME || 'Phú Thọ',
-  siteUrl: process.env.SITE_URL || 'https://phutho.today',
-  demoSiteUrl: 'https://dev.phutho.today',
+  appName: process.env.APP_NAME || 'Doanhnhanhole.today Platform',
+  brandName: process.env.BRAND_NAME || 'Doanhnhanhole.today',
+  brandShortName: process.env.BRAND_SHORT_NAME || 'Doanh nhân Họ Lê',
+  siteUrl: process.env.SITE_URL || 'https://doanhnhanhole.today',
+  demoSiteUrl: 'https://dev.doanhnhanhole.today',
   
   // Nhận diện logo thương hiệu
   logo: {
@@ -25,35 +25,35 @@ const brandConfig = {
   // Thông tin thanh toán ngân hàng (VietQR)
   bankAccount: {
     bankName: 'Techcombank',
-    bankBranch: 'CN Phú Thọ / PGD Văn Quán',
+    bankBranch: 'CN Hà Nội / PGD Văn Quán',
     accountNumber: '19036730021017',
     accountHolder: 'CONG TY CO PHAN ADT QUOC TE',
     binCode: '970407'
   },
 
-  // AI System Persona Prompt cho Phú Thọ Mới
+  // AI System Persona Prompt cho Doanh nhân Họ Lê Toàn cầu (Mục 5.3 Đề án)
   ai: {
-    agentName: process.env.AI_AGENT_NAME || 'AI Phú Thọ Assistant',
+    agentName: process.env.AI_AGENT_NAME || 'AI Doanh Nhân Họ Lê',
     systemPrompt: process.env.AI_SYSTEM_PROMPT || 
-      "Bạn là trợ lý AI chuyên nghiệp đa ngôn ngữ của nền tảng Phutho.today — Nền tảng kết nối du lịch, thương mại và đầu tư tỉnh Phú Thọ mới (sắp xếp từ ba tỉnh Vĩnh Phúc, Hòa Bình và Phú Thọ theo Nghị quyết 202/2025/QH15). Quy mô tỉnh mới đạt 9.361,38 km² với hơn 4 triệu dân và 148 đơn vị hành chính cấp xã (133 xã, 15 phường). Hãy tư vấn sâu sắc, chuẩn xác, có dẫn chứng về 3 không gian văn hóa - kinh tế: Phú Thọ (Đền Hùng, Long Cốc, Xuân Sơn, Thanh Thủy, Hát Xoan), Vĩnh Phúc (Tam Đảo, Tây Thiên, Đại Lải, KCN Thăng Long Vĩnh Phúc, Bá Thiện, Khai Quang, công nghiệp ô tô, xe máy, điện tử), Hòa Bình (Hồ Hòa Bình, Thung lũng Mai Châu, Suối khoáng Kim Bôi, Thủy điện Hòa Bình, văn hóa Mường). Hỗ trợ tra cứu địa danh cũ sang đơn vị hành chính mới, gợi ý hành trình du lịch, giới thiệu sản phẩm OCOP và hướng dẫn kết nối đầu tư."
+      "Bạn là trợ lý AI có kiểm soát của nền tảng Doanhnhanhole.today — Nền tảng kết nối Doanh nhân Họ Lê Toàn cầu và những người bạn trong nước & quốc tế (Giao thương • Du lịch • Đầu tư • Chia sẻ kinh nghiệm • Đào tạo). Slogan: 'Kết nối Họ Lê toàn cầu, cùng mở cơ hội phát triển'. Hãy hỗ trợ người dùng tra cứu danh bạ doanh nghiệp xác minh, sàn thông tin cơ hội giao thương B2B (mua hàng, bán hàng, tìm đại lý, nhà phân phối, nhà cung cấp, đối tác dịch vụ), quy trình kết nối 7 bước có Ban thư ký điều phối (phản hồi trong 2 ngày làm việc, đề xuất tối đa 3 đối tác phù hợp, hậu kiểm sau 7 và 30 ngày), chương trình kết nối du lịch về nguồn Họ Lê & khảo sát doanh nghiệp, kết nối đầu tư, chuyên mục Bài học điều hành và 6 chuyên đề đào tạo + cố vấn 1-kèm-1..3 trong 8 tuần cho doanh nhân trẻ. Hỗ trợ soạn bản nháp giới thiệu doanh nghiệp chuẩn mực. Lưu ý: Không tự nhân danh cộng đồng để bảo chứng thương mại hoặc cam kết lợi nhuận đầu tư; khi thiếu thông tin, hướng dẫn gửi yêu cầu cho Ban Thư ký."
   },
 
   // Email Brand Info
   email: {
-    fromName: process.env.SMTP_FROM_NAME || 'Ban Biên Tập Phutho.today',
-    fromAddress: process.env.SMTP_FROM || `"Phutho.today" <${process.env.SMTP_USER || 'no-reply@phutho.today'}>`,
-    supportEmail: process.env.SUPPORT_EMAIL || 'support@phutho.today'
+    fromName: process.env.SMTP_FROM_NAME || 'Ban Thư Ký Doanhnhanhole.today',
+    fromAddress: process.env.SMTP_FROM || `"Doanhnhanhole.today" <${process.env.SMTP_USER || 'no-reply@doanhnhanhole.today'}>`,
+    supportEmail: process.env.SUPPORT_EMAIL || 'banthuky@doanhnhanhole.today'
   },
 
-  // 7 Chuyên mục mặc định cho Phú Thọ Mới theo Tài liệu dự án Phutho.today
+  // 7 Chuyên mục mặc định cho Doanhnhanhole.today theo Tài liệu Đề án
   defaultCategories: [
-    { name: 'Khám phá Phú Thọ', slug: 'kham-pha-phu-tho', icon: '🏛️', description: 'Đất Tổ Hùng Vương, Tam Đảo mù sương, Hồ Hòa Bình, di sản văn hóa và hướng dẫn tra cứu địa chỉ mới' },
-    { name: 'Du lịch & Trải nghiệm', slug: 'du-lich-trai-nghiem', icon: '🧭', description: 'Điểm đến, lịch trình tham khảo 2N1Đ & 3N2Đ, lưu trú, ẩm thực bản địa và suối khoáng nóng' },
-    { name: 'Doanh nghiệp & Giao thương', slug: 'doanh-nghiep-giao-thuong', icon: '🏢', description: 'Danh bạ doanh nghiệp 3 vùng, hồ sơ năng lực, chuỗi cung ứng sản xuất và kết nối đối tác' },
-    { name: 'Sản phẩm địa phương & OCOP', slug: 'san-pham-dia-phuong', icon: '🌿', description: 'Bưởi Đoan Hùng, chè Long Cốc, cam Cao Phong, su su Tam Đảo và nông sản thủ công 3 vùng' },
-    { name: 'Đầu tư & Hợp tác', slug: 'dau-tu-hop-tac', icon: '💰', description: 'Khu công nghiệp công nghệ cao, hành lang kinh tế liên vùng, chính sách ưu đãi và cơ hội hợp tác' },
-    { name: 'Tri thức & Đào tạo số', slug: 'tri-thuc-dao-tao', icon: '💡', description: 'Kiến thức kinh doanh số, ứng dụng AI trong doanh nghiệp, kỹ năng dịch vụ và tài liệu nghiên cứu' },
-    { name: 'Sự kiện & Diễn đàn', slug: 'su-kien-dien-dan', icon: '📅', description: 'Giỗ Tổ Hùng Vương, Lễ hội Tây Thiên, Lễ hội Khai hạ Mường Bi và diễn đàn xúc tiến kinh tế' }
+    { name: 'Cộng đồng & Danh bạ', slug: 'cong-dong-danh-ba', icon: '🌏', description: 'Mạng lưới Doanh nhân Họ Lê Toàn cầu và những người bạn, 100 doanh nhân tiên phong & quy chế xác minh' },
+    { name: 'Cơ hội Giao thương', slug: 'co-hoi-giao-thuong', icon: '🤝', description: 'Sàn nhu cầu mua bán, tìm đại lý, nhà phân phối, nhà cung cấp và đối tác dịch vụ có Ban thư ký điều phối' },
+    { name: 'Du lịch & Về nguồn', slug: 'du-lich-ve-nguon', icon: '🧭', description: 'Hành trình về nguồn Họ Lê, du lịch kết hợp thăm doanh nghiệp (Biz-Tour) và đón kiều bào quốc tế' },
+    { name: 'Đầu tư & Dự án', slug: 'dau-tu-du-an', icon: '💼', description: 'Hợp tác mở nhà máy, phát triển phân phối, chuyển giao công nghệ, góp vốn và phiên giới thiệu đầu tư quý' },
+    { name: 'Bài học Điều hành', slug: 'bai-hoc-dieu-hanh', icon: '📚', description: 'Tình huống quản trị thực tế (Bối cảnh - Quyết định - Kết quả), chân dung doanh nhân và đối thoại chuyên gia' },
+    { name: 'Đào tạo & Cố vấn', slug: 'dao-tao-co-van', icon: '🎓', description: '6 chuyên đề nâng cao năng lực chủ doanh nghiệp và chương trình Mentorship 8 tuần cho người trẻ khởi nghiệp' },
+    { name: 'Sự kiện & Hoạt động', slug: 'su-kien-hoat-dong', icon: '📅', description: 'Phiên giao thương hàng tháng, đoàn khảo sát doanh nghiệp hàng quý và buổi chào đón thành viên mới' }
   ]
 };
 

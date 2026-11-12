@@ -1,11 +1,11 @@
-// PM2 Ecosystem Config cho phutho.today
+// PM2 Ecosystem Config cho doanhnhanhole.today
 // Chạy: pm2 start ecosystem.config.js
 // Auto-start khi reboot: pm2 startup && pm2 save
 
 module.exports = {
   apps: [
     {
-      name        : 'phutho-today',
+      name        : 'doanhnhanhole-today',
       script      : 'server.js',
       instances   : 1,           // tăng lên 'max' nếu muốn cluster
       exec_mode   : 'fork',
@@ -14,7 +14,7 @@ module.exports = {
 
       env: {
         NODE_ENV : 'production',
-        PORT     : 3033,
+        PORT     : 3034,
       },
 
       // Log

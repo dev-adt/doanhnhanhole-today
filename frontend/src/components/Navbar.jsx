@@ -22,7 +22,7 @@ export const Navbar = () => {
   // Khởi tạo ngay lập tức từ bộ nhớ đệm hoặc CATEGORIES_DATA chuẩn để Header luôn hiện 0ms không bao giờ bị trắng
   const [categoriesList, setCategoriesList] = useState(() => {
     try {
-      const cached = localStorage.getItem('phutho_cached_categories');
+      const cached = localStorage.getItem('doanhnhanhole_cached_categories');
       if (cached) {
         const parsed = JSON.parse(cached);
         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -73,7 +73,7 @@ export const Navbar = () => {
             const sorted = [...json.data].sort((a, b) => (a.order_index || 0) - (b.order_index || 0));
             setCategoriesList(sorted);
             try {
-              localStorage.setItem('phutho_cached_categories', JSON.stringify(sorted));
+              localStorage.setItem('doanhnhanhole_cached_categories', JSON.stringify(sorted));
             } catch (e) {}
           }
         }
@@ -87,7 +87,7 @@ export const Navbar = () => {
     const handleUpdate = () => fetchCategories();
     window.addEventListener('categories-updated', handleUpdate);
     window.addEventListener('storage', (e) => {
-      if (e.key === 'phutho_cached_categories' || !e.key) {
+      if (e.key === 'doanhnhanhole_cached_categories' || !e.key) {
         fetchCategories();
       }
     });
@@ -187,10 +187,10 @@ export const Navbar = () => {
           left: 0 !important;
           right: 0 !important;
           z-index: 99999 !important;
-          background: #0D261C !important;
-          background-image: linear-gradient(180deg, #113024 0%, #091B14 100%) !important;
-          border-bottom: 2px solid rgba(217, 155, 38, 0.4) !important;
-          box-shadow: 0 4px 20px rgba(5, 18, 12, 0.7) !important;
+          background: #071428 !important;
+          background-image: linear-gradient(180deg, #0D2142 0%, #061020 100%) !important;
+          border-bottom: 2px solid rgba(212, 154, 42, 0.45) !important;
+          box-shadow: 0 4px 24px rgba(4, 10, 24, 0.75) !important;
           width: 100% !important;
           max-width: 100vw !important;
           box-sizing: border-box !important;
@@ -229,14 +229,14 @@ export const Navbar = () => {
           width: 42px !important;
           height: 42px !important;
           border-radius: 10px !important;
-          background: linear-gradient(135deg, #145A3E 0%, #D99B26 100%) !important;
+          background: linear-gradient(135deg, #122B54 0%, #D49A2A 100%) !important;
           display: flex !important;
           align-items: center !important;
           justify-content: center !important;
           color: #ffffff !important;
           font-weight: 900 !important;
           font-size: 16px !important;
-          border: 1.5px solid rgba(217, 155, 38, 0.5) !important;
+          border: 1.5px solid rgba(212, 154, 42, 0.55) !important;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
           overflow: hidden !important;
           flex-shrink: 0 !important;
@@ -321,8 +321,8 @@ export const Navbar = () => {
 
         .dnvn-nav-item-btn.active {
           color: #FFFFFF !important;
-          background-color: rgba(20, 90, 62, 0.65) !important;
-          border-bottom: 2px solid #E5A93B !important;
+          background-color: rgba(18, 43, 84, 0.75) !important;
+          border-bottom: 2px solid #F5C257 !important;
         }
 
         .dnvn-nav-text {
@@ -338,12 +338,12 @@ export const Navbar = () => {
           left: 50% !important;
           transform: translateX(-50%) !important;
           min-width: 250px !important;
-          background-color: #0F2C20 !important;
-          background-image: linear-gradient(180deg, #153A2B 0%, #0B2017 100%) !important;
-          border: 1px solid rgba(217, 155, 38, 0.4) !important;
+          background-color: #091830 !important;
+          background-image: linear-gradient(180deg, #10264B 0%, #061020 100%) !important;
+          border: 1px solid rgba(212, 154, 42, 0.45) !important;
           border-radius: 10px !important;
           padding: 8px 0 !important;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(217, 155, 38, 0.2) !important;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 154, 42, 0.2) !important;
           z-index: 999999 !important;
           animation: dnvnFadeIn 0.15s ease-out !important;
         }
@@ -522,20 +522,20 @@ export const Navbar = () => {
             <div className="dnvn-brand-icon notranslate" translate="no">
               <img 
                 src="/logo_icon.svg" 
-                alt="Phutho.today Logo" 
+                alt="Doanhnhanhole.today Logo" 
                 className="dnvn-brand-icon-img"
                 onError={(e) => { 
                   e.target.style.display = 'none';
-                  e.target.parentNode.innerText = 'PT';
+                  e.target.parentNode.innerText = 'HL';
                 }}
               />
             </div>
             <div className="dnvn-brand-text-box notranslate" translate="no">
               <span className="dnvn-brand-title notranslate" translate="no">
-                Phutho<span style={{ color: '#E5A93B' }}>.today</span>
+                DoanhnhanHoLe<span style={{ color: '#F5C257' }}>.today</span>
               </span>
               <span className="dnvn-brand-subtitle">
-                {currentLang === 'en' ? 'PHU THO HERITAGE, TOURISM & INVESTMENT' : 'DI SẢN, DU LỊCH & ĐẦU TƯ PHÚ THỌ MỚI'}
+                {currentLang === 'en' ? 'GLOBAL LE ENTREPRENEURS & FRIENDS' : 'KẾT NỐI DOANH NHÂN HỌ LÊ TOÀN CẦU'}
               </span>
             </div>
           </Link>
@@ -970,8 +970,8 @@ export const Navbar = () => {
                 marginBottom: '8px'
               }}
             >
-              <i className="ti ti-sparkles" style={{ color: '#E5A93B', fontSize: '16px' }} />
-              <span>{currentLang === 'en' ? 'Phu Tho AI Assistant' : 'Trợ lý AI Phú Thọ'}</span>
+              <i className="ti ti-sparkles" style={{ color: '#F5C257', fontSize: '16px' }} />
+              <span>{currentLang === 'en' ? 'Le Entrepreneurs AI Assistant' : 'Trợ lý AI Doanh nhân Họ Lê'}</span>
             </Link>
 
             {/* Danh mục cấp 1 & con động trên mobile */}

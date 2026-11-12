@@ -1,64 +1,72 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Background Gradient: Deep Heritage Emerald & Bronze -->
-    <linearGradient id="ptBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0E382B" />
-      <stop offset="60%" stop-color="#08221A" />
-      <stop offset="100%" stop-color="#04120D" />
+    <!-- Deep Royal Navy Background Gradient (Mục 7.1: Xanh đậm chủ đạo) -->
+    <linearGradient id="hlNavyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#122B54" />
+      <stop offset="55%" stop-color="#0B1D3A" />
+      <stop offset="100%" stop-color="#050E1D" />
     </linearGradient>
 
-    <!-- Gold & Bronze Gradient of Dong Son Heritage -->
-    <linearGradient id="ptGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFF3C4" />
-      <stop offset="35%" stop-color="#E5B342" />
-      <stop offset="70%" stop-color="#C59325" />
-      <stop offset="100%" stop-color="#8F630E" />
+    <!-- Warm Amber Gold Gradient (Mục 7.1: Vàng ấm điểm nhấn) -->
+    <linearGradient id="hlGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2BD" />
+      <stop offset="35%" stop-color="#F5C257" />
+      <stop offset="70%" stop-color="#D49A2A" />
+      <stop offset="100%" stop-color="#9A6810" />
     </linearGradient>
 
-    <linearGradient id="ptBronzeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D4AF37" />
-      <stop offset="50%" stop-color="#F3E5AB" />
-      <stop offset="100%" stop-color="#AA771C" />
+    <linearGradient id="hlL3DLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8DB" />
+      <stop offset="50%" stop-color="#F2B844" />
+      <stop offset="100%" stop-color="#C88A1E" />
     </linearGradient>
 
-    <linearGradient id="ptMountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#2D7A5B" />
-      <stop offset="100%" stop-color="#113B2C" />
+    <linearGradient id="hlL3DShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D49A2A" />
+      <stop offset="100%" stop-color="#7D520A" />
     </linearGradient>
 
-    <filter id="ptGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
+    <filter id="hlGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
-  <!-- Background Squircle Container -->
-  <rect x="20" y="20" width="472" height="472" rx="112" fill="url(#ptBgGrad)" />
-  <rect x="26" y="26" width="460" height="460" rx="106" fill="none" stroke="url(#ptGoldGrad)" stroke-width="8" opacity="0.9" />
+  <!-- Squircle Container -->
+  <rect x="20" y="20" width="472" height="472" rx="112" fill="url(#hlNavyBg)" />
+  <rect x="26" y="26" width="460" height="460" rx="106" fill="none" stroke="url(#hlGoldGrad)" stroke-width="7" opacity="0.92" />
 
-  <!-- Dong Son Sun Circle (14/16 Rays of Sun) -->
-  <circle cx="256" cy="180" r="95" fill="none" stroke="url(#ptGoldGrad)" stroke-width="4" opacity="0.6" stroke-dasharray="8 6" />
-  <circle cx="256" cy="180" r="72" fill="none" stroke="url(#ptGoldGrad)" stroke-width="6" opacity="0.8" />
-  <circle cx="256" cy="180" r="48" fill="url(#ptGoldGrad)" opacity="0.25" />
+  <!-- Global Connection Network Sphere & Nodes (Đường kết nối toàn cầu) -->
+  <circle cx="256" cy="216" r="126" fill="none" stroke="url(#hlGoldGrad)" stroke-width="2.5" opacity="0.32" stroke-dasharray="6 6" />
+  <ellipse cx="256" cy="216" rx="126" ry="52" fill="none" stroke="url(#hlGoldGrad)" stroke-width="2" opacity="0.28" transform="rotate(-24 256 216)" />
+  <ellipse cx="256" cy="216" rx="126" ry="52" fill="none" stroke="url(#hlGoldGrad)" stroke-width="2" opacity="0.28" transform="rotate(24 256 216)" />
 
-  <!-- Dong Son Sun Starburst Rays in Center -->
-  <polygon points="256,132 263,165 296,155 272,176 298,198 266,200 270,232 256,204 242,232 246,200 214,198 240,176 216,155 249,165" fill="url(#ptGoldGrad)" opacity="0.9" />
+  <!-- Market Gateway Arch (Cánh cửa thị trường mở ra thế giới) -->
+  <path d="M 146 334 L 146 196 A 110 110 0 0 1 366 196 L 366 334" fill="none" stroke="url(#hlGoldGrad)" stroke-width="9" stroke-linecap="round" opacity="0.88" />
+  <path d="M 166 334 L 166 202 A 90 90 0 0 1 346 202 L 346 334" fill="none" stroke="url(#hlGoldGrad)" stroke-width="3" stroke-linecap="round" opacity="0.45" />
 
-  <!-- Tri-Peak Mountains (Phú Thọ - Vĩnh Phúc - Hòa Bình: Đền Hùng Nghĩa Lĩnh, Tam Đảo, Dãy núi Mường sông Đà) -->
-  <!-- Left Mountain: Tam Đảo / Vĩnh Phúc -->
-  <polygon points="90,340 175,200 260,340" fill="#1C5840" opacity="0.85" />
-  
-  <!-- Right Mountain: Dãy núi Mường / Hòa Bình Hồ Sông Đà -->
-  <polygon points="252,340 338,210 422,340" fill="#164A35" opacity="0.85" />
+  <!-- Connection Nodes on Gateway Arch -->
+  <circle cx="256" cy="86" r="9" fill="#FFF2BD" filter="url(#hlGlow)" />
+  <circle cx="146" cy="196" r="7" fill="#F5C257" />
+  <circle cx="366" cy="196" r="7" fill="#F5C257" />
+  <circle cx="118" cy="265" r="5.5" fill="#D49A2A" opacity="0.85" />
+  <circle cx="394" cy="265" r="5.5" fill="#D49A2A" opacity="0.85" />
 
-  <!-- Center Master Mountain: Núi Nghĩa Lĩnh Đất Tổ Hùng Vương -->
-  <polygon points="160,340 256,152 352,340" fill="url(#ptMountainGrad)" stroke="url(#ptGoldGrad)" stroke-width="5" stroke-linejoin="round" />
+  <!-- Sculpted 3D Letter "L" & Rising Business Pillars in Center (Biểu trưng chữ L) -->
+  <!-- Vertical stem of L -->
+  <polygon points="204,132 246,114 246,288 204,288" fill="url(#hlL3DLight)" />
+  <polygon points="246,114 260,124 260,276 246,288" fill="url(#hlL3DShadow)" />
+  <!-- Horizontal base of L extending into upward arrow/bridge -->
+  <polygon points="204,288 326,288 344,322 204,322" fill="url(#hlGoldGrad)" />
+  <!-- Rising Partner Pillar (Những người bạn & Cơ hội giao thương) -->
+  <polygon points="282,174 316,156 316,272 282,272" fill="url(#hlGoldGrad)" opacity="0.85" />
+  <!-- Connecting Bridge Arc across the L -->
+  <path d="M 182 252 Q 258 205 342 232" fill="none" stroke="#FFF2BD" stroke-width="6" stroke-linecap="round" filter="url(#hlGlow)" />
 
-  <!-- River of Heritage (Ngã Ba Sông Hồng, Sông Lô, Sông Đà hội tụ) -->
-  <path d="M 90 344 Q 180 320, 256 340 T 422 336" fill="none" stroke="url(#ptGoldGrad)" stroke-width="8" stroke-linecap="round" />
-  <path d="M 110 365 Q 195 342, 268 362 T 402 358" fill="none" stroke="url(#ptBronzeGrad)" stroke-width="6" stroke-linecap="round" opacity="0.8" />
+  <!-- Base Horizon Line -->
+  <path d="M 104 352 L 408 352" stroke="url(#hlGoldGrad)" stroke-width="4" stroke-linecap="round" opacity="0.75" />
 
-  <!-- Distinctive PT Monogram (Phú Thọ) -->
-  <text x="256" y="446" text-anchor="middle" font-family="'Plus Jakarta Sans', 'Outfit', 'Segoe UI', sans-serif" font-weight="900" font-size="82" fill="url(#ptGoldGrad)" filter="url(#ptGlow)" letter-spacing="4">PHÚ THỌ</text>
-  <text x="256" y="475" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="20" fill="#F3E5AB" letter-spacing="8" opacity="0.95">TODAY</text>
+  <!-- Brand Typography -->
+  <text x="256" y="422" text-anchor="middle" font-family="'Plus Jakarta Sans', 'Outfit', 'Be Vietnam Pro', sans-serif" font-weight="900" font-size="64" fill="url(#hlGoldGrad)" filter="url(#hlGlow)" letter-spacing="3">HỌ LÊ</text>
+  <text x="256" y="464" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="22" fill="#F7F9FC" letter-spacing="6" opacity="0.95">GLOBAL • TODAY</text>
 </svg>

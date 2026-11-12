@@ -1,64 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Background Gradient: Deep Heritage Emerald & Bronze -->
-    <linearGradient id="ptBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0E382B" />
-      <stop offset="60%" stop-color="#08221A" />
-      <stop offset="100%" stop-color="#04120D" />
+    <linearGradient id="hlNavyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#122B54" />
+      <stop offset="55%" stop-color="#0B1D3A" />
+      <stop offset="100%" stop-color="#050E1D" />
     </linearGradient>
-
-    <!-- Gold & Bronze Gradient of Dong Son Heritage -->
-    <linearGradient id="ptGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFF3C4" />
-      <stop offset="35%" stop-color="#E5B342" />
-      <stop offset="70%" stop-color="#C59325" />
-      <stop offset="100%" stop-color="#8F630E" />
+    <linearGradient id="hlGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2BD" />
+      <stop offset="40%" stop-color="#F5C257" />
+      <stop offset="80%" stop-color="#D49A2A" />
+      <stop offset="100%" stop-color="#9A6810" />
     </linearGradient>
-
-    <linearGradient id="ptBronzeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D4AF37" />
-      <stop offset="50%" stop-color="#F3E5AB" />
-      <stop offset="100%" stop-color="#AA771C" />
-    </linearGradient>
-
-    <linearGradient id="ptMountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#2D7A5B" />
-      <stop offset="100%" stop-color="#113B2C" />
-    </linearGradient>
-
-    <filter id="ptGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
   </defs>
-
-  <!-- Background Squircle Container -->
-  <rect x="20" y="20" width="472" height="472" rx="112" fill="url(#ptBgGrad)" />
-  <rect x="26" y="26" width="460" height="460" rx="106" fill="none" stroke="url(#ptGoldGrad)" stroke-width="8" opacity="0.9" />
-
-  <!-- Dong Son Sun Circle (14/16 Rays of Sun) -->
-  <circle cx="256" cy="180" r="95" fill="none" stroke="url(#ptGoldGrad)" stroke-width="4" opacity="0.6" stroke-dasharray="8 6" />
-  <circle cx="256" cy="180" r="72" fill="none" stroke="url(#ptGoldGrad)" stroke-width="6" opacity="0.8" />
-  <circle cx="256" cy="180" r="48" fill="url(#ptGoldGrad)" opacity="0.25" />
-
-  <!-- Dong Son Sun Starburst Rays in Center -->
-  <polygon points="256,132 263,165 296,155 272,176 298,198 266,200 270,232 256,204 242,232 246,200 214,198 240,176 216,155 249,165" fill="url(#ptGoldGrad)" opacity="0.9" />
-
-  <!-- Tri-Peak Mountains (Phú Thọ - Vĩnh Phúc - Hòa Bình: Đền Hùng Nghĩa Lĩnh, Tam Đảo, Dãy núi Mường sông Đà) -->
-  <!-- Left Mountain: Tam Đảo / Vĩnh Phúc -->
-  <polygon points="90,340 175,200 260,340" fill="#1C5840" opacity="0.85" />
-  
-  <!-- Right Mountain: Dãy núi Mường / Hòa Bình Hồ Sông Đà -->
-  <polygon points="252,340 338,210 422,340" fill="#164A35" opacity="0.85" />
-
-  <!-- Center Master Mountain: Núi Nghĩa Lĩnh Đất Tổ Hùng Vương -->
-  <polygon points="160,340 256,152 352,340" fill="url(#ptMountainGrad)" stroke="url(#ptGoldGrad)" stroke-width="5" stroke-linejoin="round" />
-
-  <!-- River of Heritage (Ngã Ba Sông Hồng, Sông Lô, Sông Đà hội tụ) -->
-  <path d="M 90 344 Q 180 320, 256 340 T 422 336" fill="none" stroke="url(#ptGoldGrad)" stroke-width="8" stroke-linecap="round" />
-  <path d="M 110 365 Q 195 342, 268 362 T 402 358" fill="none" stroke="url(#ptBronzeGrad)" stroke-width="6" stroke-linecap="round" opacity="0.8" />
-
-  <!-- Distinctive PT Monogram (Phú Thọ) -->
-  <text x="256" y="446" text-anchor="middle" font-family="'Plus Jakarta Sans', 'Outfit', 'Segoe UI', sans-serif" font-weight="900" font-size="82" fill="url(#ptGoldGrad)" filter="url(#ptGlow)" letter-spacing="4">PHÚ THỌ</text>
-  <text x="256" y="475" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="20" fill="#F3E5AB" letter-spacing="8" opacity="0.95">TODAY</text>
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#hlNavyBg)" />
+  <rect x="24" y="24" width="464" height="464" rx="108" fill="none" stroke="url(#hlGoldGrad)" stroke-width="10" />
+  <path d="M 132 380 L 132 204 A 124 124 0 0 1 380 204 L 380 380" fill="none" stroke="url(#hlGoldGrad)" stroke-width="14" stroke-linecap="round" opacity="0.88" />
+  <circle cx="256" cy="80" r="14" fill="#FFF2BD" />
+  <polygon points="196,136 248,114 248,324 342,324 358,368 196,368" fill="url(#hlGoldGrad)" />
+  <polygon points="284,184 326,164 326,300 284,300" fill="#F5C257" opacity="0.85" />
+  <text x="256" y="446" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="56" fill="url(#hlGoldGrad)" letter-spacing="4">HỌ LÊ</text>
 </svg>

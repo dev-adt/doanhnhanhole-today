@@ -1,9 +1,9 @@
 /**
- * Service Worker cho Laocai.today PWA
+ * Service Worker cho Doanhnhanhole.today PWA
  * Cung cấp khả năng tải nhanh và hoạt động offline cơ bản
  */
 
-const CACHE_NAME = 'phutho-cache-v2';
+const CACHE_NAME = 'doanhnhanhole-cache-v2';
 const PRECACHE_ASSETS = [
   '/manifest.json',
   '/favicon.svg',
