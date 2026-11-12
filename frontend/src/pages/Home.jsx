@@ -466,6 +466,116 @@ const FAQ_ITEMS = [
   }
 ];
 
+/* ============================================================================
+   DỮ LIỆU DOANH NGHIỆP NỔI BẬT: SÂM NGỌC LINH NGHỊ GIA (SAMNGHIGIA.COM)
+   ============================================================================ */
+const SAM_NGHI_GIA_DATA = {
+  name: 'Sâm Ngọc Linh Nghị Gia — Công ty TNHH Sâm Nghị Gia Ngọc Linh',
+  shortName: 'Sâm Ngọc Linh Nghị Gia',
+  slogan: '"Sâm Thật – Giá Trị Thật" • Tinh Hoa Đất Trời Núi Rừng Nguyên Sinh',
+  taxCode: '0109256592',
+  founder: 'TS. Lê Văn Nghị — Chủ tịch Thương hiệu Sâm Ngọc Linh Nghị Gia',
+  website: 'https://samnghigia.com/',
+  logo: 'https://samnghigia.com/wp-content/uploads/2024/06/logo-sam-ngoc-linh-nghi-gia-2-965x250-1.webp',
+  hotline1: '0938.933.777',
+  hotline2: '0936.105.588',
+  gallery: [
+    {
+      id: 'founder',
+      tabLabel: 'Chủ tịch TS. Lê Văn Nghị',
+      icon: 'ti-award',
+      tag: 'Doanh Nhân Họ Lê Tiêu Biểu',
+      title: 'TS. Lê Văn Nghị — Chủ tịch Thương hiệu Sâm Ngọc Linh Nghị Gia',
+      desc: 'Tiên phong xây dựng chuỗi giá trị khép kín bảo tồn và phát triển Quốc bảo Sâm Ngọc Linh với triết lý "Sâm thật – Giá trị thật" phục vụ sức khỏe cộng đồng.',
+      image: 'https://samnghigia.com/wp-content/uploads/2025/06/Ts-le-van-nghi-chu-tich-thuong-hieu-sam-ngoc-linh-nghi-gia-4.webp'
+    },
+    {
+      id: 'forest',
+      tabLabel: 'Vườn Rừng Ngọc Linh',
+      icon: 'ti-trees',
+      tag: 'Vùng Trồng Bảo Hộ >1.500m',
+      title: 'Vườn Rừng Sâm Ngọc Linh Nghị Gia Tại Nam Trà My, Quảng Nam',
+      desc: 'Canh tác hoàn toàn tự nhiên dưới tán rừng nguyên sinh ở độ cao 1.500m – 1.700m tại xã Trà Cang, huyện Nam Trà My; giữ trọn vẹn hàm lượng hoạt chất Saponin MR2 quý hiếm.',
+      image: 'https://samnghigia.com/wp-content/uploads/2024/12/Vuon-Rung-Sam-Ngoc-Linh-Nghi-Gia.webp'
+    },
+    {
+      id: 'showroom',
+      tabLabel: 'Tòa Nhà & Showroom',
+      icon: 'ti-building-skyscraper',
+      tag: 'Trụ Sở Chính Hà Nội',
+      title: 'Tòa Nhà Nghị Gia — Số 168 Hồng Tiến, Long Biên, Hà Nội',
+      desc: 'Không gian trưng bày, thưởng trà Sâm Ngọc Linh và đón tiếp các đoàn doanh nhân, đối tác trong nước và quốc tế đến giao lưu, kết nối giao thương.',
+      image: 'https://samnghigia.com/wp-content/uploads/2024/06/Showroom-Sam-Ngoc-Linh-Nghi-Gia-Long-Bien-Ha-Noi.webp'
+    },
+    {
+      id: 'cert',
+      tabLabel: 'Chứng Nhận & Giải Thưởng',
+      icon: 'ti-certificate',
+      tag: 'ISO 22000:2018 & VCCI',
+      title: 'Chứng Nhận Quốc Tế ISO 22000:2018 & Bằng Khen Liên Đoàn VCCI',
+      desc: 'Được kiểm định chất lượng nghiêm ngặt, vinh dự nhận Bằng khen của Liên đoàn Thương mại và Công nghiệp Việt Nam (VCCI) cùng sự chứng thực từ người đầu tiên tìm ra Sâm Ngọc Linh.',
+      image: 'https://samnghigia.com/wp-content/uploads/2024/06/Chung-nhan-ISSO-22000-Sam-ngoc-Linh-Nghi-Gia.webp'
+    }
+  ],
+  highlights: [
+    {
+      icon: 'ti-mountain',
+      title: 'Vườn Rừng Nguyên Sinh 1.500m – 1.700m',
+      desc: 'Sở hữu vườn sâm tại tiểu khu bảo hộ xã Trà Cang, Nam Trà My, Quảng Nam; canh tác thuận tự nhiên 100% dưới tán rừng già.'
+    },
+    {
+      icon: 'ti-shield-check',
+      title: 'Chuỗi Giá Trị Khép Kín • ISO 22000:2018',
+      desc: 'Từ vùng trồng, nghiên cứu chiết xuất đến chế phẩm bảo vệ sức khỏe được kiểm định chất lượng minh bạch.'
+    },
+    {
+      icon: 'ti-award',
+      title: 'Bằng Khen VCCI & Trách Nhiệm Xã Hội',
+      desc: 'Đồng hành cùng Quỹ Học bổng SNG, Caravan "Mạch Nguồn Thịnh Vượng" và các hoạt động vì sức khỏe cộng đồng.'
+    },
+    {
+      icon: 'ti-Affiliate',
+      title: 'Hợp Tác Đại Lý & Quà Biếu Doanh Nghiệp',
+      desc: 'Cung cấp giải pháp quà tặng ngoại giao cao cấp (SNG1–SNG7) và mở rộng đại lý phân phối cùng hội viên.'
+    }
+  ],
+  products: [
+    {
+      name: 'Sâm Ngọc Linh Tươi Nghị Gia (Loại 1 – Loại 6)',
+      badge: 'Quốc Bảo Nguyên Bản',
+      desc: 'Củ sâm tươi khai thác trực tiếp từ vườn rừng nguyên sinh, giàu hoạt chất Saponin MR2 bồi bổ thể lực toàn diện.',
+      image: 'https://samnghigia.com/wp-content/uploads/2024/09/Sam-Ngoc-Linh-Tuoi-Nghi-Gia.webp',
+      link: 'https://samnghigia.com/'
+    },
+    {
+      name: 'Chế Phẩm Tinh Chế: Ngũ Ngọc Đan & Ngân Huyền Đan',
+      badge: 'Chăm Sóc Sức Khỏe',
+      desc: 'Tinh Bảo Khang, Cao Sâm, Sâm Ngâm Mật Ong Rừng, Tam Sâm Quốc Bảo Trà hỗ trợ phòng ngừa & phục hồi sức khỏe.',
+      image: 'https://samnghigia.com/wp-content/uploads/2024/09/Ngu-Ngoc-Dan-Che-Pham-Sam-Ngoc-Linh-Phong-Ngua-Phuc-Hoi-Dot-Quy-Anh-2.webp',
+      link: 'https://samnghigia.com/'
+    },
+    {
+      name: 'Rượu Sâm Ngọc Linh Đỉnh 36 & Vảy Vàng Japonica',
+      badge: 'Thượng Hạng',
+      desc: 'Dòng rượu ngâm ủ từ củ Sâm Ngọc Linh tuổi đời cao (Đỉnh 36, 24, 18, 12), kiểm định và cấp phép lưu hành chuẩn mực.',
+      image: 'https://samnghigia.com/wp-content/uploads/2024/06/Ruou-Sam-Ngoc-Linh-anh-ngang.webp',
+      link: 'https://samnghigia.com/'
+    },
+    {
+      name: 'Bộ Quà Biếu Sâm Ngọc Linh & Tổ Yến (Set SNG1 – SNG7)',
+      badge: 'Quà Tặng Ngoại Giao',
+      desc: 'Thiết kế sang trọng kết hợp Sâm Ngọc Linh và Tổ Yến thượng hạng — lựa chọn xứng tầm biếu tặng đối tác doanh nghiệp.',
+      image: 'https://samnghigia.com/wp-content/uploads/2024/06/Qua-tang-Sam-Ngoc-Linh-Nghi-Gia-1-scaled.webp',
+      link: 'https://samnghigia.com/'
+    }
+  ],
+  branches: [
+    'Trụ sở Hà Nội: Tòa nhà Nghị Gia, 168 Hồng Tiến, Long Biên, Hà Nội',
+    'Chi nhánh Hải Phòng: 173 Cầu Đất / 46A Thiên Lôi, Hải Phòng',
+    'Nhà phân phối Phía Nam: 324 Nguyễn Đình Chiểu, TP. Hồ Chí Minh'
+  ]
+};
+
 export const Home = () => {
   const { user } = useAuth();
   const { currentLang } = useTranslation();
@@ -476,6 +586,10 @@ export const Home = () => {
 
   // KPI Toggle State ('pilot90' | 'year12')
   const [kpiMode, setKpiMode] = useState('year12');
+
+  // Gallery State cho Block Doanh Nghiệp Nổi Bật (Sâm Ngọc Linh Nghị Gia)
+  const [samGalleryIdx, setSamGalleryIdx] = useState(0);
+  const activeSamSlide = SAM_NGHI_GIA_DATA.gallery[samGalleryIdx] || SAM_NGHI_GIA_DATA.gallery[0];
 
   // Active Tab State cho 5 Trụ Cột Kết Nối
   const [activePillarId, setActivePillarId] = useState('pillar-community');
@@ -871,6 +985,192 @@ export const Home = () => {
             </div>
           </div>
         </div>
+
+        {/* ========================================================
+            2B. DOANH NGHIỆP NỔI BẬT: SÂM NGỌC LINH NGHỊ GIA (SAMNGHIGIA.COM)
+            ======================================================== */}
+        <section className="hl-featured-enterprise-section">
+          <div className="hl-container">
+            <div className="hl-sec-header hl-reveal">
+              <div className="hl-sec-badge">
+                <i className="ti ti-crown"></i>
+                <span>Doanh Nghiệp Nổi Bật • Điển Hình Chuỗi Giá Trị Khép Kín</span>
+              </div>
+              <h2 className="hl-sec-title">
+                Sâm Ngọc Linh Nghị Gia — <span className="hl-gold-accent">"Sâm Thật, Giá Trị Thật"</span>
+              </h2>
+              <p className="hl-sec-desc">
+                Doanh nghiệp tiêu biểu do <strong>TS. Lê Văn Nghị</strong> sáng lập và điều hành — sở hữu vườn rừng Sâm Ngọc Linh nguyên sinh tại độ cao 1.500m – 1.700m (Nam Trà My, Quảng Nam) cùng hệ sinh thái chế phẩm chăm sóc sức khỏe đạt chuẩn quốc tế ISO 22000:2018.
+              </p>
+            </div>
+
+            <div className="hl-fe-shell hl-reveal-scale">
+              {/* Top Brand Identity Bar */}
+              <div className="hl-fe-top-bar">
+                <div className="hl-fe-brand-identity">
+                  <a href={SAM_NGHI_GIA_DATA.website} target="_blank" rel="noopener noreferrer" className="hl-fe-logo-box" title="Truy cập samnghigia.com">
+                    <img
+                      src={SAM_NGHI_GIA_DATA.logo}
+                      alt={SAM_NGHI_GIA_DATA.shortName}
+                      className="hl-fe-logo-img"
+                      loading="lazy"
+                    />
+                  </a>
+                  <div className="hl-fe-title-group">
+                    <div className="hl-fe-verified-row">
+                      <span className="hl-fe-badge-pioneer">
+                        <i className="ti ti-shield-check"></i> Doanh Nghiệp Nổi Bật • MST: {SAM_NGHI_GIA_DATA.taxCode}
+                      </span>
+                      <span className="hl-fe-badge-iso">
+                        <i className="ti ti-certificate"></i> ISO 22000:2018 & Bằng Khen VCCI
+                      </span>
+                    </div>
+                    <h3 className="hl-fe-company-name">{SAM_NGHI_GIA_DATA.name}</h3>
+                    <div className="hl-fe-slogan">{SAM_NGHI_GIA_DATA.slogan} • {SAM_NGHI_GIA_DATA.founder}</div>
+                  </div>
+                </div>
+
+                <div className="hl-fe-cta-top">
+                  <a
+                    href={SAM_NGHI_GIA_DATA.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hl-fe-btn-web"
+                  >
+                    <i className="ti ti-world"></i>
+                    <span>Khám phá samnghigia.com</span>
+                    <i className="ti ti-external-link"></i>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => scrollToConsult('Kết nối hợp tác Đại lý / Quà biếu Doanh nghiệp cùng Sâm Ngọc Linh Nghị Gia (samnghigia.com)')}
+                    className="hl-fe-btn-connect"
+                  >
+                    <i className="ti ti-handshake"></i>
+                    <span>Kết nối Giao thương & Quà tặng B2B</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 2-Column Main Showcase */}
+              <div className="hl-fe-main-grid">
+                {/* Cột Trái: Gallery Vườn Rừng / Chủ tịch / Showroom + 4 Giá trị cốt lõi */}
+                <div className="hl-fe-left-col">
+                  <div>
+                    <div className="hl-fe-gallery-stage">
+                      <img
+                        src={activeSamSlide.image}
+                        alt={activeSamSlide.title}
+                        className="hl-fe-gallery-img"
+                        loading="lazy"
+                      />
+                      <div className="hl-fe-gallery-caption">
+                        <span className="hl-fe-gallery-tag">{activeSamSlide.tag}</span>
+                        <h4 className="hl-fe-gallery-title">{activeSamSlide.title}</h4>
+                        <p className="hl-fe-gallery-desc">{activeSamSlide.desc}</p>
+                      </div>
+                    </div>
+
+                    <div className="hl-fe-gallery-tabs" style={{ marginTop: '10px' }}>
+                      {SAM_NGHI_GIA_DATA.gallery.map((item, idx) => (
+                        <button
+                          key={item.id}
+                          type="button"
+                          className={`hl-fe-gallery-tab ${samGalleryIdx === idx ? 'active' : ''}`}
+                          onClick={() => setSamGalleryIdx(idx)}
+                        >
+                          <i className={`ti ${item.icon}`}></i>
+                          <span>{item.tabLabel}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="hl-fe-highlights-grid">
+                    {SAM_NGHI_GIA_DATA.highlights.map((hl, idx) => (
+                      <div key={idx} className="hl-fe-hl-box">
+                        <div className="hl-fe-hl-icon">
+                          <i className={`ti ${hl.icon}`}></i>
+                        </div>
+                        <div>
+                          <div className="hl-fe-hl-title">{hl.title}</div>
+                          <div className="hl-fe-hl-desc">{hl.desc}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Cột Phải: 4 Dòng Sản Phẩm Chủ Lực từ samnghigia.com */}
+                <div className="hl-fe-right-col">
+                  <div className="hl-fe-products-header">
+                    <h4 className="hl-fe-products-heading">
+                      <i className="ti ti-sparkles"></i>
+                      <span>Hệ Sinh Thái Sản Phẩm Chủ Lực Sâm Ngọc Linh Nghị Gia</span>
+                    </h4>
+                    <a
+                      href={SAM_NGHI_GIA_DATA.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: '#FFE49E', fontSize: '12.5px', fontWeight: 700, textDecoration: 'none' }}
+                    >
+                      Xem trọn bộ sản phẩm →
+                    </a>
+                  </div>
+
+                  <div className="hl-fe-products-grid">
+                    {SAM_NGHI_GIA_DATA.products.map((prod, idx) => (
+                      <a
+                        key={idx}
+                        href={prod.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hl-fe-prod-card"
+                      >
+                        <div className="hl-fe-prod-thumb">
+                          <img src={prod.image} alt={prod.name} loading="lazy" />
+                          <span className="hl-fe-prod-badge">{prod.badge}</span>
+                        </div>
+                        <div className="hl-fe-prod-body">
+                          <div>
+                            <h5 className="hl-fe-prod-title">{prod.name}</h5>
+                            <p className="hl-fe-prod-desc">{prod.desc}</p>
+                          </div>
+                          <span className="hl-fe-prod-link">
+                            <span>Tìm hiểu trên samnghigia.com</span>
+                            <i className="ti ti-arrow-up-right"></i>
+                          </span>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer Strip: Hệ thống Showroom & Hotline trực tiếp */}
+              <div className="hl-fe-footer-strip">
+                <div className="hl-fe-branches">
+                  {SAM_NGHI_GIA_DATA.branches.map((br, idx) => (
+                    <span key={idx} className="hl-fe-branch-item">
+                      <i className="ti ti-map-pin"></i>
+                      <span>{br}</span>
+                    </span>
+                  ))}
+                </div>
+                <div className="hl-fe-hotlines">
+                  <a href={`tel:${SAM_NGHI_GIA_DATA.hotline1.replace(/\./g, '')}`} className="hl-fe-hotline-pill">
+                    <i className="ti ti-phone-call"></i>
+                    <span>Hotline: {SAM_NGHI_GIA_DATA.hotline1}</span>
+                  </a>
+                  <a href={`tel:${SAM_NGHI_GIA_DATA.hotline2.replace(/\./g, '')}`} className="hl-fe-hotline-pill">
+                    <i className="ti ti-phone-call"></i>
+                    <span>{SAM_NGHI_GIA_DATA.hotline2}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ========================================================
             3. NĂM TRỤ CỘT KẾT NỐI TOÀN CẦU (INTERACTIVE 3D SHOWCASE)

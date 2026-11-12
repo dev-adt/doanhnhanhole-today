@@ -329,6 +329,20 @@ export const FALLBACK_EVENTS = [
 export const FALLBACK_MEMBERS = [
   {
     id: 1,
+    name: 'Công ty TNHH Sâm Nghị Gia Ngọc Linh (Sâm Ngọc Linh Nghị Gia)',
+    tax_code: '0109256592',
+    industry: 'Dược liệu Quý & Chăm sóc Sức khỏe • Sâm Ngọc Linh',
+    tier: 'Diamond',
+    city: 'Hà Nội',
+    address: 'Tòa nhà Nghị Gia, số 168 Hồng Tiến, P. Bồ Đề, Q. Long Biên, Hà Nội',
+    phone: '0938.933.777',
+    contact_name: 'TS. Lê Văn Nghị (Chủ tịch)',
+    website: 'https://samnghigia.com',
+    is_featured: 1,
+    description: 'Thương hiệu "Sâm thật – Giá trị thật" sở hữu vườn rừng Sâm Ngọc Linh nguyên sinh tại độ cao 1.500m – 1.700m (Nam Trà My, Quảng Nam) và hệ sinh thái chế phẩm chăm sóc sức khỏe đạt chuẩn ISO 22000:2018.'
+  },
+  {
+    id: 2,
     name: 'Công ty Cổ phần ADT Quốc tế (Đối tác Công nghệ Triển khai)',
     tax_code: '0108234567',
     industry: 'Công nghệ số, Nền tảng AI & Chuyển đổi số',
@@ -339,7 +353,7 @@ export const FALLBACK_MEMBERS = [
     description: 'Đơn vị phát triển nền tảng công nghệ, hệ sinh thái cổng thông tin số đa ngôn ngữ, quản trị hội viên và Trợ lý AI có kiểm soát cho cộng đồng doanh nhân.'
   },
   {
-    id: 2,
+    id: 3,
     name: 'Tập đoàn Sản xuất & Xuất nhập khẩu Nông sản Lê Gia',
     tax_code: '0312456789',
     industry: 'Sản xuất & Xuất khẩu • Nông sản thực phẩm',
@@ -350,7 +364,7 @@ export const FALLBACK_MEMBERS = [
     description: 'Doanh nghiệp tiên phong trong chuỗi chế biến sâu nông sản Việt xuất khẩu sang thị trường Châu Âu, Nhật Bản và Bắc Mỹ; tìm kiếm đại lý phân phối nội địa.'
   },
   {
-    id: 3,
+    id: 4,
     name: 'Công ty Cổ phần Đầu tư Hạ tầng & Thương mại Đông Đô',
     tax_code: '0105678912',
     industry: 'Thương mại & Phân phối • Vật liệu & Logistics',
@@ -359,16 +373,5 @@ export const FALLBACK_MEMBERS = [
     address: 'Đại lộ Lê Lợi, TP. Thanh Hóa',
     is_featured: 1,
     description: 'Hệ thống kho vận và phân phối vật tư công nghiệp, vật liệu xây dựng xanh trên toàn trục Bắc - Nam; sẵn sàng hợp tác kho bãi cùng hội viên.'
-  },
-  {
-    id: 4,
-    name: 'Công ty TNHH Lữ hành Di sản & Sự kiện Doanh nhân Toàn Cầu',
-    tax_code: '0401987654',
-    industry: 'Du lịch & Dịch vụ • Tổ chức Biz-Tour & MICE',
-    tier: 'Gold',
-    city: 'Đà Nẵng',
-    address: 'Đường Bạch Đằng, Quận Hải Châu, TP. Đà Nẵng',
-    is_featured: 1,
-    description: 'Đơn vị chuyên tổ chức các đoàn hành trình về nguồn Họ Lê, tour khảo sát nhà máy kết hợp hội nghị MICE trong nước và quốc tế.'
   }
 ];
