@@ -576,6 +576,105 @@ const SAM_NGHI_GIA_DATA = {
   ]
 };
 
+/* ============================================================================
+   DỮ LIỆU DOANH NGHIỆP NỔI BẬT 02: CÔNG TY CỔ PHẦN ADT QUỐC TẾ (ADTGROUP.NET)
+   ============================================================================ */
+const ADT_GROUP_DATA = {
+  name: 'Công ty Cổ phần ADT Quốc tế — ADT GROUP',
+  shortName: 'ADT GROUP',
+  slogan: 'Tiên Phong Ứng Dụng Trí Tuệ Nhân Tạo & Chuyển Đổi Số Thực Chiến',
+  tagline: 'Một Trợ Lý AI Làm Việc Bằng Cả 1 Đội Quân',
+  taxCode: '0108234567',
+  website: 'https://www.adtgroup.net/',
+  logo: '/images/adt_logo.svg',
+  hotline: '0986 354 152',
+  email: 'info@adtgroup.net',
+  address: 'Khu đô thị Văn Phú, P. Kiến Hưng, Hà Nội',
+  gallery: [
+    {
+      id: 'gov-ai',
+      tabLabel: 'Trợ Lý AI Phường Xã',
+      icon: 'ti-building-bank',
+      tag: 'Giải Nhì TP. Hà Nội 2025',
+      title: 'Bộ Đôi Trợ Lý AI Phường Xã — Giải Nhì Cải Cách Hành Chính Hà Nội 2025',
+      desc: 'Giải pháp nổi bật vượt qua 1.200 đề tài toàn thành phố, giúp phường Ô Chợ Dừa bứt phá từ hạng 85 lên Top 1 chỉ sau 5 tháng; phục vụ người dân và cán bộ công chức 24/7.',
+      image: 'https://www.adtgroup.net/web/image/5746-dabace13/OCT%20top%201%20H%C3%A0%20N%E1%BB%99i.png',
+      link: 'https://www.adtgroup.net/bo-doi-tro-ly-ai-phuong-xa-dat-giai-nhi-ha-noi-2025'
+    },
+    {
+      id: 'orion-ai',
+      tabLabel: 'Orion AI Enterprise',
+      icon: 'ti-cpu',
+      tag: 'Hệ Điều Hành Kỷ Nguyên AI',
+      title: 'Orion — Nền Tảng AI Agent & Hệ Điều Hành Doanh Nghiệp Toàn Diện',
+      desc: 'Tích hợp Multi-Model AI và hệ thống AI Agent chuyên sâu: AI Sales, Auto Marketing, AI Center và AI Management giúp doanh nghiệp tự động hóa vận hành và tăng trưởng thông minh.',
+      image: 'https://www.adtgroup.net/web/image/6250-cebf87ca/logo.jpg',
+      link: 'https://www.adtgroup.net/orion-nen-tang-ai-agent-quan-tri-doanh-nghiep'
+    },
+    {
+      id: 'today-platform',
+      tabLabel: 'Hệ Sinh Thái TODAY',
+      icon: 'ti-world',
+      tag: 'Nền Tảng Kết Nối Số',
+      title: 'TODAY — Nền Tảng Kết Nối, Giao Thương & Phát Triển Cộng Đồng',
+      desc: 'Tích hợp 6 nhóm tính năng cốt lõi: Cổng thông tin đa ngôn ngữ, Mobile App PWA, Trợ lý AI có kiểm soát, Quản trị hội viên, Vé sự kiện QR và Đào tạo nội bộ cho tổ chức, hiệp hội.',
+      image: 'https://www.adtgroup.net/web/image/6586-caef991c/today.png',
+      link: 'https://www.adtgroup.net/today'
+    }
+  ],
+  highlights: [
+    {
+      icon: 'ti-award',
+      title: 'Giải Nhì Toàn TP. Hà Nội 2025',
+      desc: 'Được UBND TP. Hà Nội vinh danh tại cuộc thi CCHC 2025; minh chứng năng lực triển khai thực tế bứt phá từ hạng 85 lên Top 1.'
+    },
+    {
+      icon: 'ti-brain',
+      title: 'Kiến Trúc Multi-Model AI & AI Agent',
+      desc: 'Làm chủ công nghệ AI chuyên sâu, huấn luyện trợ lý số dựa trên cơ sở tri thức nghiệp vụ riêng có của từng tổ chức, doanh nghiệp.'
+    },
+    {
+      icon: 'ti-device-laptop',
+      title: 'Hạ Tầng Triển Khai Toàn Diện',
+      desc: 'Trọn gói từ website đa ngôn ngữ, ứng dụng di động, quản trị hội viên, soát vé QR sự kiện đến hệ thống AI tự động hóa.'
+    },
+    {
+      icon: 'ti-shield-check',
+      title: 'Đối Tác Công Nghệ Đề Án',
+      desc: 'Đơn vị phát triển nền tảng kỹ thuật số, Trợ lý AI và bảo trợ công nghệ chính thức cho Doanhnhanhole.today.'
+    }
+  ],
+  flagshipProducts: [
+    {
+      name: 'Bộ Đôi Trợ Lý AI Chính Quyền Cơ Sở',
+      badge: 'Giải Nhì TP. Hà Nội 2025',
+      badgeColor: '#EF4444',
+      desc: 'Giải pháp chuyển đổi số chính quyền cấp phường, xã: Trợ lý tiếp dân giải đáp TTHC 24/7 và Trợ lý nghiệp vụ hỗ trợ cán bộ xử lý công việc nhanh chóng, chính xác.',
+      features: ['Top 1 chuyển đổi số Ô Chợ Dừa', 'Tra cứu TTHC & văn bản tự động', 'Giảm 70% thời gian hỏi đáp trực tiếp'],
+      link: 'https://www.adtgroup.net/bo-doi-tro-ly-ai-phuong-xa-dat-giai-nhi-ha-noi-2025',
+      ctaText: 'Xem đề tài đạt giải'
+    },
+    {
+      name: 'Orion — Nền Tảng AI Agent Quản Trị Doanh Nghiệp',
+      badge: 'Hệ Điều Hành AI Doanh Nghiệp',
+      badgeColor: '#3B82F6',
+      desc: 'Hệ sinh thái AI toàn diện cho doanh nghiệp: AI Sales chăm sóc khách hàng, Auto Marketing đa kênh, AI Center quản trị tri thức và AI Management hỗ trợ điều hành.',
+      features: ['Multi-Model AI & AI Agent tự hành', 'Bớt việc lặp lại, chăm sóc nhất quán', 'Khai thác tối đa tri thức doanh nghiệp'],
+      link: 'https://www.adtgroup.net/orion-nen-tang-ai-agent-quan-tri-doanh-nghiep',
+      ctaText: 'Khám phá Orion AI'
+    },
+    {
+      name: 'TODAY — Nền Tảng Kết Nối, Giao Thương & Cộng Đồng',
+      badge: 'Nền Tảng Kết Nối Số Đa Ngôn Ngữ',
+      badgeColor: '#10B981',
+      desc: 'Nền tảng all-in-one dành cho các hội doanh nhân, hiệp hội ngành nghề và địa phương: Tích hợp website đa ngôn ngữ, Mobile App, Trợ lý AI, Quản lý hội viên và Sự kiện.',
+      features: ['Website đa ngôn ngữ & Mobile App', 'Sàn giao thương B2B & Vé sự kiện QR', 'Quản trị hội viên & Đào tạo trực tuyến'],
+      link: 'https://www.adtgroup.net/today',
+      ctaText: 'Khám phá Nền tảng TODAY'
+    }
+  ]
+};
+
 export const Home = () => {
   const { user } = useAuth();
   const { currentLang } = useTranslation();
@@ -590,6 +689,10 @@ export const Home = () => {
   // Gallery State cho Block Doanh Nghiệp Nổi Bật (Sâm Ngọc Linh Nghị Gia)
   const [samGalleryIdx, setSamGalleryIdx] = useState(0);
   const activeSamSlide = SAM_NGHI_GIA_DATA.gallery[samGalleryIdx] || SAM_NGHI_GIA_DATA.gallery[0];
+
+  // Gallery State cho Block Doanh Nghiệp Nổi Bật (ADT GROUP)
+  const [adtGalleryIdx, setAdtGalleryIdx] = useState(0);
+  const activeAdtSlide = ADT_GROUP_DATA.gallery[adtGalleryIdx] || ADT_GROUP_DATA.gallery[0];
 
   // Active Tab State cho 5 Trụ Cột Kết Nối
   const [activePillarId, setActivePillarId] = useState('pillar-community');
@@ -1165,6 +1268,206 @@ export const Home = () => {
                   <a href={`tel:${SAM_NGHI_GIA_DATA.hotline2.replace(/\./g, '')}`} className="hl-fe-hotline-pill">
                     <i className="ti ti-phone-call"></i>
                     <span>{SAM_NGHI_GIA_DATA.hotline2}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================
+            2C. DOANH NGHIỆP NỔI BẬT: CÔNG TY CỔ PHẦN ADT QUỐC TẾ (ADTGROUP.NET)
+            ======================================================== */}
+        <section className="hl-featured-enterprise-section hl-fe-adt-section">
+          <div className="hl-container">
+            <div className="hl-sec-header hl-reveal">
+              <div className="hl-sec-badge" style={{ background: 'rgba(239, 68, 68, 0.12)', color: '#FCA5A5', borderColor: 'rgba(239, 68, 68, 0.35)' }}>
+                <i className="ti ti-cpu"></i>
+                <span>Doanh Nghiệp Nổi Bật • Đối Tác Công Nghệ Đổi Mới Sáng Tạo</span>
+              </div>
+              <h2 className="hl-sec-title">
+                ADT GROUP — <span className="hl-gold-accent">"Một Trợ Lý AI Làm Việc Bằng Cả 1 Đội Quân"</span>
+              </h2>
+              <p className="hl-sec-desc">
+                Đơn vị tiên phong chuyển đổi số và phát triển giải pháp trí tuệ nhân tạo thực chiến tại Việt Nam: sở hữu <strong>Bộ đôi Trợ lý AI chính quyền</strong> đạt Giải Nhì TP. Hà Nội 2025, nền tảng <strong>Orion AI Agent</strong> quản trị doanh nghiệp và hệ sinh thái cổng thông tin kết nối <strong>TODAY</strong>.
+              </p>
+            </div>
+
+            <div className="hl-fe-shell hl-fe-shell-adt hl-reveal-scale">
+              {/* Top Brand Identity Bar */}
+              <div className="hl-fe-top-bar">
+                <div className="hl-fe-brand-identity">
+                  <a href={ADT_GROUP_DATA.website} target="_blank" rel="noopener noreferrer" className="hl-fe-logo-box hl-fe-logo-box-adt" title="Truy cập adtgroup.net">
+                    <img
+                      src={ADT_GROUP_DATA.logo}
+                      alt={ADT_GROUP_DATA.shortName}
+                      className="hl-fe-logo-img"
+                      style={{ height: '42px' }}
+                      loading="lazy"
+                    />
+                  </a>
+                  <div className="hl-fe-title-group">
+                    <div className="hl-fe-verified-row">
+                      <span className="hl-fe-badge-pioneer" style={{ background: 'linear-gradient(135deg, #EF4444 0%, #B91C1C 100%)', color: '#FFFFFF' }}>
+                        <i className="ti ti-shield-check"></i> Doanh Nghiệp Công Nghệ • MST: {ADT_GROUP_DATA.taxCode}
+                      </span>
+                      <span className="hl-fe-badge-iso" style={{ background: 'rgba(239, 68, 68, 0.15)', borderColor: 'rgba(239, 68, 68, 0.4)', color: '#FCA5A5' }}>
+                        <i className="ti ti-trophy"></i> Giải Nhì Cải Cách Hành Chính TP. Hà Nội 2025
+                      </span>
+                    </div>
+                    <h3 className="hl-fe-company-name">{ADT_GROUP_DATA.name}</h3>
+                    <div className="hl-fe-slogan">{ADT_GROUP_DATA.slogan} • {ADT_GROUP_DATA.tagline}</div>
+                  </div>
+                </div>
+
+                <div className="hl-fe-cta-top">
+                  <a
+                    href={ADT_GROUP_DATA.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hl-fe-btn-web"
+                    style={{ background: 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)', color: '#FFFFFF', boxShadow: '0 10px 24px rgba(239, 68, 68, 0.35)' }}
+                  >
+                    <i className="ti ti-world"></i>
+                    <span>Khám phá adtgroup.net</span>
+                    <i className="ti ti-external-link"></i>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => scrollToConsult('Kết nối tư vấn giải pháp AI (Trợ lý Chính quyền, Orion AI, Nền tảng TODAY) cùng ADT GROUP')}
+                    className="hl-fe-btn-connect"
+                  >
+                    <i className="ti ti-send"></i>
+                    <span>Nhận Tư Vấn Chuyển Đổi Số AI</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 2-Column Main Showcase */}
+              <div className="hl-fe-main-grid">
+                {/* Cột Trái: Gallery 3 Sản Phẩm & Năng Lực AI */}
+                <div className="hl-fe-left-col">
+                  <div>
+                    <div className="hl-fe-gallery-stage" style={{ borderColor: 'rgba(239, 68, 68, 0.35)' }}>
+                      <img
+                        src={activeAdtSlide.image}
+                        alt={activeAdtSlide.title}
+                        className="hl-fe-gallery-img"
+                        loading="lazy"
+                      />
+                      <div className="hl-fe-gallery-caption">
+                        <span className="hl-fe-gallery-tag" style={{ background: 'rgba(239, 68, 68, 0.25)', borderColor: 'rgba(239, 68, 68, 0.55)', color: '#FCA5A5' }}>
+                          {activeAdtSlide.tag}
+                        </span>
+                        <h4 className="hl-fe-gallery-title">{activeAdtSlide.title}</h4>
+                        <p className="hl-fe-gallery-desc">{activeAdtSlide.desc}</p>
+                      </div>
+                    </div>
+
+                    <div className="hl-fe-gallery-tabs" style={{ marginTop: '10px', gridTemplateColumns: 'repeat(3, 1fr)' }}>
+                      {ADT_GROUP_DATA.gallery.map((item, idx) => (
+                        <button
+                          key={item.id}
+                          type="button"
+                          className={`hl-fe-gallery-tab ${adtGalleryIdx === idx ? 'active' : ''}`}
+                          onClick={() => setAdtGalleryIdx(idx)}
+                        >
+                          <i className={`ti ${item.icon}`}></i>
+                          <span>{item.tabLabel}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="hl-fe-highlights-grid">
+                    {ADT_GROUP_DATA.highlights.map((hl, idx) => (
+                      <div key={idx} className="hl-fe-hl-box">
+                        <div className="hl-fe-hl-icon" style={{ background: 'rgba(239, 68, 68, 0.16)', color: '#EF4444' }}>
+                          <i className={`ti ${hl.icon}`}></i>
+                        </div>
+                        <div>
+                          <div className="hl-fe-hl-title" style={{ color: '#FCA5A5' }}>{hl.title}</div>
+                          <div className="hl-fe-hl-desc">{hl.desc}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Cột Phải: Bộ 3 Sản Phẩm Chủ Đạo kèm link chính thức */}
+                <div className="hl-fe-right-col">
+                  <div className="hl-fe-products-header">
+                    <h4 className="hl-fe-products-heading" style={{ color: '#FCA5A5' }}>
+                      <i className="ti ti-sparkles" style={{ color: '#EF4444' }}></i>
+                      <span>Bộ 3 Sản Phẩm AI & Nền Tảng Số Chủ Đạo Của ADT</span>
+                    </h4>
+                    <a
+                      href={ADT_GROUP_DATA.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: '#FCA5A5', fontSize: '12.5px', fontWeight: 700, textDecoration: 'none' }}
+                    >
+                      Hệ sinh thái ADT →
+                    </a>
+                  </div>
+
+                  <div className="hl-adt-products-stack">
+                    {ADT_GROUP_DATA.flagshipProducts.map((prod, idx) => (
+                      <div key={idx} className="hl-adt-product-card hl-card-3d">
+                        <div className="hl-adt-card-top">
+                          <div className="hl-adt-title-wrap">
+                            <span className="hl-adt-badge" style={{ borderColor: prod.badgeColor, color: prod.badgeColor, background: `${prod.badgeColor}18` }}>
+                              {prod.badge}
+                            </span>
+                            <h5 className="hl-adt-prod-title">{prod.name}</h5>
+                          </div>
+                          <a
+                            href={prod.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hl-adt-btn-link"
+                          >
+                            <span>{prod.ctaText}</span>
+                            <i className="ti ti-arrow-up-right"></i>
+                          </a>
+                        </div>
+
+                        <p className="hl-adt-prod-desc">{prod.desc}</p>
+
+                        <div className="hl-adt-features-row">
+                          {prod.features.map((feat, fIdx) => (
+                            <span key={fIdx} className="hl-adt-feat-pill">
+                              <i className="ti ti-check" style={{ color: '#22C55E' }}></i>
+                              <span>{feat}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer Strip: Thông tin liên hệ & Hotline ADT */}
+              <div className="hl-fe-footer-strip">
+                <div className="hl-fe-branches">
+                  <span className="hl-fe-branch-item">
+                    <i className="ti ti-map-pin" style={{ color: '#EF4444' }}></i>
+                    <span>{ADT_GROUP_DATA.address}</span>
+                  </span>
+                  <span className="hl-fe-branch-item">
+                    <i className="ti ti-mail" style={{ color: '#EF4444' }}></i>
+                    <span>Email: {ADT_GROUP_DATA.email}</span>
+                  </span>
+                </div>
+                <div className="hl-fe-hotlines">
+                  <a href={`tel:${ADT_GROUP_DATA.hotline.replace(/\s+/g, '')}`} className="hl-fe-hotline-pill" style={{ background: 'rgba(239, 68, 68, 0.18)', borderColor: 'rgba(239, 68, 68, 0.45)', color: '#FCA5A5' }}>
+                    <i className="ti ti-phone-call"></i>
+                    <span>Hotline: {ADT_GROUP_DATA.hotline}</span>
+                  </a>
+                  <a href={ADT_GROUP_DATA.website} target="_blank" rel="noopener noreferrer" className="hl-fe-hotline-pill" style={{ background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.25)', color: '#FFFFFF' }}>
+                    <i className="ti ti-world"></i>
+                    <span>www.adtgroup.net</span>
                   </a>
                 </div>
               </div>
