@@ -54,7 +54,7 @@ const LOCATION_DATA = [
     tags: ['Di sản Thế giới', 'Tháp Chăm', 'Văn hóa Champa'],
     rating: 4.8,
     phone: '0235.3731.309',
-    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80'
   },
   {
     id: 'loc_5',
@@ -67,7 +67,7 @@ const LOCATION_DATA = [
     tags: ['Di sản Thiên nhiên', 'Hang động', 'Động Thiên Đường', 'Sơn Đoòng'],
     rating: 4.9,
     phone: '0232.3677.021',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80'
   },
   {
     id: 'loc_6',
@@ -80,7 +80,7 @@ const LOCATION_DATA = [
     tags: ['Du lịch sinh thái', 'Ngàn hoa', 'Hồ Xuân Hương', 'Tây Bắc'],
     rating: 4.8,
     phone: '0263.3822.342',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80'
   },
   {
     id: 'loc_7',
@@ -93,7 +93,7 @@ const LOCATION_DATA = [
     tags: ['Di sản kép UNESCO', 'Tràng An', 'Bái Đính', 'Thủy đình'],
     rating: 4.9,
     phone: '0229.3620.088',
-    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80'
   },
   {
     id: 'loc_8',
@@ -171,7 +171,7 @@ const LOCATION_DATA = [
     tags: ['Chè Shan Tuyết cổ thụ', 'Cầu Đất', 'OCOP Tây Bắc', 'Đặc sản'],
     rating: 4.9,
     phone: '0263.3855.777',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80'
   }
 ];
 

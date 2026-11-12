@@ -10,7 +10,7 @@ export const FloatingAIBot = () => {
     <Link
       to="/ai-chat"
       className="floating-ai-bot"
-      title={currentLang === 'en' ? 'Lao Cai AI Assistant' : brandConfig.aiAssistant.name}
+      title={currentLang === 'en' ? 'Doanhnhanhole.today AI Assistant' : brandConfig.aiAssistant.name}
       style={{
         position: 'fixed',
         right: '20px',

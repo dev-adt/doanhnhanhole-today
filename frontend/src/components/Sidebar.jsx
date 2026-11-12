@@ -75,10 +75,10 @@ export const Sidebar = ({ isOpen = false, onClose }) => {
             style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', flex: 1, borderBottom: 'none' }}
           >
             <div className="sb-logo-icon" style={{ overflow: 'hidden', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#2A160D', width: '32px', height: '32px', flexShrink: 0, border: '1px solid rgba(213, 163, 63, 0.4)' }}>
-              <img src="/logo_icon.svg" alt="Phutho.today" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/logo_icon.png'; }} />
+              <img src="/logo_icon.svg" alt="Doanhnhanhole.today" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/logo_icon.png'; }} />
             </div>
             <div>
-              <div className="sb-logo-name">Phutho<span style={{ color: '#D99B26' }}>.today</span></div>
+              <div className="sb-logo-name">DoanhnhanHoLe<span style={{ color: '#D99B26' }}>.today</span></div>
               <div className="sb-logo-sub">Quản trị Hệ thống</div>
             </div>
           </Link>

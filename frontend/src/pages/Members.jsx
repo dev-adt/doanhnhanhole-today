@@ -123,9 +123,9 @@ export const Members = () => {
             desc: m.description || 'Chưa có mô tả chi tiết hoạt động kinh doanh.',
             date: new Date().toLocaleDateString('vi-VN'),
             is_featured: 1,
-            city: 'Việt Nam',
-            phone: 'Chưa cập nhật',
-            contact_name: 'Đại diện hội viên'
+            city: m.city || 'Việt Nam',
+            phone: m.phone || '0986 354 152',
+            contact_name: m.contact_name || 'Ban Thư ký Điều phối'
           };
         });
         if (isMounted) setMembers(mappedMembers);
@@ -162,7 +162,7 @@ export const Members = () => {
       return true;
     })
     .sort((a, b) => {
-      const tierWeight = { 'Platinum': 3, 'Gold': 2, 'Silver': 1 };
+      const tierWeight = { 'Diamond': 4, 'Platinum': 3, 'Gold': 2, 'Silver': 1 };
       const weightA = tierWeight[a.tier] || 0;
       const weightB = tierWeight[b.tier] || 0;
       if (weightB !== weightA) {
@@ -180,9 +180,9 @@ export const Members = () => {
   return (
     <div className="public-body">
       <SEOHead 
-        title="Danh bạ Hội viên Doanh nghiệp"
-        description="Tra cứu và kết nối danh bạ các doanh nghiệp, đối tác uy tín hệ sinh thái Phutho.today. Phân loại theo hạng Platinum, Gold, Silver."
-        keywords="danh bạ doanh nghiệp, hội viên Phutho.today, tạp chí doanh nghiệp việt nam, đối tác uy tín"
+        title="Danh bạ Doanh nghiệp Hội viên | Doanhnhanhole.today"
+        description="Tra cứu và kết nối danh bạ các doanh nghiệp, đối tác xác minh trong hệ sinh thái Doanh nhân Họ Lê Toàn cầu & Những người bạn."
+        keywords="danh bạ doanh nghiệp Họ Lê, hội viên Doanhnhanhole.today, 100 doanh nhân tiên phong, đối tác B2B uy tín"
         url="/members"
       />
       <Navbar />

@@ -1073,7 +1073,7 @@ export const Navbar = () => {
                   boxShadow: '0 2px 8px rgba(20, 90, 62, 0.45)'
                 }}
               >
-                {currentLang === 'en' ? 'Join Lao Cai Investment Network' : 'Đăng ký Hội viên & Kết nối'}
+                {currentLang === 'en' ? 'Join Doanhnhanhole.today Network' : 'Đăng ký Hội viên & Kết nối'}
               </Link>
               {role === 'guest' ? (
                 <Link

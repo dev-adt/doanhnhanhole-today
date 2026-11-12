@@ -25,7 +25,7 @@ export const OrganizerDashboard = () => {
     title: '',
     short_desc: '',
     content: '',
-    image_url: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80',
+    image_url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
     location: '',
     event_date: '',
     end_date: '',
@@ -87,7 +87,7 @@ export const OrganizerDashboard = () => {
       title: '',
       short_desc: '',
       content: '',
-      image_url: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80',
+      image_url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
       location: '',
       event_date: startStr,
       end_date: endStr,
@@ -271,11 +271,11 @@ export const OrganizerDashboard = () => {
                 justifyContent: 'center',
                 flexShrink: 0
               }}>
-                <img src="/logo_icon.svg" alt="Phutho.today" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/logo_icon.png'; }} />
+                <img src="/logo_icon.svg" alt="Doanhnhanhole.today" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = '/logo_icon.png'; }} />
               </div>
               <div>
                 <div style={{ fontSize: '15px', fontWeight: 800, color: '#2A160D' }}>
-                  Phutho<span style={{ color: '#D99B26' }}>.today</span>
+                  DoanhnhanHoLe<span style={{ color: '#D99B26' }}>.today</span>
                 </div>
               </div>
             </Link>
@@ -554,7 +554,7 @@ export const OrganizerDashboard = () => {
                       <tr key={evt.id} style={{ borderBottom: '1px solid #F1F5F9' }}>
                         <td style={{ padding: '12px 16px', width: '90px' }}>
                           <img
-                            src={evt.image_url || 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=200&q=80'}
+                            src={evt.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=200&q=80'}
                             alt={evt.title}
                             style={{ width: '80px', height: '52px', objectFit: 'cover', borderRadius: '6px', backgroundColor: '#E2E8F0' }}
                           />
@@ -870,7 +870,7 @@ export const OrganizerDashboard = () => {
                   </label>
                   <input
                     type="text"
-                    placeholder="Ví dụ: 36 Hùng vương hoặc Khách sạn Daewoo..."
+                    placeholder="Ví dụ: Trung tâm Hội nghị Quốc tế hoặc Khách sạn Melia Hà Nội..."
                     value={formData.location}
                     onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
                     style={{

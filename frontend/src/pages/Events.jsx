@@ -137,8 +137,19 @@ export const Events = () => {
   const isLoggedIn = isActuallyLoggedIn;
 
   // Danh sách sự kiện (khi ở trang tổng quan)
-  const [eventsList, setEventsList] = useState([]);
-  const [loadingList, setLoadingList] = useState(true);
+  const [eventsList, setEventsList] = useState(() => {
+    try {
+      localStorage.removeItem('laocai_cached_events');
+      localStorage.removeItem('dnvn_cached_events');
+      const cached = localStorage.getItem('doanhnhanhole_cached_events');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch (e) {}
+    return FALLBACK_EVENTS;
+  });
+  const [loadingList, setLoadingList] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
   // Sự kiện chi tiết hiện tại (khi có routeParamId hoặc chọn từ danh sách)
@@ -286,15 +297,19 @@ export const Events = () => {
     const fetchEvents = async () => {
       try {
         const json = await fetchJsonWithTimeout('/api/events', {}, 8000);
-        if (json.success && Array.isArray(json.data) && isMounted) {
+        if (json.success && Array.isArray(json.data) && json.data.length > 0 && isMounted) {
           setEventsList(json.data);
           try {
-            localStorage.setItem('laocai_cached_events', JSON.stringify(json.data));
-            localStorage.removeItem('dnvn_cached_events');
+            localStorage.setItem('doanhnhanhole_cached_events', JSON.stringify(json.data));
           } catch (e) {}
+        } else if (isMounted) {
+          setEventsList(FALLBACK_EVENTS);
         }
       } catch (e) {
-        console.warn('Lỗi tải danh sách sự kiện:', e.message);
+        console.warn('Lỗi tải danh sách sự kiện, sử dụng danh sách sự kiện mặc định:', e.message);
+        if (isMounted) {
+          setEventsList(prev => (prev && prev.length > 0 ? prev : FALLBACK_EVENTS));
+        }
       } finally {
         if (isMounted) setLoadingList(false);
       }
@@ -311,6 +326,9 @@ export const Events = () => {
     if (targetIdOrSlug) {
       setLoadingDetail(true);
       setDetailError('');
+      const findFallbackEvt = () => {
+        return FALLBACK_EVENTS.find(e => String(e.id) === String(targetIdOrSlug) || e.slug === targetIdOrSlug) || FALLBACK_EVENTS[0];
+      };
       fetch(`/api/events/${encodeURIComponent(targetIdOrSlug)}`)
         .then(res => res.json())
         .then(data => {
@@ -321,11 +339,11 @@ export const Events = () => {
               window.history.replaceState(null, '', `${prefix}/${data.data.slug}${window.location.search || ''}`);
             }
           } else if (isMounted) {
-            setDetailError(data.error || 'Không tìm thấy thông tin sự kiện.');
+            setCurrentEvent(findFallbackEvt());
           }
         })
-        .catch(err => {
-          if (isMounted) setDetailError(err.message);
+        .catch(() => {
+          if (isMounted) setCurrentEvent(findFallbackEvt());
         })
         .finally(() => {
           if (isMounted) setLoadingDetail(false);
@@ -530,7 +548,7 @@ export const Events = () => {
         {/* MAIN CONTAINER */}
         <main style={{ maxWidth: '1180px', margin: '0 auto', width: '100%', padding: '1.5rem 1rem 4rem' }}>
           
-          {/* 1. TOP BANNER / COVER IMAGE (CHUẨN ẢNH 1: HÌNH ẢNH HỒ GƯƠM / COVER SỰ KIỆN) */}
+          {/* 1. TOP BANNER / COVER IMAGE */}
           <div style={{
             width: '100%',
             height: 'clamp(240px, 36vw, 420px)',
@@ -541,7 +559,7 @@ export const Events = () => {
             marginBottom: '2rem'
           }}>
             <img
-              src={currentEvent.image_url || 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80'}
+              src={currentEvent.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80'}
               alt={currentEvent.title}
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
@@ -643,7 +661,7 @@ export const Events = () => {
                 boxShadow: '0 4px 16px rgba(0,0,0,0.05)'
               }}>
                 <img
-                  src={currentEvent.image_url || 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80'}
+                  src={currentEvent.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80'}
                   alt="Ảnh chi tiết sự kiện"
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                 />
@@ -1744,7 +1762,7 @@ export const Events = () => {
     <div style={{ minHeight: '100vh', backgroundColor: '#F8FAFC', color: '#0F172A', display: 'flex', flexDirection: 'column' }}>
       <SEOHead
         title={`Lịch Sự kiện & Diễn đàn Doanh nghiệp — ${brandConfig.brandName}`}
-        description="Tổng hợp các sự kiện xúc tiến thương mại, hội thảo kết nối đầu tư, diễn đàn chuyển đổi số và giao thương B2B của Cổng thông tin & Dữ liệu Phutho.today."
+        description="Tổng hợp các sự kiện kết nối giao thương, hành trình về nguồn Họ Lê, đoàn khảo sát doanh nghiệp (Biz-Tour) và diễn đàn đầu tư trên Doanhnhanhole.today."
       />
       <Navbar />
 
@@ -1763,7 +1781,7 @@ export const Events = () => {
         }}>
           <div>
             <span style={{ fontSize: '12px', fontWeight: '700', color: '#D5A33F', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              HỆ SINH THÁI LAOCAI.TODAY
+              HỆ SINH THÁI DOANHNHANHOLE.TODAY
             </span>
             <h1 style={{ fontSize: '26px', fontWeight: '900', color: '#0F172A', margin: '4px 0 0' }}>
               Sự kiện & Diễn đàn Giao thương
@@ -1847,7 +1865,7 @@ export const Events = () => {
                   {/* Thumbnail */}
                   <div style={{ height: '190px', width: '100%', position: 'relative', overflow: 'hidden', backgroundColor: '#F1F5F9' }}>
                     <img
-                      src={evt.image_url || 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80'}
+                      src={evt.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80'}
                       alt={evt.title}
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />

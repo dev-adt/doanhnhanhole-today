@@ -101,7 +101,7 @@ export const AdminEvents = () => {
       title: '',
       short_desc: '',
       content: '',
-      image_url: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80',
+      image_url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
       location: '',
       event_date: startStr,
       end_date: endStr,
@@ -533,7 +533,7 @@ export const AdminEvents = () => {
                       border: '1px solid #E2E8F0'
                     }}>
                       <img
-                        src={evt.image_url || 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=300&q=80'}
+                        src={evt.image_url || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=300&q=80'}
                         alt={evt.title}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
@@ -914,7 +914,7 @@ export const AdminEvents = () => {
                   </label>
                   <input
                     type="text"
-                    placeholder="Ví dụ: 36 Hùng vương hoặc Khách sạn Daewoo..."
+                    placeholder="Ví dụ: Trung tâm Hội nghị Quốc tế hoặc Khách sạn Melia Hà Nội..."
                     value={formData.location}
                     onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
                     style={{

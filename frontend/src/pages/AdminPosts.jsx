@@ -36,10 +36,10 @@ export const AdminPosts = () => {
     title: '',
     summary: '',
     body: '',
-    category: CATEGORIES_DATA[0]?.name || 'Khám phá Phú Thọ',
+    category: CATEGORIES_DATA[0]?.name || 'Cộng đồng & Danh bạ',
     sub_category: CATEGORIES_DATA[0]?.subcategories?.[0] || 'Điểm đến & Thắng cảnh',
     type: 'Tin tức',
-    author_name: 'Ban Quản trị Phutho.today',
+    author_name: 'Ban Biên tập Doanhnhanhole.today',
     contact_info: '',
     source_url: '',
     tags: '',
@@ -109,10 +109,10 @@ export const AdminPosts = () => {
       title: '',
       summary: '',
       body: '',
-      category: firstCat?.name || 'Khám phá Phú Thọ',
+      category: firstCat?.name || 'Cộng đồng & Danh bạ',
       sub_category: firstCat?.subcategories?.[0] || 'Điểm đến & Thắng cảnh',
       type: 'Tin tức',
-      author_name: 'Ban Quản trị Phutho.today',
+      author_name: 'Ban Biên tập Doanhnhanhole.today',
       contact_info: '',
       source_url: '',
       tags: '',
@@ -156,10 +156,10 @@ export const AdminPosts = () => {
       title: fullPost.title || '',
       summary: fullPost.summary || '',
       body: fullPost.body || '',
-      category: fullPost.category || (categoriesList[0]?.name || 'Khám phá Phú Thọ'),
+      category: fullPost.category || (categoriesList[0]?.name || 'Cộng đồng & Danh bạ'),
       sub_category: fullPost.sub_category || '',
       type: fullPost.type || 'Tin tức',
-      author_name: fullPost.author_name || fullPost.company_name || 'Ban Quản trị Phutho.today',
+      author_name: fullPost.author_name || fullPost.company_name || 'Ban Biên tập Doanhnhanhole.today',
       contact_info: fullPost.contact_info || '',
       source_url: fullPost.source_url || '',
       tags: tagsStr,
@@ -828,7 +828,7 @@ export const AdminPosts = () => {
                 <p style={{ margin: '4px 0 0 0', fontSize: '12px', color: '#64748B' }}>
                   {editingPostId 
                     ? 'Bạn có toàn quyền thay đổi tiêu đề, nội dung chi tiết, trạng thái và hình ảnh của bài viết này.' 
-                    : 'Tạo bài viết và xuất bản ngay lên hệ thống Phutho.today mà không cần qua xét duyệt.'}
+                    : 'Tạo bài viết và xuất bản ngay lên hệ thống Doanhnhanhole.today mà không cần qua xét duyệt.'}
                 </p>
               </div>
               <button 
@@ -944,7 +944,7 @@ export const AdminPosts = () => {
                     type="text" 
                     value={postForm.author_name} 
                     onChange={(e) => setPostForm(prev => ({ ...prev, author_name: e.target.value }))}
-                    placeholder="Ban Quản trị Phutho.today..." 
+                    placeholder="Ban Biên tập Doanhnhanhole.today..." 
                     style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1px solid #CBD5E1', fontSize: '13px', outline: 'none', boxSizing: 'border-box' }}
                   />
                 </div>
@@ -1061,7 +1061,7 @@ export const AdminPosts = () => {
                     type="text" 
                     value={postForm.tags} 
                     onChange={(e) => setPostForm(prev => ({ ...prev, tags: e.target.value }))}
-                    placeholder="laocai, dautu, cuakhau, sapa..." 
+                    placeholder="giaothuong, dautu, doanhnhanhole, quantri..." 
                     style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid #CBD5E1', fontSize: '12.5px', outline: 'none', boxSizing: 'border-box' }}
                   />
                 </div>

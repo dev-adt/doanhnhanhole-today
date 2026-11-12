@@ -190,7 +190,7 @@ const FIVE_CORE_PILLARS = [
     name: 'Kết Nối Du Lịch & Về Nguồn',
     icon: 'ti-compass',
     tag: 'VỀ NGUỒN HỌ LÊ • BIZ-TOUR THĂM DOANH NGHIỆP',
-    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=85',
+    image: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=1200&q=85',
     desc: 'Phát triển các chương trình du lịch kết hợp thăm doanh nghiệp, gặp gỡ hội viên và trải nghiệm văn hóa lịch sử dòng họ Lê được biên tập chuẩn mực, minh bạch về đơn vị tổ chức, chi phí và đầu mối hỗ trợ.',
     keyPoints: [
       {
@@ -363,74 +363,7 @@ const B2B_OPPORTUNITIES = [
 ];
 
 // ==============================================================================
-// 5. BỐN CHƯƠNG TRÌNH DU LỊCH VỀ NGUỒN & KHẢO SÁT DOANH NGHIỆP (MỤC 4.1 & 3.3)
-// ==============================================================================
-const CURATED_PROGRAMS = [
-  {
-    id: 'prog-1',
-    label: 'Hành Trình Về Nguồn Họ Lê (2N1Đ)',
-    badge: 'TRI ÂN CỘI NGUỒN • KẾT NỐI DOANH NHÂN DI SẢN',
-    title: 'Hành Trình Về Nguồn Lam Kinh – Giao Lưu Doanh Nhân Họ Lê & Thăm Tổ Hợp Sản Xuất Hội Viên',
-    summary: 'Chương trình kết hợp dâng hương tri ân cội nguồn tại Khu di tích lịch sử Lam Kinh (Thanh Hóa), tọa đàm văn hóa dòng tộc và thăm thực tế 02 nhà máy sản xuất tiêu biểu của doanh nhân Họ Lê.',
-    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=85',
-    duration: '2 Ngày 1 Đêm (Định kỳ hàng quý)',
-    suitability: 'Chủ doanh nghiệp, Hội viên Tiên phong, Gia đình doanh nhân',
-    steps: [
-      { time: 'Ngày 1 - Sáng', title: 'Lễ Dâng Hương Khu Di Tích Lịch Sử Lam Kinh', desc: 'Tìm hiểu lịch sử vương triều Hậu Lê qua tài liệu đã được biên tập và kiểm chứng; gắn kết tình thân giữa các thế hệ doanh nhân.' },
-      { time: 'Ngày 1 - Chiều', title: 'Khảo Sát Thực Địa Nhà Máy Hội Viên Tại KCN Bắc Trung Bộ', desc: 'Tham quan dây chuyền chế biến nông sản xuất khẩu và trao đổi trực tiếp về quản trị sản xuất, tối ưu chuỗi cung ứng.' },
-      { time: 'Ngày 1 - Tối', title: 'Đêm Gala "Tâm Tài Họ Lê — Cùng Mở Cơ Hội"', desc: 'Giới thiệu thành viên mới, vinh danh các cặp kết nối giao thương thành công và chia sẻ câu chuyện lập nghiệp.' },
-      { time: 'Ngày 2', title: 'Phiên Ghép Cặp Giao Thương 1-1 & Khảo Sát Sau Hoạt Động', desc: 'Ban Thư ký tổ chức bàn tròn kết nối theo 4 nhóm ngành và ghi nhận các bước hợp tác tiếp theo trên nền tảng số.' }
-    ]
-  },
-  {
-    id: 'prog-2',
-    label: 'Đoàn Khảo Sát Doanh Nghiệp Quý (Biz-Tour)',
-    badge: 'KHẢO SÁT NHÀ MÁY • KẾT NỐI CHUỖI CUNG ỨNG B2B',
-    title: 'Đoàn Khảo Sát Thực Địa Các Doanh Nghiệp Sản Xuất, Kho Vận & Phân Phối Liên Vùng',
-    summary: 'Hoạt động trọng tâm hàng quý giúp hội viên tận mắt chứng kiến năng lực sản xuất, kiểm chứng chất lượng sản phẩm và làm việc trực tiếp với Ban Giám đốc các doanh nghiệp đối tác.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=85',
-    duration: '1 – 2 Ngày (Theo cụm ngành)',
-    suitability: 'Doanh nghiệp Sản xuất, Xuất nhập khẩu, Phân phối, Logistics',
-    steps: [
-      { time: 'Phiên 1', title: 'Thăm Tổ Hợp Nhà Máy Sản Xuất & Trung Tâm R&D', desc: 'Trực tiếp khảo sát quy trình quản lý chất lượng, công suất thực tế và khả năng đáp ứng đơn hàng OEM/ODM.' },
-      { time: 'Phiên 2', title: 'Làm Việc Cùng Hệ Thống Kho Vận & Phân Phối', desc: 'Đánh giá phương án hợp tác chia sẻ kho bãi, tối ưu chi phí vận chuyển và mở rộng đại lý vùng.' },
-      { time: 'Phiên 3', title: 'Phiên Họp Bàn Tròn & Xác Nhận Bước Tiếp Theo', desc: 'Hai bên thống nhất gửi báo giá, gửi mẫu thử hoặc lập tổ công tác thẩm định hợp tác dưới sự theo dõi của Ban Thư ký.' }
-    ]
-  },
-  {
-    id: 'prog-3',
-    label: 'Đón Đoàn Doanh Nhân Quốc Tế & Kiều Bào',
-    badge: 'KẾT NỐI TOÀN CẦU • XÚC TIẾN THƯƠNG MẠI QUỐC TẾ',
-    title: 'Chương Trình Đón Doanh Nhân Việt Ở Nước Ngoài & Bạn Bè Quốc Tế Về Tìm Hiểu Thị Trường Việt Nam',
-    summary: 'Cầu nối tin cậy giúp doanh nhân Họ Lê ở nước ngoài và đối tác quốc tế tiếp cận đúng doanh nghiệp nội địa đã được xác minh, tiết kiệm thời gian khảo sát và có đầu mối theo dõi xuyên suốt.',
-    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=85',
-    duration: '3 – 5 Ngày (Theo lịch đoàn quốc tế)',
-    suitability: 'Doanh nhân kiều bào, Nhà nhập khẩu quốc tế, Quỹ đầu tư',
-    steps: [
-      { time: 'Bước 1', title: 'Tổng Hợp Nhu Cầu Trước Chuyến Đi 15 Ngày', desc: 'Đầu mối quốc tế và Ban Thư ký lọc trước danh sách tối đa 03 đối tác Việt Nam phù hợp cho từng thành viên trong đoàn.' },
-      { time: 'Bước 2', title: 'Phiên Giới Thiệu Thị Trường & Cơ Hội Đầu Tư', desc: 'Cung cấp bức tranh pháp lý, thuế, xuất nhập khẩu và các dự án kêu gọi hợp tác có hồ sơ minh bạch.' },
-      { time: 'Bước 3', title: 'Thăm Doanh Nghiệp Thực Tế & Trải Nghiệm Văn Hóa Quê Hương', desc: 'Kết hợp làm việc B2B tại nhà máy với hành trình văn hóa ấm áp tình quê hương, công bố minh bạch chi phí và đơn vị tổ chức.' }
-    ]
-  },
-  {
-    id: 'prog-4',
-    label: 'Retreat Gia Đình Doanh Nhân & Thế Hệ Kế Thừa',
-    badge: 'GẮN KẾT GIA ĐÌNH • ĐÀO TẠO THẾ HỆ KẾ CẬN (NEXTGEN)',
-    title: 'Kỳ Nghỉ Dưỡng Gia Đình Doanh Nhân Kết Hợp Đối Thoại Chuyển Giao Thế Hệ Kế Thừa',
-    summary: 'Không gian nghỉ dưỡng tinh tế dành cho gia đình các chủ doanh nghiệp, kết hợp tọa đàm chia sẻ kinh nghiệm giữ gìn giá trị gia đình và bồi dưỡng tư duy quản trị cho thế hệ doanh nhân trẻ kế cận.',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85',
-    duration: '2 Ngày 1 Đêm (Cuối tuần)',
-    suitability: 'Gia đình chủ doanh nghiệp, Thế hệ F2 kế thừa, Doanh nhân trẻ',
-    steps: [
-      { time: 'Hoạt động 1', title: 'Tọa Đàm "Kỹ Năng Lãnh Đạo & Chuyển Giao Kế Thừa"', desc: 'Chia sẻ thực tế từ các doanh nhân đi trước về cách đồng hành cùng con cái và xây dựng đội ngũ kế cận bền vững.' },
-      { time: 'Hoạt động 2', title: 'Kết Nối Mentor – Mentee Cho Doanh Nhân Trẻ Khởi Nghiệp', desc: 'Ghép cặp người hướng dẫn giàu kinh nghiệm với các bạn trẻ khởi nghiệp trong chương trình cố vấn 8 tuần.' },
-      { time: 'Hoạt động 3', title: 'Giao Lưu Văn Hóa – Thể Thao & Gắn Kết Gia Đình', desc: 'Xây dựng mối thâm tình bền chặt giữa các gia đình doanh nhân Họ Lê và những người bạn trên toàn quốc.' }
-    ]
-  }
-];
-
-// ==============================================================================
-// 6. SÁU CHUYÊN ĐỀ ĐÀO TẠO CỐT LÕI (MỤC 4.4 ĐỀ ÁN)
+// 6. SÁU CHUYÊN ĐỀ ĐÀO TẠO CỐT LÕI
 // ==============================================================================
 const SIX_TRAINING_MODULES = [
   {
@@ -513,7 +446,7 @@ const ROADMAP_PHASES = [
 const FAQ_ITEMS = [
   {
     q: 'Đối tượng nào được tham gia nền tảng Doanhnhanhole.today? Doanh nhân không mang họ Lê có tham gia được không?',
-    a: 'Theo Mục 1.3 Đề án, nền tảng phục vụ 02 nhóm: (1) Nhóm cốt lõi gồm chủ doanh nghiệp, người điều hành, hộ kinh doanh và chuyên gia Họ Lê tại Việt Nam và nước ngoài; (2) Nhóm đồng hành gồm doanh nhân thuộc các dòng họ khác, những người bạn quốc tế, đơn vị du lịch, nhà cung cấp dịch vụ, trường đào tạo và tổ chức hỗ trợ kinh doanh phù hợp với định hướng văn minh, minh bạch của cộng đồng.'
+    a: 'Nền tảng phục vụ 02 nhóm: (1) Nhóm cốt lõi gồm chủ doanh nghiệp, người điều hành, hộ kinh doanh và chuyên gia Họ Lê tại Việt Nam và nước ngoài; (2) Nhóm đồng hành gồm doanh nhân thuộc các dòng họ khác, những người bạn quốc tế, đơn vị du lịch, nhà cung cấp dịch vụ, trường đào tạo và tổ chức hỗ trợ kinh doanh phù hợp với định hướng văn minh, minh bạch của cộng đồng.'
   },
   {
     q: 'Huy hiệu "Hồ sơ Xác minh Cơ bản" trên Doanhnhanhole.today có ý nghĩa gì và được kiểm tra như thế nào?',
@@ -556,12 +489,6 @@ export const Home = () => {
     if (b2bFilter === 'ALL') return B2B_OPPORTUNITIES;
     return B2B_OPPORTUNITIES.filter(item => item.type === b2bFilter);
   }, [b2bFilter]);
-
-  // Active Tab State cho 4 Chương trình Du lịch & Khảo sát
-  const [activeProgId, setActiveProgId] = useState('prog-1');
-  const activeProg = useMemo(() => {
-    return CURATED_PROGRAMS.find(item => item.id === activeProgId) || CURATED_PROGRAMS[0];
-  }, [activeProgId]);
 
   // FAQ Accordion State
   const [activeFaq, setActiveFaq] = useState(0);
@@ -1031,7 +958,7 @@ export const Home = () => {
             <div className="hl-sec-header hl-reveal">
               <div className="hl-sec-badge" style={{ background: 'rgba(245, 194, 87, 0.16)', color: '#FFE49E', borderColor: 'rgba(245, 194, 87, 0.45)' }}>
                 <i className="ti ti-route"></i>
-                <span>Giá Trị Khác Biệt Cốt Lõi (Mục 1.5 & 3.4 Đề Án)</span>
+                <span>Giá Trị Khác Biệt Cốt Lõi • Điều Phối Thực Chất</span>
               </div>
               <h2 className="hl-sec-title">
                 Quy Trình 7 Bước Kết Nối Có Điều Phối — <span style={{ color: '#F5C257' }}>Mỗi Nhu Cầu Đều Có Đầu Mối Theo Dõi</span>
@@ -1479,7 +1406,7 @@ export const Home = () => {
             <div className="hl-sec-header hl-reveal">
               <div className="hl-sec-badge">
                 <i className="ti ti-school"></i>
-                <span>Phát Triển Năng Lực & Chia Sẻ Kinh Nghiệm (Mục 4.3 & 4.4)</span>
+                <span>Phát Triển Năng Lực & Chia Sẻ Kinh Nghiệm Thực Chiến</span>
               </div>
               <h2 className="hl-sec-title">
                 Sáu Chuyên Đề Đào Tạo Chủ Doanh Nghiệp & <span className="hl-gold-accent">Cố Vấn Khởi Nghiệp 8 Tuần</span>
@@ -1598,7 +1525,7 @@ export const Home = () => {
             <div className="hl-sec-header hl-reveal" style={{ marginTop: '20px' }}>
               <div className="hl-sec-badge">
                 <i className="ti ti-certificate"></i>
-                <span>Quy Chế Hội Viên & Lộ Trình Phát Triển (Mục 6.2 & Mục 8)</span>
+                <span>Quy Chế Hội Viên & Lộ Trình Phát Triển</span>
               </div>
               <h2 className="hl-sec-title">
                 Ba Nhóm Thành Viên & <span className="hl-gold-accent">Lộ Trình Triển Khai Bài Bản</span>

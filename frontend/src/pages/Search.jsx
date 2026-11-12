@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { FALLBACK_POSTS, FALLBACK_MEMBERS, FALLBACK_EVENTS } from '../utils/api';
 
 export const Search = () => {
   const { token } = useAuth();
@@ -36,6 +37,12 @@ export const Search = () => {
     }
     setLoading(true);
     setError('');
+    const qLower = searchQuery.trim().toLowerCase();
+    const fallbackSearch = () => ({
+      posts: FALLBACK_POSTS.filter(p => (p.title || '').toLowerCase().includes(qLower) || (p.summary || '').toLowerCase().includes(qLower) || (p.category || '').toLowerCase().includes(qLower)),
+      members: FALLBACK_MEMBERS.filter(m => (m.name || '').toLowerCase().includes(qLower) || (m.industry || '').toLowerCase().includes(qLower) || (m.description || '').toLowerCase().includes(qLower)),
+      events: FALLBACK_EVENTS.filter(ev => (ev.title || '').toLowerCase().includes(qLower) || (ev.description || '').toLowerCase().includes(qLower) || (ev.location || '').toLowerCase().includes(qLower))
+    });
     try {
       const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
       const res = await fetch(`/api/public-search?q=${encodeURIComponent(searchQuery)}`, { headers });
@@ -48,11 +55,11 @@ export const Search = () => {
           events: data.events || []
         });
       } else {
-        throw new Error(data.error || 'Có lỗi xảy ra khi tìm kiếm');
+        setResults(fallbackSearch());
       }
     } catch (err) {
-      console.error(err);
-      setError(err.message);
+      console.warn('Search API fallback:', err.message);
+      setResults(fallbackSearch());
     } finally {
       setLoading(false);
     }
@@ -101,7 +108,7 @@ export const Search = () => {
             <i className="ti ti-search" style={{ color: 'var(--primary)' }}></i> Tìm kiếm thông tin
           </h1>
           <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginTop: '4px', marginBlockEnd: 0 }}>
-            Tìm kiếm tin giao thương, doanh nghiệp đối tác và các sự kiện trong hệ sinh thái Phutho.today.
+            Tìm kiếm tin giao thương, doanh nghiệp đối tác và các sự kiện trong hệ sinh thái Doanhnhanhole.today.
           </p>
         </div>
 
@@ -319,7 +326,7 @@ export const Search = () => {
                             {ev.title}
                           </h3>
                           <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px' }}>
-                            Tổ chức: <strong>{ev.organizer || 'Phutho.today'}</strong>
+                            Tổ chức: <strong>{ev.organizer || ev.organizer_name || 'Doanhnhanhole.today'}</strong>
                           </div>
                           <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '4px' }}>
                             <i className="ti ti-map-pin"></i> {ev.location}

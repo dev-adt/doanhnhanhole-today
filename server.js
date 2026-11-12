@@ -2462,7 +2462,7 @@ app.get('/api/posts', async (req, res) => {
       ? 'p.*'
       : 'p.id, p.member_id, p.creator_id, p.title, p.slug, p.category, p.sub_category, p.summary, p.image_url, p.author_name, p.author_pos, p.contact_info, p.source_url, p.tags, p.deadline, p.type, p.status, p.is_featured, p.published_at, p.views, p.likes, p.created_at, p.updated_at';
 
-    let sql = `SELECT ${selectCols}, COALESCE(c.name, m.name, p.author_name, 'Ban Biên tập Phutho.today') AS company_name, COALESCE(m.tier, 'Standard') AS company_tier
+    let sql = `SELECT ${selectCols}, COALESCE(c.name, m.name, p.author_name, 'Ban Biên tập Doanhnhanhole.today') AS company_name, COALESCE(m.tier, 'Standard') AS company_tier
                FROM posts p 
                LEFT JOIN members m ON p.member_id = m.id 
                LEFT JOIN content_creators c ON p.creator_id = c.id
@@ -2591,7 +2591,7 @@ app.get('/api/posts/:id', async (req, res) => {
 
     const [rows] = await db.query(
       `SELECT p.*, 
-              COALESCE(c.name, m.name, 'Ban Biên tập Phutho.today') AS company_name, 
+              COALESCE(c.name, m.name, 'Ban Biên tập Doanhnhanhole.today') AS company_name, 
               COALESCE(m.tier, 'Standard') AS company_tier 
        FROM posts p 
        LEFT JOIN members m ON p.member_id = m.id 
@@ -3209,7 +3209,7 @@ app.post('/api/admin/posts', authMiddleware, async (req, res) => {
 
     const finalStatus = status || 'approved';
     const finalFeatured = is_featured ? 1 : 0;
-    const finalAuthor = author_name || 'Ban Quản trị Phutho.today';
+    const finalAuthor = author_name || 'Ban Quản trị Doanhnhanhole.today';
     const slug = await generateUniquePostSlug(title);
     const publishedAt = finalStatus === 'approved' ? new Date() : null;
 
@@ -3867,7 +3867,7 @@ ${knowledgeText ? `\n${knowledgeText}` : ''}`;
       if (!activeKey) throw new Error('Chưa cấu hình API Key cho Anthropic.');
       const r = await fetch('https://api.anthropic.com/v1/messages', {
         method : 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-api-key': activeKey, 'anthropic-version': '2023-06-01', 'User-Agent': 'PhuthoToday/1.0' },
+        headers: { 'Content-Type': 'application/json', 'x-api-key': activeKey, 'anthropic-version': '2023-06-01', 'User-Agent': 'DoanhnhanHoLeToday/1.0' },
         body   : JSON.stringify({ model: effectiveModel, max_tokens: 1024, system: memberContext, messages }),
       });
       const d = await safeParseApiResponse(r, 'Anthropic');
@@ -3879,7 +3879,7 @@ ${knowledgeText ? `\n${knowledgeText}` : ''}`;
       const msgs = [{ role: 'system', content: memberContext }, ...messages];
       const r = await fetch('https://api.openai.com/v1/chat/completions', {
         method : 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + activeKey, 'User-Agent': 'PhuthoToday/1.0' },
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + activeKey, 'User-Agent': 'DoanhnhanHoLeToday/1.0' },
         body   : JSON.stringify({ model: effectiveModel, max_tokens: 1024, messages: msgs }),
       });
       const d = await safeParseApiResponse(r, 'OpenAI');
@@ -3891,7 +3891,7 @@ ${knowledgeText ? `\n${knowledgeText}` : ''}`;
       const contents = messages.map(m => ({ role: m.role === 'assistant' ? 'model' : 'user', parts: [{ text: m.content }] }));
       const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${effectiveModel}:generateContent?key=${activeKey}`, {
         method : 'POST',
-        headers: { 'Content-Type': 'application/json', 'User-Agent': 'PhuthoToday/1.0' },
+        headers: { 'Content-Type': 'application/json', 'User-Agent': 'DoanhnhanHoLeToday/1.0' },
         body   : JSON.stringify({ system_instruction: { parts: [{ text: memberContext }] }, contents, generationConfig: { maxOutputTokens: 1024 } }),
       });
       const d = await safeParseApiResponse(r, 'Gemini');
@@ -3903,7 +3903,7 @@ ${knowledgeText ? `\n${knowledgeText}` : ''}`;
       const msgs = [{ role: 'system', content: memberContext }, ...messages];
       const r = await fetch('https://api.deepseek.com/v1/chat/completions', {
         method : 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + activeKey, 'User-Agent': 'PhuthoToday/1.0' },
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + activeKey, 'User-Agent': 'DoanhnhanHoLeToday/1.0' },
         body   : JSON.stringify({ model: effectiveModel, max_tokens: 1024, messages: msgs }),
       });
       const d = await safeParseApiResponse(r, 'DeepSeek');
@@ -3919,9 +3919,9 @@ ${knowledgeText ? `\n${knowledgeText}` : ''}`;
         headers: { 
           'Content-Type': 'application/json', 
           Authorization: 'Bearer ' + activeKey, 
-          'HTTP-Referer': process.env.SITE_URL || 'https://dev.phutho.today', 
-          'X-Title': 'Phu Tho Today AI',
-          'User-Agent': 'PhuthoToday/1.0'
+          'HTTP-Referer': process.env.SITE_URL || 'https://doanhnhanhole.today', 
+          'X-Title': 'DoanhnhanHoLe Today AI',
+          'User-Agent': 'DoanhnhanHoLeToday/1.0'
         },
         body   : JSON.stringify({ model: effectiveModel, max_tokens: 1024, messages: msgs }),
         signal : fetchSignal
@@ -4515,7 +4515,7 @@ app.post('/api/events/:id/register', async (req, res) => {
         // Tạo tài khoản mới
         const hash = await bcrypt.hash(pass, 10);
         const isEmail = loginUser.includes('@');
-        const regEmail = isEmail ? loginUser : (cleanEmail || `${cleanPhone}@laocai.today`);
+        const regEmail = isEmail ? loginUser : (cleanEmail || `${cleanPhone}@doanhnhanhole.today`);
         const regPhone = !isEmail ? loginUser : cleanPhone;
         const orgName = (company && company.trim()) ? company.trim() : (full_name.trim() || 'Hội viên mới');
 
@@ -4572,7 +4572,7 @@ app.post('/api/events/:id/register', async (req, res) => {
     );
 
     // URL mã QR check-in tiện lợi
-    const qrData = `https://phutho.today/checkin?code=${encodeURIComponent(ticketCode)}`;
+    const qrData = `https://doanhnhanhole.today/checkin?code=${encodeURIComponent(ticketCode)}`;
     const qrImage = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(ticketCode)}`;
 
     // Tạo mã VietQR chuẩn nếu có thu phí
@@ -4647,7 +4647,7 @@ app.get('/api/member/events', memberAuthMiddleware, async (req, res) => {
 
     const formatted = rows.map(item => {
       const isPaidOrFree = item.payment_status === 'paid' || item.payment_status === 'free';
-      const qrData = isPaidOrFree ? `https://phutho.today/checkin?code=${encodeURIComponent(item.ticket_code)}` : null;
+      const qrData = isPaidOrFree ? `https://doanhnhanhole.today/checkin?code=${encodeURIComponent(item.ticket_code)}` : null;
       const qrImage = isPaidOrFree ? `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(item.ticket_code)}` : null;
       let vietqrUrl = null;
       if (item.payment_status === 'pending' && Number(item.total_amount) > 0) {
@@ -5042,7 +5042,7 @@ app.post('/api/leads', async (req, res) => {
     res.json({
       success: true,
       id: result.insertId,
-      message: 'Đăng ký thành công! Đội ngũ phát triển Phutho.today sẽ liên hệ với bạn trong thời gian sớm nhất.'
+      message: 'Đăng ký thành công! Ban Thư ký Doanhnhanhole.today sẽ liên hệ với bạn trong thời gian sớm nhất.'
     });
   } catch (err) {
     console.error('Lỗi lưu lead /api/leads:', err.message);
@@ -5289,7 +5289,7 @@ function resolveImageUrl(imgUrl, baseUrl, fallbackOgFile = '') {
   }
   // External image: proxy through our server to guarantee accessibility to Zalo/FB crawlers
   if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
-    if (trimmed.includes(baseUrl.replace(/^https?:\/\//, '')) || trimmed.includes('laocai.today')) {
+    if (trimmed.includes(baseUrl.replace(/^https?:\/\//, '')) || trimmed.includes('doanhnhanhole.today')) {
       return trimmed;
     }
     return `${baseUrl}/api/og-image?url=${encodeURIComponent(trimmed)}`;

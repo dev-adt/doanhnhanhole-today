@@ -6,8 +6,8 @@ import brandConfig from '../brand.config';
  * Styled with Central Highlands Deep Coffee, Bazan Earth, and Gong Bronze Gold theme.
  */
 export const SpotlightBanner = ({
-  badgeText = 'SỨ MỆNH CHIẾN LƯỢC • PHUTHO.TODAY',
-  title = 'Phutho.today — Phú Thọ Mới: Kết Nối Di Sản, Du Lịch & Hội Tụ Đầu Tư',
+  badgeText = 'SỨ MỆNH KẾT NỐI • DOANHNHANHOLE.TODAY',
+  title = 'Doanhnhanhole.today — Doanh Nhân Họ Lê Toàn Cầu & Những Người Bạn',
   subtitle = 'Nền tảng số đa ngôn ngữ kết nối du lịch 3 vùng Đất Tổ - Vĩnh Phúc - Hòa Bình, chuỗi cung ứng sản xuất và cơ hội đầu tư.',
   buttonText = 'Khám phá Hệ sinh thái',
   link = '/posts',

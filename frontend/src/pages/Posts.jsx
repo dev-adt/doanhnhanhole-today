@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 import { CATEGORIES_DATA, ALL_CATEGORIES, getSubcategoriesByCategory, getCategoryLabel, getSubCategoryLabel } from '../constants/categories';
-import { fetchJsonWithTimeout } from '../utils/api';
+import { fetchJsonWithTimeout, FALLBACK_POSTS } from '../utils/api';
 
 // Trích xuất tóm tắt an toàn tuyệt đối tránh lỗi null/undefined crash ErrorBoundary
 const getPostExcerpt = (p, maxLen = 120) => {
@@ -26,24 +26,19 @@ export const Posts = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { currentLang, t } = useTranslation();
 
-  // Khởi tạo ngay lập tức từ bộ nhớ đệm bài viết thực tế để khách vào xem không bao giờ phải chờ
+  // Khởi tạo ngay lập tức từ bộ nhớ đệm bài viết thực tế của Doanhnhanhole.today
   const [posts, setPosts] = useState(() => {
     try {
-      const cached = localStorage.getItem('dnvn_cached_posts');
+      localStorage.removeItem('dnvn_cached_posts');
+      const cached = localStorage.getItem('doanhnhanhole_cached_posts');
       if (cached) {
         const parsed = JSON.parse(cached);
         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
       }
     } catch (e) {}
-    return [];
+    return FALLBACK_POSTS;
   });
-  const [loading, setLoading] = useState(() => {
-    try {
-      const cached = localStorage.getItem('dnvn_cached_posts');
-      if (cached && JSON.parse(cached).length > 0) return false;
-    } catch (e) {}
-    return true;
-  });
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   
   // Filters state
@@ -105,14 +100,14 @@ export const Posts = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const demoImages = [
-    'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80', // Fansipan Sa Pa & Thung lũng Mường Hoa
-    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80', // Ruộng bậc thang Mù Cang Chải mùa vàng
-    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80', // Cửa khẩu Quốc tế Kim Thành & Logistics
-    'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=900&q=80', // Vùng Dược liệu quý Atiso Sa Pa
-    'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=900&q=80', // Chè Shan Tuyết Cổ Thụ Suối Giàng & Bản Liền
-    'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80', // Vùng Quế Hữu Cơ Văn Yên & Bảo Yên
-    'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80', // Hồ sinh thái Thác Bà (Yên Bái)
-    'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80'  // Thiên đường mây Y Tý & Đèo Khau Phạ
+    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80'
   ];
 
   const isGenericOrPlaceholder = (url) => {
@@ -123,6 +118,7 @@ export const Posts = () => {
       lower.includes('photo-1522071820081') ||
       lower.includes('photo-1519389950473') ||
       lower.includes('photo-1507238691740') ||
+      lower.includes('photo-1528127269322') ||
       lower.includes('placeholder')
     );
   };
@@ -135,15 +131,20 @@ export const Posts = () => {
         const headers = activeToken ? { 'Authorization': 'Bearer ' + activeToken } : {};
         const data = await fetchJsonWithTimeout('/api/posts?status=all&limit=40', { headers }, 10000);
         if (isMounted) {
-          if (data && Array.isArray(data.data)) {
+          if (data && Array.isArray(data.data) && data.data.length > 0) {
             setPosts(data.data);
             try {
-              localStorage.setItem('dnvn_cached_posts', JSON.stringify(data.data));
+              localStorage.setItem('doanhnhanhole_cached_posts', JSON.stringify(data.data));
             } catch (e) {}
+          } else {
+            setPosts(FALLBACK_POSTS);
           }
         }
       } catch (err) {
-        console.warn('Lỗi tải danh sách bài viết từ máy chủ:', err.message);
+        console.warn('Lỗi tải danh sách bài viết từ máy chủ, dùng dữ liệu mặc định Doanhnhanhole.today:', err.message);
+        if (isMounted) {
+          setPosts(prev => (prev && prev.length > 0 ? prev : FALLBACK_POSTS));
+        }
       } finally {
         if (isMounted) {
           setLoading(false);
@@ -223,9 +224,9 @@ export const Posts = () => {
   return (
     <div className="public-body">
       <SEOHead 
-        title={currentLang === 'en' ? 'Business Opportunities & News' : 'Bảng tin cơ hội & Quảng bá Doanh nghiệp'}
-        description="Khám phá các tin đăng tìm kiếm đối tác, nhu cầu hợp tác thương mại, sự kiện kết nối đầu tư và thông tin doanh nghiệp trên toàn quốc."
-        keywords="bảng tin doanh nghiệp, cơ hội đầu tư Lào Cai, kinh tế cửa khẩu Kim Thành, du lịch Sa Pa, dược liệu vùng cao, Tây Bắc, hợp tác thương mại"
+        title={currentLang === 'en' ? 'Business Opportunities & News | Doanhnhanhole.today' : 'Bảng tin Cơ hội Giao thương & Bài viết | Doanhnhanhole.today'}
+        description="Khám phá các tin đăng tìm kiếm đối tác, nhu cầu hợp tác giao thương, bài học điều hành thực tế, dự án đầu tư và thông tin doanh nghiệp hội viên trên Doanhnhanhole.today."
+        keywords="bảng tin doanh nhân Họ Lê, cơ hội giao thương B2B, bài học điều hành, đầu tư dự án, đào tạo cố vấn khởi nghiệp, Doanhnhanhole.today"
         url="/posts"
       />
 

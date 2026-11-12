@@ -19,7 +19,7 @@ const SEOHead = ({
 }) => {
   useEffect(() => {
     const defaultSiteName = `${brandConfig.brandName} — ${brandConfig.slogan}`;
-    const siteUrl = brandConfig.baseUrl || 'https://phutho.today';
+    const siteUrl = brandConfig.baseUrl || 'https://doanhnhanhole.today';
 
     // 1. Set Document Title
     const fullTitle = title ? (title.includes(brandConfig.brandName) ? title : `${title} | ${brandConfig.brandName}`) : defaultSiteName;
@@ -50,7 +50,7 @@ const SEOHead = ({
 
     // 2. Standard Meta Tags
     const pageDesc = description || brandConfig.description;
-    const pageKeywords = keywords || `${brandConfig.brandName}, ${brandConfig.brandShortName}, Phú Thọ, Vĩnh Phúc, Hòa Bình, Đền Hùng, Tam Đảo, Hồ Hòa Bình, Mai Châu, Long Cốc, Tây Thiên, Thanh Thủy, KCN Thăng Long Vĩnh Phúc, KCN Phú Hà, doanh nghiệp Phú Thọ, đầu tư Phú Thọ, du lịch Đất Tổ, OCOP Phú Thọ, AI Matching`;
+    const pageKeywords = keywords || `${brandConfig.brandName}, ${brandConfig.brandShortName}, Doanh nhân Họ Lê Toàn cầu, Kết nối giao thương, Đầu tư & Dự án, Đào tạo & Cố vấn, Hành trình về nguồn, Hồ Hòa Bình, Mai Châu, Long Cốc, Tây Thiên, Thanh Thủy, KCN Thăng Long Vĩnh Phúc, KCN Phú Hà, doanh nghiệp Phú Thọ, đầu tư Phú Thọ, du lịch Đất Tổ, OCOP Phú Thọ, AI Matching`;
     const canonicalUrl = url ? (url.startsWith('http') ? url : `${siteUrl}${url}`) : window.location.href;
     const ogImage = (image && typeof image === 'string' && image.trim() && image !== 'null' && image !== 'undefined')
       ? (image.trim().startsWith('http') ? image.trim() : `${siteUrl}${image.trim().startsWith('/') ? '' : '/'}${image.trim()}`)

@@ -132,8 +132,8 @@ export const Guide = () => {
   return (
     <div className="public-body">
       <SEOHead 
-        title={isEn ? "System User Guide | Phutho.today" : "Hướng Dẫn Sử Dụng Hệ Thống | Phutho.today"} 
-        description={isEn ? "Detailed step-by-step user guide for Business Members, Event Organizers, Ticket Inspectors, Content Creators, and System Administrators on Phutho.today." : "Tài liệu hướng dẫn sử dụng chi tiết các tính năng dành cho Doanh nghiệp Hội viên, Ban tổ chức, Nhân viên soát vé, Biên tập viên và Quản trị viên hệ thống Phutho.today."}
+        title={isEn ? "System User Guide | Doanhnhanhole.today" : "Hướng Dẫn Sử Dụng Hệ Thống | Doanhnhanhole.today"} 
+        description={isEn ? "Detailed step-by-step user guide for Business Members, Event Organizers, Ticket Inspectors, Content Creators, and System Administrators on Doanhnhanhole.today." : "Tài liệu hướng dẫn sử dụng chi tiết các tính năng dành cho Doanh nghiệp Hội viên, Ban tổ chức, Nhân viên soát vé, Biên tập viên và Quản trị viên hệ thống Doanhnhanhole.today."}
       />
       <Navbar />
 
@@ -191,9 +191,9 @@ export const Guide = () => {
           </div>
           <h1 style={{ fontFamily: 'var(--font-title)', fontSize: '30px', fontWeight: 800, color: 'var(--text-primary)', margin: '0 0 12px 0', lineHeight: 1.3 }}>
             {isEn ? (
-              <>User Guide for <span style={{ color: 'var(--neon-cyan)' }}>Phutho.today</span> Platform</>
+              <>User Guide for <span style={{ color: 'var(--neon-cyan)' }}>Doanhnhanhole.today</span> Platform</>
             ) : (
-              <>Hướng Dẫn Sử Dụng Nền Tảng <span style={{ color: 'var(--neon-cyan)' }}>Phutho.today</span></>
+              <>Hướng Dẫn Sử Dụng Nền Tảng <span style={{ color: 'var(--neon-cyan)' }}>Doanhnhanhole.today</span></>
             )}
           </h1>
           <p style={{ fontSize: '14.5px', color: 'var(--text-secondary)', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
@@ -433,7 +433,7 @@ export const Guide = () => {
                   </div>
 
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Members/register page.png?v=20261109_v2" alt="Form Đăng ký Hội viên" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Members/register page.png?v=20261112_hl" alt="Form Đăng ký Hội viên" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     <div style={{ padding: '10px 16px', background: 'var(--surface-1)', fontSize: '12.5px', color: 'var(--text-muted)', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
                       {isEn 
                         ? "Professional 4-step enterprise membership registration form"
@@ -469,13 +469,13 @@ export const Guide = () => {
                   </h2>
                   <p style={{ fontSize: '14.5px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
                     {isEn ? (
-                      <>Phutho.today employs a smart unified authentication mechanism. Whether you are a Business Member, Content Creator, or Admin, simply click {renderLinkPill("Login Portal", "/login")} and enter your credentials to be automatically routed to your respective Dashboard.</>
+                      <>Doanhnhanhole.today employs a smart unified authentication mechanism. Whether you are a Business Member, Content Creator, or Admin, simply click {renderLinkPill("Login Portal", "/login")} and enter your credentials to be automatically routed to your respective Dashboard.</>
                     ) : (
-                      <>Phutho.today ứng dụng cơ chế đăng nhập hợp nhất thông minh. Cho dù bạn là Hội viên Doanh nghiệp, Biên tập viên hay Admin Quản trị, bạn chỉ cần nhấp vào {renderLinkPill("Đăng nhập", "/login")} và điền Tên đăng nhập (Email / SĐT) và Mật khẩu tại một biểu mẫu duy nhất ➔ Hệ thống tự động chuyển hướng bạn tới Dashboard tương ứng.</>
+                      <>Doanhnhanhole.today ứng dụng cơ chế đăng nhập hợp nhất thông minh. Cho dù bạn là Hội viên Doanh nghiệp, Biên tập viên hay Admin Quản trị, bạn chỉ cần nhấp vào {renderLinkPill("Đăng nhập", "/login")} và điền Tên đăng nhập (Email / SĐT) và Mật khẩu tại một biểu mẫu duy nhất ➔ Hệ thống tự động chuyển hướng bạn tới Dashboard tương ứng.</>
                     )}
                   </p>
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)', maxWidth: '800px', margin: '0 auto' }}>
-                    <img src="/img_guide/Members/login.png?v=20261109_v2" alt="Form Đăng nhập Hợp nhất" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Members/login.png?v=20261112_hl" alt="Form Đăng nhập Hợp nhất" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     <div style={{ padding: '10px 16px', background: 'var(--surface-1)', fontSize: '12.5px', color: 'var(--text-muted)', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
                       {isEn ? "Secure unified login portal interface" : "Giao diện Form đăng nhập hợp nhất bảo mật cao"}
                     </div>
@@ -536,7 +536,7 @@ export const Guide = () => {
                   </div>
 
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Members/member dashboard.png?v=20261109_v2" alt="Dashboard Hội viên" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Members/member dashboard.png?v=20261112_hl" alt="Dashboard Hội viên" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     <div style={{ padding: '10px 16px', background: 'var(--surface-1)', fontSize: '12.5px', color: 'var(--text-muted)', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
                       {isEn ? "Member Dashboard displaying tier status, expiration dates, and post management" : "Giao diện trang Dashboard Hội viên hiển thị phân hạng, hạn sử dụng và quản lý tin bài"}
                     </div>
@@ -569,9 +569,9 @@ export const Guide = () => {
                   </h2>
                   <p style={{ fontSize: '14.5px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
                     {isEn ? (
-                      <>Phutho.today provides a feature-rich WYSIWYG editor to create professional posts optimized for Google Search. Access {renderLinkPill("Post Article", "/member-dashboard")} from your dashboard to begin:</>
+                      <>Doanhnhanhole.today provides a feature-rich WYSIWYG editor to create professional posts optimized for Google Search. Access {renderLinkPill("Post Article", "/member-dashboard")} from your dashboard to begin:</>
                     ) : (
-                      <>Phutho.today trang bị công cụ soạn thảo phong phú Rich Text Editor giúp bài viết của doanh nghiệp chuyên nghiệp và tối ưu cho Google Search. Nhấn vào {renderLinkPill("Đăng bài viết mới", "/member-dashboard")} tại Dashboard để trải nghiệm:</>
+                      <>Doanhnhanhole.today trang bị công cụ soạn thảo phong phú Rich Text Editor giúp bài viết của doanh nghiệp chuyên nghiệp và tối ưu cho Google Search. Nhấn vào {renderLinkPill("Đăng bài viết mới", "/member-dashboard")} tại Dashboard để trải nghiệm:</>
                     )}
                   </p>
                   
@@ -579,14 +579,14 @@ export const Guide = () => {
                     {isEn ? (
                       <>
                         <li><strong>Content Formatting</strong>: Custom font sizes, text highlighting, video embeds (YouTube/Drive), and flexible image scaling up to 50MB.</li>
-                        <li><strong>Post Categorization</strong>: Select post types (General News, Partner Search, Buy/Sell, Event Notification, Recruitment, Seafood Market).</li>
+                        <li><strong>Post Categorization</strong>: Select post types (General News, Partner Search, Buy/Sell, Event Notification, Recruitment, Investment & Projects).</li>
                         <li><strong>Full-Screen Editing</strong>: Click full-screen toggle button to edit spacious long-form posts easily.</li>
                         <li><strong>Featured Pin Privilege (Platinum)</strong>: Platinum members can toggle <em>"Request Admin to pin this post on the home page"</em>.</li>
                       </>
                     ) : (
                       <>
                         <li><strong>Định dạng nội dung phong phú</strong>: Thay đổi kích thước chữ, highlight, chèn video (YouTube, Google Drive), tải ảnh 50MB và kéo thu phóng ảnh linh hoạt.</li>
-                        <li><strong>Phân loại bài viết</strong>: Chọn Loại tin bài (<em>Tin chung, Tìm kiếm đối tác, Cần mua/Cần bán, Thông báo sự kiện, Tuyển dụng, Chợ Hải Sản</em>).</li>
+                        <li><strong>Phân loại bài viết</strong>: Chọn Loại tin bài (<em>Tin chung, Tìm kiếm đối tác, Cần mua/Cần bán, Thông báo sự kiện, Tuyển dụng, Đầu tư & Dự án</em>).</li>
                         <li><strong>Chế độ Phóng to toàn màn hình</strong>: Nhấn nút phóng to để soạn bài viết trực quan, dễ dàng hơn.</li>
                         <li><strong>Quyền lợi Ghim bài (Platinum)</strong>: Thành viên Platinum được tích chọn <em>"Yêu cầu Ban quản trị ghim nổi bật bài đăng này ngoài trang chủ"</em>.</li>
                       </>
@@ -594,7 +594,7 @@ export const Guide = () => {
                   </ul>
 
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Members/member upload post setting.png?v=20261109_v2" alt="Modal Soạn bài viết" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Members/member upload post setting.png?v=20261112_hl" alt="Modal Soạn bài viết" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     <div style={{ padding: '10px 16px', background: 'var(--surface-1)', fontSize: '12.5px', color: 'var(--text-muted)', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
                       {isEn ? "Trade post editor modal with Rich Text formatting tools and SEO Meta Description settings" : "Modal Soạn bài viết giao thương với đầy đủ công cụ Rich Text và thiết lập SEO Meta Description"}
                     </div>
@@ -633,7 +633,7 @@ export const Guide = () => {
                     )}
                   </p>
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Members/AI assisstant page.png?v=20261109_v2" alt="Trợ lý AI Doanh nghiệp" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Members/AI assisstant page.png?v=20261112_hl" alt="Trợ lý AI Doanh nghiệp" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     <div style={{ padding: '10px 16px', background: 'var(--surface-1)', fontSize: '12.5px', color: 'var(--text-muted)', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
                       {isEn ? "Business AI Assistant interface integrated with multi-LLM engine" : "Giao diện Trợ lý AI Doanh nghiệp tích hợp đa mô hình ngôn ngữ lớn"}
                     </div>
@@ -678,7 +678,7 @@ export const Guide = () => {
                         )}
                       </p>
                       <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                        <img src="/img_guide/Members/posts page.png?v=20261109_v2" alt="Trang tin tức bài viết" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        <img src="/img_guide/Members/posts page.png?v=20261112_hl" alt="Trang tin tức bài viết" style={{ width: '100%', height: 'auto', display: 'block' }} />
                       </div>
                     </div>
 
@@ -694,7 +694,7 @@ export const Guide = () => {
                         )}
                       </p>
                       <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                        <img src="/img_guide/Members/members page.png?v=20261109_v2" alt="Danh bạ Doanh nghiệp" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        <img src="/img_guide/Members/members page.png?v=20261112_hl" alt="Danh bạ Doanh nghiệp" style={{ width: '100%', height: 'auto', display: 'block' }} />
                       </div>
                     </div>
 
@@ -710,7 +710,7 @@ export const Guide = () => {
                         )}
                       </p>
                       <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                        <img src="/img_guide/Members/events page.png?v=20261109_v2" alt="Trang Sự kiện" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        <img src="/img_guide/Members/events page.png?v=20261112_hl" alt="Trang Sự kiện" style={{ width: '100%', height: 'auto', display: 'block' }} />
                       </div>
                     </div>
                   </div>
@@ -778,7 +778,7 @@ export const Guide = () => {
                   </div>
 
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Members/event register page.png?v=20261109_v2" alt="Form Đăng ký vé sự kiện trực tuyến" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Members/event register page.png?v=20261112_hl" alt="Form Đăng ký vé sự kiện trực tuyến" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     <div style={{ padding: '10px 16px', background: 'var(--surface-1)', fontSize: '12.5px', color: 'var(--text-muted)', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
                       {isEn ? "Online event registration and e-ticket issuance screen with QR verification" : "Giao diện đăng ký vé tham dự sự kiện trực tuyến và cấp mã vé điện tử QR Code"}
                     </div>
@@ -819,9 +819,9 @@ export const Guide = () => {
                   </h2>
                   <p style={{ fontSize: '14.5px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
                     {isEn ? (
-                      <>Content Creators are authorized by Admins to publish official media articles, economic analysis, and enterprise interviews on Phutho.today. Access {renderLinkPill("Creator Dashboard", "/creator-dashboard")} to manage articles.</>
+                      <>Content Creators are authorized by Admins to publish official media articles, economic analysis, and enterprise interviews on Doanhnhanhole.today. Access {renderLinkPill("Creator Dashboard", "/creator-dashboard")} to manage articles.</>
                     ) : (
-                      <>Tài khoản Biên tập viên được tạo và cấp quyền bởi Admin, chuyên trách xuất bản các bài viết truyền thông, tin tức kinh tế, xúc tiến thương mại cho Cổng thông tin & Dữ liệu Phutho.today. Quản lý tác phẩm tại {renderLinkPill("Dashboard Biên tập viên", "/creator-dashboard")}:</>
+                      <>Tài khoản Biên tập viên được tạo và cấp quyền bởi Admin, chuyên trách xuất bản các bài viết truyền thông, tin tức kinh tế, xúc tiến thương mại cho Cổng thông tin & Dữ liệu Doanhnhanhole.today. Quản lý tác phẩm tại {renderLinkPill("Dashboard Biên tập viên", "/creator-dashboard")}:</>
                     )}
                   </p>
 
@@ -852,7 +852,7 @@ export const Guide = () => {
                   </ul>
 
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Creator_ticket inspector_organizer/creator dashboard.png?v=20261109_v2" alt="Dashboard Biên tập viên" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Creator_ticket inspector_organizer/creator dashboard.png?v=20261112_hl" alt="Dashboard Biên tập viên" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     <div style={{ padding: '10px 16px', background: 'var(--surface-1)', fontSize: '12.5px', color: 'var(--text-muted)', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
                       {isEn ? "Content Creator Dashboard displaying post stats, draft management, and publishing status" : "Giao diện Dashboard Biên tập viên với thống kê lượt xem, quản lý bản nháp và trạng thái duyệt"}
                     </div>
@@ -911,7 +911,7 @@ export const Guide = () => {
                   </ul>
 
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Creator_ticket inspector_organizer/organizer dashboard.png?v=20261109_v2" alt="Dashboard Ban tổ chức Sự kiện" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Creator_ticket inspector_organizer/organizer dashboard.png?v=20261112_hl" alt="Dashboard Ban tổ chức Sự kiện" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     <div style={{ padding: '10px 16px', background: 'var(--surface-1)', fontSize: '12.5px', color: 'var(--text-muted)', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
                       {isEn ? "Event Organizer Dashboard with event roster, ticket statistics, and check-in controls" : "Giao diện Dashboard Ban tổ chức Sự kiện với danh sách sự kiện, thống kê vé và tiến độ soát vé"}
                     </div>
@@ -970,7 +970,7 @@ export const Guide = () => {
                   </ul>
 
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Creator_ticket inspector_organizer/ticket inspector dashboard.png?v=20261109_v2" alt="Giao diện Nhân viên Soát vé" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Creator_ticket inspector_organizer/ticket inspector dashboard.png?v=20261112_hl" alt="Giao diện Nhân viên Soát vé" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     <div style={{ padding: '10px 16px', background: 'var(--surface-1)', fontSize: '12.5px', color: 'var(--text-muted)', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
                       {isEn ? "Ticket Inspector dashboard with rapid QR scanning and live attendance verification" : "Giao diện Dashboard Nhân viên soát vé với chức năng kiểm tra vé nhanh và quét mã QR tại cổng sự kiện"}
                     </div>
@@ -1001,7 +1001,7 @@ export const Guide = () => {
                     )}
                   </p>
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)', maxWidth: '750px', margin: '0 auto' }}>
-                    <img src="/img_guide/Creator_ticket inspector_organizer/login.png?v=20261109_v2" alt="Đăng nhập Hợp nhất" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Creator_ticket inspector_organizer/login.png?v=20261112_hl" alt="Đăng nhập Hợp nhất" style={{ width: '100%', height: 'auto', display: 'block' }} />
                   </div>
                 </div>
               </>
@@ -1062,10 +1062,10 @@ export const Guide = () => {
                   </p>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
                     <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                      <img src="/img_guide/Admin/login.png?v=20261109_v2" alt="Đăng nhập Admin" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                      <img src="/img_guide/Admin/login.png?v=20261112_hl" alt="Đăng nhập Admin" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     </div>
                     <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                      <img src="/img_guide/Admin/admin dashboard.png?v=20261109_v2" alt="Admin Dashboard" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                      <img src="/img_guide/Admin/admin dashboard.png?v=20261112_hl" alt="Admin Dashboard" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     </div>
                   </div>
                 </div>
@@ -1111,7 +1111,7 @@ export const Guide = () => {
                     )}
                   </ul>
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Admin/admin manage members.png?v=20261109_v2" alt="Quản lý Hội viên" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Admin/admin manage members.png?v=20261112_hl" alt="Quản lý Hội viên" style={{ width: '100%', height: 'auto', display: 'block' }} />
                   </div>
                 </div>
 
@@ -1139,7 +1139,7 @@ export const Guide = () => {
                     )}
                   </p>
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Admin/admin manage posts.png?v=20261109_v2" alt="Quản lý Bài viết" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Admin/admin manage posts.png?v=20261112_hl" alt="Quản lý Bài viết" style={{ width: '100%', height: 'auto', display: 'block' }} />
                   </div>
                 </div>
 
@@ -1173,7 +1173,7 @@ export const Guide = () => {
                         )}
                       </p>
                       <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                        <img src="/img_guide/Admin/admin manage events.png?v=20261109_v2" alt="Quản lý Sự kiện" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        <img src="/img_guide/Admin/admin manage events.png?v=20261112_hl" alt="Quản lý Sự kiện" style={{ width: '100%', height: 'auto', display: 'block' }} />
                       </div>
                     </div>
 
@@ -1189,7 +1189,7 @@ export const Guide = () => {
                         )}
                       </p>
                       <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                        <img src="/img_guide/Admin/admin manage category.png?v=20261109_v2" alt="Quản lý Chuyên mục" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        <img src="/img_guide/Admin/admin manage category.png?v=20261112_hl" alt="Quản lý Chuyên mục" style={{ width: '100%', height: 'auto', display: 'block' }} />
                       </div>
                     </div>
 
@@ -1205,7 +1205,7 @@ export const Guide = () => {
                         )}
                       </p>
                       <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                        <img src="/img_guide/Admin/admin manage creator.png?v=20261109_v2" alt="Quản lý Biên tập viên" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        <img src="/img_guide/Admin/admin manage creator.png?v=20261112_hl" alt="Quản lý Biên tập viên" style={{ width: '100%', height: 'auto', display: 'block' }} />
                       </div>
                     </div>
 
@@ -1221,7 +1221,7 @@ export const Guide = () => {
                         )}
                       </p>
                       <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                        <img src="/img_guide/Admin/admin manage organizer.png?v=20261109_v2" alt="Quản lý Ban tổ chức & Nhân viên soát vé" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        <img src="/img_guide/Admin/admin manage organizer.png?v=20261112_hl" alt="Quản lý Ban tổ chức & Nhân viên soát vé" style={{ width: '100%', height: 'auto', display: 'block' }} />
                       </div>
                     </div>
                   </div>
@@ -1247,7 +1247,7 @@ export const Guide = () => {
                     {isEn ? (
                       <>Every time a prospective enterprise or traveler submits the "Join the Ecosystem" form on the Homepage, their data is instantly logged into {renderLinkPill("Leads & Contacts", "/admin-dashboard")}. Admin can track status, update contact logs, and add internal notes.</>
                     ) : (
-                      <>Khi khách truy cập hoặc doanh nghiệp gửi form "Tham gia Hệ sinh thái Phutho.today" ở trang chủ, toàn bộ thông tin sẽ được tiếp nhận tức thời vào trang {renderLinkPill("Liên hệ / Đăng ký", "/admin-dashboard")}. Ban quản trị có thể dễ dàng quản lý tiến độ liên hệ:</>
+                      <>Khi khách truy cập hoặc doanh nghiệp gửi form "Tham gia Hệ sinh thái Doanhnhanhole.today" ở trang chủ, toàn bộ thông tin sẽ được tiếp nhận tức thời vào trang {renderLinkPill("Liên hệ / Đăng ký", "/admin-dashboard")}. Ban quản trị có thể dễ dàng quản lý tiến độ liên hệ:</>
                     )}
                   </p>
 
@@ -1267,7 +1267,7 @@ export const Guide = () => {
                   </div>
 
                   <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-strong)' }}>
-                    <img src="/img_guide/Admin/admin manage contact.png?v=20261109_v2" alt="Quản lý Liên hệ và Đăng ký" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img src="/img_guide/Admin/admin manage contact.png?v=20261112_hl" alt="Quản lý Liên hệ và Đăng ký" style={{ width: '100%', height: 'auto', display: 'block' }} />
                   </div>
                 </div>
               </>

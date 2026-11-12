@@ -446,7 +446,7 @@ export const MemberDashboard = () => {
   if (modalOpen) {
     return (
       <div className="public-body">
-        <SEOHead title="Đăng Tin Giao Thương Mới | Phutho.today" description="Soạn thảo và đăng tin bài giao thương hội viên Phutho.today" />
+        <SEOHead title="Đăng Tin Giao Thương Mới | Doanhnhanhole.today" description="Soạn thảo và đăng tin bài giao thương hội viên Doanhnhanhole.today" />
         <Navbar />
         <div style={{ minHeight: '80vh', padding: '2rem 1.5rem 4rem', backgroundColor: '#F8FAFC' }}>
           <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
@@ -466,7 +466,7 @@ export const MemberDashboard = () => {
                   <span>{editingPostId ? t('modal_edit_post_title') : 'Đăng Tin Cơ Hội Giao Thương Mới'}</span>
                 </h1>
                 <p style={{ color: '#64748B', fontSize: '13.5px', margin: '4px 0 0' }}>
-                  Soạn thảo thông tin hợp tác, tìm kiếm đối tác và giới thiệu sản phẩm nông sản Phú Thọ trên không gian rộng rãi, trực quan.
+                  Soạn thảo thông tin hợp tác, tìm kiếm đối tác và giới thiệu sản phẩm, dịch vụ và nhu cầu hợp tác của doanh nghiệp hội viên trên không gian rộng rãi, trực quan.
                 </p>
               </div>
 
@@ -667,7 +667,7 @@ export const MemberDashboard = () => {
                         onError={(e) => {
                           if (!imagePreview) {
                             e.target.onerror = null;
-                            e.target.src = 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80';
+                            e.target.src = 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80';
                           }
                         }}
                         style={{ height: '80px', width: '130px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #CBD5E1' }} 
@@ -737,7 +737,7 @@ export const MemberDashboard = () => {
 
   return (
     <div className="public-body">
-      <SEOHead title="Dashboard Hội viên | Phutho.today" description="Trang quản trị tài khoản dành cho Hội viên Phutho.today" />
+      <SEOHead title="Dashboard Hội viên | Doanhnhanhole.today" description="Trang quản trị tài khoản dành cho Hội viên Doanhnhanhole.today" />
       <Navbar />
       <div className="dashboard-wrap">
         

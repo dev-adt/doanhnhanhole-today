@@ -265,7 +265,7 @@ export const CreatorDashboard = () => {
 
   return (
     <div className="public-body">
-      <SEOHead title="Dashboard Biên tập viên | Phutho.today" description="Trang quản trị bài viết dành riêng cho Biên tập viên Phutho.today" />
+      <SEOHead title="Dashboard Biên tập viên | Doanhnhanhole.today" description="Trang quản trị bài viết dành riêng cho Biên tập viên Doanhnhanhole.today" />
       <Navbar />
 
       {modalOpen ? (
@@ -287,7 +287,7 @@ export const CreatorDashboard = () => {
                   <span>{editingPostId ? 'Chỉnh sửa bài viết' : 'Soạn Thảo Bài Viết Mới'}</span>
                 </h1>
                 <p style={{ color: '#64748B', fontSize: '13.5px', margin: '4px 0 0' }}>
-                  Không gian biên tập tin bài, nội dung chuyên sâu, văn hóa và kinh tế Phú Thọ trên giao diện trực quan, rộng rãi.
+                  Không gian biên tập tin bài, nội dung chuyên sâu, giao thương, đầu tư và bài học điều hành Doanh nhân Họ Lê trên giao diện trực quan, rộng rãi.
                 </p>
               </div>
 
@@ -510,7 +510,7 @@ export const CreatorDashboard = () => {
               </span>
             </div>
             <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', margin: 0 }}>
-              Quản trị & xuất bản tin tức, bài viết truyền thông Phutho.today.
+              Quản trị & xuất bản tin tức, bài viết truyền thông Doanhnhanhole.today.
             </p>
           </div>
 
