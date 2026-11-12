@@ -230,3 +230,4 @@ Mỗi khi có thay đổi mới được đẩy lên GitHub, chỉ cần chạy 
 ```bash
 cd /var/www/doanhnhanhole.today && git pull origin main && cd frontend && npm install && npm run build && cd .. && pm2 restart doanhnhanhole-today
 ```
+

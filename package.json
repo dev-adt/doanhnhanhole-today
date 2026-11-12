@@ -1,7 +1,7 @@
 {
-  "name": "phutho-today",
+  "name": "doanhnhanhole-today",
   "version": "2.0.0",
-  "description": "Phutho.today — Nền tảng kết nối du lịch, thương mại và đầu tư tỉnh Phú Thọ mới",
+  "description": "Doanhnhanhole.today — Nền tảng kết nối Doanh nhân Họ Lê Toàn cầu & Những người bạn",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

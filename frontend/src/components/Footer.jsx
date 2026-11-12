@@ -1,12 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../contexts/LanguageContext';
 import { usePWA } from '../contexts/PWAContext';
 import brandConfig from '../brand.config';
+import { CATEGORIES_DATA, getCategoryLabel } from '../constants/categories';
 
 export const Footer = () => {
   const { currentLang } = useTranslation();
   const { isInstalled, installApp } = usePWA();
+
+  const [categoriesList, setCategoriesList] = useState(() => {
+    try {
+      const cached = localStorage.getItem('doanhnhanhole_cached_categories');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0]?.name) return parsed;
+      }
+    } catch (e) {}
+    return CATEGORIES_DATA;
+  });
+
+  useEffect(() => {
+    let isMounted = true;
+    const syncCategories = async () => {
+      try {
+        const res = await fetch(`/api/categories?_t=${Date.now()}`, { cache: 'no-store' });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.data) && json.data.length > 0 && isMounted) {
+            const sorted = [...json.data].sort((a, b) => (a.order_index || 0) - (b.order_index || 0));
+            setCategoriesList(sorted);
+          }
+        }
+      } catch (e) {}
+    };
+    syncCategories();
+    window.addEventListener('categories-updated', syncCategories);
+    return () => {
+      isMounted = false;
+      window.removeEventListener('categories-updated', syncCategories);
+    };
+  }, []);
 
   return (
     <footer style={{
@@ -19,14 +53,15 @@ export const Footer = () => {
       lineHeight: '1.65'
     }}>
       <div style={{ maxWidth: '1380px', margin: '0 auto', padding: '0 1.5rem' }}>
-        {/* Main 4-Column Footer Grid */}
+        {/* Main 3-Column Footer Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '2.5rem',
-          marginBottom: '2.5rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '3rem',
+          marginBottom: '2.5rem',
+          alignItems: 'start'
         }}>
-          {/* Column 1: Logo & Brand Title */}
+          {/* Cột 1: Giữ nguyên (Logo, Mô tả, PWA & Hướng dẫn sử dụng) */}
           <div>
             <Link to="/" className="notranslate" translate="no" style={{ textDecoration: 'none', display: 'inline-block', marginBottom: '1rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -80,18 +115,18 @@ export const Footer = () => {
               </div>
             </Link>
             <div style={{
-              fontSize: '12px',
+              fontSize: '12.5px',
               color: '#C8DAD0',
-              lineHeight: '1.6',
+              lineHeight: '1.65',
               marginTop: '0.5rem',
-              marginBottom: '1rem'
+              marginBottom: '1.1rem'
             }}>
               {brandConfig.description}
             </div>
             <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
               <button
                 onClick={installApp}
-                title="Cài đặt ứng dụng Phutho.today (PWA)"
+                title="Cài đặt ứng dụng Doanhnhanhole.today (PWA)"
                 style={{
                   background: 'rgba(197, 147, 37, 0.16)',
                   border: '1px solid rgba(197, 147, 37, 0.45)',
@@ -139,95 +174,149 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Agency & Platform Information */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12px' }}>
-            <div>
-              <span style={{ color: '#7D9B8D' }}>{currentLang === 'en' ? 'Operating Organization:' : 'Đơn vị phát triển & vận hành:'}</span>{' '}
-              <strong style={{ color: '#f1f5f9' }}>{brandConfig.companyLegalName}</strong>
+          {/* Cột 2: Các Chuyên mục */}
+          <div>
+            <div style={{
+              color: '#ffffff',
+              fontWeight: '800',
+              fontSize: '13.5px',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              marginBottom: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}>
+              <span style={{ width: '4px', height: '15px', borderRadius: '2px', background: '#D49A2A', display: 'inline-block' }}></span>
+              <span>{currentLang === 'en' ? 'Categories & Ecosystem' : 'Chuyên Mục Hệ Sinh Thái'}</span>
             </div>
-            <div>
-              <span style={{ color: '#7D9B8D' }}>{currentLang === 'en' ? 'Operating Platform:' : 'Nền tảng vận hành:'}</span>{' '}
-              <strong style={{ color: '#f1f5f9' }}>{brandConfig.platformName}</strong>
-            </div>
-            <div>
-              <span style={{ color: '#7D9B8D' }}>{currentLang === 'en' ? 'Development Vision:' : 'Định hướng phát triển:'}</span>{' '}
-              <span style={{ color: '#cbd5e1' }}>{brandConfig.tagline}</span>
-            </div>
-            <div style={{ marginTop: '4px' }}>
-              <span style={{ color: '#7D9B8D' }}>{currentLang === 'en' ? 'Technology Partner:' : 'Đơn vị công nghệ:'}</span>{' '}
-              <span style={{ color: '#EDF4F0' }}>{brandConfig.partnerLegalName}</span>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: '8px 16px'
+            }}>
+              {categoriesList.map((cat) => {
+                const catName = typeof cat === 'string' ? cat : cat.name;
+                const catLabel = typeof cat === 'string'
+                  ? getCategoryLabel(cat, currentLang)
+                  : getCategoryLabel(cat.name, currentLang, cat.name_en);
+                return (
+                  <Link
+                    key={cat.id || catName}
+                    to={`/posts?category=${encodeURIComponent(catName)}`}
+                    style={{
+                      color: '#D5E2F2',
+                      textDecoration: 'none',
+                      fontSize: '12.5px',
+                      fontWeight: '600',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '7px',
+                      padding: '4px 0',
+                      transition: 'all 0.18s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = '#FFE082';
+                      e.currentTarget.style.transform = 'translateX(4px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = '#D5E2F2';
+                      e.currentTarget.style.transform = 'translateX(0)';
+                    }}
+                  >
+                    <i className="ti ti-chevron-right" style={{ fontSize: '13px', color: '#D49A2A', flexShrink: 0 }}></i>
+                    <span>{catLabel}</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
-          {/* Column 3: Contact & Support */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '7px', fontSize: '12px' }}>
-            <div>
-              <span style={{ color: '#7D9B8D' }}>{currentLang === 'en' ? 'Platform Management:' : 'Ban Quản trị Nền tảng:'}</span>{' '}
-              <strong style={{ color: '#f1f5f9' }}>{currentLang === 'en' ? `Editorial Board of ${brandConfig.brandShortName}` : `Ban Biên Tập ${brandConfig.brandShortName}`}</strong>
+          {/* Cột 3: Các thông tin: địa chỉ, email, số điện thoại, các kênh, ... */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '12.5px' }}>
+            <div style={{
+              color: '#ffffff',
+              fontWeight: '800',
+              fontSize: '13.5px',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              marginBottom: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}>
+              <span style={{ width: '4px', height: '15px', borderRadius: '2px', background: '#D49A2A', display: 'inline-block' }}></span>
+              <span>{currentLang === 'en' ? 'Contact & Channels' : 'Thông Tin Liên Hệ & Kênh Kết Nối'}</span>
             </div>
-            <div>
-              <span style={{ color: '#7D9B8D' }}>{currentLang === 'en' ? 'Working Hours:' : 'Giờ làm việc:'}</span>{' '}
-              <span style={{ color: '#cbd5e1' }}>{brandConfig.contact.workingHours}</span>
-            </div>
-            <div style={{ marginTop: '2px' }}>
-              <span style={{ color: '#7D9B8D' }}>{currentLang === 'en' ? 'Support Hotline:' : 'Hotline hỗ trợ:'}</span>{' '}
-              <span style={{ color: '#FFE082', fontWeight: '700' }}>{brandConfig.contact.hotline}</span>
-            </div>
-            <div>
-              <span style={{ color: '#7D9B8D' }}>Email:</span>{' '}
-              <a href={`mailto:${brandConfig.contact.email}`} style={{ color: '#FFE082', textDecoration: 'none' }}>{brandConfig.contact.email}</a>
-            </div>
-          </div>
 
-          {/* Column 4: Address & Social Media */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12px' }}>
-            <div style={{ color: '#ffffff', fontWeight: '700', fontSize: '13px', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
-              {currentLang === 'en' ? 'Headquarters & Connection' : 'Trụ sở & Xúc tiến Đầu tư'}
-            </div>
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
               <i className="ti ti-map-pin" style={{ color: '#E5A93B', marginTop: '3px', flexShrink: 0 }}></i>
-              <span><strong>{currentLang === 'en' ? 'Address:' : 'Địa chỉ:'}</strong> {brandConfig.contact.address}</span>
+              <span>
+                <span style={{ color: '#8FA6C4' }}>{currentLang === 'en' ? 'Address:' : 'Địa chỉ:'}</span>{' '}
+                <span style={{ color: '#E2E8F0' }}>{brandConfig.contact.address}</span>
+              </span>
             </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', marginTop: '4px' }}>
-              <a href={`tel:${brandConfig.contact.hotline.replace(/\s+/g, '')}`} style={{ color: '#FFE082', textDecoration: 'none', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <i className="ti ti-phone"></i> {brandConfig.contact.hotline}
-              </a>
-              <span style={{ color: '#476859' }}>|</span>
-              <a href={`mailto:${brandConfig.contact.supportEmail}`} style={{ color: '#dedede', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <i className="ti ti-mail"></i> {brandConfig.contact.supportEmail}
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+              <i className="ti ti-phone-call" style={{ color: '#E5A93B', flexShrink: 0 }}></i>
+              <span style={{ color: '#8FA6C4' }}>{currentLang === 'en' ? 'Phone / Hotline:' : 'Điện thoại / Hotline:'}</span>
+              <a
+                href={`tel:${brandConfig.contact.hotline.replace(/\s+/g, '')}`}
+                style={{ color: '#FFE082', textDecoration: 'none', fontWeight: '700' }}
+              >
+                {brandConfig.contact.hotline}
               </a>
             </div>
 
-            {/* Social Media Links */}
-            <div style={{ marginTop: '8px' }}>
-              <div style={{ fontSize: '11px', color: '#7D9B8D', marginBottom: '6px' }}>
-                {currentLang === 'en' ? 'Follow on social platforms:' : 'Theo dõi trên các nền tảng số:'}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+              <i className="ti ti-mail" style={{ color: '#E5A93B', flexShrink: 0 }}></i>
+              <span style={{ color: '#8FA6C4' }}>Email:</span>
+              <a href={`mailto:${brandConfig.contact.email}`} style={{ color: '#FFE082', textDecoration: 'none', fontWeight: '600' }}>
+                {brandConfig.contact.email}
+              </a>
+            </div>
+
+            {/* Các kênh truyền thông & trợ lý số */}
+            <div style={{ marginTop: '4px' }}>
+              <div style={{ fontSize: '11.5px', color: '#8FA6C4', marginBottom: '8px' }}>
+                {currentLang === 'en' ? 'Official digital channels:' : 'Các kênh kết nối chính thức:'}
               </div>
-              <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
                 <a 
                   href={brandConfig.socials.facebook} 
                   target="_blank" 
                   rel="noreferrer"
-                  style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#1877f2', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', textDecoration: 'none', transition: 'transform 0.2s' }}
+                  style={{ width: '34px', height: '34px', borderRadius: '50%', backgroundColor: '#1877f2', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', textDecoration: 'none', transition: 'transform 0.2s' }}
                   title={`Facebook ${brandConfig.brandShortName}`}
                 >
-                  <i className="ti ti-brand-facebook" style={{ fontSize: '16px' }}></i>
+                  <i className="ti ti-brand-facebook" style={{ fontSize: '17px' }}></i>
                 </a>
                 <a 
                   href={brandConfig.socials.youtube} 
                   target="_blank" 
                   rel="noreferrer"
-                  style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#ff0000', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', textDecoration: 'none', transition: 'transform 0.2s' }}
+                  style={{ width: '34px', height: '34px', borderRadius: '50%', backgroundColor: '#ff0000', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', textDecoration: 'none', transition: 'transform 0.2s' }}
                   title={`YouTube ${brandConfig.brandShortName}`}
                 >
-                  <i className="ti ti-brand-youtube" style={{ fontSize: '16px' }}></i>
+                  <i className="ti ti-brand-youtube" style={{ fontSize: '17px' }}></i>
+                </a>
+                <a 
+                  href={brandConfig.socials.zalo || 'https://zalo.me'} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  style={{ width: '34px', height: '34px', borderRadius: '50%', backgroundColor: '#0068ff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', textDecoration: 'none', fontWeight: '800', fontSize: '11px', transition: 'transform 0.2s' }}
+                  title="Zalo Official"
+                >
+                  Zalo
                 </a>
                 <Link 
                   to="/ai-chat"
-                  style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: 'rgba(197, 147, 37, 0.2)', border: '1px solid #E5A93B', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFE082', textDecoration: 'none', transition: 'transform 0.2s' }}
+                  style={{ height: '34px', padding: '0 12px', borderRadius: '999px', backgroundColor: 'rgba(197, 147, 37, 0.2)', border: '1px solid #E5A93B', display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#FFE082', textDecoration: 'none', fontSize: '12px', fontWeight: '700', transition: 'transform 0.2s' }}
                   title={brandConfig.aiAssistant.name}
                 >
                   <i className="ti ti-sparkles" style={{ fontSize: '15px' }}></i>
+                  <span>{brandConfig.aiAssistant.name}</span>
                 </Link>
               </div>
             </div>
